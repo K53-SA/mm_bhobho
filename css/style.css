@@ -282,6 +282,20 @@ visibility: visible;
     height: 200px;
     overflow: hidden;
 }
+.psscontrols a{
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+}
+.pssmotor a{
+    display: block;
+    margin: auto;
+    width: 290px;
+    height: 290px;
+    overflow: hidden;
+}
 .pssshare a img{
     display: block;
     margin: auto;
@@ -347,6 +361,12 @@ visibility: visible;
 
 
 .pss a img{
+    width: 100%;
+}
+.psscontrols a img{
+    width: 100%;
+}
+.pssmotor a img{
     width: 100%;
 }
 .pssa a img{
@@ -430,7 +450,7 @@ visibility: visible;
 .name{
     display: block;
     margin: 0 2%;
-    margin-bottom: 30px;
+    margin-bottom: 1px;
     //text-align: center;
     //text-transform: uppercase;
     font-size: 22px;
@@ -1192,5 +1212,18 @@ visibility: visible;
     height: 320px;
     overflow: hidden;
 }
-
+.psscontrols a{
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+}
+.pssmotor a{
+    display: block;
+    margin: auto;
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+}
 }
