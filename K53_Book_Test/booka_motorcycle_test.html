@@ -3,13 +3,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123711353-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123711353-2');
+</script>
 	<title>K53-SA</title>
 	<meta charset="utf-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="shortcut icon" type="image/ico" href="../img/images.png">
-	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	<link rel="manifest" href="manifest.json">
 </head>
 <body id="unique">
 	<header>
@@ -2084,7 +2093,7 @@
 			
 		</div>
 		<div class="box">
-			<a target="_blank" href="https://api.whatsapp.com/send?phone=&text='Kindly send to everyone without a drivers licence'https://k53-sa.com/"><img src="../img/whatsapp1.png"></a>
+			<a target="_blank" href="https://api.whatsapp.com/send?phone=&text=🚨 FREE K53 📢 Kindly send to everyone without a drivers licence 🚗 https://k53-sa.com/"><img src="../img/whatsapp1.png"></a>
 			
 		</div>
 		<div class="box">
@@ -2101,6 +2110,26 @@
 		</div>
 
 		</section>
+		</div>
+		<div class="btextlearn" style=' margin-top: 400px;'>
+			<br>
+			<p> ADD TO HOMESCREEN .</p>
+		</div>
+
+		
+
+		<div  id='results8' style='text-align: center; margin-top: 20px;'>
+	    <button  name='skipSubmit' type='submit' id="butInstall">ADD</button>	
+        </div>
+
+
+		<div class="btextlearn" style="margin-top: 50px;">
+			<br>
+			<p> iPhone iOS .</p>
+		</div>
+   		<div class="btextlearn" style="margin-bottom: 100px;">
+			<br>
+			<video width="320" height="240" controls><source src="../img/ios.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
 		</div>
 		<div class="container">
 			<div id="branding">
@@ -2326,3 +2355,55 @@ questions[61] = '1'; questions[62] = '1'; questions[63] = '1'; questions[64] = '
  		window.history.replaceState(null, null, window.location.href);
  	}
  </script>
+
+   <script type="text/javascript">
+    const butInstall = document.getElementById('butInstall');
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  console.log('👍', 'beforeinstallprompt', event);
+  // Stash the event so it can be triggered later.
+  window.deferredPrompt = event;
+
+});
+
+butInstall.addEventListener('click', () => {
+  console.log('👍', 'butInstall-clicked');
+  const promptEvent = window.deferredPrompt;
+  if (!promptEvent) {
+    // The deferred prompt isn't available.
+    return;
+  }
+  // Show the install prompt.
+  promptEvent.prompt();
+  // Log the result
+  promptEvent.userChoice.then((result) => {
+    console.log('👍', 'userChoice', result);
+    // Reset the deferred prompt variable, since
+    // prompt() can only be called once.
+    window.deferredPrompt = null;
+
+  });
+});
+
+
+
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
+});
+
+
+</script>
