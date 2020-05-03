@@ -1,0 +1,21 @@
+{
+  "short_name": "K53-SA",
+  "name": "K53-SA",
+  "description": "K53 South Africa learners licence test multiple choice questions and answers",
+  "icons": [
+    {
+      "src": "images192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "https://k53-sa.com/",
+  "background_color": "#000",
+  "display": "standalone",
+  "theme_color": "#000"
+}
