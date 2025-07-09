@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123711353-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123711353-2');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>K53-SA</title>
+    <!--<link rel="stylesheet" type="text/css" href="./css/style.css">-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/ico" href="./img/images.png">
+    <link rel="manifest" href="manifest.json">
+   
+
+</head>
+<body>
+    <div id="particles-js">
+        <div class="btext">
+            <h1>K53</h1>
+            <p>Learner's Test </p>
+            <p>Multiple Choice Questions</p>
+            <a href="./home_images/home.html" class="btn">Start...</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        particlesJS.load('particles-js', 'particles.json',
+        function(){
+            console.log('particles.json loaded...')
+        })
+    </script>
+                    <div id="snackbars">
+            
+        </div>  
+</body>
+</html>
+<script type="text/javascript">
+                    var x = document.getElementById("snackbars");
+                x.className = "show";
+
+                setTimeout(function()
+                    { x.className = x.className.replace("show", "");
+                    }, 3000);
+                
+                document.getElementById("snackbars").innerHTML = "BETA version 1.0.0";
+</script>
+
+<script type="text/javascript">
+    
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI notify the user they can install the PWA
+  showInstallPromotion();
+});
+
+
+
+buttonInstall.addEventListener('click', (e) => {
+  // Hide the app provided install promotion
+  hideMyInstallPromotion();
+  // Show the install prompt
+  deferredPrompt.prompt();
+  // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+  })
+});
+
+
+
+
+
+
+</script>
