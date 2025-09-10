@@ -1,7 +1,5 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123711353-2"></script>
@@ -12,79 +10,140 @@
 
   gtag('config', 'UA-123711353-2');
 </script>
-	<title>K53-SA</title>
-	<meta charset="utf-8">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="shortcut icon" type="image/ico" href="../img/images.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  	<link rel="shortcut icon" type="image/ico" href="../img/images.png">
 	<link rel="manifest" href="manifest.json">
+  <title>FREEK53</title>
 </head>
-<body id="unique">
-	<header>
-		<div class="container">
-			<div id="branding">
-				<nav>
-					
-					<!--<li><a href="lightvehicle.php"> << </a></li><!
-					<li><a href="TrackMyStock.html">LEARN</a></li>
-					<li><a href="intruder.html">ABOUT</a></li>
-				-->
-				<div id="navbar">
-					<a href="../K53_Book_Test/lightvehicle_book_tests.html"> <img src="../img/back.png"></a>
-				</div>
-				</nav>
-			</div>
-		</div>
-	</header>
-			<div class="section" id="p0">
-			
-			<span class="name">1 </span>
-		</div>
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> What should you NOT do on a public road?</p>
-		</div>	
+<body>
+<canvas id="confetti"></canvas>
+<div class="question" id="1">
+  <div class="question_number">
+    <h3>Question 1 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p> What should you NOT do on a public road?</p>
+  </div>
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (100%) -->
 		<div class="btext">
 	          <button  id="q11" onclick="myfunction('q11','1','n','q13')" type="submit" class="button_1">A. Use hand signals.</button>
 	    </div>
 		<div class="btext">
-	          <button  id="q12" onclick="myfunction('q12','1','n','q13')" type="submit" style="min-height: 70px;" class="button_1">B. Follow the directions of  a traffic officer.</button>
+	          <button  id="q12" onclick="myfunction('q12','1','n','q13')" type="submit"  class="button_1">B. Follow the directions of  a traffic officer.</button>
 	    </div>
 		<div class="btext">
-	          <button  id="q13" onclick="myfunction('q13','1','y','q13')" type="submit" style="min-height: 70px;" class="button_1">C. Follow another vehicle closer than reasonable.</button>
+	          <button  id="q13" onclick="myfunction('q13','1','y','q13')" type="submit"  class="button_1">C. Follow another vehicle closer than reasonable.</button>
 	    </div>
-	    <div class="btext">
-            <a href="#p1" class="btn">Next...</a>
-        </div>
+  </div>
 
 
-		<div class="section" id="p1">
-			
-			<span class="name">2 </span>
-		</div>
+</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/2.jpg"></a>
-		</div>	
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#1'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#2'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="2">
+  <div class="question_number">
+    <h3>Question 2 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> What do you do when you come across this road marking?</p>
+  </div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-			<p> What do you do when you come across this road marking?</p>
-		</div>	
-		<div class="btext">
-	          <button id="q21" onclick="myfunction('q21','2','n','q22')" type="submit" style="min-height: 80px;" class="button_1">A. You may park if there is no other space in the parking area.</button>
+	          <button id="q21" onclick="myfunction('q21','2','n','q22')" type="submit"  class="button_1">A. You may park if there is no other space in the parking area.</button>
 	    </div>
 		<div class="btext">
-	          <button  id="q22" onclick="myfunction('q22','2','y','q22')" type="submit" style="min-height: 80px;" class="button_1">B. You do not park there if you are not a disabled person.</button>
+	          <button  id="q22" onclick="myfunction('q22','2','y','q22')" type="submit"  class="button_1">B. You do not park there if you are not a disabled person.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q23" onclick="myfunction('q23','2','n','q22')" type="submit" style="min-height: 80px;" class="button_1">C. You must give right of way to disabled people.</button>
+	          <button id="q23" onclick="myfunction('q23','2','n','q22')" type="submit"  class="button_1">C. You must give right of way to disabled people.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p0" class="btn">Back</a>
-            <a href="#p2" class="btn">Next...</a>
-        </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="./heavyvehicle_bookb_img/2.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#1'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#3'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -93,17 +152,51 @@
 
 
 
-		<div class="section" id="p2">
 
-			<span class="name">3 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/3.jpg"></a>
-		</div>		
-		<div class="btext">
-			<p> What is the meaning of this sign?</p>
-		</div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="3">
+  <div class="question_number">
+    <h3>Question 3 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> What is the meaning of this sign?</p>
+  </div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q31" onclick="myfunction('q31','3','n','q32')" type="submit"  class="button_1">A. Buses must give way to taxis.</button>
 	    </div>
@@ -111,12 +204,27 @@
 	          <button id="q32" onclick="myfunction('q32','3','y','q32')" type="submit"  class="button_1">B. Buses may proceed.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q33" onclick="myfunction('q33','3','n','q32')" type="submit" style="min-height: 80px;" class="button_1">C. It gives right of way to vehicles in the opposite directions.</button>
+	          <button id="q33" onclick="myfunction('q33','3','n','q32')" type="submit"  class="button_1">C. It gives right of way to vehicles in the opposite directions.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p1" class="btn">Back</a>
-            <a href="#p3" class="btn">Next...</a>
-        </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="./heavyvehicle_bookb_img/3.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#2'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#4'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -124,17 +232,53 @@
 
 
 
-		<div class="section" id="p3">
 
-			<span class="name">4 </span>
-		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="4">
+  <div class="question_number">
+    <h3>Question 4 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> On a public road you may not stop your vehicle...</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q41" onclick="myfunction('q41','4','n','q43')" type="submit" class="button_1">A. 9 metres from a pedestrian crossing.</button>
 	    </div>
@@ -142,12 +286,22 @@
 	          <button id="q42" onclick="myfunction('q42','4','n','q43')" type="submit" class="button_1">B. 5 metres from a tunnel.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q43" onclick="myfunction('q43','4','y','q43')" type="submit" style="min-height: 80px;" class="button_1">C. Within the railway reserve at a level crossing.</button>
+	          <button id="q43" onclick="myfunction('q43','4','y','q43')" type="submit"  class="button_1">C. Within the railway reserve at a level crossing.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p2" class="btn">Back</a>
-            <a href="#p4" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#3'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#5'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -155,106 +309,295 @@
 
 
 
-		<div class="section" id="p4">
-		
-			<span class="name">5 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/5.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="5">
+  <div class="question_number">
+    <h3>Question 5 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What is the purpose of this road marking?</p>
-		</div>		
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q51" onclick="myfunction('q51','5','y','q51')" type="submit" style="min-height: 90px;" class="button_1">A. To indicate the presence of a raised sidewalk or island kerbing.</button>
+	          <button id="q51" onclick="myfunction('q51','5','y','q51')" type="submit"  class="button_1">A. To indicate the presence of a raised sidewalk or island kerbing.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q52" onclick="myfunction('q52','5','n','q51')" type="submit" style="min-height: 80px;" class="button_1">B. To inform you that the road ahead is uneven.</button>
+	          <button id="q52" onclick="myfunction('q52','5','n','q51')" type="submit" class="button_1">B. To inform you that the road ahead is uneven.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q53" onclick="myfunction('q53','5','n','q51')" type="submit" class="button_1">A. To inform you about danger ahead.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p3" class="btn">Back</a>
-            <a href="#p5" class="btn">Next...</a>
-        </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="./heavyvehicle_bookb_img/5.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#4'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#6'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p5">
-		
-			<span class="name">6 </span>
-		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
-			<p> Your vehicle is not allowed on the public road if...</p>
-		</div>		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="6">
+  <div class="question_number">
+    <h3>Question 6 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p> Your vehicle is not allowed on the public road if...</p>
+  </div>
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q61" onclick="myfunction('q61','6','n','q62')" type="submit"  class="button_1">A. It is not fitted with a radio.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q62" onclick="myfunction('q62','6','y','q62')" type="submit"  style="min-height: 150px;" class="button_1">B. It is not fitted with a rear-view mirror or mirrors allowing the driver/rider to see in clear weather, a clear reflection of traffic to the rear.</button>
+	          <button id="q62" onclick="myfunction('q62','6','y','q62')" type="submit"   class="button_1">B. It is not fitted with a rear-view mirror or mirrors allowing the driver/rider to see in clear weather, a clear reflection of traffic to the rear.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q63" onclick="myfunction('q63','6','n','q62')" type="submit" class="button_1">C. It has low fuel.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p4" class="btn">Back</a>
-            <a href="#p6" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#5'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#7'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
-		<div class="section" id="p6">
-		
-			<span class="name">7 </span>
-		</div>
-		
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/7.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="7">
+  <div class="question_number">
+    <h3>Question 7 of 30</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What is your reaction to this road marking?</p>
-		</div>	
-		<div class="btext">
-	          <button id="q71" onclick="myfunction('q71','7','n','q72')" type="submit" style="min-height: 80px;" class="button_1">A. You may only drive there to avoid potholes.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q72" onclick="myfunction('q72','7','y','q72')" type="submit" style="min-height: 80px;" class="button_1">B. If your brakes fail, you can drive to that area.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q73" onclick="myfunction('q73','7','n','q72')" type="submit" style="min-height: 80px;" class="button_1">C. You must yield to pedestrians on the road.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p5" class="btn">Back</a>
-            <a href="#p7" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-		<div class="section" id="p7">
-			
-			<span class="name">8 </span>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q71" onclick="myfunction('q71','7','n','q72')" type="submit"  class="button_1">A. You may only drive there to avoid potholes.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q72" onclick="myfunction('q72','7','y','q72')" type="submit"  class="button_1">B. If your brakes fail, you can drive to that area.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q73" onclick="myfunction('q73','7','n','q72')" type="submit" class="button_1">C. You must yield to pedestrians on the road.</button>
+	    </div>
+  </div>
+<div class="right-content">
+			<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/7.jpg"></a>
+		</div>
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#6'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#8'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="8">
+  <div class="question_number">
+    <h3>Question 8 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> When driving on the public road you must always...</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q81" onclick="myfunction('q81','8','y','q81')" type="submit" style="min-height: 80px;" class="button_1">A. Have reasonable consideration for other road users.</button>
+	          <button id="q81" onclick="myfunction('q81','8','y','q81')" type="submit"  class="button_1">A. Have reasonable consideration for other road users.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q82" onclick="myfunction('q82','8','n','q81')" type="submit" class="button_1">B. Drive at 60 km/h.</button>
@@ -262,25 +605,74 @@
 		<div class="btext">
 	          <button id="q83" onclick="myfunction('q83','8','n','q81')" type="submit" class="button_1">C. Look out for traffic officers.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p6" class="btn">Back</a>
-            <a href="#p8" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#7'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#9'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
-		<div class="section" id="p8">
-			
-			<span class="name">9 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/9.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="9">
+  <div class="question_number">
+    <h3>Question 9 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What must you do when you encounter this road marking?</p>
 		</div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q91" onclick="myfunction('q91','9','n','q93')" type="submit" class="button_1">A. You must drive on the shoulder of the road.</button>
 	    </div>
@@ -288,28 +680,80 @@
 	          <button id="q92" onclick="myfunction('q92','9','n','q93')" type="submit" class="button_1">B. Be prepared for traffic ahead.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q93" onclick="myfunction('q93','9','y','q93')" type="submit" style="min-height: 80px;" class="button_1">C. You must be on the look out for approaching vehicles.</button>
+	          <button id="q93" onclick="myfunction('q93','9','y','q93')" type="submit"  class="button_1">C. You must be on the look out for approaching vehicles.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p7" class="btn">Back</a>
-            <a href="#p9" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-		<div class="section" id="p9">
-			<span class="name">10 </span>
+  </div>
+<div class="right-content">
+			<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/9.jpg"></a>
 		</div>
+</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#8'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#10'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="10">
+  <div class="question_number">
+    <h3>Question 10 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> You may not drive your vehicle on a public road...</p>
-		</div>		
+		</div>
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q101" onclick="myfunction('q101','10','n','q103')" type="submit" class="button_1">A. If it is not fitted with rims on the wheels.</button>
 	    </div>
@@ -317,58 +761,200 @@
 	          <button id="q102" onclick="myfunction('q102','10','n','q103')" type="submit" class="button_1">B. If it does not have a sunroof.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q103" onclick="myfunction('q103','10','y','q103')" type="submit" style="min-height: 80px;" class="button_1">C. If the engine is not covered and may be the source of danger.</button>
+	          <button id="q103" onclick="myfunction('q103','10','y','q103')" type="submit"  class="button_1">C. If the engine is not covered and may be the source of danger.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p8" class="btn">Back</a>
-            <a href="#p10" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#9'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad1'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad1">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+<div class="main-layout">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<!-- Moneymaker -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="7351075048"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#10'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/motorcycle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#11'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p10">
-			
-			<span class="name">11 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/11.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="11">
+  <div class="question_number">
+    <h3>Question 11 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What does this road marking tell you?</p>
 		</div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q111" onclick="myfunction('q111','11','y','q111')" type="submit" style="min-height: 70px;" class="button_1">A. You may park there during an emergency.</button>
+	          <button id="q111" onclick="myfunction('q111','11','y','q111')" type="submit"  class="button_1">A. You may park there during an emergency.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q112" onclick="myfunction('q112','11','n','q111')" type="submit" style="min-height: 80px;" class="button_1">B. Under no circumstances may you park there.</button>
+	          <button id="q112" onclick="myfunction('q112','11','n','q111')" type="submit"  class="button_1">B. Under no circumstances may you park there.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q113" onclick="myfunction('q113','11','n','q111')" type="submit" style="min-height: 80px;" class="button_1">C. Only vehicles unloading goods may park.</button>
+	          <button id="q113" onclick="myfunction('q113','11','n','q111')" type="submit"  class="button_1">C. Only vehicles unloading goods may park.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p9" class="btn">Back</a>
-            <a href="#p11" class="btn">Next...</a>
-        </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/11.jpg"></a>
+		</div>	
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#10'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#12'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p11">
-		
-			<span class="name">12 </span>
-		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="12">
+  <div class="question_number">
+    <h3>Question 12 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> You may not park your vehicle on the roadway of a public road within an urban area on... (i) a pedestrian mail. (ii) pedestrian lane. (iii) a traffic island.</p>
-		</div>		
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q121" onclick="myfunction('q121','12','y','q121')" type="submit"  class="button_1">A. All of the above.</button>
 	    </div>
@@ -378,27 +964,75 @@
 		<div class="btext">
 	          <button id="q123" onclick="myfunction('q123','12','n','q121')" type="submit" class="button_1">C. (i) and (iii) only are correct.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p10" class="btn">Back</a>
-            <a href="#p12" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#11'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#13'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p12">
-			
-			<span class="name">13 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/13.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="13">
+  <div class="question_number">
+    <h3>Question 13 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> This sign informs you of...</p>
-		</div>		
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q131" onclick="myfunction('q131','13','y','q131')" type="submit" class="button_1">A. A rest and service sequence ahead.</button>
 	    </div>
@@ -408,27 +1042,79 @@
 		<div class="btext">
 	          <button id="q133" onclick="myfunction('q133','13','n','q131')" type="submit" class="button_1">C. A freeway exit ahead.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p11" class="btn">Back</a>
-            <a href="#p13" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-		<div class="section" id="p13">
-		
-			<span class="name">14 </span>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/13.jpg"></a>
 		</div>
+	
+</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#12'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#14'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="14">
+  <div class="question_number">
+    <h3>Question 14 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> When under the influence of alcohol or a drug having a narcotic effect, what should you do? <br>(i) Do not exceed the speed limit. <br>(ii) Do not drive a vehicle on a public road. <br>(iii) Never occupy the drivers/riders seat of a motor vehicle of which the engine is running.</p>
 		</div>	
-		<div class="btext">
-			<p> When under the influence of alcohol or a drug having a narcotic effect, what should you do? (i) Do not exceed the speed limit. (ii) Do not drive a vehicle on a public road. (iii) Never occupy the drivers/riders seat of a motor vehicle of which the engine is running.</p>
-		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q141" onclick="myfunction('q141','14','n','q142')" type="submit" class="button_1" >A. (i) Only is correct.</button>
 	    </div>
@@ -438,10 +1124,20 @@
 		<div class="btext">
 	          <button id="q143" onclick="myfunction('q143','14','n','q142')" type="submit" class="button_1" >A. (iii) Only is correct.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p12" class="btn">Back</a>
-            <a href="#p14" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#13'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#15'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -449,17 +1145,53 @@
 
 
 
-		<div class="section" id="p14">
-			
-			<span class="name">15 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/15.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="15">
+  <div class="question_number">
+    <h3>Question 15 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> This sign tells you that...</p>
-		</div>		
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q151" onclick="myfunction('q151','15','n','q152')" type="submit"  class="button_1">A. There is a Zoo in the area.</button>
 	    </div>
@@ -467,101 +1199,368 @@
 	          <button id="q152" onclick="myfunction('q152','15','y','q152')" type="submit"  class="button_1">B. There is a national park in the area.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q153" onclick="myfunction('q153','15','n','q152')" type="submit" style="min-height: 80px;" class="button_1">C. There are wild animals in the area, be careful. </button>
+	          <button id="q153" onclick="myfunction('q153','15','n','q152')" type="submit"  class="button_1">C. There are wild animals in the area, be careful. </button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p13" class="btn">Back</a>
-            <a href="#p15" class="btn">Next...</a>
+  </div>
+
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/15.jpg"></a>
+		</div>	
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#14'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#prm1'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+<div class="question" id="prm1">
+  <div class="question_number">
+    <h3>Premium Content</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p>Select your province to get pdf questions asked at your DLTC centre</p> 
+  </div>
+  <div class="container">
+
+
+
+      
+   
+<div class="scrollable_showcase">
+  <div class="municipality-widget">
+    <div class="main_button">
+      <button class="toggleBtn">Show Provinces</button>
+    </div>
+
+    <div class="main-layout">
+      <div class="left-content-premium">
+        <div class="list">
+          <button data-image="./img/gauteng.png" data-text="ONLY R200">Gauteng</button>
+          <button data-image="./img/kzn.jpg" data-text="ONLY R200">KwaZulu-Natal</button>
+          <button data-image="./img/easterncape.jpg" data-text="ONLY R200">Eastern Cape</button>
+          <button data-image="./img/westerncape.png" data-text="ONLY R200">Western Cape</button>
+          <button data-image="./img/limpopo.jpg" data-text="ONLY R200">  Limpopo</button>
+          <button data-image="./img/mpumalanga.jpg" data-text="ONLY R200">Mpumalanga</button>
+          <button data-image="./img/northwest.jpg" data-text="ONLY R200">North West</button>
+          <button data-image="./img/freestate.jpg" data-text="ONLY R200">Free State</button>
+          <button data-image="./img/northerncape.jpg" data-text="ONLY R200">  Northern Cape</button>
         </div>
+      </div>
+
+      <div class="right-content-premium display-section" style="display: none;">
+        <img class="displayedImage" src="" alt="Selected Image" style="width:75px; height:75px;">
+        <p class="descriptionText"></p>
+        <div class="paypal-button">
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="D4P7G3Y5RFZEN" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_ZA/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Repeat the .municipality-widget div two more times for 3 sections -->
+
+</div>
+
+
+
+<div class="inline-buttons" style="border-top: 1px;">
+  <button class="nav-btn" onclick="location.href='#15'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#16'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p15">
-			
-			<span class="name">16 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="16">
+  <div class="question_number">
+    <h3>Question 16 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+		<div class="container">
+			<div id="branding2">
+				<h1><a ><span id="time"></span></a></h1>
+			</div>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What are the rules regarding electrical wiring and the battery of a vehicle when driving on the public road?</p>
-		</div>		
+		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q161" onclick="myfunction('q161','16','n','q163')" type="submit" class="button_1">A. They have to be in working condition.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q162" onclick="myfunction('q162','16','n','q163')" type="submit" style="min-height: 90px;" class="button_1">B. You have to replace them every 2 years, to ensure proper working order.</button>
+	          <button id="q162" onclick="myfunction('q162','16','n','q163')" type="submit" class="button_1">B. You have to replace them every 2 years, to ensure proper working order.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q163" onclick="myfunction('q163','16','y','q163')" type="submit" style="min-height: 150px;" class="button_1">C. They should be properly installed, insulated and maintained so that such wiring and battery do not cause a source of danger.</button>
+	          <button id="q163" onclick="myfunction('q163','16','y','q163')" type="submit"  class="button_1">C. They should be properly installed, insulated and maintained so that such wiring and battery do not cause a source of danger.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p14" class="btn">Back</a>
-            <a href="#p16" class="btn">Next...</a>
-        </div>
+  </div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#15'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#17'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p16">
-			
-			<span class="name">17 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/17.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="17">
+  <div class="question_number">
+    <h3>Question 17 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What is the meaning of this sign?</p>
-		</div>		
-		<div class="btext">
-	          <button id="q171" onclick="myfunction('q171','17','n','q172')" type="submit" style="min-height: 130px;" class="button_1">A. It is a 3 way stop, the first vehicle that stopped first at the intersection, should move first.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q172" onclick="myfunction('q172','17','y','q172')" type="submit" style="min-height: 130px;" class="button_1">B. Multi-phased traffic signals, do not move off when approaching traffic moves off. Wait until the signal is green.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q173" onclick="myfunction('q173','17','n','q172')" type="submit" style="min-height: 80px;" class="button_1">C. It means only 3 vehicles may drive past this sign, at a time.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p15" class="btn">Back</a>
-            <a href="#p17" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-		<div class="section" id="p17">
-			
-			<span class="name">18 </span>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q171" onclick="myfunction('q171','17','n','q172')" type="submit"  class="button_1">A. It is a 3 way stop, the first vehicle that stopped first at the intersection, should move first.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q172" onclick="myfunction('q172','17','y','q172')" type="submit"  class="button_1">B. Multi-phased traffic signals, do not move off when approaching traffic moves off. Wait until the signal is green.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q173" onclick="myfunction('q173','17','n','q172')" type="submit"  class="button_1">C. It means only 3 vehicles may drive past this sign, at a time.</button>
+	    </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/17.jpg"></a>
+		</div>
+</div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#16'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#18'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="18">
+  <div class="question_number">
+    <h3>Question 18 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> On a public road you are not allowed to...</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q181" onclick="myfunction('q181','18','n','q182')" type="submit"  class="button_1">A. Turn on your stereo.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q182" onclick="myfunction('q182','18','y','q182')" type="submit" style="min-height: 130px;" class="button_1">B. Allow any person or animal to occupy the roof, step or running board or any other place while the vehicle is in motion.</button>
+	          <button id="q182" onclick="myfunction('q182','18','y','q182')" type="submit"  class="button_1">B. Allow any person or animal to occupy the roof, step or running board or any other place while the vehicle is in motion.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q183" onclick="myfunction('q183','18','n','q182')" type="submit"  class="button_1">C. Give hand signals to other road users.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p16" class="btn">Back</a>
-            <a href="#p18" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#17'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#19'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -569,90 +1568,281 @@
 
 
 
-		<div class="section" id="p18">
-			
-			<span class="name">19 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/19.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> What is the purpose of this sign?</p>
-		</div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="19">
+  <div class="question_number">
+    <h3>Question 19 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p> What is the purpose of this sign?</p>
+  </div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q191" onclick="myfunction('q191','19','n','q192')" type="submit" class="button_1">A. To inform you of an arrestor bed ahead.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q192" onclick="myfunction('q192','19','y','q192')" type="submit" style="min-height: 90px;" class="button_1">B. To inform you that this part of the road is briefly closed to traffic.</button>
+	          <button id="q192" onclick="myfunction('q192','19','y','q192')" type="submit" class="button_1">B. To inform you that this part of the road is briefly closed to traffic.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q193" onclick="myfunction('q193','19','n','q192')" type="submit" style="min-height: 80px;" class="button_1">C. To inform you that there are road works ahead.</button>
+	          <button id="q193" onclick="myfunction('q193','19','n','q192')" type="submit" class="button_1">C. To inform you that there are road works ahead.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p17" class="btn">Back</a>
-            <a href="#p19" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-		<div class="section" id="p19">
-	
-			<span class="name">20 </span>
-		</div>
-
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
-			<p> What is the rule regarding the steering gear?</p>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/19.jpg"></a>
 		</div>		
+</div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#18'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#20'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="20">
+  <div class="question_number">
+    <h3>Question 20 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> What is the rule regarding the steering gear?</p>
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q201" onclick="myfunction('q201','20','n','q202')" type="submit"  style="min-height: 80px;" class="button_1">A. Any person in the vehicle can handle the steering wheel.</button>
+	          <button id="q201" onclick="myfunction('q201','20','n','q202')" type="submit"  class="button_1">A. Any person in the vehicle can handle the steering wheel.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q202" onclick="myfunction('q202','20','y','q202')" type="submit"  style="min-height: 150px;" class="button_1">B. The parts of the steering gear should be maintained in a condition which enables the vehicle to be steered safely and efficiently.</button>
+	          <button id="q202" onclick="myfunction('q202','20','y','q202')" type="submit"  class="button_1">B. The parts of the steering gear should be maintained in a condition which enables the vehicle to be steered safely and efficiently.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q203" onclick="myfunction('q203','20','n','q202')" type="submit"  class="button_1">C. It must be handled with caution.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p18" class="btn">Back</a>
-            <a href="#p20" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#19'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad2'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad2">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+<div class="main-layout">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<!-- Moneymaker -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="7351075048"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#20'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/motorcycle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#21'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p20">
-			
-			<span class="name">21 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/21.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="21">
+  <div class="question_number">
+    <h3>Question 21 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What must you do when you encounter this sign?</p>
-		</div>		
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q211" onclick="myfunction('q211','21','y','q211')" type="submit" style="min-height: 80px;" class="button_1">A. Drive at 60 km/h or less and be careful because there is fog.</button>
+	          <button id="q211" onclick="myfunction('q211','21','y','q211')" type="submit" class="button_1">A. Drive at 60 km/h or less and be careful because there is fog.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q212" onclick="myfunction('q212','21','n','q211')" type="submit" class="button_1">B. Drive with a speed of more than 60 km/h.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q213" onclick="myfunction('q213','21','n','q211')" type="submit" style="min-height: 80px;" class="button_1">C. Drive slow because for 60 metres you will come across fog.</button>
+	          <button id="q213" onclick="myfunction('q213','21','n','q211')" type="submit"  class="button_1">C. Drive slow because for 60 metres you will come across fog.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p19" class="btn">Back</a>
-            <a href="#p21" class="btn">Next...</a>
-        </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+     <a ><img src="./heavyvehicle_bookb_img/21.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#20'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#22'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -660,30 +1850,76 @@
 
 
 
-		<div class="section" id="p21">
-			
-			<span class="name">22 </span>
-		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="22">
+  <div class="question_number">
+    <h3>Question 22 of   64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> You should not park your vehicle...</p>
 		</div>		
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q221" onclick="myfunction('q221','22','n','q222')" type="submit" class="button_1">A. In an area with high crime rate.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q222" onclick="myfunction('q222','22','y','q222')" type="submit" style="min-height: 80px;" class="button_1">B. Outside an urban area within 1 metre of the edge of the road.</button>
+	          <button id="q222" onclick="myfunction('q222','22','y','q222')" type="submit" class="button_1">B. Outside an urban area within 1 metre of the edge of the road.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q223" onclick="myfunction('q223','22','n','q222')" type="submit" style="min-height: 80px;" class="button_1">C. Close to other vehicles in a parking bay.</button>
+	          <button id="q223" onclick="myfunction('q223','22','n','q222')" type="submit" class="button_1">C. Close to other vehicles in a parking bay.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p20" class="btn">Back</a>
-            <a href="#p22" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#21'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#23'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -691,17 +1927,53 @@
 
 
 
-		<div class="section" id="p22">
-			
-			<span class="name">23 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/23.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="23">
+  <div class="question_number">
+    <h3>Question 23 of   15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> This road sign informs you that...</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q231" onclick="myfunction('q231','23','n','q233')" type="submit"  class="button_1">A. Be on the look out for fishermen.</button>
 	    </div>
@@ -711,10 +1983,25 @@
 		<div class="btext">
 	          <button id="q233" onclick="myfunction('q233','23','y','q233')" type="submit" class="button_1">C. It is a fishing spot on a camping area.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p21" class="btn">Back</a>
-            <a href="#p23" class="btn">Next...</a>
-        </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="./heavyvehicle_bookb_img/23.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#22'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#24'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -722,17 +2009,54 @@
 
 
 
-		<div class="section" id="p23">
-			
-			<span class="name">24 </span>
-		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="24">
+  <div class="question_number">
+    <h3>Question 24 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What speed limit should a breakdown vehicle that is towing another vehicle travel at?</p>
-		</div>		
+		</div>
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q241" onclick="myfunction('q241','24','y','q241')" type="submit" class="button_1">A. 80 km/h.</button>
 	    </div>
@@ -742,27 +2066,74 @@
 		<div class="btext">
 	          <button id="q243" onclick="myfunction('q243','24','n','q241')" type="submit" class="button_1">C. 120 km/h.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p22" class="btn">Back</a>
-            <a href="#p24" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#23'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#25'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p24">
-			
-			<span class="name">25 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/25.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="25">
+  <div class="question_number">
+    <h3>Question 25 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What do you do when you come across this?</p>
-		</div>		
+		</div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q251" onclick="myfunction('q251','25','y','q251')" type="submit" class="button_1">A. Proceed slowly and be on the lookout.</button>
 	    </div>
@@ -772,27 +2143,79 @@
 		<div class="btext">
 	          <button id="q253" onclick="myfunction('q253','25','n','q251')" type="submit" class="button_1">C. Yield to pedestrian on the road.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p23" class="btn">Back</a>
-            <a href="#p25" class="btn">Next...</a>
-        </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="./heavyvehicle_bookb_img/25.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#24'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#26'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p25">
-			
-			<span class="name">26 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="26">
+  <div class="question_number">
+    <h3>Question 26 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> A South African Bureau of Standards (SABS) approved number plate should... <br>(i) have clearly readable letters and figures. <br>(ii) in an upright position or within 30 degrees of such position. <br>(iii) not be personalised.</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>		
-		<div class="btext">
-			<p> A South African Bureau of Standards (SABS) approved number plate should... (i) have clearly readable letters and figures. (ii) in an upright position or within 30 degrees of such position. (iii) not be personalised.</p>
-		</div>
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q261" onclick="myfunction('q261','26','y','q261')" type="submit" class="button_1">A. (i) and (ii) Only are correct.</button>
 	    </div>
@@ -802,102 +2225,261 @@
 		<div class="btext">
 	          <button id="q263" onclick="myfunction('q263','26','n','q261')" type="submit" class="button_1">C. (i) and (iii) Only are correct.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p24" class="btn">Back</a>
-            <a href="#p26" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#25'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#27'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p26">
-			
-			<span class="name">27 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/27.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="27">
+  <div class="question_number">
+    <h3>Question 27 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> How must you react to this sign?</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q271" onclick="myfunction('q271','27','y','q271')" type="submit"  style="min-height: 90px;" class="button_1">A. Stop and proceed only when the lights stop flashing and it is safe to do so..</button>
+	          <button id="q271" onclick="myfunction('q271','27','y','q271')" type="submit"   class="button_1">A. Stop and proceed only when the lights stop flashing and it is safe to do so..</button>
 	    </div>
 		<div class="btext">
-	          <button id="q272" onclick="myfunction('q272','27','n','q271')" type="submit" style="min-height: 90px;" class="button_1">B. Drive as fast as possible, before the train reaches that point.</button>
+	          <button id="q272" onclick="myfunction('q272','27','n','q271')" type="submit" class="button_1">B. Drive as fast as possible, before the train reaches that point.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q273" onclick="myfunction('q273','27','n','q271')" type="submit" style="min-height: 80px;" class="button_1">C. Only vehicles with less than 10 tons may drive past this point.</button>
+	          <button id="q273" onclick="myfunction('q273','27','n','q271')" type="submit" class="button_1">C. Only vehicles with less than 10 tons may drive past this point.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p25" class="btn">Back</a>
-            <a href="#p27" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-
-		<div class="section" id="p27">
-			
-			<span class="name">28 </span>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/27.jpg"></a>
 		</div>
+</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#26'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#28'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="28">
+  <div class="question_number">
+    <h3>Question 28 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> Which of the following are not allowed on a freeway?</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q281" onclick="myfunction('q281','28','n','q283')" type="submit" style="min-height: 80px;" class="button_1">A. Any motorcycle regardless of the engine size.</button>
+	          <button id="q281" onclick="myfunction('q281','28','n','q283')" type="submit"  class="button_1">A. Any motorcycle regardless of the engine size.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q282" onclick="myfunction('q282','28','n','q283')" type="submit" class="button_1">B. Convoy vehicles.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q283" onclick="myfunction('q283','28','y','q283')" type="submit" style="min-height: 150px;" class="button_1">C. A vehicle with a mass of 230 kg or less and which is specially designed for a person suffering from a physical defect or disability.</button>
+	          <button id="q283" onclick="myfunction('q283','28','y','q283')" type="submit"  class="button_1">C. A vehicle with a mass of 230 kg or less and which is specially designed for a person suffering from a physical defect or disability.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p26" class="btn">Back</a>
-            <a href="#p28" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#27'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#29'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p28">
-			
-			<span class="name">29 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/29.jpg"></a>
-		</div>		
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="29">
+  <div class="question_number">
+    <h3>Question 29 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What does this sign tell you?</p>
 		</div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q291" onclick="myfunction('q291','29','n','q293')" type="submit" class="button_1">A. The road is closed ahead.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q292" onclick="myfunction('q292','29','n','q293')" type="submit" style="min-height: 80px;" class="button_1">B. The road is temporally under construction.</button>
+	          <button id="q292" onclick="myfunction('q292','29','n','q293')" type="submit"  class="button_1">B. The road is temporally under construction.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q293" onclick="myfunction('q293','29','y','q293')" type="submit" style="min-height: 80px;" class="button_1">C. Move slowly and be prepared to stop ahead.</button>
+	          <button id="q293" onclick="myfunction('q293','29','y','q293')" type="submit"  class="button_1">C. Move slowly and be prepared to stop ahead.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p27" class="btn">Back</a>
-            <a href="#p29" class="btn">Next...</a>
-        </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/29.jpg"></a>
+		</div>	
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#28'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#30'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -905,17 +2487,53 @@
 
 
 
-		<div class="section" id="p29">
-			
-			<span class="name">30 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="30">
+  <div class="question_number">
+    <h3>Question 30 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> Unless directed by an appropriate sign or by a traffic officer, you are not allowed to drive/ride a vehicle on...</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> Unless directed by an appropriate sign or by a traffic officer, you are not allowed to drive/ride a vehicle on...</p>
-		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q301" onclick="myfunction('q301','30','y','q301')" type="submit"  class="button_1">A. The right hand side of a divided public road.</button>
 	    </div>
@@ -925,130 +2543,400 @@
 		<div class="btext">
 	          <button id="q303" onclick="myfunction('q303','30','n','q301')" type="submit" class="button_1">C. The painted stop sign.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p28" class="btn">Back</a>
-            <a href="#p30" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#29'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad3'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad3">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+<div class="main-layout">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<!-- Moneymaker -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="7351075048"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#30'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/motorcycle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#31'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p30">
-			
-			<span class="name">31 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/31.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="31">
+  <div class="question_number">
+    <h3>Question 31 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p>What is the meaning of this road marking?.</p>
-		</div>	
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (100%) -->
 		<div class="btext">
-	          <button id="q311" onclick="myfunction('q311','31','y','q311')" type="submit" style="min-height: 90px;" class="button_1">A. It is a gravel section to slow down your vehicle when the brakes fail.</button>
+	          <button id="q311" onclick="myfunction('q311','31','y','q311')" type="submit"  class="button_1">A. It is a gravel section to slow down your vehicle when the brakes fail.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q312" onclick="myfunction('q312','31','n','q311')" type="submit"  class="button_1">B. It is a parking bay for light motor vehicles.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q313" onclick="myfunction('q313','31','n','q311')" type="submit" style="min-height: 80px;" class="button_1">C. It is a part of the road reserved for cyclists.</button>
+	          <button id="q313" onclick="myfunction('q313','31','n','q311')" type="submit"  class="button_1">C. It is a part of the road reserved for cyclists.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p29" class="btn">Back</a>
-            <a href="#p31" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-
-		<div class="section" id="p31">
-			
-			<span class="name">32 </span>
-		</div>
-
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> What is the length limit for any combination of vehicles?</p>
-		</div>	
-		<div class="btext">
-	          <button id="q321" onclick="myfunction('q321','32','y','q321')" type="submit" style="min-height: 90px;" class="button_1">A. Combination of motor vehicles should not exceed 22 metres.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q322" onclick="myfunction('q322','32','n','q321')" type="submit" style="min-height: 80px;" class="button_1">B. All the vehicles should not go beyond 10 metres.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q323" onclick="myfunction('q323','32','n','q321')" type="submit"  style="min-height: 80px;" class="button_1">C. Two of the vehicles should be below 22 metre.</button>
-	    </div>
-
-	    <div class="btext">
-	    	<a href="#p30" class="btn">Back</a>
-            <a href="#p32" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-		<div class="section" id="p32">
-		
-			<span class="name">33 </span>
-		</div>
-
+  </div>
+<div class="right-content">
 		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/33.jpg"></a>
-		</div>		
+			<a ><img src="./heavyvehicle_bookb_img/31.jpg"></a>
+		</div>
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#30'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#32'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="32">
+  <div class="question_number">
+    <h3>Question 32 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> What is the length limit for any combination of vehicles?</p>
+		</div>
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q321" onclick="myfunction('q321','32','y','q321')" type="submit"  class="button_1">A. Combination of motor vehicles should not exceed 22 metres.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q322" onclick="myfunction('q322','32','n','q321')" type="submit"  class="button_1">B. All the vehicles should not go beyond 10 metres.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q323" onclick="myfunction('q323','32','n','q321')" type="submit"   class="button_1">C. Two of the vehicles should be below 22 metre.</button>
+	    </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#31'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#33'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="33">
+  <div class="question_number">
+    <h3>Question 33 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What is expected of you when you see this sign? </p>
 		</div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q331" onclick="myfunction('q331','33','y','q331')" type="submit" style="min-height: 90px;" class="button_1">A. You must not go past the sign on the road, carriageway or lane.</button>
+	          <button id="q331" onclick="myfunction('q331','33','y','q331')" type="submit"  class="button_1">A. You must not go past the sign on the road, carriageway or lane.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q332" onclick="myfunction('q332','33','n','q331')" type="submit" class="button_1">B. You must go past the sign.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q333" onclick="myfunction('q333','33','n','q331')" type="submit" style="min-height: 90px;" class="button_1">C. You must yield to oncoming traffic and proceed when it is safe to do so.</button>
+	          <button id="q333" onclick="myfunction('q333','33','n','q331')" type="submit"  class="button_1">C. You must yield to oncoming traffic and proceed when it is safe to do so.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p31" class="btn">Back</a>
-            <a href="#p33" class="btn">Next...</a>
-        </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/33.jpg"></a>
+		</div>	
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#32'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#34'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p33">
-		
-			<span class="name">34 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="34">
+  <div class="question_number">
+    <h3>Question 34 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> What is your responsibility as a vehicle driver?</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-			<p> What is your responsibility as a vehicle driver?</p>
-		</div>	
-		<div class="btext">
-	          <button id="q341" onclick="myfunction('q341','34','y','q341')" type="submit" style="min-height: 90px;" class="button_1">A. Ensure that all the people travelling in the vehicle wear a seatbelt.</button>
+	          <button id="q341" onclick="myfunction('q341','34','y','q341')" type="submit"  class="button_1">A. Ensure that all the people travelling in the vehicle wear a seatbelt.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q342" onclick="myfunction('q342','34','n','q341')" type="submit"  class="button_1">B. Ensure that everyone is seated.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q343" onclick="myfunction('q343','34','n','q341')" type="submit" style="min-height: 70px;" class="button_1">C. Ensure you have drank an energy drink before driving.</button>
+	          <button id="q343" onclick="myfunction('q343','34','n','q341')" type="submit"  class="button_1">C. Ensure you have drank an energy drink before driving.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p32" class="btn">Back</a>
-            <a href="#p34" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#33'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#35'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1056,17 +2944,52 @@
 
 
 
-		<div class="section" id="p34">
-			
-			<span class="name">35 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/35.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="35">
+  <div class="question_number">
+    <h3>Question 35 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> This sign informs you that...</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q351" onclick="myfunction('q351','35','n','q352')" type="submit"  class="button_1">A. There is a funfair in the area.</button>
 	    </div>
@@ -1076,26 +2999,153 @@
 		<div class="btext">
 	          <button id="q353" onclick="myfunction('q353','35','n','q352')" type="submit"  class="button_1">C. There is a shopping mall in the area.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p33" class="btn">Back</a>
-            <a href="#p35" class="btn">Next...</a>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/35.jpg"></a>
+		</div>	
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#34'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#prm2'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+<div class="question" id="prm2">
+  <div class="question_number">
+    <h3>Premium Content</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p>Select your province to get pdf questions asked at your DLTC centre</p> 
+  </div>
+  <div class="container">
+
+
+
+      
+   
+<div class="scrollable_showcase">
+  <div class="municipality-widget">
+    <div class="main_button">
+      <button class="toggleBtn">Show Provinces</button>
+    </div>
+
+    <div class="main-layout">
+      <div class="left-content-premium">
+        <div class="list">
+          <button data-image="./img/gauteng.png" data-text="ONLY R200">Gauteng</button>
+          <button data-image="./img/kzn.jpg" data-text="ONLY R200">KwaZulu-Natal</button>
+          <button data-image="./img/easterncape.jpg" data-text="ONLY R200">Eastern Cape</button>
+          <button data-image="./img/westerncape.png" data-text="ONLY R200">Western Cape</button>
+          <button data-image="./img/limpopo.jpg" data-text="ONLY R200">  Limpopo</button>
+          <button data-image="./img/mpumalanga.jpg" data-text="ONLY R200">Mpumalanga</button>
+          <button data-image="./img/northwest.jpg" data-text="ONLY R200">North West</button>
+          <button data-image="./img/freestate.jpg" data-text="ONLY R200">Free State</button>
+          <button data-image="./img/northerncape.jpg" data-text="ONLY R200">  Northern Cape</button>
         </div>
+      </div>
+
+      <div class="right-content-premium display-section" style="display: none;">
+        <img class="displayedImage" src="" alt="Selected Image" style="width:75px; height:75px;">
+        <p class="descriptionText"></p>
+        <div class="paypal-button">
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="D4P7G3Y5RFZEN" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_ZA/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Repeat the .municipality-widget div two more times for 3 sections -->
+
+</div>
+
+
+
+<div class="inline-buttons" style="border-top: 1px;">
+  <button class="nav-btn" onclick="location.href='#35'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#36'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p35">
-			
-			<span class="name">36 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="36">
+  <div class="question_number">
+    <h3>Question 36 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> Passengers may not ride in...</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> Passengers may not ride in...</p>
-		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q361" onclick="myfunction('q361','36','n','q363')" type="submit"  class="button_1">A. A goods vehicle.</button>
 	    </div>
@@ -1105,84 +3155,235 @@
 		<div class="btext">
 	          <button id="q363" onclick="myfunction('q363','36','y','q363')" type="submit"  class="button_1">C. A caravan of a goods vehicle.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p34" class="btn">Back</a>
-            <a href="#p36" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#35'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#37'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p36">
-			
-			<span class="name">37 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/37.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="37">
+  <div class="question_number">
+    <h3>Question 37 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What is expected of you when you see this sign?</p>
-		</div>		
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q371" onclick="myfunction('q371','37','n','q372')" type="submit" class="button_1">A. To pay your vehicle finance on the area.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q372" onclick="myfunction('q372','37','y','q372')" type="submit" style="min-height: 90px;" class="button_1">B. To pay the parking fee and display your receipt on or within your vehicle.</button>
+	          <button id="q372" onclick="myfunction('q372','37','y','q372')" type="submit"  class="button_1">B. To pay the parking fee and display your receipt on or within your vehicle.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q373" onclick="myfunction('q373','37','n','q372')" type="submit" class="button_1">C. To buy goods on the side of the road.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p35" class="btn">Back</a>
-            <a href="#p37" class="btn">Next...</a>
-        </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="./heavyvehicle_bookb_img/37.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#36'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#38'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
-		<div class="section" id="p37">
-			
-			<span class="name">38 </span>
-		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="38">
+  <div class="question_number">
+    <h3>Question 38 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p>What should you NOT do on a public road?</p>
-		</div>		
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q381" onclick="myfunction('q381','38','y','q381')" type="submit" style="min-height: 170px;" class="button_1">A. Cause the engine of your vehicle to run in such a way that it produces smoke or fumes which would not be produced if the vehicle was in good condtion.</button>
+	          <button id="q381" onclick="myfunction('q381','38','y','q381')" type="submit"  class="button_1">A. Cause the engine of your vehicle to run in such a way that it produces smoke or fumes which would not be produced if the vehicle was in good condtion.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q382" onclick="myfunction('q382','38','n','q381')" type="submit" class="button_1">B. Give hand signals to other road users.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q383" onclick="myfunction('q383','38','n','q381')" type="submit" style="min-height: 90px;" class="button_1">C. Drive your vehicle at a high speed that you are not able to control it.</button>
+	          <button id="q383" onclick="myfunction('q383','38','n','q381')" type="submit"  class="button_1">C. Drive your vehicle at a high speed that you are not able to control it.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p36" class="btn">Back</a>
-            <a href="#p38" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#37'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#39'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p38">
-			
-			<span class="name">39 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/39.jpg"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="39">
+  <div class="question_number">
+    <h3>Question 39 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+<p>What does this sign tell you?</p>
 		</div>	
-		<div class="btext">
-			<p>What does this sign tell you?</p>
-		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q391" onclick="myfunction('q391','39','n','q392')" type="submit" class="button_1">A. No vehicle allowed, trollies only.</button>
 	    </div>
@@ -1192,26 +3393,74 @@
 		<div class="btext">
 	          <button id="q393" onclick="myfunction('q393','39','n','q392')" type="submit"  class="button_1">C. Parking bay for trollies.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p37" class="btn">Back</a>
-            <a href="#p39" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#38'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#40'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p39">
-			
-			<span class="name">40 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="40">
+  <div class="question_number">
+    <h3>Question 40 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> You may only stop your vehicle on a no stopping zone... <br>(i) if a traffic officer orders you to do so. <br>(ii) for situations beyond your control. <br>(iii) If your vehicle is trying to avoid an accident.</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> You may only stop your vehicle on a no stopping zone... (i) if a traffic officer orders you to do so. (ii) for situations beyond your control. (iii) If your vehicle is trying to avoid an accident.</p>
-		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q401" onclick="myfunction('q401','40','n','q402')" type="submit"  class="button_1">A. (iii) Only is correct.</button>
 	    </div>
@@ -1221,27 +3470,117 @@
 		<div class="btext">
 	          <button id="q403" onclick="myfunction('q403','40','n','q402')" type="submit"  class="button_1">C. (i) and (iii) Only are correct..</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p38" class="btn">Back</a>
-            <a href="#p40" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#39'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad4'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad4">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+<div class="main-layout">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<!-- Moneymaker -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="7351075048"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#40'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/motorcycle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#41'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p40">
-			
-			<span class="name">41 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/41.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="41">
+  <div class="question_number">
+    <h3>Question 41 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> This sign informs you that...</p>
-		</div>	
+		</div>		
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q411" onclick="myfunction('q411','41','y','q411')" type="submit"  class="button_1">A. There is a golf course in the area.</button>
 	    </div>
@@ -1251,25 +3590,78 @@
 		<div class="btext">
 	          <button id="q413" onclick="myfunction('q413','41','n','q411')" type="submit"  class="button_1">C. There are sport ground in the area.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p39" class="btn">Back</a>
-            <a href="#p41" class="btn">Next...</a>
-        </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/41.jpg"></a>
+		</div>		
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#40'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#42'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p41">
-			<span class="name">42 </span>
-		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="42">
+  <div class="question_number">
+    <h3>Question 42 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> If your vehicle does not have ... then it is not allowed on a public road.</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q421" onclick="myfunction('q421','42','n','q423')" type="submit"  class="button_1">A. A clutch.</button>
 	    </div>
@@ -1279,27 +3671,74 @@
 		<div class="btext">
 	          <button id="q423" onclick="myfunction('q423','42','y','q423')" type="submit" class="button_1">C. An efficient exhaust silencer.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p40" class="btn">Back</a>
-            <a href="#p42" class="btn">Next...</a>
-        </div>
+  </div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#41'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#43'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
 
-		<div class="section" id="p42">
-			
-			<span class="name">43 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/43.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="43">
+  <div class="question_number">
+    <h3>Question 43 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> This road marking means that...</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q431" onclick="myfunction('q431','43','n','q433')" type="submit" class="button_1">A. It is a parking bay for animal drawn vehicles.</button>
 	    </div>
@@ -1309,10 +3748,24 @@
 		<div class="btext">
 	          <button id="q433" onclick="myfunction('q433','43','y','q433')" type="submit" class="button_1">C. It is a parking bay for ambulances.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p41" class="btn">Back</a>
-            <a href="#p43" class="btn">Next...</a>
-        </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/43.jpg"></a>
+		</div>	
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#42'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#44'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1320,17 +3773,53 @@
 
 
 
-		<div class="section" id="p43">
-		
-			<span class="name">44 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="44">
+  <div class="question_number">
+    <h3>Question 44 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> A vehicle should be equipped with a speedometer that is... <br>(i) in working condition. <br>(ii) capable of reaching a speed of 60 km/h. <br>(iii) visible to other passengers.</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>		
-		<div class="btext">
-			<p> A vehicle should be equipped with a speedometer that is... (i) in working condition. (ii) capable of reaching a speed of 60 km/h. (iii) visible to other passengers.</p>
-		</div>
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q441" onclick="myfunction('q441','44','n','q443')" type="submit"  class="button_1">A. All of the above .</button>
 	    </div>
@@ -1341,10 +3830,20 @@
 	          <button id="q443" onclick="myfunction('q443','44','y','q443')" type="submit" class="button_1">C. 
 	          (i) and (ii) Only are correct.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p42" class="btn">Back</a>
-            <a href="#p44" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#43'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#45'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1353,19 +3852,55 @@
 
 
 
-		<div class="section" id="p44">
-	
-			<span class="name">45 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/45.jpg"></a>
-		</div>
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="45">
+  <div class="question_number">
+    <h3>Question 45 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p>What do you do when you encounter this sign?</p>
-		</div>		
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q451" onclick="myfunction('q451','45','n','q453')" type="submit" style="min-height: 80px;" class="button_1">A. You may not drive there if your vehicle headlights are faulty..</button>
+	          <button id="q451" onclick="myfunction('q451','45','n','q453')" type="submit"  class="button_1">A. You may not drive there if your vehicle headlights are faulty..</button>
 	    </div>
 		<div class="btext">
 	          <button id="q452" onclick="myfunction('q452','45','n','q453')" type="submit"  class="button_1">B. Switch on your headlights.</button>
@@ -1373,10 +3908,24 @@
 		<div class="btext">
 	          <button id="q453" onclick="myfunction('q453','45','y','q453')" type="submit" class="button_1">C. Switch off your headlights.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p43" class="btn">Back</a>
-            <a href="#p45" class="btn">Next...</a>
-        </div>
+  </div>
+
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/45.jpg"></a>
+		</div>	
+</div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#44'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#46'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1384,17 +3933,86 @@
 
 
 
-		<div class="section" id="p45">
-			
-			<span class="name">46 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="46">
+  <div class="question_number">
+    <h3>Question 46 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+		<div class="container">
+			<div id="branding2">
+				<h1><a ><span id="time"></span></a></h1>
+			</div>
 		</div>
+		    <div class="progress-bar">
+      <div class="progress" id="progress">
+        
+      </div>
+    </div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
-		<div class="btext">
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> In which area are you not allowed to stop your vehicle?</p>
-		</div>		
+		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q461" onclick="myfunction('q461','46','y','q461')" type="submit"  class="button_1">A. Near or opposite an excavation.</button>
 	    </div>
@@ -1404,10 +4022,21 @@
 		<div class="btext">
 	          <button id="q463" onclick="myfunction('q463','46','n','q461')" type="submit" class="button_1">C. In any area that does not have street lights.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p44" class="btn">Back</a>
-            <a href="#p46" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#45'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#47'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
@@ -1415,17 +4044,53 @@
 
 
 
-		<div class="section" id="p46">
-			
-			<span class="name">47 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/47.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="47">
+  <div class="question_number">
+    <h3>Question 47 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> The sign informs you of...</p>
 		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button id="q471" onclick="myfunction('q471','47','n','q472')" type="submit" class="button_1">A. Parking reserved for mini-bus.</button>
 	    </div>
@@ -1435,10 +4100,23 @@
 		<div class="btext">
 	          <button id="q473" onclick="myfunction('q473','47','n','q472')" type="submit" class="button_1">C. A lane reserved for mini-bus.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p45" class="btn">Back</a>
-            <a href="#p47" class="btn">Next...</a>
-        </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/47.jpg"></a>
+		</div>
+</div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#46'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#48'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1446,30 +4124,76 @@
 
 
 
-		<div class="section" id="p47">
-			
-			<span class="name">48 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="48">
+  <div class="question_number">
+    <h3>Question 48 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> If your vehicle/motorcycle is parked or is stationary on a public road, you should not...</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-			<p> If your vehicle/motorcycle is parked or is stationary on a public road, you should not...</p>
-		</div>	
-		<div class="btext">
-	          <button id="q481" onclick="myfunction('q481','48','n','q483')" type="submit" style="min-height: 80px;" class="button_1">A. Follow the directions of a road sign or traffic officer.</button>
+	          <button id="q481" onclick="myfunction('q481','48','n','q483')" type="submit"  class="button_1">A. Follow the directions of a road sign or traffic officer.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q482" onclick="myfunction('q482','48','n','q483')" type="submit"  class="button_1">B. Give way to other road users.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q483" onclick="myfunction('q483','48','y','q483')" type="submit" style="min-height: 190px;" class="button_1">C. Drive the vehicle from that position unless you are able to do so without interfering with moving traffic approaching from any direction and with safety to yourself and others.</button>
+	          <button id="q483" onclick="myfunction('q483','48','y','q483')" type="submit"  class="button_1">C. Drive the vehicle from that position unless you are able to do so without interfering with moving traffic approaching from any direction and with safety to yourself and others.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p46" class="btn">Back</a>
-            <a href="#p48" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#47'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#49'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1480,60 +4204,196 @@
 
 
 
-		<div class="section" id="p48">
-			
-			<span class="name">49 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/49.jpg"></a>
-		</div>	
-		<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="49">
+  <div class="question_number">
+    <h3>Question 49 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What is your reaction when you come across this sign?</p>
-		</div>	
-		<div class="btext">
-	          <button id="q491" onclick="myfunction('q491','49','y','q491')" type="submit" style="min-height: 90px;" class="button_1">A. Decide which direction to take before reaching the intersection. </button>
-	    </div>
-		<div class="btext">
-	          <button id="q492" onclick="myfunction('q492','49','n','q491')" type="submit" style="min-height: 80px;" class="button_1">B. Give right of way to road users at the intersection.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q493" onclick="myfunction('q493','49','n','q491')" type="submit" style="min-height: 80px;" class="button_1">C. Do not drive there if you driving a goods vehicle.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p47" class="btn">Back</a>
-            <a href="#p49" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-		<div class="section" id="p49">
-		
-			<span class="name">50 </span>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q491" onclick="myfunction('q491','49','y','q491')" type="submit"  class="button_1">A. Decide which direction to take before reaching the intersection. </button>
+	    </div>
+		<div class="btext">
+	          <button id="q492" onclick="myfunction('q492','49','n','q491')" type="submit"  class="button_1">B. Give right of way to road users at the intersection.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q493" onclick="myfunction('q493','49','n','q491')" type="submit"  class="button_1">C. Do not drive there if you driving a goods vehicle.</button>
+	    </div>
+  </div>
+<div class="right-content">
+		<div class="pss">
+			<a ><img src="./heavyvehicle_bookb_img/49.jpg"></a>
+		</div>
+</div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#48'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#50'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="50">
+  <div class="question_number">
+    <h3>Question 50 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> On a public road, the vehicle driver/rider should...</p>
-		</div>	
+		</div>
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q501" onclick="myfunction('q501','50','n','q503')" type="submit" style="min-height: 80px;" class="button_1">a. Drive on the shoulder of the road if there is traffic.</button>
+	          <button id="q501" onclick="myfunction('q501','50','n','q503')" type="submit" class="button_1">a. Drive on the shoulder of the road if there is traffic.</button>
 	    </div>
 		<div class="btext">
 	          <button id="q502" onclick="myfunction('q502','50','n','q503')" type="submit" class="button_1">b. Always lookout for traffic officers.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q503" onclick="myfunction('q503','50','y','q503')" type="submit" style="min-height: 190px;" class="button_1">c. Yield the right of way to all vehicles approaching from his/her right within the junction, when he/she intends entering any portion of a public road which constitutes a junction.</button>
+	          <button id="q503" onclick="myfunction('q503','50','y','q503')" type="submit"  class="button_1">c. Yield the right of way to all vehicles approaching from his/her right within the junction, when he/she intends entering any portion of a public road which constitutes a junction.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p48" class="btn">Back</a>
-            <a href="#p50" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#49'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad5'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad5">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+<div class="main-layout">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<!-- Moneymaker -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="7351075048"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#50'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/motorcycle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#51'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
@@ -1542,147 +4402,237 @@
 
 
 
-		<div class="section" id="p50">
-			
-			<span class="name">51 </span>
-		</div>
 
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/51.jpg"></a>
-		</div>	
-				<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="51">
+  <div class="question_number">
+    <h3>Question 51 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> What do you do when you encounter this sign on a public road?</p>
 		</div>		
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q511" onclick="myfunction('q511','51','y','q511')" type="submit" style="min-height: 90px;" class="button_1">a. Must avoid the lane if you are driving  a goods vehicle.</button>
+	          <button id="q511" onclick="myfunction('q511','51','y','q511')" type="submit"  class="button_1">a. Must avoid the lane if you are driving  a goods vehicle.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q512" onclick="myfunction('q512','51','n','q511')" type="submit" style="min-height: 90px;" class="button_1">b. You may drive there if there are no traffic officers on sight.</button>
+	          <button id="q512" onclick="myfunction('q512','51','n','q511')" type="submit"  class="button_1">b. You may drive there if there are no traffic officers on sight.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q513" onclick="myfunction('q513','51','n','q511')" type="submit" style="min-height: 90px;" class="button_1">c. Use the lane as it is reserved for goods vehicles.</button>
+	          <button id="q513" onclick="myfunction('q513','51','n','q511')" type="submit"  class="button_1">c. Use the lane as it is reserved for goods vehicles.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p49" class="btn">Back</a>
-            <a href="#p51" class="btn">Next...</a>
-        </div>
-
-
-
-
-		<div class="section" id="p51">
-			
-			<span class="name">52 </span>
-		</div>
-
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-				<div class="btext">
-			<p> Where and how many red-retro reflectors must be fitted to the rear of a light motor vehicle?.</p>
-		</div>		
-		<div class="btext">
-	          <button id="q521" onclick="myfunction('q521','52','y','q521')" type="submit"  style="min-height: 80px;" class="button_1">a. Two red-retro reflectors one on each side.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q522" onclick="myfunction('q522','52','n','q521')" type="submit" style="min-height: 80px;" class="button_1">b. Four red-retro reflectors two on each side.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q523" onclick="myfunction('q523','52','n','q521')" type="submit" class="button_1">c. No red-retro reflectors.</button>
-	    </div>
-	    	    <div class="btext">
-	    	<a href="#p50" class="btn">Back</a>
-            <a href="#p52" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-		<div class="section" id="p52">
-			
-			<span class="name">53 </span>
-		</div>
-
+  </div>
+<div class="right-content">
 		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/53.jpg"></a>
+			<a ><img src="./heavyvehicle_bookb_img/51.jpg"></a>
 		</div>	
-				<div class="btext">
-			<p> What is expected of you when you come across this sign?</p>
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#50'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#52'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="52">
+  <div class="question_number">
+    <h3>Question 52 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> Goods vehicle with a GVM of less than ... kg may be fitted with yellow reflective material, but it is not compulsory.</p>
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
+		<div class="btext">
+	          <button id="q521" onclick="myfunction('q521','52','y','q521')" type="submit"  class="button_1">a. 10 000 kg.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q522" onclick="myfunction('q522','52','n','q521')" type="submit" class="button_1">b. 20 000 kg.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q523" onclick="myfunction('q523','52','n','q521')" type="submit" class="button_1">c. 15 000 kg.</button>
+	    </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#51'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#53'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="53">
+  <div class="question_number">
+    <h3>Question 53 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> This temporary combination sign indicates that...</p>
 		</div>		
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q531" onclick="myfunction('q531','53','y','q531')" type="submit" style="min-height: 110px;" class="button_1">a. Light motor vehicles are not allowed to stop or park for longer than the times indicated.</button>
+	          <button id="q531" onclick="myfunction('q531','53','y','q531')" type="submit"  class="button_1">a. Goods vehicles are prohibited from parking in that area during anytime of the day or night.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q532" onclick="myfunction('q532','53','n','q531')" type="submit" style="min-height: 90px;" class="button_1">b. You must pay a fee for parking your vehicle during the time period indicated.</button>
+	          <button id="q532" onclick="myfunction('q532','53','n','q531')" type="submit" class="button_1">b. Only vehicles with a mass of 16 tons may park.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q533" onclick="myfunction('q533','53','n','q531')" type="submit" style="min-height: 80px;" class="button_1">c. You may not park there during the time period indicated.</button>
+	          <button id="q533" onclick="myfunction('q533','53','n','q531')" type="submit" class="button_1">c. Only goods vehicles should park there.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p51" class="btn">Back</a>
-            <a href="#p53" class="btn">Next...</a>
-        </div>
-
-
-		<div class="section" id="p53">
-		
-			<span class="name">54 </span>
-		</div>
-
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>		
-		<div class="btext">
-			<p> You may only drive a light motor vehicle if...</p>
-		</div>
-		<div class="btext">
-	          <button id="q541" onclick="myfunction('q541','54','n','q543')" type="submit" class="button_1">a. If it is not fitted with rear lambs.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q542" onclick="myfunction('q542','54','n','q543')" type="submit" style="min-height: 80px;" class="button_1">b. It is fitted with lamps that produce an ember light to the rear.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q543" onclick="myfunction('q543','54','y','q543')" type="submit" style="min-height: 80px;" class="button_1">c. It is fitted with lamps that produce a red light to the rear.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p52" class="btn">Back</a>
-            <a href="#p54" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-
-		<div class="section" id="p54">
-	
-			<span class="name">55 </span>
-		</div>
-
+  </div>
+<div class="right-content">
 		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/55.jpg"></a>
+			<a ><img src="./heavyvehicle_bookb_img/53.jpg"></a>
 		</div>
-		<div class="btext">
-			<p> What is the meaning of this temporary combination sign?</p>
-		</div>		
-		<div class="btext">
-	          <button id="q551" onclick="myfunction('q551','55','n','q553')" type="submit"  style="min-height: 90px;" class="button_1">a. Only private light motor vehicles may park in that area.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q552" onclick="myfunction('q552','55','n','q553')" type="submit"  class="button_1">b. Light motor vehicles should only park there.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q553" onclick="myfunction('q553','55','y','q553')" type="submit" style="min-height: 110px;"  class="button_1">c. Light motor vehicles are prohibited from parking in that area during any time of the day or night.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p53" class="btn">Back</a>
-            <a href="#p55" class="btn">Next...</a>
-        </div>
+</div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#52'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#54'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1690,30 +4640,76 @@
 
 
 
-		<div class="section" id="p55">
-			
-			<span class="name">56 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="54">
+  <div class="question_number">
+    <h3>Question 54 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p>What is the speed limit for an articulated motor vehicle, of which the gross combination mass of the truck-tractor exceeds 9 000 kg?.</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-			<p> What is the restriction on the overall length of a light motor vehicle?</p>
-		</div>		
-		<div class="btext">
-	          <button id="q561" onclick="myfunction('q561','56','y','q561')" type="submit" class="button_1">A. 2.5 metres.</button>
+	          <button id="q541" onclick="myfunction('q541','54','n','q543')" type="submit" class="button_1">a. 120 km/h.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q562" onclick="myfunction('q562','56','n','q561')" type="submit" class="button_1">B. 2 metres.</button>
+	          <button id="q542" onclick="myfunction('q542','54','n','q543')" type="submit" class="button_1">b. 100 km/h.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q563" onclick="myfunction('q563','56','n','q561')" type="submit" class="button_1">C. 4 metres.</button>
+	          <button id="q543" onclick="myfunction('q543','54','y','q543')" type="submit" class="button_1">c. 80 km/h.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p54" class="btn">Back</a>
-            <a href="#p56" class="btn">Next...</a>
-        </div>
+  </div>
+
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#53'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#55'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1721,30 +4717,156 @@
 
 
 
-		<div class="section" id="p56">
-			
-			<span class="name">57 </span>
-		</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="55">
+  <div class="question_number">
+    <h3>Question 55 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> This sign informs road users that...</p>
+		</div>	
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
+		<div class="btext">
+	          <button id="q551" onclick="myfunction('q551','55','n','q553')" type="submit"   class="button_1">a. During the two time periods, that part of the road is closed to all vehicles.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q552" onclick="myfunction('q552','55','n','q553')" type="submit"   class="button_1">b. During the two time periods, vehicles less than 15 metres in length may not use that part of the road.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q553" onclick="myfunction('q553','55','y','q553')" type="submit"   class="button_1">c. During the two time periods, long vehicles may not use that part of the road.</button>
+	    </div>
+  </div>
+<div class="right-content">
 		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/57.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> What is the meaning of this sign?</p>
-		</div>	
-		<div class="btext">
-	          <button id="q571" onclick="myfunction('q571','57','n','q572')" type="submit" style="min-height: 80px;" class="button_1">A. Light motor vehicles shouldn't drive at 5 km/h.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q572" onclick="myfunction('q572','57','y','q572')" type="submit" style="min-height: 90px;" class="button_1">B. For the next 5 km, light motor vehicles are prohibited on that road.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q573" onclick="myfunction('q573','57','n','q572')" type="submit" style="min-height: 90px;" class="button_1">C. The road comes to a dead end in the distance of 5 km therefor no cars allowed.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p55" class="btn">Back</a>
-            <a href="#p57" class="btn">Next...</a>
+			<a ><img src="./heavyvehicle_bookb_img/55.jpg"></a>
+		</div>
+</div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#54'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#prm3'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+<div class="question" id="prm3">
+  <div class="question_number">
+    <h3>Premium Content</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p>Select your province to get pdf questions asked at your DLTC centre</p> 
+  </div>
+  <div class="container">
+
+
+
+      
+   
+<div class="scrollable_showcase">
+  <div class="municipality-widget">
+    <div class="main_button">
+      <button class="toggleBtn">Show Provinces</button>
+    </div>
+
+    <div class="main-layout">
+      <div class="left-content-premium">
+        <div class="list">
+          <button data-image="./img/gauteng.png" data-text="ONLY R200">Gauteng</button>
+          <button data-image="./img/kzn.jpg" data-text="ONLY R200">KwaZulu-Natal</button>
+          <button data-image="./img/easterncape.jpg" data-text="ONLY R200">Eastern Cape</button>
+          <button data-image="./img/westerncape.png" data-text="ONLY R200">Western Cape</button>
+          <button data-image="./img/limpopo.jpg" data-text="ONLY R200">  Limpopo</button>
+          <button data-image="./img/mpumalanga.jpg" data-text="ONLY R200">Mpumalanga</button>
+          <button data-image="./img/northwest.jpg" data-text="ONLY R200">North West</button>
+          <button data-image="./img/freestate.jpg" data-text="ONLY R200">Free State</button>
+          <button data-image="./img/northerncape.jpg" data-text="ONLY R200">  Northern Cape</button>
         </div>
+      </div>
+
+      <div class="right-content-premium display-section" style="display: none;">
+        <img class="displayedImage" src="" alt="Selected Image" style="width:75px; height:75px;">
+        <p class="descriptionText"></p>
+        <div class="paypal-button">
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="D4P7G3Y5RFZEN" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_ZA/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Repeat the .municipality-widget div two more times for 3 sections -->
+
+</div>
+
+
+
+<div class="inline-buttons" style="border-top: 1px;">
+  <button class="nav-btn" onclick="location.href='#55'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#56'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1752,30 +4874,76 @@
 
 
 
-		<div class="section" id="p57">
-			
-			<span class="name">58 </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="56">
+  <div class="question_number">
+    <h3>Question 56 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> Which of the following vehicles are not allowed on a public road? <br>(i) Any vehicle with the overall width of more than 2.5 metres. <br>(ii) A bus with a distance between the centre-lines of the tyres of the two front wheels exceeding 1.9 metres, if the overall width of such bus is more than 2.6 metres. <br>(iii) A goods vehicle with a GMV of more than 12 000 kg, if the overall width is more than 2.6 metres.</p>
 		</div>
 
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
+<div class="main-layout">
+  <div class="left-content-rules">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-			<p> A person driving a vehicle on a public road shall not...</p>
-		</div>	
-		<div class="btext">
-	          <button id="q581" onclick="myfunction('q581','58','n','q583')" type="submit" class="button_1">A. Drive slower than the speed limit.</button>
+	          <button id="q561" onclick="myfunction('q561','56','y','q561')" type="submit" class="button_1">A. All of the above.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q582" onclick="myfunction('q582','58','n','q583')" type="submit" class="button_1">B. Drive on potholes.</button>
+	          <button id="q562" onclick="myfunction('q562','56','n','q561')" type="submit" class="button_1">B. (iii) Only is correct.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q583" onclick="myfunction('q583','58','y','q583')" type="submit" style="min-height: 230px;" class="button_1">C. Negligently or willfully deposit any petrol or other liquid fuel or any oil or grease or other flammable or offensive matter, ashes or other refuse of whatever nature, from such vehicle upon or alongside such road.</button>
+	          <button id="q563" onclick="myfunction('q563','56','n','q561')" type="submit" class="button_1">C. (i) and (iii) Only are correct.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p56" class="btn">Back</a>
-            <a href="#p58" class="btn">Next...</a>
-        </div>
+  </div>
+
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#55'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#57'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
@@ -1786,60 +4954,6 @@
 
 
 
-		<div class="section" id="p58">
-			
-			<span class="name">59 </span>
-		</div>
-
-		<div class="pss">
-			<a ><img src="./lightvehicle_bookb_img/59.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> This combination sign indicates to the driver what?</p>
-		</div>	
-		<div class="btext">
-	          <button id="q591" onclick="myfunction('q591','59','y','q591')" type="submit" style="min-height: 80px;" class="button_1">A. The minimum speed the light motor vehicle should travel in km/h.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q592" onclick="myfunction('q592','59','n','q591')" type="submit" style="min-height: 70px;" class="button_1">B. The maximum speed the light motor vehicle should travel in km/h.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q593" onclick="myfunction('q593','59','n','q591')" type="submit" style="min-height: 90px;" class="button_1">C. The maximum GMV for the light motor vehicle  traveling on that roadway.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p57" class="btn">Back</a>
-            <a href="#p59" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-		<div class="section" id="p59">
-		
-			<span class="name">60 </span>
-		</div>
-
-		<div class="pssa">
-			<a ><img src="./lightvehicle_bookb_img/okuhle.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> You may not tow another vehicle on a public road unless...</p>
-		</div>	
-		<div class="btext">
-	          <button id="q601" onclick="myfunction('q601','60','n','q603')" type="submit" style="min-height: 90px;" class="button_1">a. You are in an urban area with the road wide enough for both vehicles.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q602" onclick="myfunction('q602','60','n','q603')" type="submit" style="min-height: 70px;" class="button_1">b. Both vehicles are the same make and same model.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q603" onclick="myfunction('q603','60','y','q603')" type="submit" style="min-height: 170px;" class="button_1">c. The steering gear of the towed vehicle is controlled by a person holding a code of driving license authorising him or her to drive the class of such vehicle.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p58" class="btn">Back</a>
-            <a href="#p60" class="btn">Next...</a>
-        </div>
 
 
 
@@ -1848,352 +4962,805 @@
 
 
 
-		<div class="section" id="p60">
-			
-			<span class="name">61 </span>
-		</div>
 
-		<div class="psscontrols">
-			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
-		</div>	
-				<div class="btext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="57">
+  <div class="question_number">
+    <h3>Question 57 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> Which control is used to accelerate your vehicle?</p>
-		</div>		
-		<div class="btext">
-	          <button id="q611" onclick="myfunction('q611','61','y','q611')" type="submit" class="button_1">a. 10.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q612" onclick="myfunction('q612','61','n','q611')" type="submit" class="button_1">b. 8.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q613" onclick="myfunction('q613','61','n','q611')" type="submit" class="button_1">c. 9.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p59" class="btn">Back</a>
-            <a href="#p61" class="btn">Next...</a>
-        </div>
-
-
-
-
-		<div class="section" id="p61">
-			
-			<span class="name">62 </span>
-		</div>
+		</div>	
 
 		<div class="psscontrols">
 			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
-		</div>	
-				<div class="btext">
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
+		<div class="btext">
+	          <button id="q571" onclick="myfunction('q571','57','y','q571')" type="submit" class="button_1">A. 10.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q572" onclick="myfunction('q572','57','n','q571')" type="submit" class="button_1">B. 9.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q573" onclick="myfunction('q573','57','n','q571')" type="submit" class="button_1">C. 8.</button>
+	    </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#56'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#58'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="58">
+  <div class="question_number">
+    <h3>Question 58 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> Which control is used to ensure that your parked vehicle does not move? </p>
-		</div>		
-		<div class="btext">
-	          <button id="q621" onclick="myfunction('q621','62','y','q621')" type="submit" class="button_1">a. 7.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q622" onclick="myfunction('q622','62','n','q621')" type="submit" class="button_1">b. 10.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q623" onclick="myfunction('q623','62','n','q621')" type="submit" class="button_1">c. 9.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p60" class="btn">Back</a>
-            <a href="#p62" class="btn">Next...</a>
-        </div>
-
-
-
-<div class="section" id="p62">
-			
-			<span class="name">63 </span>
-		</div>
-
-		<div class="psscontrols">
-			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
 		</div>	
-				<div class="btext">
-			<p> To change gears,  which controls are used?.</p>
-		</div>		
-		<div class="btext">
-	          <button id="q631" onclick="myfunction('q631','63','y','q631')" type="submit" class="button_1">a. 8 and 6.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q632" onclick="myfunction('q632','63','n','q631')" type="submit" class="button_1">b. 8 and 7.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q633" onclick="myfunction('q633','63','n','q631')" type="submit" class="button_1">c. 8 and 5.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p61" class="btn">Back</a>
-            <a href="#p63" class="btn">Next...</a>
-        </div>
-
-
-		<div class="section" id="p63">
-		
-			<span class="name">64 </span>
-		</div>
 
 		<div class="psscontrols">
 			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
-		</div>		
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q581" onclick="myfunction('q581','58','n','q583')" type="submit" class="button_1">a. 6.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q582" onclick="myfunction('q582','58','n','q583')" type="submit"  class="button_1">b. 5.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q583" onclick="myfunction('q583','58','y','q583')" type="submit" class="button_1">c. 7.</button>
+	    </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#57'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#59'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="59">
+  <div class="question_number">
+    <h3>Question 59 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> To change gears,  which controls are used?.</p>
+		</div>	
+
+		<div class="psscontrols">
+			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
+		<div class="btext">
+	          <button id="q591" onclick="myfunction('q591','59','y','q591')" type="submit" class="button_1">a. 8 and 6.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q592" onclick="myfunction('q592','59','n','q591')" type="submit" class="button_1">b. 8 and 7.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q593" onclick="myfunction('q593','59','n','q591')" type="submit" class="button_1">c. 8 and 5.</button>
+	    </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#58'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#60'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="60">
+  <div class="question_number">
+    <h3>Question 60 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> The ... control increases the vehicle speed.</p>
 		</div>
-		<div class="btext">
-	          <button id="q641" onclick="myfunction('q641','64','n','q643')" type="submit" class="button_1">a. 6.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q642" onclick="myfunction('q642','64','n','q643')" type="submit" class="button_1">b. 9.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q643" onclick="myfunction('q643','64','y','q643')" type="submit" class="button_1">c. 10.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p62" class="btn">Back</a>
-            <a href="#p64" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-
-		<div class="section" id="p64">
-	
-			<span class="name">65 </span>
-		</div>
 
 		<div class="psscontrols">
 			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
 		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q601" onclick="myfunction('q601','60','n','q603')" type="submit" class="button_1">A. 8</button>
+	    </div>
+		<div class="btext">
+	          <button id="q602" onclick="myfunction('q602','60','n','q603')" type="submit"  class="button_1">B. 9</button>
+	    </div>
+		<div class="btext">
+	          <button id="q603" onclick="myfunction('q603','60','y','q603')" type="submit"  class="button_1">C. 10</button>
+	    </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#59'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad6'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad6">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+<div class="main-layout">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<!-- Moneymaker -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="7351075048"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#60'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/motorcycle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#61'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="61">
+  <div class="question_number">
+    <h3>Question 61 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> The ... warns other road users of your intention to steer to the right or left, or turn to the right or left..</p>
-		</div>		
-		<div class="btext">
-	          <button id="q651" onclick="myfunction('q651','65','n','q653')" type="submit" class="button_1">a. 2.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q652" onclick="myfunction('q652','65','n','q653')" type="submit" class="button_1">b. 3.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q653" onclick="myfunction('q653','65','y','q653')" type="submit" class="button_1">c. 5.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p63" class="btn">Back</a>
-            <a href="#p65" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-		<div class="section" id="p65">
-			
-			<span class="name">66 </span>
 		</div>
 
 		<div class="psscontrols">
 			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
 		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q611" onclick="myfunction('q611','61','y','q611')" type="submit" class="button_1">a. 5</button>
+	    </div>
+		<div class="btext">
+	          <button id="q612" onclick="myfunction('q612','61','n','q611')" type="submit" class="button_1">b. 3</button>
+	    </div>
+		<div class="btext">
+	          <button id="q613" onclick="myfunction('q613','61','n','q611')" type="submit" class="button_1">c. 2</button>
+	    </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#60'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#62'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="62">
+  <div class="question_number">
+    <h3>Question 62 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p> Which control is used to alert other road users so to avoid accidents.</p>
-		</div>		
-		<div class="btext">
-	          <button id="q661" onclick="myfunction('q661','66','y','q661')" type="submit" class="button_1">A. 11.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q662" onclick="myfunction('q662','66','n','q661')" type="submit" class="button_1">B. 5.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q663" onclick="myfunction('q663','66','n','q661')" type="submit" class="button_1">C. 2.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p64" class="btn">Back</a>
-            <a href="#p66" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-		<div class="section" id="p66">
-			
-			<span class="name">67 </span>
-		</div>
+		</div>			
 
 		<div class="psscontrols">
 			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
-		</div>	
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q621" onclick="myfunction('q621','62','n','q622')" type="submit" class="button_1">A. 5 </button>
+	    </div>
+		<div class="btext">
+	          <button id="q622" onclick="myfunction('q622','62','y','q622')" type="submit" class="button_1">B. 11</button>
+	    </div>
+		<div class="btext">
+	          <button id="q623" onclick="myfunction('q623','62','n','q622')" type="submit" class="button_1">C. 2</button>
+	    </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#61'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#63'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="63">
+  <div class="question_number">
+    <h3>Question 63 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p>Which control is used to clean your vehicle's windscreen?</p>
 		</div>	
-		<div class="btext">
-	          <button id="q671" onclick="myfunction('q671','67','n','q672')" type="submit" class="button_1">A. 1.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q672" onclick="myfunction('q672','67','y','q672')" type="submit" class="button_1">B. 2.</button>
-	    </div>
-		<div class="btext">
-	          <button id="q673" onclick="myfunction('q673','67','n','q672')" type="submit" class="button_1">C. 3.</button>
-	    </div>
-	    <div class="btext">
-	    	<a href="#p65" class="btn">Back</a>
-            <a href="#p67" class="btn">Next...</a>
-        </div>
-
-
-
-
-
-
-
-		<div class="section" id="p67">
-			
-			<span class="name">68 </span>
-		</div>
 
 		<div class="psscontrols">
 			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
-		</div>	
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
+	          <button id="q631" onclick="myfunction('q631','63','y','q631')" type="submit" class="button_1">a. 2.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q632" onclick="myfunction('q632','63','n','q631')" type="submit" class="button_1">b. 1.</button>
+	    </div>
+		<div class="btext">
+	          <button id="q633" onclick="myfunction('q633','63','n','q631')" type="submit" class="button_1">c. 3.</button>
+	    </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#62'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#64'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="64">
+  <div class="question_number">
+    <h3>Question 64 of 64</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
 			<p>To turn a sharp curve on the road, you must use...</p>
 		</div>	
+
+		<div class="psscontrols">
+			<a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
-	          <button id="q681" onclick="myfunction('q681','68','n','q683')" type="submit" class="button_1">A. 2, 6, 8 and 9.</button>
+	          <button id="q641" onclick="myfunction('q641','64','n','q643')" type="submit"  class="button_1">a. 2, 6, 8 and 9 only.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q682" onclick="myfunction('q682','68','n','q683')" type="submit" class="button_1">B. 1, 3, 4, 6, 7, 9 and 10 only.</button>
+	          <button id="q642" onclick="myfunction('q642','64','n','q643')" type="submit"  class="button_1">b. 3, 4, 6, 8, 9 and 10 only.</button>
 	    </div>
 		<div class="btext">
-	          <button id="q683" onclick="myfunction('q683','68','y','q683')" type="submit"  class="button_1">C. 1, 3, 4, 6, 8, 9 and 10 only.</button>
+	          <button id="q643" onclick="myfunction('q643','64','y','q643')" type="submit" class="button_1">c. 1, 3, 4, 5, 6, 8, 9 and 10 only.</button>
 	    </div>
-	    <div class="btext">
-	    	<a href="#p66" class="btn">Back</a>
-            <a href="lightvehicle.html" class="btn" id="test2">Home</a>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pssbook">
+      <a ><img src="./lightvehicle_bookb_img/61.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons-controls">
+  <button class="nav-btn" onclick="location.href='#63'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='../K53_Book_Test/lightvehicle_book_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#64'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+      <div id="branding5">
+        <a target="_blank" href="https://wa.me/27614100661/"><button onclick="CommentSection()"><img src="whatsapp1.png"> </button></a>
+      </div>
+    </div>
+
+
+
+    
+
+    <div  id='results8' style='text-align: center; margin-top: 20px;'>
+      <button  name='skipSubmit' type='submit' id="butInstall">ADD</button> 
         </div>
 
 
 
-		<div class="container">
-			<div id="branding5">
-				<a target="_blank" href="https://wa.me/27614100661/"><button onclick="CommentSection()"><img src="../img/whatsapp1.png"> </button></a>
-			</div>
-		</div>
+    <div  id="snackbar">
+      <a href="#"></a>
+    </div>
 
-		<div  id="results11" >
-			<section id="boxes">		
-
-				<div class="box">
-			<a ><img src="../img/share.png"></a>
-			
-		</div>
-		<div class="box">
-			<a target="_blank" href="https://api.whatsapp.com/send?phone=&text=🚨 FREE K53 📢 Kindly send to everyone without a drivers licence 🚗 https://k53-sa.com/"><img src="../img/whatsapp1.png"></a>
-			
-		</div>
-		<div class="box">
-			<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=k53-sa.com/"><img src="../img/facebook.png"></a>
-			
-		</div>
-		<div class="box">
-			<a  target="_blank" href="https://twitter.com/intent/tweet?url=https://k53-sa.com/"><img src="../img/twitter.png"></a>
-			
-		</div>
-		<div class="box">
-			<a  target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=https://k53-sa.com/"><img src="../img/linkedin.png"></a>
-			
-		</div>
-
-		</section>
-		</div>
-		<div class="btextlearn" style=' margin-top: 400px;'>
-			<br>
-			<p> ADD TO HOMESCREEN .</p>
-		</div>
-
-		
-
-		<div  id='results8' style='text-align: center; margin-top: 20px;'>
-	    <button  name='skipSubmit' type='submit' id="butInstall">ADD</button>	
-        </div>
-
-
-		<div class="btextlearn" style="margin-top: 50px;">
-			<br>
-			<p> iPhone iOS .</p>
-		</div>
-   		<div class="btextlearn" style="margin-bottom: 100px;">
-			<br>
-			<video width="320" height="240" controls><source src="../img/ios.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
-		</div>
-		<div class="container">
-			<div id="branding">
-				<h1><a ><span id="score">score 0</span></a></h1>
-			</div>
-		</div>
-		<div class="container">
-			<div id="branding3">
-				<h1><a ><span id="left">left</span></a></h1>
-			</div>
-		</div>
-		<div class="container">
-			<div id="branding2">
-				<h1><a ><span id="time"></span></a></h1>
-			</div>
-		</div>
-
-		<div class="progress-bar">
-			<div class="progress" id="progress">
-				
-			</div>
-		</div>
-
-		<div  id="snackbar">
-			<a href="road_sign_test1.html"></a>
-		</div>
-
-		<div  id="results">
-			<a href="b_lightvehicle_test.html">Try again. Reload This Page</a>
-		</div>
-		<div  id="results2">
-			<a href="lightvehicle.html">Home Page</a>
-		</div>
-		<div  id="results3">
-			<a href="b_lightvehicle_test.html">Time Over. Reload This Page</a>
-		</div>
-
-	<footer id="about-footer">
-		<p> mm_bhobho did this &copy  2020</p>
-	</footer>
+    <div  id="results">
+      <a href="b_lightvehicle_test.html">Try again. Reload This Page</a>
+    </div>
+    <div  id="results2">
+      <a href="../K53_Book_Test/lightvehicle_book_tests.html">Home Page</a>
+    </div>
+    <div  id="results3">
+      <a href="b_lightvehicle_test.html">Time Over. Reload This Page</a>
+    </div>
 </body>
 </html>
-
 <script type="text/javascript">
-	
-	var questions = [];
-	var ansared = [];
-	var	marks = [];
-	var time = 1000;
-	var left = 68;
+  
+  var questions = [];
+  var ansared = [];
+  var marks = [];
+  var time = 1000;
+  var left = 64;
+  var test_code = 'motor';
 
-	var prg = document.getElementById('progress');
-	marks.push('0');
+  var prg = document.getElementById('progress');
+  marks.push('0');
 
-	var zero = '0';
-	var one = '1';
-	var bandile = 10;
+  var zero = '0';
+  var one = '1';
+  var bandile = 10;
 
-	var score = 0;
-	const timeDisplay = document.querySelector('#time');
+  var score = 0;
+  const timeDisplay = document.querySelector('#time');
 window.addEventListener('load', init);
-	
+
+  
 function init() 
 {
   setInterval(countdown, 1000);
@@ -2201,14 +5768,15 @@ function init()
 
 function countdown() 
 {
-	var one = '1';
+
+  var one = '1';
   if (time > 0   && bandile != 3000) 
   {
     time--;
     prg.style.width = time/10 + 'px';
     if(time < 300)
     {
-    	document.getElementById("progress").style.backgroundColor = "red";
+      document.getElementById("progress").style.backgroundColor = "red";
     }
   } 
   
@@ -2216,7 +5784,7 @@ function countdown()
 
   if (time < 1 )
   {
-  	document.getElementById("time").style.color = "red";
+    document.getElementById("time").style.color = "red";
   	questions[0] = '1'; questions[1] = '1'; questions[2] = '1'; questions[3] = '1'; questions[4] = '1'; questions[5] = '1'; questions[6] = '1'; 
   	questions[7] = '1'; questions[8] = '1'; questions[9] = '1'; questions[10] = '1'; questions[11] = '1'; questions[12] = '1';
   	questions[13] = '1'; questions[14] = '1'; questions[15] = '1'; questions[16] = '1'; questions[17] = '1'; questions[18] = '1'; 
@@ -2227,137 +5795,115 @@ questions[31] = '1'; questions[32] = '1'; questions[33] = '1'; questions[34] = '
   	questions[43] = '1'; questions[44] = '1'; questions[45] = '1'; questions[46] = '1'; questions[47] = '1'; questions[48] = '1'; 
   	questions[49] = '1'; questions[50] = '1'; questions[51] = '1'; questions[52] = '1'; questions[53] = '1'; questions[54] = '1';
   	questions[55] = '1'; questions[56] = '1'; questions[57] = '1'; questions[58] = '1'; questions[59] = '1'; questions[60] = '1';
-questions[61] = '1'; questions[62] = '1'; questions[63] = '1'; questions[64] = '1'; questions[65] = '1'; questions[66] = '1'; 
-  	questions[67] = '1'; questions[68] = '1';
-				document.getElementById("score").style.backgroundColor = "red";
-				var x = document.getElementById("results3");
-				x.className = "show";
+questions[61] = '1'; questions[62] = '1'; questions[63] = '1'; questions[64] = '1';
 
-				time = 0;
+
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "red";
+});
+        var x = document.getElementById("results3");
+        x.className = "show";
+
+        time = 0;
   }
-
 
 
 }
 
 
-	for(var i = 0; i < 68; i++)
-	{
-		questions.push(zero);
-	}
-	
-	for(var i = 0; i < 68; i++)
-	{
-		ansared.push(one);
-	}
 
-	function CommentSection()
-	{
-				
-				var x = document.getElementById("results6");
-				x.className = "show";
- 				var lastcommentScrollTop = 0;
- 				window.addEventListener("scroll", function(){
- 					var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 						if (commentscrollTop > lastcommentScrollTop) {
- 						x.className = "hidden";
- 						}
-
- 		
- 				})
-	}
-	
-	function myfunction(di,qno,ans,cor)
-	{
-		
-
-		if(questions[qno-1] == '0' && ans == 'y')
-		{
-			document.getElementById(di).style.backgroundColor = "green";
-			score++;
-
-			left--;
-			document.getElementById("score").innerHTML = "score " + score +" /68";
-			document.getElementById("left").innerHTML = "left " + left;		
-			questions[qno-1] = '1';
-			
-
-		}
-		else if(questions[qno-1] == '0' && ans == 'n')
-		{
-			document.getElementById(di).style.backgroundColor = "red";
-			document.getElementById(cor).style.backgroundColor = "green";
-			questions[qno-1] = '1';
-			left--;
-			document.getElementById("left").innerHTML = "left " + left;	
-
-		}
-		  if (JSON.stringify(questions) != JSON.stringify(ansared) && questions[66] == '1' && questions[67] == '1')
+  for(var i = 0; i < 64; i++)
   {
-  					var x = document.getElementById("snackbar");
-					x.className = "show";
-				setTimeout(function()
-					{ x.className = x.className.replace("show", "");
-					}, 750);
-  					document.getElementById("snackbar").innerHTML = "scroll for unanswered questions";
+    questions.push(zero);
+  }
+  
+  for(var i = 0; i < 64; i++)
+  {
+    ansared.push(one);
   }
 
-		if(JSON.stringify(questions) == JSON.stringify(ansared))
-		{
-			
-			if(marks[0] == '0')
-			{
-			if(score != 68)
-			{
+  
+  
+  function myfunction(di,qno,ans,cor)
+  {
+    
 
-				document.getElementById("score").style.backgroundColor = "red";
-				var x = document.getElementById("results");
-				x.className = "show";
+    if(questions[qno-1] == '0' && ans == 'y')
+    {
+      document.getElementById(di).style.backgroundColor = "green";
+      score++;
 
-				
-				marks[0] = '1';
-				bandile = 3000;
-			}
+      left--;
+      document.querySelectorAll(".score").forEach(el => {
+  el.innerHTML = "score " + score + " /64";
+});  
+      questions[qno-1] = '1';
+      
 
-			else if(score == 68)
-			{
-				document.getElementById("score").style.backgroundColor = "green";
-				var y = document.getElementById("results2");
-				y.className = "show";
+    }
+    else if(questions[qno-1] == '0' && ans == 'n')
+    {
+      document.getElementById(di).style.backgroundColor = "red";
 
-				var m = document.getElementById("test2");
-				m.className = "show";
-				
-				
-				marks[0] = '1';
-				bandile = 3000;
+      document.getElementById(cor).style.backgroundColor = "green";
+      questions[qno-1] = '1';
+      left--;
+      //document.getElementById("left").innerHTML = "left " + left; 
 
-			}
-			}
-		}
-	}
+    }
+      if (JSON.stringify(questions) != JSON.stringify(ansared) && questions[62] == '1' && questions[63] == '1')
+  {
+            var x = document.getElementById("snackbar");
+          x.className = "show";
+        setTimeout(function()
+          { x.className = x.className.replace("show", "");
+          }, 750);
+            document.getElementById("snackbar").innerHTML = "scroll for unanswered questions";
+  }
+
+    if(JSON.stringify(questions) == JSON.stringify(ansared))
+    {
+      
+      if(marks[0] == '0')
+      {
+      if(score != 64)
+      {
+
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "red";
+  });
+        var x = document.getElementById("results");
+        x.className = "show";
+
+        
+        marks[0] = '1';
+        bandile = 3000;
+      }
+
+      else if(score == 64)
+      {
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "green";
+  });
+startConfetti();
+        var y = document.getElementById("results2");
+        y.className = "show";
+
+        //var m = document.getElementById("test2");
+       // m.className = "show";
+        
+        
+        marks[0] = '1';
+        bandile = 3000;
+
+
+      }
+      }
+    }
+  }
 
 </script>
  <script type="text/javascript">
- 	var lastScrollTop = 0;
- 	navbar = document.getElementById("navbar");
- 	window.addEventListener("scroll", function(){
- 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 		if (scrollTop > lastScrollTop) {
- 			navbar.style.top = "-80px";
- 		}
- 		else{
- 			navbar.style.top = "0px";
- 		}
- 		lastScrollTop = scrollTop;
- 	})
- </script>
- <script type="text/javascript">
- 	if (window.history.replaceState) {
- 		window.history.replaceState(null, null, window.location.href);
- 	}
- </script>
-  <script type="text/javascript">
     const butInstall = document.getElementById('butInstall');
 
 if ('serviceWorker' in navigator) {
@@ -2407,4 +5953,106 @@ window.addEventListener('appinstalled', (event) => {
 });
 
 
+</script>
+
+
+ <script>
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight / 2;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const confettiCount = 150;
+    const confetti = [];
+    let animationRunning = false;
+
+    function createConfetti() {
+      confetti.length = 0;
+      for (let i = 0; i < confettiCount; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 6 + 2,
+          d: Math.random() * confettiCount,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          tilt: Math.random() * 10 - 5
+        });
+      }
+    }
+
+    let angle = 0;
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        ctx.beginPath();
+        ctx.lineWidth = p.r;
+        ctx.strokeStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+        ctx.lineTo(p.x + p.tilt, p.y + p.r);
+        ctx.stroke();
+      }
+      updateConfetti();
+    }
+
+    function updateConfetti() {
+      angle += 0.01;
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
+        p.x += Math.sin(angle) * 2;
+
+        if (p.y > canvas.height) {
+          p.y = -10;
+          p.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function animateConfetti() {
+      drawConfetti();
+      requestAnimationFrame(animateConfetti);
+    }
+
+    function startConfetti() {
+      if (!animationRunning) {
+        animationRunning = true;
+        createConfetti();
+        animateConfetti();
+      }
+    }
+  </script>
+<script>
+document.querySelectorAll('.municipality-widget').forEach(widget => {
+  const toggleBtn = widget.querySelector('.toggleBtn');
+  const listContainer = widget.querySelector('.list');
+  const displaySection = widget.querySelector('.display-section');
+  const displayedImage = widget.querySelector('.displayedImage');
+  const descriptionText = widget.querySelector('.descriptionText');
+
+  // Toggle list display
+  toggleBtn.addEventListener('click', () => {
+    const isVisible = listContainer.style.display === 'block';
+    listContainer.style.display = isVisible ? 'none' : 'block';
+    displaySection.style.display = 'none';
+    toggleBtn.textContent = isVisible ? 'Show Provinces' : 'Hide Provinces';
+  });
+
+  // Show image and text when button is clicked
+  widget.querySelectorAll('.list button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.dataset.image;
+      const text = btn.dataset.text;
+      displayedImage.src = img;
+      descriptionText.textContent = text;
+      displaySection.style.display = 'block';
+    });
+  });
+});
 </script>
