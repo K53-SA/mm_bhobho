@@ -1,8 +1,5 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123711353-2"></script>
@@ -13,40 +10,47 @@
 
   gtag('config', 'UA-123711353-2');
 </script>
-	<title>K53-SA</title>
-	<meta charset="utf-8">
-
-
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="shortcut icon" type="image/ico" href="../img/images.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  	<link rel="shortcut icon" type="image/ico" href="../img/images.png">
 	<link rel="manifest" href="manifest.json">
+  <title>FREEK53</title>
 </head>
-<body id="unique">
-	<header>
+<body>
+<canvas id="confetti"></canvas>
+<div class="question" id="1">
+  <div class="question_number">
+    <h3>Question 1 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
 		<div class="container">
-			<div id="branding">
-				<nav>
-
-				<div id="navbar">
-					<a href="test_code.html"> <img src="../img/back.png"></a>
-				</div>
-				</nav>
+			<div id="branding2">
+				<h1><a ><span id="time"></span></a></h1>
 			</div>
 		</div>
-	</header>			 
+		    <div class="progress-bar">
+      <div class="progress" id="progress">
+        
+      </div>
+    </div>
 
-
-		<div class="section" id="p1">
-			<span class="name">1</span>
-		</div>
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Which control should assist the driver to change gears</p>
+  </div>
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
 		</div>
-		<div class="btext">
-			<p> Which control should assist the driver to change gears</p>
-		</div>
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q11" onclick="myfunction('q11','1','y','q11')" type="submit" class="button_1">a. 8 </button>
 	    </div>
@@ -56,25 +60,83 @@
 		<div class="btext">
 	          <button  id="q13" onclick="myfunction('q13','1','n','q11')" type="submit" class="button_1">c. 10</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p2" class="btn">Next...</a>
-				        
-				      </div>
-		
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#1'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#2'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
-		<div class="section" id="p2">
-			<span class="name">2</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="2">
+  <div class="question_number">
+    <h3>Question 2 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Which control helps to change the direction of the vehicle</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> Which control helps to change the direction of the vehicle</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q21" onclick="myfunction('q21','2','y','q21')" type="submit" class="button_1">b. 4</button>
 	    </div>
@@ -84,25 +146,82 @@
 		<div class="btext">
 	          <button  id="q23" onclick="myfunction('q23','2','n','q21')" type="submit" class="button_1">c. 2</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p1" class="btn">Back</a>
-				          <a href="#p3" class="btn">Next...</a>
-				      
-				      </div>
+  </div>
 
-		
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
 
-		<div class="section" id="p3">
-			<span class="name">3</span>
-		</div>
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#1'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#3'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="3">
+  <div class="question_number">
+    <h3>Question 3 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Which control is used to ensure that your parked vehicle does not move?</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-				<div class="btext">
-			<p> Which control is used to ensure that your parked vehicle does not move?</p>
 		</div>
-	
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q31" onclick="myfunction('q31','3','n','q33')" type="submit" class="button_1">a. 1</button>
 	    </div>
@@ -112,27 +231,82 @@
 		<div class="btext">
 	          <button  id="q33" onclick="myfunction('q33','3','y','q33')" type="submit" class="button_1">c. 7</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p2" class="btn">Back</a>
-				          <a href="#p4" class="btn">Next...</a>
-				       
-				      </div>
-		
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#2'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#4'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
-		<div class="section" id="p4">
-			<span class="name">4</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="4">
+  <div class="question_number">
+    <h3>Question 4 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Use... to keep your vehicle stationary after parking.</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> Use... to keep your vehicle stationary after parking.</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q41" onclick="myfunction('q41','4','y','q41')" type="submit" class="button_1">a. 7</button>
 	    </div>
@@ -142,28 +316,82 @@
 		<div class="btext">
 	          <button  id="q43" onclick="myfunction('q43','4','n','q41')" type="submit" class="button_1">c. 2</button>
 	    </div>
-				      <div class="btext">
-				       
-				          <a href="#p3" class="btn">Back</a>
-				          <a href="#p5" class="btn">Next...</a>
-				      
-				      </div>
-		
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#3'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#5'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p5">
-			<span class="name">5</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="5">
+  <div class="question_number">
+    <h3>Question 5 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p> Which control is used to stop your vehicle?</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> Which control is used to stop your vehicle?</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q51" onclick="myfunction('q51','5','n','q52')" type="submit" class="button_1">a. 8 </button>
 	    </div>
@@ -173,28 +401,115 @@
 		<div class="btext">
 	          <button  id="q53" onclick="myfunction('q53','5','n','q52')" type="submit" class="button_1">c. 3</button>
 	    </div>
-				      <div class="btext">
-				      
-				          <a href="#p4" class="btn">Back</a>
-				          <a href="#p6" class="btn">Next...</a>
-				       
-				      </div>
-		
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#4'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad1'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad1">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+
+<a href="../mashonisa/mashonisa.html"><img src="../img/mashonisa.png" style="display:block;margin:0 auto;width:280px;height:280px;object-fit:cover;"></a>
+
+
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#5'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#6'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p6">
-			<span class="name">6</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="6">
+  <div class="question_number">
+    <h3>Question 6 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> The... control increases the vehicle speed</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>		
-		<div class="btext">
-			<p> The... control increases the vehicle speed</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q61" onclick="myfunction('q61','6','n','q63')" type="submit" class="button_1">a. 3 </button>
 	    </div>
@@ -204,28 +519,82 @@
 		<div class="btext">
 	          <button  id="q63" onclick="myfunction('q63','6','y','q63')" type="submit" class="button_1">c. 10 </button>
 	    </div>
-				      <div class="btext">
-				       
-				          <a href="#p5" class="btn">Back</a>
-				          <a href="#p7" class="btn">Next...</a>
-				        
-				      </div>
-		
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#5'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#7'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p7">
-			<span class="name">7</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="7">
+  <div class="question_number">
+    <h3>Question 7 of   15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p>The... warns other road users of your intention to steer to the right or left, or to turn to the right or left</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
 		</div>
-		<div class="btext">
-			<p>The... warns other road users of your intention to steer to the right or left, or to turn to the right or left</p>
-		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q71" onclick="myfunction('q71','7','y','q71')" type="submit" class="button_1">a. 5</button>
 	    </div>
@@ -235,27 +604,82 @@
 		<div class="btext">
 	          <button  id="q73" onclick="myfunction('q73','7','n','q71')" type="submit" class="button_1">c. 11</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p6" class="btn">Back</a>
-				          <a href="#p8" class="btn">Next...</a>
-				        
-				      </div>
+  </div>
 
-		
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#6'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#8'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
-		<div class="section" id="p8">
-			<span class="name">8</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="8">
+  <div class="question_number">
+    <h3>Question 8 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p>Which control is used when driving in a rainy weather?</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p>Which control is used when driving in a rainy weather?</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q81" onclick="myfunction('q81','8','n','q82')" type="submit" class="button_1">a. 6 </button>
 	    </div>
@@ -265,27 +689,82 @@
 		<div class="btext">
 	          <button  id="q83" onclick="myfunction('q83','8','n','q82')" type="submit" class="button_1">c. 4</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p7" class="btn">Back</a>
-				          <a href="#p9" class="btn">Next...</a>
-				        
-				      </div>
-		
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#7'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#9'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
-		<div class="section" id="p9">
-			<span class="name">9</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="9">
+  <div class="question_number">
+    <h3>Question 9 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> The... is the control you would use to check the right hand rear-side of your vehicle</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> The... is the control you would use to check the right hand rear-side of your vehicle</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q91" onclick="myfunction('q91','9','n','q93')" type="submit" class="button_1">a. 1</button>
 	    </div>
@@ -295,28 +774,82 @@
 		<div class="btext">
 	          <button  id="q93" onclick="myfunction('q93','9','y','q93')" type="submit" class="button_1">c. 3</button>
 	    </div>
-				      <div class="btext">
-				      
-				          <a href="#p8" class="btn">Back</a>
-				          <a href="#p10" class="btn">Next...</a>
-				       
-				      </div>
-		
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#8'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#10'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
 
 
-		<div class="section" id="p10">
-			<span class="name">10</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="10">
+  <div class="question_number">
+    <h3>Question 10 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p> To change gears, which combination of controls are used?</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> To change gears, which combination of controls are used?</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q101" onclick="myfunction('q101','10','y','q101')" type="submit" class="button_1">a. 8 and 6</button>
 	    </div>
@@ -326,26 +859,159 @@
 		<div class="btext">
 	          <button  id="q103" onclick="myfunction('q103','10','n','q101')" type="submit" class="button_1">c. 8 and 10</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p9" class="btn">Back</a>
-				          <a href="#p11" class="btn">Next...</a>
-				        
-				      </div>
+  </div>
 
-		
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#9'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#prm1'">  ▶  <br> Next</button>
+</div>
 
 
-		<div class="section" id="p11">
-			<span class="name">11</span>
-		</div>
+</div>
+
+
+
+<div class="question" id="prm1">
+  <div class="question_number">
+    <h3>Premium Content</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+   <p>Select your province to get pdf questions asked at your DLTC centre</p> 
+  </div>
+  <div class="container">
+
+
+
+      
+   
+<div class="scrollable_showcase">
+  <div class="municipality-widget">
+    <div class="main_button">
+      <button class="toggleBtn">Show Provinces</button>
+    </div>
+
+    <div class="main-layout">
+      <div class="left-content-premium">
+        <div class="list">
+          <button data-image="./img/gauteng.png" data-text="ONLY R200">Gauteng</button>
+          <button data-image="./img/kzn.jpg" data-text="ONLY R200">KwaZulu-Natal</button>
+          <button data-image="./img/easterncape.jpg" data-text="ONLY R200">Eastern Cape</button>
+          <button data-image="./img/westerncape.png" data-text="ONLY R200">Western Cape</button>
+          <button data-image="./img/limpopo.jpg" data-text="ONLY R200">  Limpopo</button>
+          <button data-image="./img/mpumalanga.jpg" data-text="ONLY R200">Mpumalanga</button>
+          <button data-image="./img/northwest.jpg" data-text="ONLY R200">North West</button>
+          <button data-image="./img/freestate.jpg" data-text="ONLY R200">Free State</button>
+          <button data-image="./img/northerncape.jpg" data-text="ONLY R200">  Northern Cape</button>
+        </div>
+      </div>
+
+      <div class="right-content-premium display-section" style="display: none;">
+        <img class="displayedImage" src="" alt="Selected Image" style="width:75px; height:75px;">
+        <p class="descriptionText"></p>
+        <div class="paypal-button">
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="D4P7G3Y5RFZEN" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_ZA/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Repeat the .municipality-widget div two more times for 3 sections -->
+
+</div>
+
+
+
+<div class="inline-buttons" style="border-top: 1px;">
+  <button class="nav-btn" onclick="location.href='#10'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#11'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="11">
+  <div class="question_number">
+    <h3>Question 11 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> To decrease speed use...</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
 		</div>
-		<div class="btext">
-			<p> To decrease speed use...</p>
-		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q111" onclick="myfunction('q111','11','n','q112')" type="submit" class="button_1">a. 4 </button>
 	    </div>
@@ -355,27 +1021,82 @@
 		<div class="btext">
 	          <button  id="q113" onclick="myfunction('q113','11','n','q112')" type="submit" class="button_1">c. 7</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p10" class="btn">Back</a>
-				          <a href="#p12" class="btn">Next...</a>
-				        
-				      </div>
+  </div>
 
-		
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#10'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#12'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
-		<div class="section" id="p12">
-			<span class="name">12</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="12">
+  <div class="question_number">
+    <h3>Question 12 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+			<p> The distance for a heavy vehicle to stop is <br>(i) Longer if carrying a load. <br>(ii) Longer on a wet surface than on dry surface. <br>(iii) Longer if driving at a higher speed.</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> The distance for a heavy vehicle to stop is (i) Longer if carrying a load. (ii) Longer on a wet surface than on dry surface. (iii) Longer if driving at a higher speed.</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q121" onclick="myfunction('q121','12','n','q123')" type="submit" class="button_1">a. (i)</button>
 	    </div>
@@ -385,26 +1106,82 @@
 		<div class="btext">
 	          <button  id="q123" onclick="myfunction('q123','12','y','q123')" type="submit" class="button_1">c. (i), (ii) and (iii)</button>
 	    </div>
-				      <div class="btext">
-				       
-				          <a href="#p11" class="btn">Back</a>
-				          <a href="#p13" class="btn">Next...</a>
-				       
-				      </div>
+  </div>
 
-		
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#11'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#13'">  ▶  <br> Next</button>
+</div>
 
 
-		<div class="section" id="p13">
-			<span class="name">13</span>
-		</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="13">
+  <div class="question_number">
+    <h3>Question 13 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Which control to use when you want to stop on a steep incline and preventing the vehicle to start rolling backwards?</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> Which control to use when you want to stop on a steep incline and preventing the vehicle to start rolling backwards?</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q131" onclick="myfunction('q131','13','y','q131')" type="submit" class="button_1">a. 7</button>
 	    </div>
@@ -414,26 +1191,82 @@
 		<div class="btext">
 	          <button  id="q133" onclick="myfunction('q133','13','n','q131')" type="submit" class="button_1">c. 9</button>
 	    </div>
-				      <div class="btext">
-				        
-				          <a href="#p12" class="btn">Back</a>
-				          <a href="#p14" class="btn">Next...</a>
-				       
-				      </div>
+  </div>
 
-	
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#12'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#14'">  ▶  <br> Next</button>
+</div>
 
 
-		<div class="section" id="p14">
-			<span class="name">14</span>
-		</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="14">
+  <div class="question_number">
+    <h3>Question 14 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> The... are the controls you would use to check the side of your vehicle and the rear-side of your vehicle</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
 		</div>
-		<div class="btext">
-			<p> The... are the controls you would use to check the side of your vehicle and the rear-side of your vehicle</p>
-		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q141" onclick="myfunction('q141','14','n','q142')" type="submit" class="button_1">a. 10 </button>
 	    </div>
@@ -443,25 +1276,82 @@
 		<div class="btext">
 	          <button  id="q143" onclick="myfunction('q143','14','n','q142')" type="submit" class="button_1">c. 5</button>
 	    </div>
-				      <div class="btext">
-				       
-				          <a href="#p13" class="btn">Back</a>
-				          <a href="#p15" class="btn">Next...</a>
-				       
-				      </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#13'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#15'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
 
 
 
-		<div class="section" id="p15">
-			<span class="name">15</span>
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="question" id="15">
+  <div class="question_number">
+    <h3>Question 15 of 15</h3>
+  </div>
+  <div class="time_score">
+    <p>Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> To turn a sharp curve on the road, you must use...</p>
+  </div>
+
 		<div class="psscontrols">
 			<a ><img src="../img/truck.jpg"></a>
-		</div>	
-		<div class="btext">
-			<p> To turn a sharp curve on the road, you must use...</p>
 		</div>
-
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
 		<div class="btext">
 	          <button  id="q151" onclick="myfunction('q151','15','n','q153')" type="submit" class="button_1">a. 2, 6, 8 and 9 </button>
 	    </div>
@@ -471,134 +1361,126 @@
 		<div class="btext">
 	          <button  id="q153" onclick="myfunction('q153','15','y','q153')" type="submit" class="button_1">c. 1, 3, 4, 6, 8, 9 and 10 only</button>
 	    </div>
-	    <div class="btext">
-				       
-				          <a href="#p14" class="btn">Back</a>
-            			<a href="test_code.html" class="btn" id="test2">Home</a>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/truck.jpg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#14'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#Ad2'">  ▶  <br> Next</button>
+</div>
+
+
+</div>
+
+<div class="question" id="Ad2">
+  <div class="question_number">
+    <h3>Advertisement</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining:</p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">score 0</span></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="main_question">
+    <p> Ads</p>
+  </div>
+<div class="main-layout">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<!-- Moneymaker -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="7351075048"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#15'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='test_code.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#15'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
+
+    <div class="container">
+      <div id="branding5">
+        <a target="_blank" href="https://wa.me/27614100661/"><button onclick="CommentSection()"><img src="whatsapp1.png"> </button></a>
+      </div>
+    </div>
+
+
+
+    
+
+    <div  id='results8' style='text-align: center; margin-top: 20px;'>
+      <button  name='skipSubmit' type='submit' id="butInstall">ADD</button> 
         </div>
-        
-		<div class="container">
-			<div id="branding5">
-				<a target="_blank" href="https://wa.me/27614100661/"><button onclick="CommentSection()"><img src="../img/whatsapp1.png"> </button></a>
-			</div>
-		</div>
 
 
-		<div  id="results11" >
-			<section id="boxes">		
 
-				<div class="box">
-			<a ><img src="../img/share.png"></a>
-			
-		</div>
-		<div class="box">
-			<a target="_blank" href="https://api.whatsapp.com/send?phone=&text=🚨 FREE K53 📢 Kindly send to everyone without a drivers licence 🚗 https://k53-sa.com/"><img src="../img/whatsapp1.png"></a>
-			
-		</div>
-		<div class="box">
-			<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=k53-sa.com/"><img src="../img/facebook.png"></a>
-			
-		</div>
-		<div class="box">
-			<a  target="_blank" href="https://twitter.com/intent/tweet?url=https://k53-sa.com/"><img src="../img/twitter.png"></a>
-			
-		</div>
-		<div class="box">
-			<a  target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=https://k53-sa.com/"><img src="../img/linkedin.png"></a>
-			
-		</div>
+    <div  id="snackbar">
+      <a href="#"></a>
+    </div>
 
-		</section>
-		</div>
-		<div class="btextlearn" style=' margin-top: 400px;'>
-			<br>
-			<p> ADD TO HOMESCREEN .</p>
-		</div>
-
-		
-
-		<div  id='results8' style='text-align: center; margin-top: 20px;'>
-	    <button  name='skipSubmit' type='submit' id="butInstall">ADD</button>	
-        </div>
-
-
-		<div class="btextlearn" style="margin-top: 50px;">
-			<br>
-			<p> iPhone iOS .</p>
-		</div>
-   		<div class="btextlearn" style="margin-bottom: 100px;">
-			<br>
-			<video width="320" height="240" controls><source src="../img/ios.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
-		</div>
-        
-		<div class="container">
-			<div id="branding">
-				<h1><a ><span id="score">score 0</span></a></h1>
-			</div>
-		</div>
-		<div class="container">
-			<div id="branding3">
-				<h1><a ><span id="left">left</span></a></h1>
-			</div>
-		</div>
-		<div class="container">
-			<div id="branding2">
-				<h1><a ><span id="time"></span></a></h1>
-			</div>
-		</div>
-
-		<div class="progress-bar">
-			<div class="progress" id="progress">
-				
-			</div>
-		</div>
-
-		<div  id="snackbar">
-			<a href="road_sign_test1.html"></a>
-		</div>
-
-		<div  id="results">
-			<a href="heavy_vehicle_controls.html">Try again. Reload This Page</a>
-		</div>
-		<div  id="results2">
-			<a href="../home_images/home.html">Home Page</a>
-		</div>
-		<div  id="results3">
-			<a href="heavy_vehicle_controls.html">Time Over. Reload This Page</a>
-		</div>
-		<div  id="results4">
-			<a href="learn_heavyvehicle.html#p1" style="margin-right: 70px;"><button onclick="learn()">Learn</button></a>
-			<a href="heavy_vehicle_controls.html#p1"><button onclick="learn()">Skip</button></a>
-		</div>
-	<footer id="about-footer">
-		<p> mm_bhobho did this &copy  2020</p>
-	</footer>
+    <div  id="results">
+      <a href="heavy_vehicle_controls.html">Try again. Reload This Page</a>
+    </div>
+    <div  id="results2">
+      <a href="test_code.html">Home Page</a>
+    </div>
+    <div  id="results3">
+      <a href="heavy_vehicle_controls.html">Time Over. Reload This Page</a>
+    </div>
+    <div  id="results4">
+      <a href="learn_heavyvehicle.html#p1" style="margin-right: 70px;"><button onclick="learn()">Learn</button></a>
+      <a href="#"><button onclick="learn()">Skip</button></a>
+    </div>
 </body>
 </html>
 
 <script type="text/javascript">
-	
-	var questions = [];
-	var ansared = [];
-	var	marks = [];
-	var time = 250;
-	var left = 15;
-	var learntime = 0;
-	var test_code = 'heavy';
+  
+  var questions = [];
+  var ansared = [];
+  var marks = [];
+  var time = 250;
+  var left = 15;
+  var learntime = 0;
+  var test_code = 'motor';
 
-	var prg = document.getElementById('progress');
-	marks.push('0');
+  var prg = document.getElementById('progress');
+  marks.push('0');
 
-	var zero = '0';
-	var one = '1';
-	var bandile = 10;
+  var zero = '0';
+  var one = '1';
+  var bandile = 10;
 
-	var score = 0;
-	const timeDisplay = document.querySelector('#time');
+  var score = 0;
+  const timeDisplay = document.querySelector('#time');
 window.addEventListener('load', init);
 
-
-	
+  
 function init() 
 {
   setInterval(countdown, 1000);
@@ -606,16 +1488,16 @@ function init()
 
 function countdown() 
 {
-	if (learntime == 1)
-	{
-	var one = '1';
+  if (learntime == 1)
+  {
+  var one = '1';
   if (time > 0   && bandile != 3000) 
   {
     time--;
     prg.style.width = time/2.5 + 'px';
     if(time < 120)
     {
-    	document.getElementById("progress").style.backgroundColor = "red";
+      document.getElementById("progress").style.backgroundColor = "red";
     }
   } 
   
@@ -623,19 +1505,21 @@ function countdown()
 
   if (time < 1 )
   {
-  	document.getElementById("time").style.color = "red";
-  	questions[0] = '1'; questions[1] = '1'; questions[2] = '1'; questions[3] = '1'; questions[4] = '1'; questions[5] = '1'; questions[6] = '1'; 
-  	questions[7] = '1'; questions[8] = '1'; questions[9] = '1'; questions[10] = '1'; questions[11] = '1'; questions[12] = '1';
-  	questions[13] = '1'; questions[14] = '1'; questions[15] = '1'; questions[16] = '1'; questions[17] = '1'; questions[18] = '1'; 
-  	questions[19] = '1'; questions[20] = '1'; questions[21] = '1'; questions[22] = '1'; questions[23] = '1'; questions[24] = '1';
-  	questions[25] = '1'; questions[26] = '1'; questions[27] = '1'; questions[28] = '1'; questions[29] = '1'; questions[30] = '1'; 
+    document.getElementById("time").style.color = "red";
+    questions[0] = '1'; questions[1] = '1'; questions[2] = '1'; questions[3] = '1'; questions[4] = '1'; questions[5] = '1'; questions[6] = '1'; 
+    questions[7] = '1'; questions[8] = '1'; questions[9] = '1'; questions[10] = '1'; questions[11] = '1'; questions[12] = '1';
+    questions[13] = '1'; questions[14] = '1'; questions[15] = '1'; questions[16] = '1'; questions[17] = '1'; questions[18] = '1'; 
+    questions[19] = '1'; questions[20] = '1'; questions[21] = '1'; questions[22] = '1'; questions[23] = '1'; questions[24] = '1';
+    questions[25] = '1'; questions[26] = '1'; questions[27] = '1'; questions[28] = '1'; questions[29] = '1'; questions[30] = '1'; 
 
 
-				document.getElementById("score").style.backgroundColor = "red";
-				var x = document.getElementById("results3");
-				x.className = "show";
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "red";
+});
+        var x = document.getElementById("results3");
+        x.className = "show";
 
-				time = 0;
+        time = 0;
   }
 
 
@@ -643,139 +1527,128 @@ function countdown()
 }
 
 
-	for(var i = 0; i < 15; i++)
-	{
-		questions.push(zero);
-	}
-	
-	for(var i = 0; i < 15; i++)
-	{
-		ansared.push(one);
-	}
-
-	function learn()
-	{
-				
-				var x = document.getElementById("results4");
-				x.className = "show";
-				learntime = 1;
-	}
-
-	function CommentSection()
-	{
-				
-				var x = document.getElementById("results6");
-				x.className = "show";
-				 				var lastcommentScrollTop = 0;
- 				window.addEventListener("scroll", function(){
- 					var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 						if (commentscrollTop > lastcommentScrollTop) {
- 						x.className = "hidden";
- 						}
-
- 		
- 				})
-	}
-	function closeCommentSection()
-	{
-				
-				var x = document.getElementById("results6");
-				x.className = "close";
-	}
-	
-	
-	function myfunction(di,qno,ans,cor)
-	{
-		
-
-		if(questions[qno-1] == '0' && ans == 'y')
-		{
-			document.getElementById(di).style.backgroundColor = "green";
-			score++;
-
-			left--;
-			document.getElementById("score").innerHTML = "score " + score +" /15";
-			document.getElementById("left").innerHTML = "left " + left;		
-			questions[qno-1] = '1';
-			
-
-		}
-		else if(questions[qno-1] == '0' && ans == 'n')
-		{
-			document.getElementById(di).style.backgroundColor = "red";
-			document.getElementById(cor).style.backgroundColor = "green";
-			questions[qno-1] = '1';
-			left--;
-			document.getElementById("left").innerHTML = "left " + left;	
-
-		}
-		  if (JSON.stringify(questions) != JSON.stringify(ansared) && questions[13] == '1' && questions[14] == '1')
+  for(var i = 0; i < 15; i++)
   {
-  					var x = document.getElementById("snackbar");
-					x.className = "show";
-				setTimeout(function()
-					{ x.className = x.className.replace("show", "");
-					}, 750);
-  					document.getElementById("snackbar").innerHTML = "scroll for unanswered questions";
+    questions.push(zero);
+  }
+  
+  for(var i = 0; i < 15; i++)
+  {
+    ansared.push(one);
   }
 
-		if(JSON.stringify(questions) == JSON.stringify(ansared))
-		{
-			
-			if(marks[0] == '0')
-			{
-			if(score != 15)
-			{
+  function learn()
+  {
+        
+        var x = document.getElementById("results4");
+        x.className = "show";
+        learntime = 1;
+  }
 
-				document.getElementById("score").style.backgroundColor = "red";
-				var x = document.getElementById("results");
-				x.className = "show";
+  function CommentSection()
+  {
+        
+        var x = document.getElementById("results6");
+        x.className = "show";
+                var lastcommentScrollTop = 0;
+        window.addEventListener("scroll", function(){
+          var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (commentscrollTop > lastcommentScrollTop) {
+            x.className = "hidden";
+            }
 
-				
-				marks[0] = '1';
-				bandile = 3000;
-			}
+    
+        })
+  }
+  function closeCommentSection()
+  {
+        
+        var x = document.getElementById("results6");
+        x.className = "close";
 
-			else if(score == 15)
-			{
-				document.getElementById("score").style.backgroundColor = "green";
-				var y = document.getElementById("results2");
-				y.className = "show";
+  }
+  
+  
+  function myfunction(di,qno,ans,cor)
+  {
+    
 
-				var m = document.getElementById("test2");
-				m.className = "show";
-				
-				
-				marks[0] = '1';
-				bandile = 3000;
+    if(questions[qno-1] == '0' && ans == 'y')
+    {
+      document.getElementById(di).style.backgroundColor = "green";
+      score++;
 
-			}
-			}
-		}
-	}
+      left--;
+      document.querySelectorAll(".score").forEach(el => {
+  el.innerHTML = "score " + score + " /15";
+});  
+      questions[qno-1] = '1';
+      
+
+    }
+    else if(questions[qno-1] == '0' && ans == 'n')
+    {
+      document.getElementById(di).style.backgroundColor = "red";
+
+      document.getElementById(cor).style.backgroundColor = "green";
+      questions[qno-1] = '1';
+      left--;
+      //document.getElementById("left").innerHTML = "left " + left; 
+
+    }
+      if (JSON.stringify(questions) != JSON.stringify(ansared) && questions[13] == '1' && questions[14] == '1')
+  {
+            var x = document.getElementById("snackbar");
+          x.className = "show";
+        setTimeout(function()
+          { x.className = x.className.replace("show", "");
+          }, 750);
+            document.getElementById("snackbar").innerHTML = "scroll for unanswered questions";
+  }
+
+    if(JSON.stringify(questions) == JSON.stringify(ansared))
+    {
+      
+      if(marks[0] == '0')
+      {
+      if(score != 15)
+      {
+
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "red";
+  });
+        var x = document.getElementById("results");
+        x.className = "show";
+
+        
+        marks[0] = '1';
+        bandile = 3000;
+      }
+
+      else if(score == 15)
+      {
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "green";
+  });
+startConfetti();
+        var y = document.getElementById("results2");
+        y.className = "show";
+
+        //var m = document.getElementById("test2");
+       // m.className = "show";
+        
+        
+        marks[0] = '1';
+        bandile = 3000;
+
+
+      }
+      }
+    }
+  }
 
 </script>
  <script type="text/javascript">
- 	var lastScrollTop = 0;
- 	navbar = document.getElementById("navbar");
- 	window.addEventListener("scroll", function(){
- 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 		if (scrollTop > lastScrollTop) {
- 			navbar.style.top = "-80px";
- 		}
- 		else{
- 			navbar.style.top = "0px";
- 		}
- 		lastScrollTop = scrollTop;
- 	})
- </script>
-  <script type="text/javascript">
- 	if (window.history.replaceState) {
- 		window.history.replaceState(null, null, window.location.href);
- 	}
- </script>
-
-  <script type="text/javascript">
     const butInstall = document.getElementById('butInstall');
 
 if ('serviceWorker' in navigator) {
@@ -825,4 +1698,106 @@ window.addEventListener('appinstalled', (event) => {
 });
 
 
+</script>
+
+
+ <script>
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight / 2;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const confettiCount = 150;
+    const confetti = [];
+    let animationRunning = false;
+
+    function createConfetti() {
+      confetti.length = 0;
+      for (let i = 0; i < confettiCount; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 6 + 2,
+          d: Math.random() * confettiCount,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          tilt: Math.random() * 10 - 5
+        });
+      }
+    }
+
+    let angle = 0;
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        ctx.beginPath();
+        ctx.lineWidth = p.r;
+        ctx.strokeStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+        ctx.lineTo(p.x + p.tilt, p.y + p.r);
+        ctx.stroke();
+      }
+      updateConfetti();
+    }
+
+    function updateConfetti() {
+      angle += 0.01;
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
+        p.x += Math.sin(angle) * 2;
+
+        if (p.y > canvas.height) {
+          p.y = -10;
+          p.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function animateConfetti() {
+      drawConfetti();
+      requestAnimationFrame(animateConfetti);
+    }
+
+    function startConfetti() {
+      if (!animationRunning) {
+        animationRunning = true;
+        createConfetti();
+        animateConfetti();
+      }
+    }
+  </script>
+<script>
+document.querySelectorAll('.municipality-widget').forEach(widget => {
+  const toggleBtn = widget.querySelector('.toggleBtn');
+  const listContainer = widget.querySelector('.list');
+  const displaySection = widget.querySelector('.display-section');
+  const displayedImage = widget.querySelector('.displayedImage');
+  const descriptionText = widget.querySelector('.descriptionText');
+
+  // Toggle list display
+  toggleBtn.addEventListener('click', () => {
+    const isVisible = listContainer.style.display === 'block';
+    listContainer.style.display = isVisible ? 'none' : 'block';
+    displaySection.style.display = 'none';
+    toggleBtn.textContent = isVisible ? 'Show Provinces' : 'Hide Provinces';
+  });
+
+  // Show image and text when button is clicked
+  widget.querySelectorAll('.list button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.dataset.image;
+      const text = btn.dataset.text;
+      displayedImage.src = img;
+      descriptionText.textContent = text;
+      displaySection.style.display = 'block';
+    });
+  });
+});
 </script>
