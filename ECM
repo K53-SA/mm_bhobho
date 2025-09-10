@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ECM Section A Quiz</title>
+  <style>
+    :root{
+      --bg:#000;
+      --panel:#0b0b0f;
+      --text:#eaeaea;
+      --muted:#b7b7b7;
+      --accent:#3b82f6;
+      --correct:#16a34a;   /* green */
+      --incorrect:#ef4444; /* red */
+      --border:#1f2937;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
+    }
+    main{
+      max-width:1100px;
+      margin:0 auto;
+      padding:24px 16px 80px;
+    }
+    h1{
+      font-size:clamp(22px,2.4vw,32px);
+      margin:0 0 8px;
+      letter-spacing:.2px;
+    }
+    .sub{
+      color:var(--muted);
+      margin:0 0 24px;
+      font-size:14px;
+    }
+    .question{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px 16px;
+      margin:14px 0;
+      box-shadow:0 0 0 1px rgba(255,255,255,0.02) inset;
+    }
+    .q-title{
+      display:flex; gap:10px; align-items:flex-start;
+      font-weight:600; margin-bottom:12px;
+    }
+    .q-num{
+      display:inline-grid; place-items:center;
+      min-width:28px; height:28px; border-radius:7px;
+      background:#111827; color:#c7d2fe; font-weight:700;
+      border:1px solid var(--border);
+    }
+    fieldset{border:0; padding:0; margin:0}
+    ul.opts{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+    .opt{
+      display:flex; align-items:center; gap:10px;
+      border:1px solid var(--border);
+      background:#0f1117;
+      padding:10px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      transition:transform .04s ease, border-color .2s ease, background .2s ease;
+      outline: none;
+    }
+    .opt:hover{transform:translateY(-1px); border-color:#263245}
+    .opt input{position:absolute; opacity:0; pointer-events:none}
+    .badge{
+      width:28px; height:28px; border-radius:7px;
+      display:inline-grid; place-items:center;
+      background:#111827; color:#9ca3af; font-weight:700;
+      border:1px solid var(--border);
+      flex:0 0 28px;
+    }
+    .txt{flex:1}
+    /* Result colours */
+    .opt.correct{border-color:rgba(22,163,74,.6); background:rgba(22,163,74,.12)}
+    .opt.incorrect{border-color:rgba(239,68,68,.7); background:rgba(239,68,68,.10)}
+    .opt.correct .badge{background:rgba(22,163,74,.2); color:#bbf7d0; border-color:rgba(22,163,74,.5)}
+    .opt.incorrect .badge{background:rgba(239,68,68,.2); color:#fecaca; border-color:rgba(239,68,68,.5)}
+    /* Accessibility focus */
+    .opt:focus-within{outline:2px solid var(--accent); outline-offset:2px}
+    /* Footer controls */
+    .controls{
+      position:sticky; bottom:0; left:0; right:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.75) 30%, rgba(0,0,0,1) 100%);
+      padding:16px 0 20px;
+      backdrop-filter:saturate(1.1) blur(2px);
+    }
+    .bar{
+      max-width:1100px; margin:0 auto;
+      padding:0 16px; display:flex; gap:12px; align-items:center; justify-content:space-between;
+    }
+    button{
+      background:#111827; color:#fff; border:1px solid var(--border);
+      padding:10px 14px; border-radius:10px; cursor:pointer;
+      font-weight:600;
+    }
+    button:hover{border-color:#2a3a50}
+    .score{color:var(--muted); font-size:14px}
+    .score b{color:#fff}
+  </style>
+</head>
+<body>
+<main>
+  <h1>ECM — Section A (Multiple Choice)</h1>
+  <p class="sub">Click an option. If you’re wrong, your choice turns <b style="color:#ef4444">red</b> and the correct one turns <b style="color:#16a34a">green</b>. Questions lock after answering. Use “Reset” to try again.</p>
+
+  <div id="quiz"></div>
+
+  <div class="controls">
+    <div class="bar">
+      <div class="score" id="score">Score: <b>0 / 15</b></div>
+      <button id="resetBtn" type="button" aria-label="Reset quiz">Reset</button>
+    </div>
+  </div>
+</main>
+
+<script>
+/*
+  ECM Section A — Questions & Answers
+  correct is a zero-based index (0=A, 1=B, 2=C, 3=D)
+*/
+const QUESTIONS = [
+  {
+    q: "Who decides the execution route for an Engineering Change (EC)?",
+    opts: ["DRC","SCCC","CCCC","CoE"],
+    correct: 1
+  },
+  {
+    q: "Which are the three execution routes?",
+    opts: ["PM / PSM / PPM","PM / PLCM / PPM","QM / PM / FI","CAP / PM / FI"],
+    correct: 1
+  },
+  {
+    q: "“Equivalency” and “Test” ECs (L1/L2) must be presented to… before implementation.",
+    opts: ["DRC","SCCC","CCCC","CC"],
+    correct: 2
+  },
+  {
+    q: "After implementation, which process starts?",
+    opts: ["Originate","Implement","Finalise (Close)","Design Review"],
+    correct: 2
+  },
+  {
+    q: "Which documents are typically required around implementation/commissioning?",
+    opts: [
+      "Shift roster only",
+      "Purchase quotes",
+      "Commissioning procedure, FAT, QC plan (hold/witness), test data, acceptance report",
+      "None"
+    ],
+    correct: 2
+  },
+  {
+    q: "In Implement, the milestone evaluated for go/no-go is the…",
+    opts: ["Design","Baseline","Budget","Close-out"],
+    correct: 1
+  },
+  {
+    q: "In Implement, after authorisation and build, what may commence?",
+    opts: ["Procurement","Design Review","Commissioning","Decommissioning"],
+    correct: 2
+  },
+  {
+    q: "During Implement, which baseline statuses does the CC update?",
+    opts: ["APR / ASR","ABB (As-Built Baseline) and ACB (As-Commissioned Baseline)","WIP / REL","PRE / APP"],
+    correct: 1
+  },
+  {
+    q: "Emergency changes: a decision period to finalise must be set by the SCCC chair within…",
+    opts: ["24 hours","48 hours","One week","One month"],
+    correct: 2
+  },
+  {
+    q: "L1/L2 emergency ECs are reviewed at CCCC…",
+    opts: ["Weekly","Monthly","Quarterly","Annually"],
+    correct: 2
+  },
+  {
+    q: "First step in Originate (Normal): create the ECN in SAP via…",
+    opts: ["IW31","IW21","CV01N","CC01"],
+    correct: 1
+  },
+  {
+    q: "Who routes the ECN to the responsible System/Plant Engineer?",
+    opts: ["SCCC","Change Coordinator (CC)","DRC","EDWL"],
+    correct: 1
+  },
+  {
+    q: "EC classification: which definition matches Level 1?",
+    opts: [
+      "Minor inconvenience",
+      "Failure → unit trip/major damage/environment breach/safety impact",
+      "Decreased availability/reliability",
+      "Admin only"
+    ],
+    correct: 1
+  },
+  {
+    q: "EC prioritisation categories are:",
+    opts: ["Urgent/Normal/Low","P1/P2/P3","High/Medium/Low","Capex/Opex/Other"],
+    correct: 2
+  },
+  {
+    q: "In Finalise, a key KPI is the number of…",
+    opts: ["Spare parts","Design reviews","Open Engineering Change Requests","Closed POs"],
+    correct: 2
+  }
+];
+
+const quizEl = document.getElementById("quiz");
+const scoreEl = document.getElementById("score");
+const resetBtn = document.getElementById("resetBtn");
+
+function renderQuiz(){
+  quizEl.innerHTML = "";
+  QUESTIONS.forEach((item, idx) => {
+    const card = document.createElement("section");
+    card.className = "question";
+    card.setAttribute("data-idx", idx);
+    card.setAttribute("aria-labelledby", `q${idx+1}-title`);
+
+    const title = document.createElement("div");
+    title.className = "q-title";
+    title.innerHTML = `<span class="q-num">${idx+1}</span>
+                       <div id="q${idx+1}-title">${item.q}</div>`;
+    card.appendChild(title);
+
+    const fs = document.createElement("fieldset");
+    const list = document.createElement("ul");
+    list.className = "opts";
+
+    item.opts.forEach((opt, i) => {
+      const id = `q${idx+1}o${i}`;
+      const li = document.createElement("li");
+
+      const label = document.createElement("label");
+      label.setAttribute("for", id);
+      label.className = "opt";
+      label.setAttribute("data-option-idx", i);
+
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `q${idx+1}`;
+      input.id = id;
+      input.value = i;
+      input.setAttribute("aria-describedby", `q${idx+1}-title`);
+
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = String.fromCharCode(65 + i); // A, B, C, D
+
+      const txt = document.createElement("span");
+      txt.className = "txt";
+      txt.textContent = opt;
+
+      label.appendChild(input);
+      label.appendChild(badge);
+      label.appendChild(txt);
+      li.appendChild(label);
+      list.appendChild(li);
+    });
+
+    fs.appendChild(list);
+    card.appendChild(fs);
+    quizEl.appendChild(card);
+  });
+}
+
+function gradeQuestion(sectionEl, selectedIdx){
+  const qIndex = Number(sectionEl.getAttribute("data-idx"));
+  const correctIdx = QUESTIONS[qIndex].correct;
+
+  // prevent re-grading
+  if (sectionEl.getAttribute("data-graded") === "true") return;
+
+  const labels = sectionEl.querySelectorAll(".opt");
+  labels.forEach((label, i) => {
+    // lock inputs
+    const input = label.querySelector("input");
+    input.disabled = true;
+
+    if (i === selectedIdx && i === correctIdx){
+      label.classList.add("correct");
+    } else if (i === selectedIdx && i !== correctIdx){
+      label.classList.add("incorrect");
+    }
+  });
+
+  // always reveal the correct option
+  labels[correctIdx].classList.add("correct");
+
+  sectionEl.setAttribute("data-graded","true");
+  updateScore();
+}
+
+function updateScore(){
+  const graded = document.querySelectorAll('.question[data-graded="true"]');
+  let correct = 0;
+  graded.forEach(sec => {
+    const qIdx = Number(sec.getAttribute("data-idx"));
+    const correctIdx = QUESTIONS[qIdx].correct;
+    const correctLabel = sec.querySelectorAll(".opt")[correctIdx];
+    if (correctLabel.classList.contains("correct") && !correctLabel.classList.contains("incorrect")) {
+      // If only marked correct (i.e., selected was correct)
+      correct += 1;
+    } else {
+      // If user selected wrong, correct label is also green,
+      // but the selected wrong is red; don't count as correct.
+      // Nothing to add.
+    }
+  });
+  scoreEl.innerHTML = `Score: <b>${correct} / ${QUESTIONS.length}</b>`;
+}
+
+function resetQuiz(){
+  renderQuiz();
+  scoreEl.innerHTML = `Score: <b>0 / ${QUESTIONS.length}</b>`;
+}
+
+// Event delegation for all radio changes
+quizEl.addEventListener("change", (e) => {
+  const input = e.target;
+  if (input && input.matches('input[type="radio"]')){
+    const section = input.closest(".question");
+    const selectedIdx = Number(input.value);
+    gradeQuestion(section, selectedIdx);
+  }
+});
+
+resetBtn.addEventListener("click", resetQuiz);
+
+// Init
+renderQuiz();
+</script>
+</body>
+</html>
