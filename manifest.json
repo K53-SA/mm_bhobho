@@ -1,7 +1,7 @@
 {
-  "short_name": "K53-SA",
-  "name": "K53-SA",
-  "description": "K53 South Africa learners licence test multiple choice questions and answers",
+  "short_name": "FREEK53",
+  "name": "FREEK53",
+  "description": "FREEK53 LEARNERS LICENCE TEST QUESTIONS AND ANSWERS",
   "icons": [
     {
       "src": "images192.png",
@@ -14,7 +14,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://k53-sa.com/",
+  "start_url": "./",
   "background_color": "#000",
   "display": "standalone",
   "theme_color": "#000"
