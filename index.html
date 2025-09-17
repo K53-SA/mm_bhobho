@@ -68,37 +68,34 @@
 
 <script type="text/javascript">
     
-// Install prompt
-    let deferredPrompt = null;
-    const banner = document.getElementById('installBanner');
-    const installBtn = document.getElementById('installBtn');
-    const installClose = document.getElementById('installClose');
+  // --- INSTALL PROMPT WIRING ---
+  let deferredPrompt = null;
 
-    function showInstallPromotion() { banner.style.display = 'block'; }
-    function hideMyInstallPromotion() { banner.style.display = 'none'; }
+  const banner       = document.getElementById('installBanner');
+  const installBtn   = document.getElementById('installBtn');
+  const installClose = document.getElementById('installClose');
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Stop the auto prompt
-      e.preventDefault();
-      deferredPrompt = e;
-      showInstallPromotion();
-    });
+  function showInstallPromotion() { banner.style.display = 'block'; }
+  function hideMyInstallPromotion() { banner.style.display = 'none'; }
 
-    installBtn.addEventListener('click', async () => {
-      hideMyInstallPromotion();
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      const choice = await deferredPrompt.userChoice;
-      if (choice.outcome === 'accepted') {
-        showSnack('Thanks! Installing…');
-      } else {
-        showSnack('Install dismissed');
-      }
-      deferredPrompt = null;
-    });
+  // Capture the event so we can show our own UI
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();           // don't let Chrome show its mini-infobar
+    deferredPrompt = e;           // save it for later
+    showInstallPromotion();       // show our banner
+  });
 
-    installClose.addEventListener('click', hideMyInstallPromotion);
+  installBtn.addEventListener('click', async () => {
+    hideMyInstallPromotion();
+    if (!deferredPrompt) return;  // safety
+    deferredPrompt.prompt();      // <-- THIS is what Chrome wants to see
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log('PWA install choice:', outcome);
+    deferredPrompt = null;        // must be reset; can only be used once
+  });
 
+  installClose.addEventListener('click', hideMyInstallPromotion);
 </script>
+
 
 
