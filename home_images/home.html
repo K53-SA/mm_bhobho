@@ -16,6 +16,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="shortcut icon" type="image/ico" href="../img/images.png">
+<!-- PWA install bits -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../img/images.png">
 
 
 </head>
@@ -109,8 +113,39 @@
 </script>
 
 
-
-
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js', { scope: './' })
+      .then(reg => console.log('SW registered:', reg.scope))
+      .catch(err => console.error('SW registration failed:', err));
+  });
+}
+</script>
+<button id="btnInstall" style="position:fixed;right:16px;bottom:16px;z-index:9999;background:#25D366;color:#000;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;display:none">
+  Install App
+</button>
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('btnInstall').style.display = 'block';
+});
+document.getElementById('btnInstall').addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log('Install outcome:', outcome);
+  deferredPrompt = null;
+  document.getElementById('btnInstall').style.display = 'none';
+});
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js'));
+}
+</script>
 	<footer id="about-footer" style="margin-top: 500px;">
 		<p> FREEK53 NON PROFIT COMPANY &copy  2020</p>
 	</footer>
@@ -153,3 +188,4 @@
  				})
 	}
  </script>
+
