@@ -101,33 +101,6 @@
 
 
 
-<script>
-  // --- INSTALL PROMPT WIRING ---
-  let deferredPrompt = null;
 
-  const banner       = document.getElementById('installBanner');
-  const installBtn   = document.getElementById('installBtn');
-  const installClose = document.getElementById('installClose');
 
-  function showInstallPromotion() { banner.style.display = 'block'; }
-  function hideMyInstallPromotion() { banner.style.display = 'none'; }
-
-  // Capture the event so we can show our own UI
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();           // don't let Chrome show its mini-infobar
-    deferredPrompt = e;           // save it for later
-    showInstallPromotion();       // show our banner
-  });
-
-  installBtn.addEventListener('click', async () => {
-    hideMyInstallPromotion();
-    if (!deferredPrompt) return;  // safety
-    deferredPrompt.prompt();      // <-- THIS is what Chrome wants to see
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log('PWA install choice:', outcome);
-    deferredPrompt = null;        // must be reset; can only be used once
-  });
-
-  installClose.addEventListener('click', hideMyInstallPromotion);
-</script>
 
