@@ -2,14 +2,17 @@
 const CACHE_VERSION = 'v1.0.1';
 const APP_SHELL = [
   './',              // resolves to /visitors2/
-  './home.php',
-  './profile.php',
+  './home.html',
   './style.css',
-  './verified-icon.svg',
-  './whatsapp1.png',
   './offline.html',
-  './icons/icon-192.png',
-  './icons/icon-512.png'
+    './K53_Controls_Test.PNG',
+    './K53_Signs_Test.PNG',
+    './K53_Rules_Test.PNG',
+    './K53_Book_Test.PNG',
+    './K53_Learners_Test.PNG',
+    './images.png',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 self.addEventListener('install', (e) => {
@@ -61,3 +64,4 @@ self.addEventListener('fetch', (e) => {
   // default
   e.respondWith(fetch(e.request).catch(() => caches.match(e.request).then(r => r || caches.match('./offline.html'))));
 });
+
