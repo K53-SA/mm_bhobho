@@ -151,6 +151,20 @@ if ('serviceWorker' in navigator) {
 	</footer>
 </body>
 </html>
+  <script type="text/javascript">
+ 	var lastScrollTop = 0;
+ 	navbar = document.getElementById("branding5menu");
+ 	window.addEventListener("scroll", function(){
+ 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+ 		if (scrollTop > lastScrollTop) {
+ 			navbar.style.visibility = "hidden";
+ 		}
+ 		else if (scrollTop == 0) {
+ 			navbar.style.visibility = "visible";
+ 		}
+ 		lastScrollTop = scrollTop;
+ 	})
+ </script>
 
  <script type="text/javascript">
  		function CommentSection()
@@ -170,6 +184,7 @@ if ('serviceWorker' in navigator) {
  				})
 	}
  </script>
+
 
 
 
