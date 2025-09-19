@@ -135,12 +135,23 @@ document.getElementById('btnInstall').addEventListener('click', async () => {
   document.getElementById('btnInstall').style.display = 'none';
 });
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/home_images/service-worker.js', { scope: '/home_images/' })
+      .then(r => console.log('SW scope:', r.scope))
+      .catch(err => console.error('SW registration failed:', err));
+  });
+}
+</script>
 
 	<footer id="about-footer" style="margin-top: 500px;">
 		<p> FREEK53 NON PROFIT COMPANY &copy  2020</p>
 	</footer>
 </body>
 </html>
+
 
 
 
