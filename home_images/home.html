@@ -152,6 +152,23 @@ if ('serviceWorker' in navigator) {
 </body>
 </html>
 
+ <script type="text/javascript">
+ 		function CommentSection()
+	{
+				
+				var x = document.getElementById("results9");
+
+				x.className = "show";
+ 				var lastcommentScrollTop = 0;
+ 				window.addEventListener("scroll", function(){
+ 					var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
+ 						if (commentscrollTop > lastcommentScrollTop) {
+ 						x.className = "hidden";
+ 						}
+
+ 		
+ 				})
+	}
 
 
 
