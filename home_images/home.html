@@ -19,7 +19,11 @@
 <!-- PWA install bits -->
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" href="../img/images.png">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images192.png">
+
+
 
 
 </head>
@@ -112,16 +116,6 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('service-worker.js', { scope: './' })
-      .then(reg => console.log('SW registered:', reg.scope))
-      .catch(err => console.error('SW registration failed:', err));
-  });
-}
-</script>
 <button id="btnInstall" style="position:fixed;right:16px;bottom:16px;z-index:9999;background:#25D366;color:#000;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;display:none">
   Install App
 </button>
@@ -141,11 +135,7 @@ document.getElementById('btnInstall').addEventListener('click', async () => {
   document.getElementById('btnInstall').style.display = 'none';
 });
 </script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js'));
-}
-</script>
+
 	<footer id="about-footer" style="margin-top: 500px;">
 		<p> FREEK53 NON PROFIT COMPANY &copy  2020</p>
 	</footer>
@@ -155,38 +145,5 @@ if ('serviceWorker' in navigator) {
 
 
 
-  <script type="text/javascript">
- 	var lastScrollTop = 0;
- 	navbar = document.getElementById("branding5menu");
- 	window.addEventListener("scroll", function(){
- 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 		if (scrollTop > lastScrollTop) {
- 			navbar.style.visibility = "hidden";
- 		}
- 		else if (scrollTop == 0) {
- 			navbar.style.visibility = "visible";
- 		}
- 		lastScrollTop = scrollTop;
- 	})
- </script>
-
- <script type="text/javascript">
- 		function CommentSection()
-	{
-				
-				var x = document.getElementById("results9");
-
-				x.className = "show";
- 				var lastcommentScrollTop = 0;
- 				window.addEventListener("scroll", function(){
- 					var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 						if (commentscrollTop > lastcommentScrollTop) {
- 						x.className = "hidden";
- 						}
-
- 		
- 				})
-	}
- </script>
 
 
