@@ -1,7 +1,7 @@
 // /visitors2/service-worker.js
 const CACHE_VERSION = 'v1.0.1';
 const APP_SHELL = [
-  './',              // resolves to /visitors2/
+  './',              // resolves to /home_images/
   './home.html',
   './style.css',
   './offline.html',
@@ -36,7 +36,7 @@ self.addEventListener('fetch', (e) => {
   if (url.pathname.endsWith('update_visitors.php')) return;
 
   // network-first for PHP
-  if (url.pathname.endsWith('.php') || url.pathname.endsWith('/visitors2/') || url.pathname.endsWith('/')) {
+  if (url.pathname.endsWith('.php') || url.pathname.endsWith('/home_images/') || url.pathname.endsWith('/')) {
     e.respondWith(
       fetch(e.request).then(res => {
         const copy = res.clone();
@@ -48,7 +48,7 @@ self.addEventListener('fetch', (e) => {
   }
 
   // cache-first for static
-  if (/\.(css|js|png|jpg|jpeg|webp|svg|ico|gif|ttf|woff2?)$/i.test(url.pathname)) {
+  if (/\.(css|js|png|PNG|jpg|jpeg|webp|svg|ico|gif|ttf|woff2?)$/i.test(url.pathname)) {
     e.respondWith(
       caches.match(e.request).then(cached => cached ||
         fetch(e.request).then(res => {
@@ -64,4 +64,5 @@ self.addEventListener('fetch', (e) => {
   // default
   e.respondWith(fetch(e.request).catch(() => caches.match(e.request).then(r => r || caches.match('./offline.html'))));
 });
+
 
