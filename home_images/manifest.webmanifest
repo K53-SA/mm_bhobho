@@ -1,14 +1,16 @@
 {
   "name": "FREEK53",
   "short_name": "FREEK53",
-  "start_url": "./home.php?source=home_images",
-  "scope": "./",
+  "start_url": "/home_images/home.html",
+  "scope": "/home_images/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "/home_images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/home_images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
+
+
 
