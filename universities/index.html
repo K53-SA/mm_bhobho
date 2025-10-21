@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open Universities</title>
+  <style>
+    :root {
+      --bg:#000; --text:#fff; --muted:#bfbfbf; --card:#0f0f0f;
+      --accent:#1e90ff; --accent-done:#28a745; --whatsapp:#25D366;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,Arial,Helvetica,sans-serif;line-height:1.4;}
+    .container{max-width:1100px;margin:24px auto;padding:16px;}
+    header{display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+    header h1{margin:0;font-size:20px;color:var(--text);}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px;}
+    @media(min-width:880px){.grid{grid-template-columns:repeat(2,1fr);}}
+    .card{background:var(--card);padding:12px;border-radius:10px;
+      border:1px solid #1a1a1a;display:flex;flex-direction:column;color:var(--text);transition:opacity .3s;}
+    .card-head{display:flex;align-items:center;gap:12px;color:var(--text);}
+    .logo{width:56px;height:56px;border-radius:8px;flex:0 0 56px;background:#222;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .logo img{width:100%;height:100%;object-fit:contain;}
+    .company{font-weight:700;color:var(--text);}
+    .fee{font-size:13px;color:var(--muted);}
+    .desc{margin-top:10px;color:var(--text);min-height:56px;}
+    .card-foot{display:flex;justify-content:space-between;align-items:center;
+      margin-top:12px;color:var(--text);flex-wrap:wrap;gap:8px;}
+    .closing{color:var(--text);}
+    .apply-btn,.share-btn{padding:10px 14px;border-radius:8px;border:none;color:#fff;font-weight:700;cursor:pointer;}
+    .apply-btn{background:var(--accent);}
+    .apply-btn.done{background:var(--accent-done);}
+    .share-btn{background:var(--whatsapp);}
+    .adsense{background:#111;border:1px dashed #333;padding:12px;
+      border-radius:8px;color:var(--text);text-align:center;}
+    footer{margin-top:30px;text-align:center;color:var(--text);font-size:13px;}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+          crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <header><h1>Open Universities</h1></header>
+    <main id="list" class="grid"></main>
+    <footer>FREEK53 NON PROFIT COMPANY © 2025</footer>
+  </div>
+
+  <script>
+  const universities = [
+    ['uct.jpg','University of Cape Town','R100','Top-ranked university in South Africa offering diverse undergraduate and postgraduate programs.','2025-08-01','https://applyonline.uct.ac.za'],
+    ['wits.png','University of the Witwatersrand','R250','Renowned for engineering, health sciences, and social sciences education.','2025-02-01','https://www.wits.ac.za/applications/'],
+    ['ukzn.png','University of KwaZulu-Natal','Free','Offers degrees in agriculture, engineering, and medicine with strong community engagement.','2025-04-01','https://applications.ukzn.ac.za'],
+    ['unisa.jpg','University of South Africa (UNISA)','R120','Africa’s largest open distance learning institution offering flexible study options.','2025-10-01','https://www.unisa.ac.za/apply'],
+    ['up.png','University of Pretoria','R300','Leading university in research and innovation across law, engineering, and health sciences.','2025-01-01','https://www.up.ac.za/online-application'],
+
+
+
+ ['cput.png','Cape Peninsula University of Technology','R100','A leading university of technology focusing on applied sciences, business, and engineering.','2025-06-01','https://www.cput.ac.za/study/apply'],
+  ['dut.jpg','Durban University of Technology','R250','Offers diplomas and degrees in health sciences, engineering, and management sciences.','2025-04-30','https://www.dut.ac.za/apply/'],
+  ['tut.png','Tshwane University of Technology','R240','Largest contact university of technology in South Africa with over 60 campuses and faculties.','2025-07-15','https://www.tut.ac.za/ApplyNow'],
+  ['mut.jpg','Mangosuthu University of Technology','R150','A public university in Umlazi offering applied sciences, engineering, and business studies.','2025-05-30','https://www.mut.ac.za/admissions/'],
+  ['nwu.png','North-West University','R250','Known for strong research output and multilingualism, offering distance and contact learning.','2025-08-31','https://www.nwu.ac.za/apply'],
+  ['ufh.jpg','University of Fort Hare','R120','Historic institution producing African leaders, offering degrees in law, science, and humanities.','2025-09-01','https://www.ufh.ac.za/'],
+  ['univen.png','University of Venda','R100','Public university in Thohoyandou focusing on agriculture, environmental, and rural development.','2025-10-01','https://www.univen.ac.za/students/how-to-apply/'],
+  ['ul.png','University of Limpopo','R200','Empowering communities through quality higher education in sciences, health, and humanities.','2025-05-01','https://www.ul.ac.za/'],
+  ['ump.png','University of Mpumalanga','R150','One of SA’s youngest universities with programs in agriculture, education, and hospitality.','2025-03-31','https://www.ump.ac.za/ApplyNow'],
+  ['solplat.png','Sol Plaatje University','R100','Public university in Kimberley focusing on humanities, education, and data sciences.','2025-09-30','https://www.spu.ac.za/index.php/students/'],
+  ['mancosa.png','MANCOSA','R500','Private higher education institution offering flexible business and management degrees.','2025-12-01','https://www.mancosa.co.za/apply/'],
+  ['richfield.png','Richfield Graduate Institute of Technology','R350','Private college offering IT, business, and engineering diplomas and degrees.','2025-06-15','https://www.richfield.ac.za/apply-now/'],
+  ['boston.png','Boston City Campus','R300','Private institution offering accredited degrees, diplomas, and short learning programs.','2025-09-15','https://www.boston.ac.za/'],
+  ['rosebank.jpg','Rosebank College','R150','A brand of the Independent Institute of Education specializing in affordable private degrees.','2025-05-01','https://www.rosebankcollege.co.za/apply'],
+  ['damelin.png','Damelin College','R350','One of SA’s oldest private colleges offering diplomas in business, media, and technology.','2025-04-01','https://www.damelin.co.za/'],
+  ['stenden.png','Stenden South Africa','R400','Private university offering international degrees in hospitality and disaster management.','2025-08-31','https://stenden.ac.za/apply/'],
+  ['boland.jpg','Boland TVET College','Free','Public TVET institution offering engineering, business, and hospitality training.','2025-02-28','https://www.bolandcollege.com/'],
+  ['ehlanzeni.jpg','Ehlanzeni TVET College','Free','Offers technical and vocational education in engineering, finance, and IT.','2025-03-31','https://www.ehlanzenicollege.co.za/apply-now/'],
+  ['umfolozi.jpg','uMfolozi TVET College','Free','Located in KZN, offering national certificates and practical engineering programs.','2025-04-15','https://www.umfolozicollege.co.za/'],
+  ['vhembe.jpg','Vhembe TVET College','Free','Public TVET college in Limpopo providing NC(V) and NATED engineering and business courses.','2025-06-30','https://www.vhembecollege.edu.za/'],
+
+
+
+
+
+
+  ['vut.jpg','Vaal University of Technology','R200','Specializing in applied sciences, engineering, and information technology.','2025-07-01','https://www.vut.ac.za/apply/'],
+  ['wsu.jpg','Walter Sisulu University','R100','Public university serving Eastern Cape with programs in health sciences and education.','2025-06-30','https://www.wsu.ac.za/'],
+  ['uctv.png','Central University of Technology','R250','Located in Bloemfontein, known for practical engineering and design innovation.','2025-08-31','https://www.cut.ac.za/'],
+  ['sbu.png','Sefako Makgatho Health Sciences University','R300','Focused on health and medical sciences to address South Africa’s healthcare needs.','2025-09-30','https://www.smu.ac.za/'],
+  ['unizulu.png','University of Zululand','R200','Comprehensive university offering arts, education, science, and commerce programs.','2025-08-01','https://www.unizulu.ac.za/'],
+  ['orbit.jpg','Orbit TVET College','Free','North West college focused on technical and vocational training in engineering and ICT.','2025-05-15','https://www.orbitcollege.co.za/'],
+  ['westcol.jpg','Westcol TVET College','Free','Public TVET college offering business and engineering studies in Gauteng.','2025-03-31','https://www.westcol.co.za/'],
+  ['falsebay.jpg','False Bay TVET College','Free','Offers maritime, engineering, and hospitality qualifications with strong industry links.','2025-02-28','https://www.falsebaycollege.co.za/'],
+  ['sedibeng.jpg','Sedibeng TVET College','Free','Located in Gauteng, providing accredited NATED and NC(V) programs.','2025-06-15','https://www.sedcol.co.za/'],
+  ['majuba.jpg','Majuba TVET College','Free','KZN-based college offering national certificates in business, engineering, and IT.','2025-03-15','https://www.majuba.edu.za/'],
+  ['ekurhuleni.png','Ekurhuleni East TVET College','Free','Provides practical vocational training in engineering, business, and hospitality.','2025-05-01','https://eec.edu.za/'],
+  ['motheo.jpg','Motheo TVET College','Free','Public institution offering technical and vocational qualifications in the Free State.','2025-07-30','https://www.motheotvet.edu.za/'],
+  ['nkangala.jpg','Nkangala TVET College','Free','Mpumalanga TVET focusing on artisan development and technical education.','2025-06-30','https://www.nkangalatvet.edu.za/'],
+  ['capricorn.jpg','Capricorn TVET College','Free','Offers NC(V) and NATED programs in engineering, business, and IT.','2025-08-15','https://www.capricorncollege.edu.za/'],
+  ['lephalale.png','Lephalale TVET College','Free','Located in Limpopo, providing artisan training and national certificates.','2025-09-01','https://leptvetcol.edu.za/'],
+  ['kinghintsa.jpg','King Hintsa TVET College','Free','Eastern Cape TVET college focused on vocational training and entrepreneurship.','2025-05-30','https://www.kinghintsacollege.edu.za/'],
+  ['eta.png','ETA College','R500','Private sports and fitness education institution offering degrees and diplomas.','2025-10-31','https://www.etacollege.com/apply/'],
+  ['cti.jpg','CTI Education Group','R450','Private tertiary institution offering business, computing, and creative arts qualifications.','2025-11-15','https://www.cti.ac.za/'],
+
+
+
+
+
+
+
+
+  ['swgc.jpg','South West Gauteng TVET College','Free','Provides a wide range of technical, business, and creative programs with multiple campuses.','2025-03-31','https://www.swgc.co.za/'],
+  ['tswane.png','Tshwane North TVET College','Free','Focuses on practical engineering, business management, and information technology training.','2025-04-30','https://www.tnc.edu.za/'],
+  ['boland.jpg','Boland TVET College','Free','Western Cape TVET college emphasizing tourism, engineering, and hospitality.','2025-05-31','https://www.bolandcollege.com/'],
+
+  ['northlink.jpg','Northlink TVET College','Free','Large Western Cape TVET offering programs from NQF Level 2 to 6.','2025-07-15','https://www.northlink.co.za/'],
+  ['letaba.jpg','Letaba TVET College','Free','Offers business, engineering, and management studies in the Limpopo region.','2025-08-01','https://www.letabacollege.edu.za/'],
+  ['goldfields.png','Goldfields TVET College','Free','Located in Welkom, offering vocational qualifications for industry-ready skills.','2025-09-15','https://www.goldfieldstvet.edu.za/'],
+  ['flavius.png','Flavius Mareka TVET College','Free','Free State TVET college with strong partnerships in industrial and business training.','2025-10-01','https://www.flaviusmareka.net/'],
+
+  ['portelizabeth.png','Port Elizabeth TVET College','Free','Offers practical and technical courses to prepare students for employment.','2025-03-01','https://www.pecollege.edu.za/'],
+  ['centraljhb.jpg','Central Johannesburg TVET College','Free','Urban college with strong focus on creative, business, and technical programs.','2025-04-15','https://www.cjc.edu.za/'],
+  ['esayidi.png','Esayidi TVET College','Free','KwaZulu-Natal institution promoting skills development through vocational programs.','2025-06-01','https://www.esayidifet.co.za/'],
+  ['mnambithi.jpg','Mnambithi TVET College','Free','Offers training in hospitality, engineering, and management to empower communities.','2025-07-31','https://www.mnambithicollege.co.za/'],
+  ['mopani.png','Mopani South East TVET College','Free','Focused on engineering and business studies for Limpopo students.','2025-08-31','https://www.mopanicollege.edu.za/'],
+
+
+
+
+
+
+
+
+
+   ['mangosuthu.png','Mangosuthu University of Technology','R250','Durban-based university of technology offering engineering, science, and management programs.','2025-06-30','https://www.mut.ac.za/'],
+
+
+  ['sun.jpg','Stellenbosch University','R250','Renowned for engineering, medicine, and business management programs.','2025-07-15','https://www.sun.ac.za/'],
+
+  ['swgcpriv.jpg','SouthWest Private College','R400','Private institution focusing on management and ICT programs.','2025-12-01','https://www.southwestcollege.co.za/'],
+  ['intec.jpg','INTEC College','R300','Private distance-learning college offering over 100 accredited programs.','2025-11-30','https://www.intec.edu.za/'],
+  ['regent.png','Regent Business School','R500','Private higher education institution focused on business and management studies.','2025-10-31','https://www.regent.ac.za/'],
+  ['milpark.png','Milpark Education','R600','Private provider specializing in business, finance, and leadership qualifications.','2025-12-15','https://www.milpark.ac.za/'],
+
+  ['gibbs.png','Gordon Institute of Business Science (GIBS)','R1000','Leading business school under the University of Pretoria offering MBA and executive programs.','2025-08-31','https://www.gibs.co.za/'],
+  ['ctp.jpg','College of Cape Town','Free','TVET institution offering accredited programs in creative arts and technology.','2025-05-01','https://www.cct.edu.za/'],
+  ['lovelife.jpg','LoveLife Youth College','R100','Private youth development college focusing on entrepreneurship and leadership.','2025-07-01','https://www.lovelifecollege.org.za/']
+  ];
+
+  function shuffleArray(array){
+    for(let i=array.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [array[i],array[j]]=[array[j],array[i]];
+    }
+    return array;
+  }
+
+  function insertAd(parentEl){
+    const ins = document.createElement('ins');
+    ins.className = 'adsbygoogle';
+    ins.style.display = 'block';
+    ins.setAttribute('data-ad-format','fluid');
+    ins.setAttribute('data-ad-layout-key','-6t+ed+2i-1n-4w');
+    ins.setAttribute('data-ad-client','ca-pub-7523555661265068');
+    ins.setAttribute('data-ad-slot','1338431504');
+    parentEl.innerHTML = '';
+    parentEl.appendChild(ins);
+    try {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      setTimeout(() => {
+        if (!ins.offsetHeight || ins.innerHTML.trim() === '') showFallback(parentEl);
+      }, 2000);
+    } catch(e){showFallback(parentEl);}
+  }
+
+  function showFallback(parentEl){
+    parentEl.innerHTML = '';
+    const link = document.createElement('a');
+    link.href = 'index.html';
+    link.target = '_blank';
+    const img = document.createElement('img');
+    img.src = 'images/date.png';
+    img.alt = 'Sponsored content';
+    img.style.width = '100%';
+    img.style.borderRadius = '8px';
+    link.appendChild(img);
+    parentEl.appendChild(link);
+  }
+
+  function renderAll(){
+    const list=document.getElementById('list');
+    const shuffled=shuffleArray([...universities]);
+    list.innerHTML = '';
+
+    const now = new Date();
+
+    shuffled.forEach((u, idx) => {
+      const [img, name, fee, desc, closingDateStr, link] = u;
+      const closingDate = new Date(closingDateStr);
+      const monthsDiff = (now.getFullYear() - closingDate.getFullYear()) * 12 + (now.getMonth() - closingDate.getMonth());
+      const isClosed = monthsDiff < 3;
+
+      const card = document.createElement('article');
+      card.className = 'card';
+      if (isClosed) card.style.opacity = '0.7';
+
+      card.innerHTML = `
+        <div class="card-head">
+          <div class="logo"><img src="images/${img}" alt="${name} logo"></div>
+          <div>
+            <div class="company">${name}</div>
+            <div class="fee">Application Fee: ${fee}</div>
+          </div>
+        </div>
+        <p class="desc">${desc}</p>
+        <div class="card-foot">
+          <div class="closing">
+            ${isClosed ? `<strong>Closed (${closingDate.toLocaleDateString()})</strong>` : '<strong>Open</strong>'}
+          </div>
+          <div style="display:flex;gap:6px;">
+            ${isClosed ? '' : `<button class="apply-btn">Apply</button>`}
+            <button class="share-btn">Share</button>
+          </div>
+        </div>
+      `;
+
+      list.appendChild(card);
+
+      if (!isClosed) {
+        card.querySelector('.apply-btn').addEventListener('click', () => window.open(link, '_blank'));
+      }
+
+      card.querySelector('.share-btn').addEventListener('click', () => {
+        const shareText = encodeURIComponent(`Check this university: ${name} - ${desc} - Apply here: www.freek53.xyz/universities`);
+        window.open(`https://wa.me/?text=${shareText}`, '_blank');
+      });
+
+      if((idx+1) % 5 === 0 && (idx+1) !== shuffled.length){
+        const adWrapper = document.createElement('div');
+        adWrapper.className = 'adsense';
+        list.appendChild(adWrapper);
+        insertAd(adWrapper);
+      }
+    });
+  }
+
+  renderAll();
+  </script>
+</body>
+</html>
