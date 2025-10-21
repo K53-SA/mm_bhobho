@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hollywood Betting Vouchers</title>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  header {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #balloon-container {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+  }
+
+  .balloon {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
+    user-select: none;
+    z-index: 2;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .popup {
+    position: fixed;
+    top: 0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    display: none;
+  }
+
+  .popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: #28a745;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .adsense {
+    background:#111;border:1px dashed #333;padding:12px;
+    border-radius:8px;color:#fff;text-align:center;margin:20px auto;
+  }
+</style>
+</head>
+<body>
+<header>Hollywood Betting Vouchers</header>
+
+<div id="balloon-container"></div>
+
+<div class="adsense">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7523555661265068"
+       data-ad-slot="1338431504"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>
+
+<div class="popup" id="popup">
+  <p id="popup-message"></p>
+  <input type="text" id="voucher-code" readonly style="padding:10px;width:80%;text-align:center;margin-top:10px;display:none;">
+  <button id="popup-ok">OK</button>
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="1338431504"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script>
+  const container = document.getElementById('balloon-container');
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popup-message');
+  const voucherInput = document.getElementById('voucher-code');
+  const popupOk = document.getElementById('popup-ok');
+
+  const balloonCount = 20;
+  const vouchers = [
+    "HB-VOUCHER-001","HB-VOUCHER-002","HB-VOUCHER-003","HB-VOUCHER-004","HB-VOUCHER-005",
+    "HB-VOUCHER-006","HB-VOUCHER-007","HB-VOUCHER-008","HB-VOUCHER-009","HB-VOUCHER-010",
+    "HB-VOUCHER-011","HB-VOUCHER-012","HB-VOUCHER-013","HB-VOUCHER-014","HB-VOUCHER-015",
+    "HB-VOUCHER-016","HB-VOUCHER-017","HB-VOUCHER-018","HB-VOUCHER-019","HB-VOUCHER-020"
+  ];
+
+  const colors = ["#ff4d4d","#4dff4d","#4d4dff","#ffb84d","#b84dff","#4db8ff","#ff4db8","#fff44d","#4dfff4","#f44dff"];
+
+  let voucherIndex = Math.floor(Math.random() * balloonCount);
+
+  function createBalloons() {
+    container.innerHTML = '';
+    for (let i = 0; i < balloonCount; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      const size = Math.random() * 60 + 40; // 40px to 100px
+      balloon.style.width = size + 'px';
+      balloon.style.height = size + 'px';
+      balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.left = Math.random() * (container.clientWidth - size) + 'px';
+      balloon.style.top = container.clientHeight + Math.random() * 100 + 'px';
+      balloon.dataset.index = i;
+      container.appendChild(balloon);
+
+      animateBalloon(balloon);
+
+      balloon.addEventListener('click', () => {
+        if (i === voucherIndex) {
+          showPopup("🎉 Congratulations! You found a voucher!", vouchers[i], true);
+          popBalloon(balloon, true);
+        } else {
+          showPopup("😞 Unlucky! Try again.", "", false);
+          popBalloon(balloon, false);
+        }
+      });
+    }
+  }
+
+  function animateBalloon(balloon) {
+    const speed = Math.random() * 1 + 0.5; // pixels per frame
+    function move() {
+      const top = parseFloat(balloon.style.top);
+      if (top + balloon.offsetHeight < 0) {
+        balloon.style.top = container.clientHeight + 'px';
+      } else {
+        balloon.style.top = (top - speed) + 'px';
+      }
+      requestAnimationFrame(move);
+    }
+    move();
+  }
+
+  function popBalloon(balloon, hasVoucher) {
+    createConfetti(balloon, hasVoucher);
+    balloon.remove();
+  }
+
+  function createConfetti(balloon, big=false) {
+    const count = big ? 50 : 15;
+    for (let i=0;i<count;i++){
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti-piece';
+      confetti.style.left = (balloon.offsetLeft + balloon.offsetWidth/2) + 'px';
+      confetti.style.top = (balloon.offsetTop + balloon.offsetHeight/2) + 'px';
+      confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+      document.body.appendChild(confetti);
+
+      let dx = (Math.random()-0.5)*10;
+      let dy = (Math.random()-0.5)*10;
+
+      let life = 0;
+      function animate() {
+        if(life<50){
+          const top = parseFloat(confetti.style.top);
+          const left = parseFloat(confetti.style.left);
+          confetti.style.top = top + dy + 'px';
+          confetti.style.left = left + dx + 'px';
+          life++;
+          requestAnimationFrame(animate);
+        } else {
+          confetti.remove();
+        }
+      }
+      animate();
+    }
+  }
+
+  function showPopup(message, voucher="", hasVoucher=false){
+    popupMessage.textContent = message;
+    if(hasVoucher){
+      voucherInput.style.display = 'block';
+      voucherInput.value = voucher;
+    } else {
+      voucherInput.style.display = 'none';
+    }
+    popup.style.display = 'flex';
+  }
+
+  popupOk.addEventListener('click', () => {
+    popup.style.display = 'none';
+    // Reset balloons and pick new voucher
+    voucherIndex = Math.floor(Math.random() * balloonCount);
+    createBalloons();
+  });
+
+  createBalloons();
+</script>
+</body>
+</html>

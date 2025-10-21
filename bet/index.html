@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Betting Vouchers</title>
+  <style>
+    :root {
+      --bg:#000; --text:#fff; --muted:#bfbfbf; --card:#0f0f0f;
+      --accent:#28a745; --whatsapp:#25D366;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,Arial,Helvetica,sans-serif;line-height:1.4;}
+    .container{max-width:1100px;margin:24px auto;padding:16px;}
+    header{display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+    header h1{margin:0;font-size:22px;color:var(--text);}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px;}
+    @media(min-width:880px){.grid{grid-template-columns:repeat(2,1fr);}}
+    .card{background:var(--card);padding:12px;border-radius:10px;
+      border:1px solid #1a1a1a;display:flex;flex-direction:column;color:var(--text);transition:opacity .3s;}
+    .card-head{display:flex;align-items:center;gap:12px;color:var(--text);}
+    .logo{width:56px;height:56px;border-radius:8px;flex:0 0 56px;background:#222;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .logo img{width:100%;height:100%;object-fit:contain;}
+    .company{font-weight:700;color:var(--text);}
+    .desc{margin-top:10px;color:var(--text);min-height:56px;}
+    .card-foot{display:flex;justify-content:space-between;align-items:center;
+      margin-top:12px;color:var(--text);flex-wrap:wrap;gap:8px;}
+    .visit-btn{padding:10px 14px;border-radius:8px;border:none;color:#fff;font-weight:700;cursor:pointer;
+      background:var(--accent);}
+    footer{margin-top:30px;text-align:center;color:var(--text);font-size:13px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header><h1>Betting Vouchers</h1></header>
+    <main id="list" class="grid"></main>
+    <footer>FREEK53 NON PROFIT COMPANY © 2025</footer>
+  </div>
+
+  <script>
+    const bettingSites = [
+      ['hollywoodbets.png','Hollywoodbets','Hollywoodbets is one of South Africa’s top bookmakers offering sports betting, casino games, and live events.','hollywoodbets.html'],
+      ['supabets.png','Supabets','Supabets provides competitive odds, betting tips, and daily bookmaker promotions in South Africa.','supabets.html'],
+      ['betway.png','Betway','Betway is a global betting platform offering sports, esports, casino games, and easy-to-use betting codes.','betway.html']
+    ];
+
+    const list = document.getElementById('list');
+
+    bettingSites.forEach(site => {
+      const [img, name, desc, link] = site;
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-head">
+          <div class="logo"><img src="images/${img}" alt="${name} logo"></div>
+          <div>
+            <div class="company">${name}</div>
+          </div>
+        </div>
+        <p class="desc">${desc}</p>
+        <div class="card-foot">
+          <button class="visit-btn">Visit</button>
+        </div>
+      `;
+      list.appendChild(card);
+
+card.querySelector('.visit-btn').addEventListener('click', () => {
+    // Open on the same page
+    window.location.href = link;
+});
+    });
+  </script>
+</body>
+</html>
