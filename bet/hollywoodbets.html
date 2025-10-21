@@ -11,7 +11,6 @@
     color: #fff;
     font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
     overflow-x: hidden;
-    overflow-y: hidden;
   }
 
   header {
@@ -81,6 +80,24 @@
     background:#111;border:1px dashed #333;padding:12px;
     border-radius:8px;color:#fff;text-align:center;margin:20px auto;
   }
+
+  #article {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  #article h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  #article p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 16px;
+  }
 </style>
 </head>
 <body>
@@ -88,6 +105,7 @@
 
 <div id="balloon-container"></div>
 
+<!-- Google AdSense -->
 <div class="adsense">
   <ins class="adsbygoogle"
        style="display:block"
@@ -96,24 +114,35 @@
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
 </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
+<!-- Article Section -->
+<div id="article">
+<h1>Gambling Addiction: How to Recognize, Quit, and Gamble Responsibly</h1>
+
+<p>Gambling can be an enjoyable form of entertainment for many people, offering the excitement of taking risks and the possibility of winning rewards. However, for some individuals, gambling can become a serious problem. Gambling addiction occurs when a person cannot control their urge to gamble, even when it leads to financial, emotional, or social difficulties. Understanding the signs of addiction and learning strategies to quit or gamble responsibly is essential for protecting your well-being.</p>
+
+<p>One of the reasons gambling is addictive is the way it affects the brain. Winning a bet releases dopamine, the “feel-good” chemical, creating a sense of excitement and pleasure. Over time, the brain craves this dopamine release, and individuals may gamble more often or place larger bets to achieve the same thrill. This cycle can quickly become harmful, as the anticipation of gambling overtakes logical thinking. People struggling with gambling addiction may spend more money than they can afford, hide their gambling from family and friends, or chase losses in an attempt to recover money, often making the problem worse.</p>
+
+<p>Recognizing when gambling has become a problem is the first step toward recovery. Common warning signs include spending excessive time or money on gambling, neglecting work or personal responsibilities, feeling restless or irritable when not gambling, and using gambling as a way to escape stress or emotional pain. Awareness of these signs can help individuals take action before the problem escalates.</p>
+
+<p>Quitting gambling requires determination, planning, and support. One effective strategy is to set strict limits on both money and time spent gambling. Avoiding locations or websites that encourage gambling can reduce temptation, while replacing gambling with healthier activities such as sports, hobbies, or social events can provide positive alternatives. Many individuals benefit from talking to supportive friends or family, or seeking professional help from counselors or therapists who specialize in gambling addiction. Support groups like Gamblers Anonymous offer structured programs, guidance, and community support for individuals working to overcome compulsive gambling.</p>
+
+<p>Responsible gambling is about knowing when to participate and when to stop. It is important to treat gambling as a form of entertainment rather than a source of income. Only wager money that you can afford to lose, and avoid using essential funds for gambling purposes. Establishing a clear time limit for each gambling session and sticking to it helps prevent overindulgence. Pay attention to your emotions and physical state—fatigue, stress, or frustration can impair judgment and increase the risk of making impulsive bets. By following these guidelines, you can enjoy gambling safely and avoid the negative consequences of addiction.</p>
+
+<p>In conclusion, gambling can be enjoyable when approached responsibly, but it has the potential to become addictive and harmful. Understanding the psychological mechanisms behind gambling addiction, recognizing early warning signs, and implementing strategies to quit or limit gambling are crucial steps to maintaining financial and emotional health. Responsible gambling includes setting limits, seeking support, and maintaining balance in life. Remember, the key is to <strong>know when to gamble and, more importantly, when to stop.</strong></p>
+</div>
+
+<!-- Popup for balloons -->
 <div class="popup" id="popup">
   <p id="popup-message"></p>
   <input type="text" id="voucher-code" readonly style="padding:10px;width:80%;text-align:center;margin-top:10px;display:none;">
   <button id="popup-ok">OK</button>
 </div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-6t+ed+2i-1n-4w"
-     data-ad-client="ca-pub-7523555661265068"
-     data-ad-slot="1338431504"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 <script>
   const container = document.getElementById('balloon-container');
@@ -131,7 +160,6 @@
   ];
 
   const colors = ["#ff4d4d","#4dff4d","#4d4dff","#ffb84d","#b84dff","#4db8ff","#ff4db8","#fff44d","#4dfff4","#f44dff"];
-
   let voucherIndex = Math.floor(Math.random() * balloonCount);
 
   function createBalloons() {
@@ -139,7 +167,7 @@
     for (let i = 0; i < balloonCount; i++) {
       const balloon = document.createElement('div');
       balloon.className = 'balloon';
-      const size = Math.random() * 60 + 40; // 40px to 100px
+      const size = Math.random() * 60 + 40;
       balloon.style.width = size + 'px';
       balloon.style.height = size + 'px';
       balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
@@ -147,9 +175,7 @@
       balloon.style.top = container.clientHeight + Math.random() * 100 + 'px';
       balloon.dataset.index = i;
       container.appendChild(balloon);
-
       animateBalloon(balloon);
-
       balloon.addEventListener('click', () => {
         if (i === voucherIndex) {
           showPopup("🎉 Congratulations! You found a voucher!", vouchers[i], true);
@@ -163,7 +189,7 @@
   }
 
   function animateBalloon(balloon) {
-    const speed = Math.random() * 1 + 0.5; // pixels per frame
+    const speed = Math.random() * 1 + 0.5;
     function move() {
       const top = parseFloat(balloon.style.top);
       if (top + balloon.offsetHeight < 0) {
@@ -190,10 +216,8 @@
       confetti.style.top = (balloon.offsetTop + balloon.offsetHeight/2) + 'px';
       confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
       document.body.appendChild(confetti);
-
       let dx = (Math.random()-0.5)*10;
       let dy = (Math.random()-0.5)*10;
-
       let life = 0;
       function animate() {
         if(life<50){
@@ -203,9 +227,7 @@
           confetti.style.left = left + dx + 'px';
           life++;
           requestAnimationFrame(animate);
-        } else {
-          confetti.remove();
-        }
+        } else { confetti.remove(); }
       }
       animate();
     }
@@ -224,7 +246,6 @@
 
   popupOk.addEventListener('click', () => {
     popup.style.display = 'none';
-    // Reset balloons and pick new voucher
     voucherIndex = Math.floor(Math.random() * balloonCount);
     createBalloons();
   });
