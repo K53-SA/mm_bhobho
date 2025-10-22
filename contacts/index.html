@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Share Contacts — Swipe / Scroll</title>
+  <style>
+    :root{
+      --card-w: 760px;
+      --card-h: 240px;
+      --overlay: rgba(0,0,0,0.55);
+    }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:#000;color:#fff;overflow:hidden}
+    body{
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    /* dark overlay on background */
+    .bg-overlay{
+      position:absolute; inset:0; background:linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)); z-index:0;
+    }
+
+    /* card container centered */
+    .card {
+      width: min(92vw, var(--card-w));
+      max-width: 100%;
+      height: var(--card-h);
+      border-radius:18px;
+      background: var(--overlay);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px;
+      gap:16px;
+      position:relative;
+      z-index:2;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      transition: transform 300ms ease, opacity 300ms ease;
+      opacity:1;
+    }
+
+    /* left, center, right columns */
+    .col {
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .col.left { align-items:flex-start; width:140px; gap:8px; }
+    .col.center { align-items:center; flex:1; padding:0 8px; }
+    .col.right { align-items:flex-end; width:90px; }
+
+    /* profile circle */
+    .profile {
+      width:66px;
+      height:66px;
+      border-radius:50%;
+      overflow:hidden;
+      border:3px solid rgba(255,255,255,0.95);
+    }
+    .profile img{width:100%;height:100%;object-fit:cover; display:block}
+
+    .age {
+      font-size:13px;
+      margin-top:6px;
+      color: #e6e6e6;
+      opacity:0.95;
+    }
+
+    .name {
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:0.2px;
+      text-align:center;
+      margin-bottom:6px;
+    }
+    .meta {
+      font-size:15px;
+      opacity:0.9;
+      margin-top:2px;
+      text-align:center;
+      line-height:1.1;
+    }
+
+    /* whatsapp icon circle on right */
+    .wa-circle {
+      width:66px;
+      height:66px;
+      border-radius:50%;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+    .wa-circle img{width:38px;height:38px;display:block}
+
+    /* bottom share button */
+    .share-btn{
+      position: absolute;
+      bottom:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:3;
+      background:#25D366;
+      border:none;
+      color:#fff;
+      padding:10px 18px;
+      font-weight:700;
+      border-radius:8px;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(0,0,0,0.45);
+    }
+
+    /* subtle instructions */
+    .hint {
+      position:absolute;
+      top:18px;
+      width:100%;
+      text-align:center;
+      font-size:13px;
+      color:rgba(255,255,255,0.85);
+      z-index:3;
+    }
+
+
+    /* transitions when changing contact */
+    .card.fade-out { opacity:0; transform:scale(0.98) translateY(10px); }
+    .card.fade-in { opacity:1; transform:none; }
+
+    /* responsive tweaks */
+    @media (max-width:520px){
+      :root{--card-h:280px}
+      .col.left{width:110px}
+      .profile{width:66px;height:66px}
+      .wa-circle{width:66px;height:66px}
+    }
+  </style>
+</head>
+<body id="pageBody">
+
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <div class="hint">Scroll / Swipe / use ↑ ↓ to view next contact</div>
+
+  <div id="card" class="card" role="region" aria-label="Contact card" style="padding: 10px;">
+    <div class="col left">
+      <div class="profile" id="profileWrap"><img id="profileImg" src="" alt="profile"></div>
+      <div class="age" id="ageText"></div>
+    </div>
+
+    <div class="col center">
+      <div class="name" id="nameText"></div>
+      <div class="meta" id="locationText"></div>
+      <div class="meta" id="workText"></div>
+    </div>
+
+    <div class="col right">
+      <div class="wa-circle" id="waButton" title="Open WhatsApp">
+        <!-- simple inline SVG WhatsApp logo for reliability -->
+        <img id="waIcon" src="whatsapp.jpg" alt="WhatsApp">
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    // --- contact data (3 entries) ---
+    // Put your actual image filenames or urls in profilePic
+    const contacts = [
+      {
+        name: "Mabongi",
+        age: 21,
+        location: "Newcastle",
+        work: "University of Zululand",
+        number: "27762902467",
+        profilePic: "sex.jpeg",
+        description: "Friendly and outgoing"
+      },
+      {
+        name: "Nandi",
+        age: 18,
+        location: "Newcastle",
+        work: "Amajuba High School",
+        number: "27671092647",
+        profilePic: "kiss.jpeg",
+        description: "Loves coffee"
+      },
+      {
+        name: "Amanda",
+        age: 17,
+        location: "Newcastle",
+        work: "Osizweni High School",
+        number: "27604613406",
+        profilePic: "love.jpeg",
+        description: "Studying IT"
+      }
+    ];
+
+    // state
+    let idx = 0;
+    const body = document.getElementById('pageBody');
+    const profileImg = document.getElementById('profileImg');
+    const ageText = document.getElementById('ageText');
+    const nameText = document.getElementById('nameText');
+    const locationText = document.getElementById('locationText');
+    const workText = document.getElementById('workText');
+    const waButton = document.getElementById('waButton');
+    const shareBtn = document.getElementById('shareBtn');
+    const card = document.getElementById('card');
+
+    // throttle for scroll/swipe to avoid rapid changes
+    let locked = false;
+    function lockShort() {
+      locked = true;
+      setTimeout(()=> locked = false, 600);
+    }
+
+    // update UI for contact at idx
+    function showContact(i, direction = 0) {
+      if (i < 0) i = contacts.length - 1;
+      if (i >= contacts.length) i = 0;
+      idx = i;
+
+      // animation: fade out then update then fade in
+      card.classList.add('fade-out');
+      setTimeout(()=>{
+        const c = contacts[idx];
+        // set background
+        body.style.backgroundImage = `url('${c.profilePic}')`;
+        // set texts
+        profileImg.src = c.profilePic;
+        profileImg.alt = c.name + " profile";
+        ageText.textContent = c.age + " years old";
+        nameText.textContent = c.name;
+        locationText.textContent = c.location;
+        workText.textContent = c.work;
+        // set whatsapp open action
+        waButton.onclick = ()=> window.open(`https://wa.me/${c.number.replace(/[^\d]/g,'')}`, '_blank');
+        shareBtn.onclick = ()=> window.open(`https://wa.me/${c.number.replace(/[^\d]/g,'')}`, '_blank');
+        // reveal
+        card.classList.remove('fade-out');
+        card.classList.add('fade-in');
+        setTimeout(()=> card.classList.remove('fade-in'), 400);
+      }, 220);
+    }
+
+    // initial show
+    showContact(0);
+
+    // wheel navigation
+    window.addEventListener('wheel', (e)=>{
+      if (locked) return;
+      if (e.deltaY > 10) { // scroll down => next
+        showContact(idx + 1);
+        lockShort();
+      } else if (e.deltaY < -10) { // scroll up => prev
+        showContact(idx - 1);
+        lockShort();
+      }
+    }, {passive:true});
+
+    // keyboard navigation
+    window.addEventListener('keydown', (e)=>{
+      if (locked) return;
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') { showContact(idx+1); lockShort(); }
+      if (e.key === 'ArrowUp' || e.key === 'PageUp') { showContact(idx-1); lockShort(); }
+    });
+
+    // touch (swipe) support for mobile
+    let touchStartY = null;
+    window.addEventListener('touchstart', (e)=>{
+      if (e.touches && e.touches[0]) touchStartY = e.touches[0].clientY;
+    }, {passive:true});
+    window.addEventListener('touchend', (e)=>{
+      if (locked || touchStartY === null) { touchStartY = null; return; }
+      const endY = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientY : null;
+      if (endY === null) { touchStartY = null; return; }
+      const diff = touchStartY - endY;
+      if (diff > 40) { // swipe up => next
+        showContact(idx+1); lockShort();
+      } else if (diff < -40) { // swipe down => prev
+        showContact(idx-1); lockShort();
+      }
+      touchStartY = null;
+    }, {passive:true});
+
+    // Make card focusable for screen readers and to accept keyboard
+    card.tabIndex = 0;
+
+    // if images are local and take time to load, pre-load to avoid flicker
+    contacts.forEach(c=>{
+      const i = new Image();
+      i.src = c.profilePic;
+    });
+
+    // Small accessibility: announce contact changes (visually-hidden could be added later)
+    // Optionally add more features: randomize, autoplay, navigation dots
+  </script>
+</body>
+</html>
