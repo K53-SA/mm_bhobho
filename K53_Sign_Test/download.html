@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123711353-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123711353-2');
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  	<link rel="shortcut icon" type="image/ico" href="../img/images.png">
+	<link rel="manifest" href="manifest.json">
+  <title>FREEK53</title>
+</head>
+<style>
+  .blue-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .downloads {
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
+  }
+</style>
+<body>
+<canvas id="confetti"></canvas>
+<div class="question" id="1">
+  <div class="question_number">
+    <h3>Download pdf memo</h3>
+  </div>
+  <div class="time_score">
+    <p class="time">Time remaining: </p>
+
+    <div class="container">
+      <div id="branding">
+        <p><a ><span class="score">Download</span></a></p>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="main_question">
+    <p>  Share these documents to everyone. Not for sale</p>
+  </div>
+
+<div class="main-layout">
+  <div class="left-content">
+    <!-- Your left-side content goes here (70%) -->
+    <div class="btext">
+            <button id="a" onclick="downloadHeavy('a')" type="submit" class="button_1">a. Heavy Vehicles  Memo</button>
+      </div>
+    <div class="btext">
+            <button id="b" onclick="downloadLight('b')" type="submit" class="button_1">b. Light Vehicles Memo</button>
+      </div>
+    <div class="btext">
+            <button id="c" onclick="downloadMotor('c')" type="submit" class="button_1">c. Motorcycle Memo</button>
+      </div>
+  </div>
+
+  <div class="right-content">
+    <!-- Your right-side content (image) goes here (30%) -->
+    <div class="pss">
+      <a ><img src="../img/download.png"></a>
+    </div>
+  </div>
+</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-7523555661265068"
+     data-ad-slot="1338431504"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class="inline-buttons">
+  <button class="nav-btn" onclick="location.href='#1'">&#x25C0; Previous</button>
+  <button class="nav-btn">Review Questions</button>
+  <button class="nav-btn" onclick="location.href='road_sign_tests.html'">End Test</button>
+  <button class="nav-btn" onclick="location.href='#2'">  ▶  <br> Next</button>
+  
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <div class="container">
+      <div id="branding5">
+        <a target="_blank" href="https://wa.me/27614100661/"><button onclick="CommentSection()"><img src="whatsapp1.png"> </button></a>
+      </div>
+    </div> -->
+
+
+
+    
+
+    <div  id='results8' style='text-align: center; margin-top: 20px;'>
+      <button  name='skipSubmit' type='submit' id="butInstall">ADD</button> 
+        </div>
+
+
+
+    <div  id="snackbar">
+      <a href="#"></a>
+    </div>
+
+    <div  id="results">
+      <a href="road_sign_test1.html">Try again. Reload This Page</a>
+    </div>
+    <div  id="results2">
+      <a href="road_sign_tests.html">Home Page</a>
+    </div>
+    <div  id="results3">
+      <a href="road_sign_test1.html">Time Over. Reload This Page</a>
+    </div>
+    <div  id="results4">
+      <a href="learn_road_signs.html" style="margin-right: 70px;"><button onclick="learn()">Learn</button></a>
+      <a href="#"><button onclick="learn()">Skip</button></a>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+  
+  var questions = [];
+  var ansared = [];
+  var marks = [];
+  var time = 500;
+  var left = 30;
+  var learntime = 0;
+  var test_code = 'motor';
+
+  var prg = document.getElementById('progress');
+  marks.push('0');
+
+  var zero = '0';
+  var one = '1';
+  var bandile = 10;
+
+  var score = 0;
+  const timeDisplay = document.querySelector('#time');
+window.addEventListener('load', init);
+
+  
+function init() 
+{
+  setInterval(countdown, 1000);
+}
+
+function countdown() 
+{
+  if (learntime == 1)
+  {
+  var one = '1';
+  if (time > 0   && bandile != 3000) 
+  {
+    time--;
+    prg.style.width = time/5 + 'px';
+    if(time < 300)
+    {
+      document.getElementById("progress").style.backgroundColor = "red";
+    }
+  } 
+  
+
+
+  if (time < 1 )
+  {
+    document.getElementById("time").style.color = "red";
+    questions[0] = '1'; questions[1] = '1'; questions[2] = '1'; questions[3] = '1'; questions[4] = '1'; questions[5] = '1'; questions[6] = '1'; 
+    questions[7] = '1'; questions[8] = '1'; questions[9] = '1'; questions[10] = '1'; questions[11] = '1'; questions[12] = '1';
+    questions[13] = '1'; questions[14] = '1'; questions[15] = '1'; questions[16] = '1'; questions[17] = '1'; questions[18] = '1'; 
+    questions[19] = '1'; questions[20] = '1'; questions[21] = '1'; questions[22] = '1'; questions[23] = '1'; questions[24] = '1';
+    questions[25] = '1'; questions[26] = '1'; questions[27] = '1'; questions[28] = '1'; questions[29] = '1'; questions[30] = '1'; 
+
+
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "red";
+});
+        var x = document.getElementById("results3");
+        x.className = "show";
+
+        time = 0;
+  }
+
+
+}
+}
+
+
+  for(var i = 0; i < 30; i++)
+  {
+    questions.push(zero);
+  }
+  
+  for(var i = 0; i < 30; i++)
+  {
+    ansared.push(one);
+  }
+
+  function learn()
+  {
+        
+        var x = document.getElementById("results4");
+        x.className = "show";
+        learntime = 1;
+  }
+
+  function CommentSection()
+  {
+        
+        var x = document.getElementById("results6");
+        x.className = "show";
+                var lastcommentScrollTop = 0;
+        window.addEventListener("scroll", function(){
+          var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (commentscrollTop > lastcommentScrollTop) {
+            x.className = "hidden";
+            }
+
+    
+        })
+  }
+  function closeCommentSection()
+  {
+        
+        var x = document.getElementById("results6");
+        x.className = "close";
+
+  }
+  
+  
+  function myfunction(di,qno,ans,cor)
+  {
+    
+
+    if(questions[qno-1] == '0' && ans == 'y')
+    {
+      document.getElementById(di).style.backgroundColor = "green";
+      score++;
+
+      left--;
+      document.querySelectorAll(".score").forEach(el => {
+  el.innerHTML = "score " + score + " /30";
+});  
+      questions[qno-1] = '1';
+      
+
+    }
+    else if(questions[qno-1] == '0' && ans == 'n')
+    {
+      document.getElementById(di).style.backgroundColor = "red";
+
+      document.getElementById(cor).style.backgroundColor = "green";
+      questions[qno-1] = '1';
+      left--;
+      //document.getElementById("left").innerHTML = "left " + left; 
+
+    }
+      if (JSON.stringify(questions) != JSON.stringify(ansared) && questions[28] == '1' && questions[29] == '1')
+  {
+            var x = document.getElementById("snackbar");
+          x.className = "show";
+        setTimeout(function()
+          { x.className = x.className.replace("show", "");
+          }, 750);
+            document.getElementById("snackbar").innerHTML = "scroll for unanswered questions";
+  }
+
+    if(JSON.stringify(questions) == JSON.stringify(ansared))
+    {
+      
+      if(marks[0] == '0')
+      {
+      if(score != 30)
+      {
+
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "red";
+  });
+        var x = document.getElementById("results");
+        x.className = "show";
+
+        
+        marks[0] = '1';
+        bandile = 3000;
+      }
+
+      else if(score == 30)
+      {
+document.querySelectorAll(".score").forEach(el => {
+  el.style.backgroundColor = "green";
+  });
+startConfetti();
+        var y = document.getElementById("results2");
+        y.className = "show";
+
+        //var m = document.getElementById("test2");
+       // m.className = "show";
+        
+        
+        marks[0] = '1';
+        bandile = 3000;
+
+
+      }
+      }
+    }
+  }
+
+</script>
+ <script type="text/javascript">
+    const butInstall = document.getElementById('butInstall');
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  console.log('👍', 'beforeinstallprompt', event);
+  // Stash the event so it can be triggered later.
+  window.deferredPrompt = event;
+
+});
+
+butInstall.addEventListener('click', () => {
+  console.log('👍', 'butInstall-clicked');
+  const promptEvent = window.deferredPrompt;
+  if (!promptEvent) {
+    // The deferred prompt isn't available.
+    return;
+  }
+  // Show the install prompt.
+  promptEvent.prompt();
+  // Log the result
+  promptEvent.userChoice.then((result) => {
+    console.log('👍', 'userChoice', result);
+    // Reset the deferred prompt variable, since
+    // prompt() can only be called once.
+    window.deferredPrompt = null;
+
+  });
+});
+
+
+
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
+});
+
+
+</script>
+
+
+ <script>
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight / 2;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const confettiCount = 150;
+    const confetti = [];
+    let animationRunning = false;
+
+    function createConfetti() {
+      confetti.length = 0;
+      for (let i = 0; i < confettiCount; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 6 + 2,
+          d: Math.random() * confettiCount,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          tilt: Math.random() * 10 - 5
+        });
+      }
+    }
+
+    let angle = 0;
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        ctx.beginPath();
+        ctx.lineWidth = p.r;
+        ctx.strokeStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+        ctx.lineTo(p.x + p.tilt, p.y + p.r);
+        ctx.stroke();
+      }
+      updateConfetti();
+    }
+
+    function updateConfetti() {
+      angle += 0.01;
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
+        p.x += Math.sin(angle) * 2;
+
+        if (p.y > canvas.height) {
+          p.y = -10;
+          p.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function animateConfetti() {
+      drawConfetti();
+      requestAnimationFrame(animateConfetti);
+    }
+
+    function startConfetti() {
+      if (!animationRunning) {
+        animationRunning = true;
+        createConfetti();
+        animateConfetti();
+      }
+    }
+  </script>
+
+<script>
+document.querySelectorAll('.municipality-widget').forEach(widget => {
+  const toggleBtn = widget.querySelector('.toggleBtn');
+  const listContainer = widget.querySelector('.list');
+  const displaySection = widget.querySelector('.display-section');
+  const displayedImage = widget.querySelector('.displayedImage');
+  const descriptionText = widget.querySelector('.descriptionText');
+
+  // Toggle list display
+  toggleBtn.addEventListener('click', () => {
+    const isVisible = listContainer.style.display === 'block';
+    listContainer.style.display = isVisible ? 'none' : 'block';
+    displaySection.style.display = 'none';
+    toggleBtn.textContent = isVisible ? 'Show MEMO' : 'Hide MEMO';
+  });
+
+  // Show image and text when button is clicked
+  widget.querySelectorAll('.list button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.dataset.image;
+      const text = btn.dataset.text;
+      displayedImage.src = img;
+      descriptionText.textContent = text;
+      displaySection.style.display = 'block';
+    });
+  });
+});
+</script>
+
+<script>
+  // Reference date (adjust as needed)
+  const referenceDate = new Date('2025-10-01'); // YYYY-MM-DD
+  const today = new Date();
+
+  // Calculate difference in days
+  const diffTime = today - referenceDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  // Calculate downloads
+  const initialDownloads = 204;
+  const downloadsPerDay = 50;
+  const totalDownloads = initialDownloads + (diffDays * downloadsPerDay);
+
+  // Display downloads
+  document.getElementById('downloadCount').textContent = totalDownloads;
+</script>
+
+<script type="text/javascript">
+  function downloadHeavy(buttonId) {
+    let btn = document.getElementById(buttonId);
+    btn.style.backgroundColor = "green";
+    btn.style.color = "white";
+
+    let link = document.createElement("a");
+    link.href = "../img/HeavyVehiclesMemo.pdf"; 
+    link.download = "HeavyVehiclesMemo.pdf";
+    link.click();
+}
+
+function downloadLight(buttonId) {
+    let btn = document.getElementById(buttonId);
+    btn.style.backgroundColor = "green";
+    btn.style.color = "white";
+
+    let link = document.createElement("a");
+    link.href = "../img/LightVehiclesMemo.pdf"; 
+    link.download = "LightVehiclesMemo.pdf";
+    link.click();
+}
+
+function downloadMotor(buttonId) {
+    let btn = document.getElementById(buttonId);
+    btn.style.backgroundColor = "green";
+    btn.style.color = "white";
+
+    let link = document.createElement("a");
+    link.href = "../img/MotorcycleMemo.pdf"; 
+    link.download = "MotorcycleMemo.pdf";
+    link.click();
+}
+
+</script>
+
+
+<script type="text/javascript">
+  function downloadHeavy(buttonId) {
+    let btn = document.getElementById(buttonId);
+    btn.style.backgroundColor = "green";
+    btn.style.color = "white";
+
+    let link = document.createElement("a");
+    link.href = "../img/HeavyVehiclesMemo.pdf"; 
+    link.download = "HeavyVehiclesMemo.pdf";
+    link.click();
+}
+
+function downloadLight(buttonId) {
+    let btn = document.getElementById(buttonId);
+    btn.style.backgroundColor = "green";
+    btn.style.color = "white";
+
+    let link = document.createElement("a");
+    link.href = "../img/LightVehiclesMemo.pdf"; 
+    link.download = "LightVehiclesMemo.pdf";
+    link.click();
+}
+
+function downloadMotor(buttonId) {
+    let btn = document.getElementById(buttonId);
+    btn.style.backgroundColor = "green";
+    btn.style.color = "white";
+
+    let link = document.createElement("a");
+    link.href = "../img/MotorcycleMemo.pdf"; 
+    link.download = "MotorcycleMemo.pdf";
+    link.click();
+}
+
+</script>
