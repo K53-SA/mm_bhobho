@@ -60,7 +60,11 @@
                     { x.className = x.className.replace("show", "");
                     }, 3000);
                 
-                document.getElementById("snackbars").innerHTML = "BETA version 1.0.0";
+                const date = new Date();
+const options = { month: 'long', year: 'numeric' };
+const formattedDate = date.toLocaleDateString(undefined, options);
+
+document.getElementById("snackbars").innerHTML = "Last updated " + formattedDate;
 </script>
 
 <script type="text/javascript">
@@ -93,6 +97,7 @@
 
   installClose.addEventListener('click', hideMyInstallPromotion);
 </script>
+
 
 
 
