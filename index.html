@@ -1,112 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123711353-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-123711353-2');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FREEK53</title>
-    <!--<link rel="stylesheet" type="text/css" href="./css/style.css">-->
-  <!-- PWA basics -->
-  <meta name="theme-color" content="#000000" />
-  <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
-  <link rel="icon" href="/img/images.png" type="image/png" />
-  <link rel="apple-touch-icon" href="/images192.png" />
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" type="image/ico" href="./img/images.png">
-    <link rel="manifest" href="manifest.json">
-   
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jobs South Africa</title>
+  <style>
+    :root {
+      --bg:#000; --text:#fff; --muted:#bfbfbf; --card:#0f0f0f;
+      --accent:#1e90ff; --accent-done:#28a745; --whatsapp:#25D366;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,Arial,Helvetica,sans-serif;line-height:1.4;}
+    .container{max-width:1100px;margin:24px auto;padding:16px;}
+    header{display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+    header h1{margin:0;font-size:20px;color:var(--text);}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px;}
+    @media(min-width:880px){.grid{grid-template-columns:repeat(2,1fr);}}
+    .card{background:var(--card);padding:12px;border-radius:10px;
+      border:1px solid #1a1a1a;display:flex;flex-direction:column;color:var(--text);transition:opacity .3s;}
+    .card-head{display:flex;align-items:center;gap:12px;color:var(--text);}
+    .logo{width:56px;height:56px;border-radius:8px;flex:0 0 56px;background:#222;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .logo img{width:100%;height:100%;object-fit:contain;}
+    .company{font-weight:700;color:var(--text);}
+    .fee{font-size:13px;color:var(--muted);}
+    .desc{margin-top:10px;color:var(--text);min-height:56px;}
+    .card-foot{display:flex;justify-content:space-between;align-items:center;
+      margin-top:12px;color:var(--text);flex-wrap:wrap;gap:8px;}
+    .closing{color:var(--text);}
+    .apply-btn,.share-btn{padding:10px 14px;border-radius:8px;border:none;color:#fff;font-weight:700;cursor:pointer;}
+    .apply-btn{background:var(--accent);}
+    .apply-btn.done{background:var(--accent-done);}
+    .share-btn{background:var(--whatsapp);}
+    footer{margin-top:30px;text-align:center;color:var(--text);font-size:13px;}
+  </style>
 </head>
 <body>
-    <div id="particles-js">
-        <div class="btext">
-            <h1>K53</h1>
-            <p>Learner's Test </p>
-            <p>Multiple Choice Questions</p>
-            <a href="./home_images/home.html" class="btn">Start...</a> <br> <br>
-			<a href="./K53_Sign_Test/download.html" class="btn">Download Memo</a>
+  <div class="container">
+    <header><h1>Jobs in South Africa</h1></header>
+    <main id="list" class="grid"></main>
+    <footer>© 2025 Jobs Portal South Africa</footer>
+  </div>
+
+  <script>
+  const companies = [
+    ['eskom.jpg','Eskom','Various','South Africa’s national electricity supplier hiring engineers, technicians, operators, and graduates.','Open','https://www.eskom.co.za/careers/'],
+    ['transnet.png','Transnet','Various','State-owned freight, rail, port and pipeline company offering apprenticeships and engineering posts.','Open','https://transnet.net/Careers/Pages/Careers.aspx'],
+    ['sasol.png','Sasol','Various','Multinational energy & chemicals company hiring engineers, artisans, and graduates.','Open','https://www.sasol.com/careers'],
+    ['anglo.png','Anglo American','Various','Global mining group offering engineering, geology, finance, and learnership opportunities.','Open','https://www.angloamerican.com/careers'],
+    ['shoprite.png','Shoprite Group','Various','Africa’s largest retailer offering store, distribution, and IT jobs.','Open','https://careers.shopriteholdings.co.za'],
+    ['woolworths.png','Woolworths SA','Various','Retail careers and corporate jobs in fashion, food and finance.','Open','https://careers.woolworths.co.za'],
+    ['absa.png','ABSA Bank','Various','Offers roles in banking, software development, finance, and call centre services.','Open','https://www.absa.africa/absaafrica/careers/'],
+    ['standardbank.jpg','Standard Bank','Various','One of Africa’s largest banks hiring across finance, digital, and operations.','Open','https://www.standardbank.com/sbg/careers'],
+    ['nedbank.png','Nedbank','Various','Banking and ICT careers across South Africa.','Open','https://www.nedbank.co.za/content/nedbank/desktop/gt/en/careers.html'],
+    ['sanlam.png','Sanlam','Various','Insurance and financial services jobs and internships.','Open','https://www.sanlam.com/careers'],
+
+
+
+
+
+
+  ['fnb.png','FNB (First National Bank)','Various','Banking, finance, IT, digital and call centre careers.','Open','https://www.fnb.co.za/careers/'],
+  ['capitec.png','Capitec Bank','Various','Fast-growing bank hiring IT, customer service, and finance staff.','Open','https://www.capitecbank.co.za/about-us/careers/'],
+  ['mtb.jpg','Momentum Metropolitan','Various','Insurance, finance, actuarial, HR and admin roles.','Open','https://www.momentummetropolitan.co.za/en/people/careers'],
+  ['discovery.png','Discovery','Various','Healthcare, insurance, tech and data careers.','Open','https://www.discovery.co.za/corporate/careers'],
+  ['oldmutual.jpg','Old Mutual','Various','Finance, investment, insurance and graduate roles.','Open','https://careers.oldmutual.co.za'],
+  ['cellc.png','Cell C','Various','Telecommunications roles across SA.','Open','https://www.cellc.co.za/careers'],
+  ['telkom.png','Telkom SA','Various','Telecoms, IT, technical and business operations jobs.','Open','https://www.telkom.co.za/about_us/careers/'],
+  ['vodacom.jpg','Vodacom','Various','Hiring across telecoms, digital, engineering & graduate programs.','Open','https://careers.vodafone.com/vodacom'],
+  ['mtn.png','MTN','Various','Telecommunication careers and global graduate opportunities.','Open','https://www.mtn.com/careers/'],
+  ['rain.jpg','Rain','Various','4G/5G telecom startup offering network, software & support roles.','Open','https://www.rain.co.za/careers'],
+
+  ['sars.jpg','SARS (South African Revenue Service)','Various','Government tax authority hiring compliance, auditing, legal and admin roles.','Open','https://www.sars.gov.za/careers/'],
+  ['sassa.png','SASSA','Various','Social security administration hiring clerks and regional office workers.','Open','https://www.sassa.gov.za'],
+  ['coe.png','City of Ekurhuleni','Various','Municipal vacancies across engineering, safety, admin and public works.','Open','https://www.ekurhuleni.gov.za/vacancies'],
+  ['cityjhb.png','City of Johannesburg','Various','Metro jobs in policing, engineering, IT and admin.','Open','https://www.joburg.org.za/work'],
+  ['cityct.png','City of Cape Town','Various','Government municipal jobs & graduate program.','Open','https://www.capetown.gov.za/jobs'],
+
+  ['dpw.jpg','Department of Public Works','Various','Government infrastructure, construction, and engineering roles.','Open','https://www.publicworks.gov.za'],
+  ['coeaga.png','Coega Development Corporation','Various','Industrial development, engineering, and training programs.','Open','https://www.coega.co.za/Careers'],
+  ['denel.png','Denel','Various','State-owned defence and aerospace manufacturer hiring engineers.','Open','http://www.denel.co.za/careers.php'],
+  ['csir.jpg','CSIR','Various','Research and engineering roles in science and technology.','Open','https://www.csir.co.za/careers'],
+  ['necsa.jpg','NECSA','Various','Nuclear research and radiation science jobs & internships.','Open','https://www.necsa.co.za/careers'],
+
+  ['necsa.jpg','NECSA','Various','Nuclear research and radiation science jobs & internships.','Open','https://www.necsa.co.za/careers'],
+  ['prasa.jpg','PRASA','Various','Passenger rail transport careers.','Open','https://www.prasa.com/careers'],
+  ['saa.png','South African Airways','Various','Aviation, technical and cabin crew opportunities.','Open','https://www.flysaa.com/about-us/careers'],
+  ['acsa.png','Airports Company South Africa (ACSA)','Various','Airport operations, security, engineering and admin roles.','Open','https://www.airports.co.za/careers'],
+  ['sabc.png','SABC','Various','Broadcast media, journalism and technical roles.','Open','https://www.sabc.co.za/sabc/careers'],
+
+  ['massmart.jpg','Massmart','Various','Retail and distribution (Game, Makro) careers.','Open','https://careers.massmart.co.za'],
+  ['picknpay.jpg','Pick n Pay','Various','Retail store and supply chain jobs.','Open','https://www.picknpay.co.za/careers'],
+  ['spar.png','SPAR','Various','Store operations, merchandisers and logistics.','Open','https://www.spar.co.za/About-SPAR/Careers'],
+  ['mrprice.png','Mr Price Group','Various','Fashion retail and IT careers.','Open','https://www.mrp.com/en_za/get-to-know-us/work-with-us'],
+  ['clicks.png','Clicks Group','Various','Retail pharmacy and health sector jobs.','Open','https://careers.clicksgroup.co.za'],
+
+  ['mediclinic.jpg','Mediclinic','Various','Medical, nursing, hospital admin and support.','Open','https://careers.mediclinic.co.za'],
+  ['netcare.jpg','Netcare','Various','Private hospital and emergency medical services roles.','Open','https://www.netcare.co.za/Careers'],
+  ['lifehealth.png','Life Healthcare','Various','Healthcare jobs, doctors, nurses, auxiliary.','Open','https://www.lifehealthcare.co.za/careers'],
+  ['dischem.jpg','Dis-Chem Pharmacies','Various','Retail pharmacy, logistics and healthcare careers.','Open','https://careers.dischem.co.za'],
+  ['aspengph.jpg','Aspen Pharmacare','Various','Pharmaceutical manufacturing and lab roles.','Open','https://www.aspenpharma.com/careers/'],
+
+  ['bidvest.jpg','Bidvest Group','Various','Services, logistics, cleaning, catering and freight careers.','Open','https://www.bidvest.co.za/careers.php'],
+  ['arcelormittal.jpg','ArcelorMittal SA','Various','Steel manufacturer hiring metallurgists and C&I engineers.','Open','https://southafrica.arcelormittal.com/careers/'],
+  ['sappi.jpg','SAPPI','Various','Pulp and paper manufacturing careers.','Open','https://www.sappi.com/careers'],
+  ['imperial.jpg','Imperial Logistics','Various','Transport and freight logistics jobs.','Open','https://www.imperiallogistics.com/careers.php'],
+  ['toyota.png','Toyota South Africa','Various','Automotive production, engineering and apprenticeship roles.','Open','https://www.toyotasa.co.za/careers'],
+
+  ['bmw.png','BMW Rosslyn','Various','Automotive engineering and assembly plant in Pretoria.','Open','https://www.bmwgroup.jobs/za/en.html'],
+  ['vw.jpg','Volkswagen South Africa','Various','Manufacturing plant careers in Uitenhage.','Open','https://www.vwsa.co.za/en/careers.html'],
+  ['mercedes.jpg','Mercedes-Benz SA','Various','Automotive production and graduate roles.','Open','https://group.mercedes-benz.com/careers'],
+  ['ford.png','Ford South Africa','Various','Automotive manufacturing and engineering jobs.','Open','https://www.ford.co.za/about-ford/careers/'],
+  ['isuzu.png','Isuzu South Africa','Various','Truck and bakkie manufacturing jobs.','Open','https://www.isuzumotorssouthafrica.com/careers'],
+
+  ['nampark.png','SANParks','Various','Park ranger, tourism, security and wildlife roles.','Open','https://www.sanparks.org/about/careers'],
+  ['postoffice.jpg','South African Post Office','Various','Mail, drivers, finance and IT roles.','Open','https://www.postoffice.co.za/careers'],
+  ['unisa.png','UNISA Careers','Various','Administrative and academic roles.','Open','https://www.unisa.ac.za/careers'],
+  ['ukzn.png','UKZN Careers','Various','University research and lecturing staff.','Open','https://ukzn.ac.za/careers'],
+  ['wits.png','Wits Careers','Various','Academic, admin and research jobs.','Open','https://www.wits.ac.za/vacancies/'],
+
+
+
+
+    ['goldfields.png','Gold Fields','Various','Global gold mining company hiring engineers, artisans, miners and graduates.','Open','https://www.goldfields.com/careers.php'],
+  ['sibanye.png','Sibanye-Stillwater','Various','Mining company hiring artisans, plant operators and engineers.','Open','https://www.sibanyestillwater.com/careers/'],
+  ['glencore.png','Glencore South Africa','Various','Mining, smelting, supply chain and engineering roles.','Open','https://www.glencore.com/careers'],
+  ['exxaro.png','Exxaro','Various','Coal & mineral mining with engineering graduate programs.','Open','https://www.exxaro.com/careers'],
+  ['harmony.png','Harmony Gold','Various','Mining jobs, internships and artisan learnerships.','Open','https://www.harmony.co.za/careers'],
+
+  ['kumba.png','Kumba Iron Ore','Various','Iron ore mining and metallurgical engineering roles.','Open','https://www.angloamericankumba.com/careers'],
+  ['assmang.jpg','Assmang Mines','Various','Manganese & iron mining, apprenticeships and engineering posts.','Open','https://www.assmang.co.za/careers'],
+  ['ppetrosa.png','PetroSA','Various','Oil & gas engineering, plant operations, interns and graduates.','Open','https://www.petrosa.co.za/careers'],
+  ['engen.png','Engen','Various','Petroleum company hiring refinery techs, drivers & office roles.','Open','https://www.engen.co.za/careers'],
+  ['bp.png','BP South Africa','Various','Energy, logistics and technical operations roles.','Open','https://www.bp.com/en/global/corporate/careers.html'],
+
+  ['shell.png','Shell South Africa','Various','Energy sector careers in retail, engineering and supply.','Open','https://www.shell.com/careers.html'],
+  ['astron.png','Astron Energy','Various','Fuel refinery and downstream operations jobs.','Open','https://www.astronenergy.co.za/careers'],
+  ['tigerbrands.jpg','Tiger Brands','Various','Food manufacturing, supply chain, sales and graduate roles.','Open','https://www.tigerbrands.com/careers'],
+  ['pioneer.png','Pioneer Foods','Various','Food production and manufacturing careers.','Open','https://www.rclfoods.com/careers/'], // part of RCL, but hiring separate
+  ['rclfoods.png','RCL Foods','Various','Food manufacturing, supply chain & graduate programs.','Open','https://www.rclfoods.com/careers/'],
+
+  ['clover.jpg','Clover SA','Various','Dairy production, logistics and commercial jobs.','Open','https://www.clover.co.za/careers'],
+  ['nampak.png','Nampak','Various','Packaging manufacturing and plant engineering roles.','Open','https://www.nampak.com/careers'],
+  ['mondi.png','Mondi Group','Various','Paper & packaging, industrial engineering and operations.','Open','https://www.mondigroup.com/en/careers/'],
+  ['barloworld.png','Barloworld','Various','Industrial vehicles, machinery & supply chain jobs.','Open','https://www.barloworld.com/careers'],
+  ['bell.png','Bell Equipment','Various','Earthmoving equipment manufacturing roles.','Open','https://www.bellequipment.com/careers'],
+
+  ['truworths.png','Truworths','Various','Retail store and head office roles.','Open','https://www.truworths.co.za/careers'],
+  ['tfggroup.png','TFG (Foschini Group)','Various','Retail fashion, call centres, HR and digital jobs.','Open','https://www.tfglimited.co.za/careers'],
+  ['pep.png','Pep Stores (Pepkor)','Various','Merchandising, retail and logistics roles.','Open','https://careers.pepkor.co.za'],
+  ['ackermans.png','Ackermans','Various','Retail store and operations careers.','Open','https://www.ackermans.co.za/about-us/careers'],
+  ['game.png','Game Stores','Various','Retail store jobs and warehouse logistics.','Open','https://www.massmart.co.za/careers'], // still distinct listing presence
+
+  ['heineken.png','Heineken South Africa','Various','Brewery operations, engineering & supply chain.','Open','https://careers.theheinekencompany.com'],
+  ['sab.png','SAB (AB InBev)','Various','Beer production, sales & internships.','Open','https://www.sab.co.za/careers'],
+  ['distell.png','Distell','Various','Wine & spirits production & logistics.','Open','https://www.distell.co.za/careers'],
+  ['adcock.png','Adcock Ingram','Various','Pharmaceutical lab and production careers.','Open','https://www.adcock.com/Content/Careers'],
+  ['bidair.png','BidAir Services','Various','Airport ground handling and support services.','Open','https://www.bidairservices.co.za/careers'],
+
+  ['airlink.png','Airlink','Various','Private airline jobs including cabin crew & technicians.','Open','https://www.flyairlink.com/en/jobs'],
+  ['flysafair.png','FlySafair','Various','Airline crew & operations roles.','Open','https://www.flysafair.co.za/about-us/careers'],
+  ['eskomrotarik.png','Rotek & Roshcon','Various','Eskom subsidiary specializing in maintenance services.','Open','https://www.eskom.co.za/careers'], // linked but distinct employer code
+  ['randwater.png','Rand Water','Various','Water processing, science and engineering roles.','Open','http://www.randwater.co.za/Careers'],
+  ['umgeni.jpg','Umgeni Water','Various','Water utility hiring engineers & technicians.','Open','https://www.umgeni.co.za/careers'],
+
+  ['magalieswater.jpg','Magalies Water','Various','Water infrastructure and plant technician jobs.','Open','https://www.magalieswater.co.za/careers'],
+  ['idc.jpg','Industrial Development Corporation (IDC)','Various','Finance, investment and project management jobs.','Open','https://www.idc.co.za/careers'],
+  ['dbsa.png','Development Bank of Southern Africa (DBSA)','Various','Infrastructure financing and investment roles.','Open','https://www.dbsa.org/jobs'],
+  ['landbank.png','Land Bank','Various','Agricultural and financial lending roles.','Open','https://landbank.co.za/careers'],
+  ['nrf.jpg','National Research Foundation (NRF)','Various','Research science, labs & academic support.','Open','https://www.nrf.ac.za/careers'],
+
+  ['mintek.png','Mintek','Various','Mineral science research & engineering roles.','Open','https://www.mintek.co.za/careers'],
+  ['arc.jpg','Agricultural Research Council','Various','Research and field science roles.','Open','https://www.arc.agric.za'],
+  ['saws.jpg','South African Weather Service','Various','Meteorology, climate science and aviation roles.','Open','https://www.weathersa.co.za/careers'],
+  ['saps.png','SAPS','Various','Police service recruitment and internships.','Open','https://www.saps.gov.za/careers'],
+  ['sanavy.png','South African Navy','Various','Military maritime training & recruitment.','Open','https://www.navy.mil.za/careers'],
+
+  ['saarmy.jpg','South African Army','Various','Military land defense hiring soldiers and officers.','Open','http://www.army.mil.za'],
+  ['saairforce.png','South African Air Force','Various','Air defense & aviation careers.','Open','http://www.af.mil.za'],
+  ['doe.png','Department of Education','Various','Government administrative and teaching roles.','Open','https://www.education.gov.za/Vacancies'],
+  ['dha.jpg','Home Affairs','Various','Civic and immigration services hiring staff.','Open','http://www.dha.gov.za/index.php/careers'],
+  ['dcs.jpg','Correctional Services','Various','Correctional facility and admin roles.','Open','http://www.dcs.gov.za/wp/careers'],
+
+  ['health.jpg','Department of Health','Various','Hospitals, clinics and support office careers.','Open','https://www.health.gov.za/careers'],
+  ['roadsagency.jpg','SANRAL','Various','Roads and civil infrastructure engineering roles.','Open','https://www.nra.co.za/careers'],
+  ['prasaexp.png','Gautrain (Bombela)','Various','Rail operations and engineering roles.','Open','https://www.gautrain.co.za/about/careers'],
+  ['takealot.png','Takealot','Various','E-commerce logistics, warehouse and tech jobs.','Open','https://www.takealot.com/careers'],
+  ['naspers.png','Naspers','Various','Global media and technology careers.','Open','https://www.naspers.com/careers'],
+
+  ['multichoice.jpg','MultiChoice','Various','DSTV / Showmax media & broadcasting roles.','Open','https://careers.multichoice.com'],
+  ['showmax.png','Showmax','Various','Streaming media production & engineering jobs.','Open','https://showmax.com/eng/jobs'],
+  ['dimensiondata.jpg','Dimension Data','Various','IT, networking and cloud engineering careers.','Open','https://www.dimensiondata.com/careers'],
+  ['altron.jpg','Altron','Various','ICT, cybersecurity and software engineering roles.','Open','https://www.altron.com/careers'],
+  ['yoco.png','Yoco','Various','Fintech start-up hiring developers and support teams.','Open','https://www.yoco.com/za/careers'],
+
+  ['takealotdelivery.png','Mr D (Delivery)','Various','Food delivery logistics and driver support roles.','Open','https://www.mrdfood.com/work'],
+  ['ubereats.png','Uber Eats SA','Various','Driver partners and operations jobs.','Open','https://www.uber.com/za/en/careers/'],
+  ['bolt.png','Bolt SA','Various','Transport and operations support roles.','Open','https://bolt.eu/en/careers/'],
+  ['dhl.jpg','DHL South Africa','Various','Logistics, warehousing and distribution roles.','Open','https://www.dhl.com/careers'],
+  ['fedex.png','FedEx South Africa','Various','Distribution, admin and delivery jobs.','Open','https://www.fedex.com/en-za/careers.html'],
+
+  ['investec.png','Investec','Various','Private banking and wealth finance roles.','Open','https://www.investec.com/en_za/careers.html'],
+  ['africanbank.jpg','African Bank','Various','Banking, sales and customer support jobs.','Open','https://www.africanbank.co.za/en/home/careers'],
+  ['tymebank.jpg','TymeBank','Various','Digital banking and IT careers.','Open','https://www.tymebank.co.za/careers'],
+  ['liberty.png','Liberty Group','Various','Insurance underwriting, finance and actuarial roles.','Open','https://www.liberty.co.za/careers'],
+  ['hollard.png','Hollard Insurance','Various','Insurance claims, sales and call centre roles.','Open','https://www.hollard.co.za/careers'],
+
+  ['psg.png','PSG Konsult','Various','Financial advisory and investment careers.','Open','https://www.psg.co.za/careers'],
+  ['deloitte.png','Deloitte SA','Various','Audit, consulting, tax and advisory roles.','Open','https://jobs.deloitte.com/'],
+  ['pwc.jpg','PwC South Africa','Various','Consulting, accounting and business analysis roles.','Open','https://www.pwc.co.za/careers'],
+  ['ey.jpg','EY South Africa','Various','Audit, legal, advisory and graduate roles.','Open','https://www.ey.com/en_za/careers'],
+  ['kpmg.png','KPMG South Africa','Various','Accounting and business consulting careers.','Open','https://home.kpmg/za/en/home/careers.html'],
+
+  ['uj.png','University of Johannesburg','Various','Academic and support staff roles.','Open','https://www.uj.ac.za/about/careers'],
+  ['tut.png','Tshwane University of Technology','Various','University jobs and academic hiring.','Open','https://www.tut.ac.za/careers'],
+  ['dut.png','Durban University of Technology','Various','Academic and technical posts.','Open','https://www.dut.ac.za/careers'],
+  ['cput.png','Cape Peninsula University of Technology','Various','Higher education academic roles.','Open','https://www.cput.ac.za/jobs'],
+  ['vut.jpg','Vaal University of Technology','Various','Lecturing, admin, and lab technical roles.','Open','https://www.vut.ac.za/careers'],
+
+  ['mut.png','Mangosuthu University of Technology','Various','Teaching and support staff roles.','Open','https://www.mut.ac.za/careers']
+
+
+  ];
+
+ function renderAll() {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+
+  companies.forEach((c, idx) => {
+    const [img, name, fee, desc, status, link] = c;
+    const card = document.createElement('article');
+    card.className = 'card';
+
+    card.innerHTML = `
+      <div class="card-head">
+        <div class="logo"><img src="images/${img}" alt="${name} logo"></div>
+        <div>
+          <div class="company">${name}</div>
+          <div class="fee">Job Status: ${status}</div>
         </div>
+      </div>
+      <p class="desc">${desc}</p>
+      <div class="card-foot">
+        <strong>${status}</strong>
+        <div style="display:flex;gap:6px;">
+          <button class="apply-btn">Apply</button>
+          <button class="share-btn">Share</button>
+        </div>
+      </div>
+    `;
 
-    </div>
-  <!-- Install banner (hidden by default) -->
+    list.appendChild(card);
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    // Apply button
+    card.querySelector('.apply-btn').addEventListener('click', () => window.open(link, '_blank'));
 
-    <script>
-        particlesJS.load('particles-js', 'particles.json',
-        function(){
-            console.log('particles.json loaded...')
-        })
-    </script>
-                    <div id="snackbars">
-            
-        </div>  
+    // Share button
+    card.querySelector('.share-btn').addEventListener('click', () => {
+      const shareText = encodeURIComponent(`Check jobs at ${name}: ${link}`);
+      window.open(`https://wa.me/?text=${shareText}`, '_blank');
+    });
+
+    // Insert Google Adsense ad after every 10 companies
+    if ((idx + 1) % 10 === 0) {
+      const adWrapper = document.createElement('div');
+      adWrapper.innerHTML = `
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-format="fluid"
+          data-ad-layout-key="-6t+ed+2i-1n-4w"
+          data-ad-client="ca-pub-7523555661265068"
+          data-ad-slot="1338431504"></ins>
+      `;
+      list.appendChild(adWrapper);
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.log('AdSense error:', e);
+      }
+    }
+  });
+}
+
+  renderAll();
+  </script>
 </body>
 </html>
-<script type="text/javascript">
-                    var x = document.getElementById("snackbars");
-                x.className = "show";
-
-                setTimeout(function()
-                    { x.className = x.className.replace("show", "");
-                    }, 3000);
-                
-                const date = new Date();
-const options = { month: 'long', year: 'numeric' };
-const formattedDate = date.toLocaleDateString(undefined, options);
-
-document.getElementById("snackbars").innerHTML = "Last updated " + formattedDate;
-</script>
-
-<script type="text/javascript">
-    
-  // --- INSTALL PROMPT WIRING ---
-  let deferredPrompt = null;
-
-  const banner       = document.getElementById('installBanner');
-  const installBtn   = document.getElementById('installBtn');
-  const installClose = document.getElementById('installClose');
-
-  function showInstallPromotion() { banner.style.display = 'block'; }
-  function hideMyInstallPromotion() { banner.style.display = 'none'; }
-
-  // Capture the event so we can show our own UI
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();           // don't let Chrome show its mini-infobar
-    deferredPrompt = e;           // save it for later
-    showInstallPromotion();       // show our banner
-  });
-
-  installBtn.addEventListener('click', async () => {
-    hideMyInstallPromotion();
-    if (!deferredPrompt) return;  // safety
-    deferredPrompt.prompt();      // <-- THIS is what Chrome wants to see
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log('PWA install choice:', outcome);
-    deferredPrompt = null;        // must be reset; can only be used once
-  });
-
-  installClose.addEventListener('click', hideMyInstallPromotion);
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
