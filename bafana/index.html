@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bafana Bafana 1996 Jersey — Limited Sale</title>
+  <style>
+    :root{
+      --bg:#f6f8fa; --card:#ffffff; --accent:#0b8043; --muted:#6b7280; --danger:#d9534f;
+      --glass: rgba(255,255,255,0.6);
+      --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#eef2f7 0%,var(--bg) 100%);color:#0f172a;display:flex;align-items:center;justify-content:center;padding:28px}
+    .wrap{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:1fr 420px;gap:28px}
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#017a3a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+
+    /* Product card */
+    .card{background:var(--card);border-radius:14px;padding:20px;box-shadow:0 6px 30px rgba(12, 18, 28, 0.08)}
+    .gallery{position:relative;border-radius:12px;overflow:hidden;background:#eef3f6}
+    .slides{display:flex;transition:transform .35s ease;touch-action:pan-y}
+    .slides img{width:100%;height:auto;object-fit:contain;flex:0 0 100%;background:#eef3f6;}
+    .thumbs{display:flex;gap:8px;margin-top:12px}
+    .thumbs img{width:64px;height:48px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:.7;border:2px solid transparent}
+    .thumbs img.active{opacity:1;border-color:var(--accent)}
+    .btn-circle{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;display:inline-grid;place-items:center;background:rgba(255,255,255,0.85);border:none;box-shadow:0 6px 16px rgba(12,18,28,.08);cursor:pointer}
+    .prev{left:12px}
+    .next{right:12px}
+
+    /* Details */
+    .price-row{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+    .old-price{text-decoration:line-through;color:var(--muted)}
+    .sale-badge{background:linear-gradient(90deg,#ff7a59,#ff5d8f);padding:6px 10px;border-radius:999px;color:#fff;font-weight:700;font-size:13px}
+    .now-price{font-size:28px;font-weight:800}
+    .countdown{background:#fff7e6;padding:8px;border-radius:8px;color:#7a4b00;font-weight:700;display:inline-block}
+
+    .sizes{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .size{padding:10px 12px;border-radius:8px;border:1px solid #e6e9ee;cursor:pointer;min-width:60px;text-align:center}
+    .size.selected{border-color:var(--accent);box-shadow:0 4px 14px rgba(11,128,67,.12)}
+
+    .controls{display:flex;gap:10px;align-items:center;margin-top:16px}
+    input.qty{width:72px;padding:10px;border-radius:10px;border:1px solid #e6e9ee}
+    button.primary{background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid #e6e9ee;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+    .meta{margin-top:18px;color:var(--muted);font-size:14px}
+    .specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+
+    footer.info{grid-column:1/-1;margin-top:10px;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){.wrap{grid-template-columns:1fr;gap:18px;padding:0}}
+    @media (max-width:540px){
+  .slides img{height:auto;}
+  .gallery{height:auto;}
+}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">BF</div>
+        <div>
+          <h1>Bafana Bafana • 1996 Retro Jersey</h1>
+          <p class="lead">Official-style retro shirt — limited pieces. Fast shipping in South Africa.</p>
+        </div>
+      </div>
+  <!--    <div class="sale-badge">Limited • 5 days left</div> -->
+    </header>
+
+    <section class="card">
+      <div class="gallery" id="gallery">
+        <button class="btn-circle prev" id="prevBtn" aria-label="Previous image">&#9664;</button>
+        <div class="slides" id="slides">
+          <!-- default images (you can click "Add images" below to replace/add) -->
+          <img src="images/one.jpeg" alt="Bafana jersey front">
+          <img src="images/ten.jpeg" alt="Bafana jersey detail">
+          <img src="images/five.jpeg" alt="Bafana jersey back">
+          <img src="images/eight.jpeg" alt="Bafana jersey front">
+        </div>
+        <button class="btn-circle next" id="nextBtn" aria-label="Next image">&#9654;</button>
+      </div>
+
+      <div class="thumbs" id="thumbs">
+        <!-- thumbnails auto-populated -->
+      </div>
+
+      <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <div class="price-row">
+            <div class="old-price">R999</div>
+            <div class="now-price">R499</div>
+            <div class="countdown" id="countdown">5 days</div>
+          </div>
+          <div class="meta">Special offer — limited stock. Free returns within 7 days.</div>
+        </div>
+
+        <div style="text-align:right">
+          <div style="font-size:13px;color:var(--muted)">Choose size</div>
+          <div class="sizes" id="sizeList">
+            <div class="size" data-size="S">S</div>
+            <div class="size" data-size="M">M</div>
+            <div class="size selected" data-size="L">L</div>
+            <div class="size" data-size="XL">XL</div>
+            <div class="size" data-size="XXL">XXL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label for="qty" style="font-weight:700">Qty</label>
+        <input class="qty" id="qty" type="number" min="1" value="1">
+        <button class="primary" id="buyBtn" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=YA4VFAL4YB92W')">Buy with PayPal</button>
+        <button class="secondary" id="addCartBtn">Add to cart</button>
+      </div>
+
+    <!--  <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <label style="font-size:13px;color:var(--muted);">Upload images (optional):</label>
+        <input type="file" id="imageUpload" accept="image/*" multiple>
+      </div> -->
+
+      <div class="specs">
+        <div>
+          <strong>Shipping</strong>
+          <p class="meta">Flat rate R60 (RSA). Express available at checkout. Ships within 2 business days.</p>
+        </div>
+        <div>
+          <strong>Returns</strong>
+          <p class="meta">7-day money-back guarantee (item must be unworn).</p>
+        </div>
+      </div>
+
+    </section>
+
+    <aside class="card">
+      <h3 style="margin-top:0">Order summary</h3>
+      <div style="display:flex;justify-content:space-between;align-items:center"><div>Item</div><div id="summaryItem">Bafana 1996 Jersey</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><div>Size</div><div id="summarySize">L</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><div>Qty</div><div id="summaryQty">1</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-weight:800;font-size:20px"><div>Total</div><div id="summaryTotal">R499</div></div>
+
+      <form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:14px">
+        <!-- Using PayPal "Buy Now" variables. Replace business email if needed. -->
+        <input type="hidden" name="business" id="paypalBusiness" value="abakwandabezitha@gmail.com">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="item_name" id="paypalItem" value="Bafana 1996 Jersey - L">
+        <input type="hidden" name="amount" id="paypalAmount" value="499">
+        <input type="hidden" name="currency_code" value="ZAR">
+        <input type="hidden" name="quantity" id="paypalQuantity" value="1">
+        <input type="hidden" name="return" value="https://example.com/thank-you.html">
+        <input type="hidden" name="notify_url" value="">
+        <button onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=YA4VFAL4YB92W')" class="primary" style="width:100%;">Checkout with PayPal</button>
+      </form>
+
+      <small style="display:block;margin-top:10px;color:var(--muted)">Secure payment powered by PayPal. You will be redirected to PayPal to complete your purchase.</small>
+    </aside>
+
+    <footer class="info">
+      <strong>Disclaimer:</strong> This website is an independent reseller and is not affiliated with, endorsed by, or connected to Bafana Bafana, SAFA, or any official merchandise provider. All product images are for illustration purposes. Sizes, colors, and availability may vary. All sales are subject to our return and shipping policy.
+    </footer>
+  </div>
+
+  <script>
+    // Simple image carousel + dynamic thumbnails
+    const slidesEl = document.getElementById('slides');
+    const thumbsEl = document.getElementById('thumbs');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let index = 0;
+
+    function refreshThumbs(){
+      thumbsEl.innerHTML = '';
+      const imgs = slidesEl.querySelectorAll('img');
+      imgs.forEach((img,i)=>{
+        const t = document.createElement('img');
+        t.src = img.src; t.alt = img.alt || ('slide '+(i+1));
+        if(i===index) t.classList.add('active');
+        t.addEventListener('click',()=>{index=i; update();});
+        thumbsEl.appendChild(t);
+      })
+    }
+    function update(){
+      const w = slidesEl.clientWidth; // full width
+      slidesEl.style.transform = `translateX(${-index * 100}%)`;
+      const ts = thumbsEl.querySelectorAll('img');
+      ts.forEach((t,i)=> t.classList.toggle('active', i===index));
+      // update summary image alt
+    }
+    prevBtn.addEventListener('click',()=>{ const n=slidesEl.querySelectorAll('img').length; index=(index-1+n)%n; update();})
+    nextBtn.addEventListener('click',()=>{ const n=slidesEl.querySelectorAll('img').length; index=(index+1)%n; update();})
+
+    // allow keyboard left/right
+    document.addEventListener('keydown', e=>{ if(e.key==='ArrowLeft') prevBtn.click(); if(e.key==='ArrowRight') nextBtn.click(); })
+
+    // Image upload handling (client-side only)
+ /*  document.getElementById('imageUpload').addEventListener('change', function(e){
+      const files = Array.from(e.target.files).slice(0,10);
+      if(!files.length) return;
+      slidesEl.innerHTML = '';
+      files.forEach(f=>{
+        const url = URL.createObjectURL(f);
+        const img = document.createElement('img'); img.src = url; img.alt = f.name;
+        slidesEl.appendChild(img);
+      });
+      index = 0; update(); refreshThumbs();
+    }); */
+
+    // populate thumbs initially
+    refreshThumbs();
+    update();
+
+    // Size selection logic
+    const sizeEls = document.querySelectorAll('.size');
+    let selectedSize = document.querySelector('.size.selected')?.dataset.size || 'L';
+    sizeEls.forEach(s=> s.addEventListener('click', ()=>{
+      sizeEls.forEach(x=>x.classList.remove('selected'));
+      s.classList.add('selected');
+      selectedSize = s.dataset.size;
+      document.getElementById('summarySize').textContent = selectedSize;
+      document.getElementById('paypalItem').value = `Bafana 1996 Jersey - ${selectedSize}`;
+    }));
+
+    // Qty change update
+    const qtyEl = document.getElementById('qty');
+    qtyEl.addEventListener('input', ()=>{
+      const q = Math.max(1, Math.floor(Number(qtyEl.value) || 1));
+      qtyEl.value = q; document.getElementById('summaryQty').textContent = q;
+      document.getElementById('paypalQuantity').value = q;
+      document.getElementById('summaryTotal').textContent = `R${(499 * q).toLocaleString('en-ZA')}`;
+      document.getElementById('paypalAmount').value = (499 * q).toFixed(2);
+    });
+
+    // Add to cart (simple visual) -- stores in localStorage
+    document.getElementById('addCartBtn').addEventListener('click', ()=>{
+      const q = Number(qtyEl.value) || 1;
+      const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+      cart.push({item:'Bafana 1996 Jersey',size:selectedSize,qty:q,price:499});
+      localStorage.setItem('cart',JSON.stringify(cart));
+      alert('Added to cart — '+q+' x '+selectedSize);
+    });
+
+    // Sync PayPal form just before submit
+    document.getElementById('paypalForm').addEventListener('submit', function(e){
+      // ensure selections are valid
+      const q = Math.max(1, Math.floor(Number(qtyEl.value) || 1));
+      document.getElementById('paypalQuantity').value = q;
+      document.getElementById('paypalAmount').value = (499 * q).toFixed(2);
+      document.getElementById('paypalItem').value = `Bafana 1996 Jersey - ${selectedSize} (Qty: ${q})`;
+      // note: form will open PayPal in a new tab/window
+    });
+
+    // Countdown: sale ends in 5 days from page load (updates live)
+    const countdownEl = document.getElementById('countdown');
+    const endDate = new Date(); endDate.setDate(endDate.getDate()+5);
+    function tickCountdown(){
+      const now = new Date(); const diff = endDate - now;
+      if(diff<=0){countdownEl.textContent='Sale ended'; return}
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff/(1000*60*60))%24);
+      const mins = Math.floor((diff/(1000*60))%60);
+      countdownEl.textContent = `${days}d ${hours}h ${mins}m left`;
+    }
+    tickCountdown(); setInterval(tickCountdown, 60*1000);
+
+    // Make carousel swipe-friendly
+    let startX=null; slidesEl.addEventListener('pointerdown', e=>{startX=e.clientX;});
+    slidesEl.addEventListener('pointerup', e=>{ if(startX===null) return; const dx = e.clientX - startX; if(dx>40) prevBtn.click(); if(dx<-40) nextBtn.click(); startX=null; });
+
+    // small accessibility improvements
+    // Ensure PayPal email is set to your merchant email. You can replace the value in the input#paypalBusiness field.
+  </script>
+</body>
+</html>
