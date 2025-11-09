@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Win a VW Polo GTI — R100 Entry Competition</title>
+  <style>
+    :root{
+      --bg:#f3f5f7; --card:#ffffff; --accent:#d32f2f; --muted:#6b7280;
+      --glass: rgba(255,255,255,0.6);
+      --maxw:1100px;
+      font-family: Inter, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fafafa 0%,var(--bg) 100%);color:#111;display:flex;justify-content:center;padding:28px}
+    .wrap{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:1fr 380px;gap:28px}
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding-bottom:10px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#8e0000);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px}
+    h1{margin:0;font-size:22px;font-weight:800}
+    p.lead{margin:0;color:var(--muted);font-size:14px}
+
+    /* Card */
+    .card{background:var(--card);border-radius:14px;padding:20px;box-shadow:0 6px 30px rgba(0,0,0,0.08)}
+
+    /* Gallery */
+    .gallery{position:relative;border-radius:12px;overflow:hidden;background:#eef3f6}
+    .slides{display:flex;transition:transform .35s ease;touch-action:pan-y}
+    .slides img{width:100%;height:auto;object-fit:cover;flex:0 0 100%}
+    .btn-circle{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;display:inline-grid;place-items:center;background:rgba(255,255,255,0.88);border:none;cursor:pointer;font-size:20px;font-weight:600}
+    .prev{left:12px}
+    .next{right:12px}
+
+    .thumbs{display:flex;gap:8px;margin-top:12px;overflow-x:auto;padding-bottom:4px}
+    .thumbs img{width:70px;height:50px;border-radius:6px;cursor:pointer;object-fit:cover;opacity:.6;border:2px solid transparent;flex-shrink:0}
+    .thumbs img.active{opacity:1;border-color:var(--accent)}
+
+    /* Price & CTA */
+    .now-price{font-size:32px;font-weight:900;color:var(--accent)}
+    .meta{color:var(--muted);font-size:14px;margin-top:6px}
+    .primary{width:100%;margin-top:16px;background:var(--accent);color:#fff;font-weight:700;border:none;padding:14px;border-radius:12px;cursor:pointer;font-size:18px}
+
+    aside h3{margin-top:0;font-size:20px;font-weight:700}
+
+    footer.info{grid-column:1/-1;margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Responsive */
+    @media(max-width:980px){.wrap{grid-template-columns:1fr}}
+    @media(max-width:520px){body{padding:12px} h1{font-size:18px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    <div class="logo">GTI</div>
+    <div>
+      <h1>Win a VW Polo GTI</h1>
+      <p class="lead">Enter the draw for only R100. Limited spots.</p>
+    </div>
+  </div>
+</header>
+
+<section class="card">
+  <div class="gallery" id="gallery">
+    <button class="btn-circle prev" id="prevBtn">&#9664;</button>
+    <div class="slides" id="slides">
+      <img src="images/one.avif" alt="VW Polo GTI front">
+      <img src="images/two.avif" alt="VW Polo GTI interior">
+      <img src="images/three.avif" alt="VW Polo GTI side view">
+      <img src="images/four.avif" alt="VW Polo GTI back view">
+    </div>
+    <button class="btn-circle next" id="nextBtn">&#9654;</button>
+  </div>
+  <div class="thumbs" id="thumbs"></div>
+
+  <div style="margin-top:14px">
+    <div class="now-price">R100 per entry</div>
+    <div class="meta">Every R100 = 1 verified entry. Unlimited entries allowed. Draw date will be announced once entries reach target.</div>
+  </div>
+
+  <button class="primary" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=T6GPY6LUX62B8')">Enter Now with PayPal</button>
+</section>
+
+<aside class="card">
+  <h3>Competition Details</h3>
+  <p class="meta"><strong>Car Model:</strong> VW Polo GTI</p>
+  <p class="meta"><strong>Entry Fee:</strong> R100 per entry</p>
+  <p class="meta"><strong>Location:</strong> South Africa</p>
+  <p class="meta">A random draw will be conducted live and transparently once the entry pool is full. Winner will be contacted directly and announced on our official channels.</p>
+</aside>
+
+<footer class="info">
+  This promotion is independent and not affiliated with Volkswagen. Winner selection will be done fairly and verifiably. Terms and conditions apply.
+</footer>
+
+</div>
+
+<script>
+const slides = document.getElementById("slides");
+const thumbs = document.getElementById("thumbs");
+let index = 0;
+
+function refreshThumbs(){
+  thumbs.innerHTML = "";
+  const imgs = slides.querySelectorAll("img");
+  imgs.forEach((img,i)=>{
+    const t = document.createElement("img");
+    t.src = img.src;
+    t.classList.toggle("active",i===index);
+    t.onclick = ()=>{ index=i; update(); };
+    thumbs.appendChild(t);
+  });
+}
+function update(){
+  slides.style.transform = `translateX(${-index*100}%)`;
+  refreshThumbs();
+}
+
+document.getElementById("nextBtn").onclick = ()=>{
+  const n = slides.querySelectorAll("img").length;
+  index=(index+1)%n; update();
+};
+document.getElementById("prevBtn").onclick = ()=>{
+  const n = slides.querySelectorAll("img").length;
+  index=(index-1+n)%n; update();
+};
+
+refreshThumbs();
+update();
+</script>
+</body>
+</html>
