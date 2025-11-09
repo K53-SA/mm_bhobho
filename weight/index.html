@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrustedRx — Prescription Medicines Store</title>
+  <style>
+    :root{--bg:#fbfbfd;--card:#fff;--accent:#0f172a;--muted:#555;--warn:#b91c1c;--maxw:1100px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f2f5fb, var(--bg));color:#111;display:flex;justify-content:center;padding:28px}
+    .wrap{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:1fr 360px;gap:20px}
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#0f172a,#1f2937);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+    .product{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 10px 30px rgba(15,23,42,0.06);display:grid;grid-template-columns:1fr 360px;gap:14px}
+    .products{display:grid;gap:16px}
+    .gallery{position:relative;border-radius:10px;overflow:hidden;background:#eef3f6}
+    .slides{display:flex;transition:transform .35s ease}
+    .slides img{width:100%;height:260px;object-fit:cover;flex:0 0 100%}
+    .thumbs{display:flex;gap:8px;margin-top:10px}
+    .thumbs img{width:56px;height:40px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:.75;border:2px solid transparent}
+    .thumbs img.active{opacity:1;border-color:var(--accent)}
+    .btn-circle{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;display:inline-grid;place-items:center;background:rgba(255,255,255,0.9);border:none;cursor:pointer}
+    .prev{left:8px}.next{right:8px}
+    .price-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .old-price{text-decoration:line-through;color:var(--muted);font-weight:700}
+    .now-price{font-size:20px;font-weight:900;color:#0b6b4f}
+    .specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;color:var(--muted);font-size:13px}
+    .controls{display:flex;gap:8px;align-items:center;margin-top:12px}
+    .qty{width:64px;padding:8px;border-radius:8px;border:1px solid #e6e9ee}
+    .primary{background:#0f172a;color:#fff;padding:10px 12px;border-radius:8px;border:none;cursor:pointer}
+    .secondary{background:transparent;border:1px solid #e6e9ee;padding:8px 10px;border-radius:8px;cursor:pointer}
+    .presc-upload{margin-top:10px}
+    aside.card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 10px 30px rgba(15,23,42,0.06)}
+    .cart-list{max-height:340px;overflow:auto;margin-top:10px}
+    .cart-item{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px dashed #eef2f7}
+    .cart-item img{width:56px;height:44px;object-fit:cover;border-radius:6px}
+    .total-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-weight:900}
+    .notice{background:#fff4f4;border:1px solid #fee2e2;padding:10px;border-radius:8px;color:var(--warn);font-weight:700}
+    footer.info{grid-column:1/-1;margin-top:12px;color:var(--muted);font-size:13px}
+    @media (max-width:980px){.wrap{grid-template-columns:1fr;padding:0}.product{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">Rx</div>
+        <div>
+          <h1>TrustedRx — Prescription Medicines</h1>
+        </div>
+      </div>
+      <div style="color:var(--muted);font-weight:700">Licensed Pharmacy • Secure patient data handling</div>
+    </header>
+
+    <main class="products" id="products">
+      <!-- Five prescription-only products -->
+
+      <!-- Product A -->
+      <section class="product" data-sku="RX-001">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev">&#9664;</button>
+            <div class="slides">
+              <img src="images/one1.webp" alt="Medicine A">
+              <img src="images/one2.webp" alt="Medicine A pack">
+            </div>
+            <button class="btn-circle next">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div>
+          <h2 style="margin:0">Orlistat (Xenical / Alli) 500mg (30)</h2>
+          <div class="price-row">
+            <div class="old-price">R299</div>
+            <div class="now-price">R99</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">Prescription not required</div>
+          </div>
+          <div style="color:var(--muted);font-size:13px">How it works: Blocks absorption of fat in the intestines.
+
+Used for: Overweight & obesity management alongside diet changes.
+
+Note: Can cause oily stools if diet is high in fat.</div>
+
+       <!--   <div class="presc-upload">
+            <label style="font-weight:700;font-size:13px">Upload prescription (PDF/photo)</label>
+            <input type="file" accept="image/*,.pdf" class="presc-file">
+            <div style="font-size:12px;color:var(--muted);margin-top:6px">We will verify prescription before processing payment.</div>
+          </div> -->
+
+          <div class="controls">
+            <label>Qty</label>
+            <input class="qty" type="number" min="1" value="1">
+            <button class="primary add-cart" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=6CVLASNPG9CXG')">Buy</button>
+            <button class="secondary" title="Contact pharmacist">Contact Pharmacist</button>
+          </div>
+
+          <div class="specs">
+            <div><strong>Form:</strong> Capsules</div>
+            <div><strong>Storage:</strong> Room temp</div>
+            <div><strong>Pack:</strong> 30 tablets</div>
+            <div><strong>Schedule:</strong> Rx only</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product B -->
+      <section class="product" data-sku="RX-002">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev">&#9664;</button>
+            <div class="slides">
+              <img src="images/two1.jpg" alt="Medicine B">
+              <img src="images/two2.jpg" alt="Medicine B pack">
+            </div>
+            <button class="btn-circle next">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div>
+          <h2 style="margin:0">Phentermine / Topiramate (Qsymia)</h2>
+          <div class="price-row">
+            <div class="old-price">R349</div>
+            <div class="now-price">R99</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">Prescription not required</div>
+          </div>
+          <div style="color:var(--muted);font-size:13px">How it works: Suppresses appetite + reduces cravings.
+
+Used for: Short-term weight loss.
+
+Note: Not suitable for heart conditions or anxiety disorders.</div>
+
+         <!-- <div class="presc-upload">
+            <label style="font-weight:700;font-size:13px">Upload prescription (PDF/photo)</label>
+            <input type="file" accept="image/*,.pdf" class="presc-file">
+          </div> -->
+
+          <div class="controls">
+            <label>Qty</label>
+            <input class="qty" type="number" min="1" value="1">
+            <button class="primary add-cart" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=6CVLASNPG9CXG')">Buy</button>
+            <button class="secondary">Contact Pharmacist</button>
+          </div>
+
+          <div class="specs">
+            <div><strong>Form:</strong> Tablets</div>
+            <div><strong>Storage:</strong> Room temp</div>
+            <div><strong>Pack:</strong> 30 tablets</div>
+            <div><strong>Schedule:</strong> Rx only</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product C -->
+      <section class="product" data-sku="RX-003">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev">&#9664;</button>
+            <div class="slides">
+              <img src="images/three1.jpg" alt="Medicine C">
+              <img src="images/three2.jpg" alt="Medicine C pack">
+            </div>
+            <button class="btn-circle next">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div>
+          <h2 style="margin:0">Liraglutide (Saxenda) 500mg (60)</h2>
+          <div class="price-row">
+            <div class="old-price">R279</div>
+            <div class="now-price">R99</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">Prescription not required</div>
+          </div>
+          <div style="color:var(--muted);font-size:13px">How it works: GLP-1 agonist → slows digestion, reduces appetite.
+
+Used for: Obesity, especially with diabetes risk.
+
+Note: Requires daily injections; must be monitored by a doctor.</div>
+
+        <!--  <div class="presc-upload">
+            <label style="font-weight:700;font-size:13px">Upload prescription (PDF/photo)</label>
+            <input type="file" accept="image/*,.pdf" class="presc-file">
+          </div> -->
+
+          <div class="controls">
+            <label>Qty</label>
+            <input class="qty" type="number" min="1" value="1">
+            <button class="primary add-cart" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=6CVLASNPG9CXG')">Buy</button>
+            <button class="secondary">Contact Pharmacist</button>
+          </div>
+
+          <div class="specs">
+            <div><strong>Form:</strong> Tablets</div>
+            <div><strong>Storage:</strong> Room temp</div>
+            <div><strong>Pack:</strong> 60 tablets</div>
+            <div><strong>Schedule:</strong> Rx only</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product D -->
+      <section class="product" data-sku="RX-004">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev">&#9664;</button>
+            <div class="slides">
+              <img src="images/four1.jpg" alt="Medicine D">
+              <img src="images/four2.jpg" alt="Medicine D pack">
+            </div>
+            <button class="btn-circle next">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div>
+          <h2 style="margin:0">Semaglutide (Wegovy / Ozempic) </h2>
+          <div class="price-row">
+            <div class="old-price">R259</div>
+            <div class="now-price">R99</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">Prescription not required</div>
+          </div>
+          <div style="color:var(--muted);font-size:13px">How it works: Strong appetite suppression + stabilizes blood sugar.
+
+Used for: Clinically significant weight loss programs.
+
+Note: One of the most effective, but must be medically supervised.</div>
+
+        <!--  <div class="presc-upload">
+            <label style="font-weight:700;font-size:13px">Upload prescription (PDF/photo)</label>
+            <input type="file" accept="image/*,.pdf" class="presc-file">
+          </div> -->
+
+          <div class="controls">
+            <label>Qty</label>
+            <input class="qty" type="number" min="1" value="1">
+            <button class="primary add-cart" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=6CVLASNPG9CXG')">Buy</button>
+            <button class="secondary">Contact Pharmacist</button>
+          </div>
+
+          <div class="specs">
+            <div><strong>Form:</strong> Inhaler</div>
+            <div><strong>Storage:</strong> Room temp</div>
+            <div><strong>Pack:</strong> 200 doses</div>
+            <div><strong>Schedule:</strong> Rx only</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product E -->
+      <section class="product" data-sku="RX-005">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev">&#9664;</button>
+            <div class="slides">
+              <img src="images/five1.jpg" alt="Medicine E">
+              <img src="images/five2.jpg" alt="Medicine E pack">
+            </div>
+            <button class="btn-circle next">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div>
+          <h2 style="margin:0">Bupropion / Naltrexone (Contrave) 20mg (20)</h2>
+          <div class="price-row">
+            <div class="old-price">R199</div>
+            <div class="now-price">R99</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">Prescription  not required</div>
+          </div>
+          <div style="color:var(--muted);font-size:13px">How it works: Acts on brain reward and appetite pathways.
+
+Used for: Reducing emotional / stress eating trigger cycles.
+
+Note: Not recommended for people with seizures or high blood pressure.</div>
+
+         <!-- <div class="presc-upload">
+            <label style="font-weight:700;font-size:13px">Upload prescription (PDF/photo)</label>
+            <input type="file" accept="image/*,.pdf" class="presc-file">
+          </div> -->
+
+          <div class="controls">
+            <label>Qty</label>
+            <input class="qty" type="number" min="1" value="1">
+            <button class="primary add-cart" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=6CVLASNPG9CXG')">Buy</button>
+            <button class="secondary">Contact Pharmacist</button>
+          </div>
+
+          <div class="specs">
+            <div><strong>Form:</strong> Tablets</div>
+            <div><strong>Storage:</strong> Room temp</div>
+            <div><strong>Pack:</strong> 20 tablets</div>
+            <div><strong>Schedule:</strong> Rx only</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="card">
+      <h3 style="margin-top:0">Orders — Prescription verification required</h3>
+      <div class="notice">Important: We will not dispense or accept payment until a licensed pharmacist verifies your prescription and patient details.</div>
+
+      <div id="cartList" class="cart-list"></div>
+      <div class="total-row"><div>Total</div><div id="cartTotal">R0</div></div>
+
+      <div style="margin-top:12px">
+        <button id="submitRequests" class="primary" style="width:100%">Submit prescriptions for review</button>
+      </div>
+
+      <div style="margin-top:12px;color:var(--muted);font-size:13px">
+        <strong>Pharmacist:</strong> Available Mon–Fri 08:00–17:00<br>
+        <strong>Contact:</strong> pharmacy@example.com • +27 11 000 0000
+      </div>
+
+      <div style="margin-top:12px;border-top:1px solid #eef2f7;padding-top:10px;color:var(--muted);font-size:13px">
+        <strong>Shipping</strong>
+        <p style="margin:6px 0">Flat rate R60 (RSA). Some meds require courier signature.</p>
+        <strong>Returns</strong>
+        <p style="margin:6px 0">No returns on dispensed medicines unless recall or pharmacist error.</p>
+      </div>
+    </aside>
+
+    <footer class="info">
+      <strong>Legal & Safety:</strong> . Do not use this to dispense medication without appropriate licensing. Ensure compliance with local pharmacy regulations and patient privacy laws (POPIA, HIPAA, etc.) before operating.
+    </footer>
+  </div>
+
+  <script>
+    // Simple product + prescription upload + cart logic
+    const PRODUCTS = Array.from(document.querySelectorAll('.product'));
+    const CART_KEY = 'rx_store_cart_v1';
+
+    function initGalleries(){
+      PRODUCTS.forEach(prod=>{
+        const gallery = prod.querySelector('[data-gallery]');
+        const slides = gallery.querySelector('.slides');
+        const imgs = slides.querySelectorAll('img');
+        const thumbs = prod.querySelector('.thumbs');
+        const prev = gallery.querySelector('.prev');
+        const next = gallery.querySelector('.next');
+        let idx=0;
+        function refresh(){ slides.style.transform=`translateX(${-idx*100}%)`; thumbs.querySelectorAll('img').forEach((t,i)=>t.classList.toggle('active',i===idx)); }
+        // thumbs
+        thumbs.innerHTML=''; imgs.forEach((im,i)=>{ const t=document.createElement('img'); t.src=im.src; if(i===0) t.classList.add('active'); t.addEventListener('click',()=>{idx=i;refresh();}); thumbs.appendChild(t); });
+        prev.addEventListener('click',()=>{ idx=(idx-1+imgs.length)%imgs.length; refresh(); }); next.addEventListener('click',()=>{ idx=(idx+1)%imgs.length; refresh(); });
+      });
+    }
+
+    function loadCart(){ try{return JSON.parse(localStorage.getItem(CART_KEY)||'[]')}catch(e){return []} }
+    function saveCart(c){ localStorage.setItem(CART_KEY,JSON.stringify(c)); renderCart(); }
+
+    function renderCart(){ const list = document.getElementById('cartList'); const cart = loadCart(); list.innerHTML=''; let total=0; if(!cart.length){ list.innerHTML='<div style="color:var(--muted)">No requests yet</div>'; document.getElementById('cartTotal').textContent='R0'; return }
+      cart.forEach((it,i)=>{
+        const row=document.createElement('div'); row.className='cart-item'; row.innerHTML = `
+          <img src="${it.image||'images/placeholder.jpg'}" alt="${it.name}">
+          <div style="flex:1">
+            <div style="font-weight:700">${it.name}</div>
+            <div style="font-size:13px;color:var(--muted)">Qty: ${it.qty} • Presc: ${it.prescName ? it.prescName : 'Not uploaded'}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800">R${(it.price*it.qty).toLocaleString('en-ZA')}</div>
+            <button data-index="${i}" class="secondary remove-item" style="margin-top:6px">Remove</button>
+          </div>
+        `; list.appendChild(row); total += it.price*it.qty;
+      }); document.getElementById('cartTotal').textContent = `R${total.toLocaleString('en-ZA')}`;
+      document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click', ()=>{ const i=Number(btn.dataset.index); const c=loadCart(); c.splice(i,1); saveCart(c); })); }
+
+    // add to cart with prescription check
+    PRODUCTS.forEach(prod=>{
+      prod.querySelector('.add-cart').addEventListener('click', ()=>{
+        const sku = prod.dataset.sku; const name = prod.querySelector('h2').innerText.trim();
+        const qty = Math.max(1, Math.floor(Number(prod.querySelector('.qty').value)||1));
+        const price = Number(prod.querySelector('.now-price')?.innerText.replace(/[^0-9.-]+/g,'')) || 0;
+        const prescInput = prod.querySelector('.presc-file');
+        const prescFile = prescInput && prescInput.files && prescInput.files[0];
+       // if(!prescFile){ alert('Please upload a valid prescription (PDF or photo) before requesting this medicine.'); prescInput.focus(); return }
+        // save file name (do NOT store file contents in localStorage in production)
+        const prescName = prescFile.name;
+        const image = prod.querySelector('.slides img')?.src || '';
+        const cart = loadCart(); const existing = cart.find(c=>c.sku===sku);
+        if(existing){ existing.qty += qty; existing.prescName = prescName; } else { cart.push({sku,name,qty,price,prescName,image}); }
+        saveCart(cart);
+        alert('Prescription and request submitted locally. Click "Submit prescriptions for review" to send to the pharmacy.');
+      });
+    });
+
+    // Submit prescriptions (simulation)
+    document.getElementById('submitRequests').addEventListener('click', ()=>{
+      const cart = loadCart(); if(!cart.length){ alert('No prescription requests in cart.'); return }
+      // In production: upload files and patient details securely to server for pharmacist review.
+      // Here we simulate by creating a FormData and opening mailto or showing message.
+      alert('Requests submitted for pharmacist review. You will receive an email when prescriptions are verified and payment link is provided.');
+      // Clear cart for demo purposes
+      localStorage.removeItem(CART_KEY); renderCart();
+    });
+
+    // init
+    initGalleries(); renderCart();
+  </script>
+</body>
+</html>
