@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>freek53 Link Hub</title>
+  <meta name="description" content="One stylish hub for all freek53.xyz links — jobs, bursaries, learners licence questions, shopping and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa7b2;
+      --accent-1: linear-gradient(135deg,#06b6d4 0%,#8b5cf6 100%);
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background: linear-gradient(180deg,#071024 0%, #071727 60%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+    }
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;display:grid;place-items:center;
+      background:var(--accent-1);box-shadow:0 6px 18px rgba(139,92,246,0.18);
+      font-weight:800;color:white;font-size:18px
+    }
+    h1{font-size:22px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+
+    .controls{display:flex;align-items:center;gap:12px}
+    .search{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:8px 12px;border-radius:10px;color:inherit;min-width:220px}
+    .toggle{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;cursor:pointer}
+
+    main{margin-top:20px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}.controls{flex-direction:column;align-items:stretch}.search{width:100%}}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);
+      display:flex;flex-direction:column;gap:12px;transition:transform .18s ease,box-shadow .18s ease;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .card .title{display:flex;align-items:center;gap:12px;font-weight:700}
+    .card .desc{color:var(--muted);font-size:13px;margin-top:6px}
+    .card .cta{margin-top:auto;display:flex;justify-content:space-between;align-items:center}
+    .btn{padding:8px 12px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(90deg,#06b6d4,#8b5cf6);color:#021; font-weight:700}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:var(--muted)}
+
+    .meta{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small search highlight */
+    mark{background:linear-gradient(90deg,#fff4 0,#fff2 100%);color:inherit;padding:0 2px;border-radius:3px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">F53</div>
+        <div>
+          <h1>freek53 Link Hub</h1>
+          <p class="lead">Quick access to lessons, jobs, bursaries, shopping & more — curated for learners & jobseekers.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input id="q" class="search" placeholder="Search links, e.g. jobs, bursaries, nike..." aria-label="search" />
+        <button id="clear" class="toggle ghost">Clear</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid" id="cards">
+
+        <!-- template: change hrefs here if needed -->
+
+        <a class="card" data-tags="learners licence questions answers test" href="https://freek53.xyz" target="_blank">
+          <div class="title">Learners Licence Q&A</div>
+          <div class="desc">Practice tests and answers to prepare for your learners licence exam.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="jobs careers listings vacancies" href="https://freek53.xyz/jobs" target="_blank">
+          <div class="title">Jobs — current listings</div>
+          <div class="desc">All the latest job openings collected in one place.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/jobs</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="bursaries student funding money scholarships" href="https://freek53.xyz/bursaries" target="_blank">
+          <div class="title">Bursaries & Funding</div>
+          <div class="desc">Find available bursaries and application details for students.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/bursaries</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="universities study campus degrees" href="https://freek53.xyz/universities" target="_blank">
+          <div class="title">Universities Directory</div>
+          <div class="desc">List of universities, admission links and programme highlights.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/universities</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="bet games sports betting" href="https://freek53.xyz/bet" target="_blank">
+          <div class="title">Betting Games</div>
+          <div class="desc">Overview of games and betting options available on the platform.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/bet</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="loans sassa nsfas financial help" href="https://freek53.xyz/loans" target="_blank">
+          <div class="title">Loans for SASSA & NSFAS</div>
+          <div class="desc">Short-term loan options and eligibility info for grant and NSFAS recipients.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/loans</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="contacts dating match meet people" href="https://freek53.xyz/contacts" target="_blank">
+          <div class="title">Find Your Match</div>
+          <div class="desc">A simple contacts & dating listing to help you meet new people.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/contacts</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="interviews questions answers preparation companies" href="https://freek53.xyz/interviews" target="_blank">
+          <div class="title">Interview Questions Library</div>
+          <div class="desc">Interview questions and model answers for different companies and roles.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/interviews</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="business ideas r1000 startups" href="https://freek53.xyz/1000" target="_blank">
+          <div class="title">Start a Business with R1000</div>
+          <div class="desc">Practical and affordable business ideas you can start with minimal capital.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/1000</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="weight pills lose weight fast diet" href="https://freek53.xyz/weight" target="_blank">
+          <div class="title">Weight Loss Pills</div>
+          <div class="desc">Information on pills marketed for rapid weight loss. (Disclaimer: consult a healthcare professional.)</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/weight</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="car buy r100 cheap car polo" href="https://freek53.xyz/polo" target="_blank">
+          <div class="title">Buy a Car for R100</div>
+          <div class="desc">Promotional offer pages for cars available with very small deposits — read terms carefully.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/polo</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="bafana 1996 jersey retro football soccer" href="https://freek53.xyz/bafana" target="_blank">
+          <div class="title">Bafana Bafana — 1996 Retro Jersey</div>
+          <div class="desc">Limited edition Bafana Bafana 1996 retro jersey sale page.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/bafana</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+        <a class="card" data-tags="nike sneakers under 1000 sale shoes" href="https://freek53.xyz/nike" target="_blank">
+          <div class="title">Nike Sneakers under R1000</div>
+          <div class="desc">Curated selection of Nike sneakers that are affordable and stylish.</div>
+          <div class="cta">
+            <div class="meta">freek53.xyz/nike</div>
+            <button class="btn">Open</button>
+          </div>
+        </a>
+
+      </section>
+    </main>
+
+    <footer>
+      Designed for freek53 — quick, modern access to everything you need. • Tip: press Ctrl/Cmd+F to search this page.
+    </footer>
+  </div>
+
+  <script>
+    // Search/filter functionality
+    const q = document.getElementById('q');
+    const clearBtn = document.getElementById('clear');
+    const cards = Array.from(document.querySelectorAll('#cards .card'));
+
+    function normalize(s){return (s||'').toString().toLowerCase();}
+
+    function filter(){
+      const val = normalize(q.value.trim());
+      if(!val){cards.forEach(c=>c.style.display='flex');return}
+      cards.forEach(c=>{
+        const tags = normalize(c.dataset.tags);
+        const title = normalize(c.querySelector('.title').textContent);
+        const desc = normalize(c.querySelector('.desc').textContent);
+        const meta = normalize(c.querySelector('.meta').textContent);
+        const match = tags.includes(val) || title.includes(val) || desc.includes(val) || meta.includes(val);
+        c.style.display = match ? 'flex' : 'none';
+      })
+    }
+
+    q.addEventListener('input', filter);
+    clearBtn.addEventListener('click', ()=>{q.value='';filter();q.focus()});
+
+    // open buttons act like link click
+    document.querySelectorAll('.card .btn').forEach(btn=>{
+      btn.addEventListener('click',(e)=>{
+        e.preventDefault();
+        const a = btn.closest('.card');
+        const href = a.getAttribute('href');
+        window.open(href,'_blank');
+      })
+    });
+
+    // keyboard: press / to focus search
+    window.addEventListener('keydown', (e)=>{
+      if(e.key==='/' && document.activeElement !== q){ e.preventDefault(); q.focus(); }
+    });
+  </script>
+</body>
+</html>
