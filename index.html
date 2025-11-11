@@ -53,14 +53,19 @@
 </body>
 </html>
 <script type="text/javascript">
-                    var x = document.getElementById("snackbars");
-                x.className = "show";
+    var x = document.getElementById("snackbars");
+    x.className = "show";
 
-                setTimeout(function()
-                    { x.className = x.className.replace("show", "");
-                    }, 3000);
-                
-                document.getElementById("snackbars").innerHTML = "BETA version 1.0.0";
+    setTimeout(function() {
+        x.className = x.className.replace("show", "");
+    }, 3000);
+
+    // Get current month and year
+    var date = new Date();
+    var monthName = date.toLocaleString('default', { month: 'long' });
+    var year = date.getFullYear();
+
+    document.getElementById("snackbars").innerHTML = "Last Updated: " + monthName + " " + year;
 </script>
 
 <script type="text/javascript">
@@ -93,6 +98,7 @@
 
   installClose.addEventListener('click', hideMyInstallPromotion);
 </script>
+
 
 
 
