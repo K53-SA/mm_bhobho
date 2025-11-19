@@ -1,0 +1,45 @@
+<!-- save as payments.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Payments — 18.xyz</title>
+<style>
+:root{--bg:#000;--fg:#fff;--muted:#9ca3af}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Inter,Arial}
+.topbar{position:fixed;top:0;left:0;right:0;height:64px;background:var(--bg);border-bottom:2px solid var(--fg);display:flex;align-items:center;padding:10px 12px}
+.brand{font-weight:800;font-size:18px}
+.container{margin-top:84px;padding:12px}
+.card{border:2px solid var(--fg);padding:10px;border-radius:12px}
+.row{display:flex;justify-content:space-between;padding:8px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.small{font-size:13px;color:#9ca3af}
+.btn{padding:10px;border-radius:10px;border:2px solid var(--fg);background:transparent;color:var(--fg);cursor:pointer}
+</style>
+</head>
+<body>
+  <div class="topbar"><div class="brand">18.xyz</div></div>
+  <div class="container">
+    <div class="card"><div style="font-weight:800">Payments</div>
+      <div id="list" style="margin-top:8px;max-height:320px;overflow:auto"></div>
+      <div style="margin-top:12px" class="small">Summary (previous month split 50/50)</div>
+      <div id="summary" class="small" style="margin-top:6px"></div>
+      <div style="margin-top:12px"><button onclick="location.href='admin.html'" class="btn">Back</button></div>
+    </div>
+  </div>
+
+<script>
+function getPayments(){ return JSON.parse(localStorage.getItem('kt_payments')||'[]'); }
+function render(){
+  const list=document.getElementById('list'); list.innerHTML='';
+  const ps=getPayments(); if(ps.length===0) list.innerHTML='<div class="small">No payments</div>';
+  ps.slice().reverse().forEach(p=>{ const el=document.createElement('div'); el.className='row'; el.innerHTML=`<div>${p.phone}</div><div>R${p.amount}</div>`; list.appendChild(el); });
+  // summary previous month
+  const now=new Date(), prevStart=new Date(now.getFullYear(), now.getMonth()-1,1), prevEnd=new Date(now.getFullYear(), now.getMonth(),0);
+  const prev = ps.filter(p=> new Date(p.time) >= prevStart && new Date(p.time) <= prevEnd);
+  const tot = prev.reduce((s,x)=>s+ (parseFloat(x.amount)||0),0);
+  document.getElementById('summary').innerText = `Previous month total R${tot}. Split: R${(tot/2).toFixed(2)} / R${(tot/2).toFixed(2)}`;
+}
+window.addEventListener('load', render);
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!-- save as adminlogin.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin Login — 18.xyz</title>
+<style>
+:root {
+  --bg:#000;
+  --fg:#fff;
+  --btn-green:#10b981;
+}
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Inter,Arial;
+}
+body { padding-top:60px; }
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:60px;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:2px solid var(--fg);
+  z-index:40;
+}
+.brand{
+  font-weight:800;
+  font-size:32px;
+  color:var(--fg);
+  text-decoration:none;
+}
+.main{
+  padding:16px;
+  max-width:400px;
+  margin:auto;
+  margin-top:16px;
+}
+.box{
+  border:2px solid var(--fg);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:12px;
+  background:transparent;
+  color:var(--fg);
+}
+.input{
+  background:transparent;
+  border:none;
+  color:#fff;
+  width:100%;
+  outline:none;
+  font-size:16px;
+}
+.btn{
+  padding:12px;
+  border-radius:10px;
+  border:2px solid #fff;
+  background:green;
+  color:#fff;
+  font-weight:800;
+  width:100%;
+  margin-top:10px;
+  cursor:pointer;
+}
+.small{
+  font-size:13px;
+  color:var(--fg);
+  margin-top:12px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">18.xyz</div>
+  </div>
+
+  <main class="main">
+    <div class="box"><input id="auser" class="input" value="admin"></div>
+    <div class="box"><input id="apass" type="password" class="input" placeholder="Password"></div>
+    <button id="alogin" class="btn">Login</button>
+    <div class="small">Admin credentials are admin / 12345</div>
+  </main>
+
+<script>
+document.getElementById('alogin').addEventListener('click', ()=>{
+  const u=document.getElementById('auser').value.trim(), 
+        p=document.getElementById('apass').value;
+  if(u==='admin' && p==='12345'){
+    localStorage.setItem('kt_is_admin','true'); 
+    location.href='admin.html';
+  } else alert('Bad credentials');
+});
+</script>
+</body>
+</html>

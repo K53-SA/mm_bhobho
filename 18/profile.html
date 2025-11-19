@@ -1,0 +1,254 @@
+<!-- save as profile.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Profile — 18.xyz</title>
+<style>
+:root {
+  --bg:#000;
+  --fg:#fff;
+  --muted:#9ca3af;
+  --accent:#10b981;
+  --btn-blue:#1d4ed8;
+}
+*{box-sizing:border-box}
+html,body {
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Inter,Arial;
+}
+body { padding-top:60px; }
+.topbar {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:60px;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:2px solid var(--fg);
+  z-index:40;
+}
+.topbar a.brand {
+  font-weight:800;
+  font-size:32px;
+  color:var(--fg);
+  text-decoration:none;
+}
+.container {
+  padding:16px;
+  max-width:400px;
+  margin:auto;
+}
+.card {
+  border:2px solid var(--fg);
+  border-radius:14px;
+  padding:12px;
+  margin-top:12px;
+}
+.row {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.avatar {
+  width:72px;
+  height:72px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.06);
+  display:grid;
+  place-items:center;
+  background:#111;
+}
+.stat-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+.stat {
+  border:1px solid rgba(255,255,255,0.06);
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+}
+.stat .heart {
+  color:red;
+}
+.btn {
+  padding:12px;
+  border-radius:10px;
+  border:2px solid var(--fg);
+  font-weight:800;
+  width:100%;
+  margin-top:10px;
+  cursor:pointer;
+}
+.btn-update {
+  background:var(--btn-blue);
+  color:#fff;
+  border:none;
+}
+.small {
+  font-size:13px;
+  color:var(--muted);
+}
+.thumb-row {
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+}
+.thumb {
+  width:68px;
+  height:68px;
+  border:2px solid var(--fg);
+  border-radius:8px;
+  background:#111;
+  overflow:hidden;
+  cursor:pointer;
+}
+.scroll-list {
+  max-height:120px;
+  overflow:auto;
+  border:1px solid rgba(255,255,255,0.04);
+  padding:8px;
+  border-radius:8px;
+  margin-top:8px;
+}
+.input-card {
+  border:2px solid var(--fg);
+  border-radius:8px;
+  padding:8px;
+  width:100%;
+  background:transparent;
+  color:var(--fg);
+  margin-top:8px;
+}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="index.html" class="brand">18.xyz</a>
+  </div>
+
+  <div class="container">
+    <div class="card" id="profileCard">
+      <div class="row">
+        <div class="avatar" id="pfpic">IMG</div>
+        <div style="flex:1">
+          <div style="font-weight:900" id="pfName">Name</div>
+          <div class="small" id="pfAgeTown">Age • Town</div>
+        </div>
+        <div id="verifiedBadge" style="background:#fff;color:#000;padding:8px;border-radius:8px;font-weight:800" class="small">VERIFIED</div>
+      </div>
+
+      <div class="stat-grid" id="statGrid">
+        <div class="stat">Likes<br><strong id="likes" class="heart">0 ❤️</strong></div>
+        <div class="stat">Profile Views<br><strong>1</strong></div>
+        <div class="stat">WhatsApp Contacts<br><strong id="wac">0</strong></div>
+        <div class="stat">Phone Calls<br><strong id="pcalls">0</strong></div>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="small">Payment</div>
+        <div class="input-card">R50</div>
+
+        <div class="small" style="margin-top:8px">Due date</div>
+        <div class="input-card" id="dueDate"></div>
+
+        <div class="small" style="margin-top:8px">Banking details</div>
+        <div class="input-card">
+          Capitec Bank<br>
+          Account Number: 1234567890<br>
+          Account Name: 18.xyz Payments<br>
+          Branch Code: 470010<br>
+          <strong>Reference: WhatsApp number</strong>
+        </div>
+
+        <div class="small" style="margin-top:12px">Upload proof of payment</div>
+        <div class="thumb-row">
+          <label class="thumb" id="addProof">+</label>
+          <div class="thumb" id="proof1"></div>
+          <input type="file" id="proofFile" accept="image/*,application/pdf" style="display:none">
+        </div>
+
+        <div class="small" style="margin-top:12px">All payments</div>
+        <div class="scroll-list" id="paymentsList"></div>
+
+        <button id="updBtn" class="btn btn-update">Update My Profile</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+function getUsers(){ return JSON.parse(localStorage.getItem('kt_users')||'[]'); }
+function getPayments(){ return JSON.parse(localStorage.getItem('kt_payments')||'[]'); }
+function savePayments(p){ localStorage.setItem('kt_payments', JSON.stringify(p)); }
+
+function loadProfile(){
+  const phone=sessionStorage.getItem('current_user') || localStorage.getItem('kt_logged');
+  if(!phone){ alert('No user selected'); location.href='index.html'; return; }
+  const users=getUsers(); const u=users.find(x=>x.whatsapp===phone);
+  if(!u){ alert('User not found'); location.href='index.html'; return; }
+  document.getElementById('pfName').innerText=u.name;
+  document.getElementById('pfAgeTown').innerText=`${u.age} • ${u.town||u.province||''}`;
+  document.getElementById('likes').innerText=`${u.likes||0} ❤️`;
+  document.getElementById('wac').innerText=u.wa_contacts||0;
+  document.getElementById('pcalls').innerText=u.phone_calls||0;
+  document.getElementById('verifiedBadge').style.display = u.verified ? 'block':'none';
+const imgEl = document.getElementById('pfpic');
+if(u.images && u.images[0]){
+    imgEl.innerHTML = `<img src="${u.images[0]}" style="width:72px;height:72px;object-fit:cover;border-radius:8px"/>`;
+} else {
+    // Use shared image for Thabo and sibongile
+    const usernameLower = u.name.toLowerCase();
+    if(usernameLower === 'thabo' || usernameLower === 'sibongile'){
+        imgEl.innerHTML = `<img src="images/users/${usernameLower}.jpg" style="width:72px;height:72px;object-fit:cover;border-radius:8px"/>`;
+    } else {
+        imgEl.innerHTML = 'IMG';
+    }
+}
+
+
+  // Set due date as end of current month
+  const today=new Date(); const lastDay=new Date(today.getFullYear(),today.getMonth()+1,0);
+  document.getElementById('dueDate').innerText = lastDay.toLocaleDateString();
+
+  // payments for this user
+  const payments=getPayments().filter(p=>p.phone===phone);
+  const pl=document.getElementById('paymentsList'); pl.innerHTML=''; if(payments.length===0) pl.innerHTML='<div class="small">No payments</div>';
+  payments.forEach(pp=>{
+    const el=document.createElement('div');
+    el.style.display='flex';
+    el.style.justifyContent='space-between';
+    el.style.padding='6px 0';
+    el.innerHTML=`<div>${new Date(pp.time).toLocaleDateString()}</div><div>R${pp.amount}</div>`;
+    pl.appendChild(el);
+  });
+}
+
+document.getElementById('addProof').addEventListener('click', ()=> document.getElementById('proofFile').click());
+document.getElementById('proofFile').addEventListener('change', async (e)=>{
+  const f=e.target.files[0]; if(!f) return;
+  const phone=sessionStorage.getItem('current_user') || localStorage.getItem('kt_logged');
+  const d = await new Promise(res=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(f); });
+  const payments=getPayments();
+  payments.push({id:Date.now(),phone:phone,amount:50,proof:d,status:'Pending',time:new Date().toISOString()});
+  savePayments(payments);
+  document.getElementById('proof1').innerHTML = `<img src="${d}" style="width:100%;height:100%;object-fit:cover"/>`;
+  alert('Proof uploaded. Admin will confirm.');
+  loadProfile();
+});
+
+document.getElementById('updBtn').addEventListener('click', ()=> location.href='update.html');
+
+window.addEventListener('load', ()=>{ loadProfile(); });
+</script>
+</body>
+</html>

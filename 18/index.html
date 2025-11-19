@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>18.xyz — Index</title>
+
+<style>
+:root{--bg:#000;--fg:#fff;--muted:#9ca3af;}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Inter,Arial,Helvetica,sans-serif}
+
+/* TOP BAR */
+.topbar{
+    position:fixed;
+    top:0;left:0;right:0;
+    background:var(--bg);
+    border-bottom:2px solid var(--fg);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:8px 0 14px 0;
+    z-index:40;
+}
+
+.brand{
+    font-weight:800;
+    font-size:22px;
+}
+
+.select{
+    margin-top:4px;
+    background:#111;
+    color:#fff;
+    border:1px solid #444;
+    padding:6px;
+    border-radius:6px;
+}
+
+/* + LOGIN BUTTON */
+.plus-btn{
+    position:absolute;
+    right:12px;
+    top:12px;
+    background:green;
+    width:42px;height:42px;
+    border-radius:50%;
+    border:2px solid #fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* USER FEED */
+.container{ padding-top:140px; }
+
+.user-card{
+    height:calc(100vh - 140px);
+    border:2px solid var(--fg);
+    border-radius:16px;
+    margin:10px;
+    overflow:auto;
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.image-area{
+    height:48%;
+    border-radius:10px;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.image-area img{width:100%;height:100%;object-fit:cover}
+
+.row{display:flex;gap:10px;align-items:center;}
+
+.avatar{
+    width:72px;height:72px;
+    border-radius:10px;
+    background:#111;
+    border:1px solid rgba(255,255,255,0.25);
+    display:grid;place-items:center;
+    font-size:28px;font-weight:bold;
+}
+
+/* STAT BOXES */
+.stat-box{
+    flex:1;
+    padding:8px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.25);
+    text-align:center;
+    font-size:14px;
+}
+
+.btn{
+    padding:10px;
+    border-radius:10px;
+    border:2px solid var(--fg);
+    font-weight:700;
+    cursor:pointer;
+    width:33%;
+    text-align:center;
+}
+
+.btn-wa{background:green;color:#fff}
+.btn-call{background:blue;color:#fff}
+.btn-admin{background:#000;color:#fff;font-weight:bold}
+
+.small{font-size:13px;color:var(--muted)}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="brand">Mawi App</div>
+
+    <!-- PROVINCE SELECT -->
+    <select id="selProv" class="select">
+        <option value="">Select Province</option>
+        <option>Gauteng</option>
+        <option>KwaZulu-Natal</option>
+        <option>Western Cape</option>
+        <option>Eastern Cape</option>
+        <option>Free State</option>
+        <option>Limpopo</option>
+        <option>Mpumalanga</option>
+        <option>North West</option>
+        <option>Northern Cape</option>
+    </select>
+
+    <!-- TOWN SELECT -->
+    <select id="selTown" class="select">
+        <option value="">Select Town</option>
+        <option>Johannesburg</option>
+        <option>Pretoria</option>
+        <option>Durban</option>
+        <option>Pietermaritzburg</option>
+        <option>Cape Town</option>
+        <option>Stellenbosch</option>
+        <option>Soweto</option>
+        <option>Polokwane</option>
+        <option>Nelspruit</option>
+        <option>Kimberley</option>
+        <option>Mahikeng</option>
+    </select>
+
+    <div class="plus-btn" onclick="location.href='login.html'">+</div>
+</div>
+
+
+<!-- FEED -->
+<div class="container" id="feed"></div>
+
+
+<script>
+function users(){ return JSON.parse(localStorage.getItem('kt_users')||'[]'); }
+function saveUsers(u){ localStorage.setItem('kt_users',JSON.stringify(u)); }
+
+function renderFeed(){
+    const data = users();
+    const feed = document.getElementById("feed");
+    feed.innerHTML = "";
+
+    data.forEach((u, i) => {
+
+        let card = document.createElement("div");
+        card.className = "user-card";
+
+        // image
+        let imgArea = document.createElement("div");
+        imgArea.className = "image-area";
+        if(u.images && u.images.length){
+            imgArea.innerHTML = `<img src="${u.images[0]}">`;
+        } else {
+            imgArea.innerHTML = `<div class="small">No image</div>`;
+        }
+        card.appendChild(imgArea);
+
+        // name and location
+        let nameRow = document.createElement("div");
+        nameRow.className = "row";
+
+        nameRow.innerHTML = `
+            <div class="avatar">${u.name.charAt(0)}</div>
+            <div style="flex:1">
+                <div style="font-size:20px;font-weight:bold">${u.name} <span class="small">• ${u.age}</span></div>
+                <div class="small">${u.province} • ${u.town}</div>
+            </div>
+        `;
+        card.appendChild(nameRow);
+
+        // stats
+        let stats = document.createElement("div");
+        stats.className = "row";
+
+        stats.innerHTML = `
+            <div class="stat-box">❤️ Likes<br><strong>${u.likes||0}</strong></div>
+            <div class="stat-box">Profile Views<br><strong>1</strong></div>
+            <div class="stat-box">WhatsApp Contacts<br><strong>${u.wa_contacts||0}</strong></div>
+            <div class="stat-box">Phone Calls<br><strong>${u.phone_calls||0}</strong></div>
+        `;
+        card.appendChild(stats);
+
+        // buttons
+        let actions = document.createElement("div");
+        actions.className = "row";
+
+        let waBtn = document.createElement("div");
+        waBtn.className = "btn btn-wa";
+        waBtn.textContent = "WhatsApp";
+        waBtn.onclick = () => {
+            u.wa_contacts++;
+            saveUsers(data);
+            renderFeed();
+            window.open("https://wa.me/" + formatNumber(u.whatsapp));
+        };
+
+        let callBtn = document.createElement("div");
+        callBtn.className = "btn btn-call";
+        callBtn.textContent = "Call";
+        callBtn.onclick = () => {
+            u.phone_calls++;
+            saveUsers(data);
+            renderFeed();
+            location.href = "tel:" + u.whatsapp;
+        };
+
+        let adminBtn = document.createElement("div");
+        adminBtn.className = "btn btn-admin";
+        adminBtn.textContent = "Admin";
+        adminBtn.onclick = () => {
+            window.open("https://wa.me/27751065166");
+        };
+
+        actions.appendChild(waBtn);
+        actions.appendChild(callBtn);
+        actions.appendChild(adminBtn);
+        card.appendChild(actions);
+
+        feed.appendChild(card);
+    });
+}
+
+function formatNumber(n){
+    if(n.startsWith("0")) return "27" + n.slice(1);
+    return n;
+}
+
+(function seed(){
+    let u = users();
+    if(!u.length){
+        u.push({
+            name:"Sibongile",
+            age:22,
+            whatsapp:"0712345678",
+            province:"Gauteng",
+            town:"Johannesburg",
+            bio:"I love doggy style",
+            images:["images/users/sibongile.jpg","images/users/sibongile2.jpg"], // add image(s)
+            likes:3,
+            wa_contacts:0,
+            phone_calls:0
+        });
+        u.push({
+            name:"Thabo",
+            age:25,
+            whatsapp:"0723456789",
+            province:"KwaZulu-Natal",
+            town:"Durban",
+            bio:"I will make you cum with a blow job",
+            images:["images/users/thabo.jpg","images/users/thabo2.jpg"], // add image(s)
+            likes:5,
+            wa_contacts:0,
+            phone_calls:0
+        });
+    }
+    saveUsers(u);
+    renderFeed();
+})();
+
+</script>
+
+</body>
+</html>

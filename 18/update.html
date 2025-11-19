@@ -1,0 +1,211 @@
+<!-- save as update.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Update — 18.xyz</title>
+<style>
+:root {
+  --bg:#000;
+  --fg:#fff;
+  --muted:#9ca3af;
+  --accent:#10b981;
+  --btn-green:#10b981;
+}
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Inter,Arial;
+}
+body { padding-top:60px; }
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:60px;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:2px solid var(--fg);
+  z-index:40;
+}
+.brand{
+  font-weight:800;
+  font-size:32px;
+  color:var(--fg);
+  text-decoration:none;
+}
+.main{
+  padding:16px;
+  max-width:400px;
+  margin:auto;
+}
+.box{
+  border:2px solid var(--fg);
+  border-radius:12px;
+  padding:10px;
+  margin-bottom:12px;
+  background:transparent;
+  color:var(--fg);
+  width:100%;
+}
+.thumb-row{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top:8px;
+  margin-bottom:12px; /* Added margin below upload images */
+}
+.thumb{
+  width:68px;
+  height:68px;
+  border-radius:8px;
+  border:2px solid var(--fg);
+  background:#111;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  overflow:hidden;
+}
+.thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:8px;
+}
+.btn{
+  padding:12px;
+  border-radius:10px;
+  border:2px solid var(--fg);
+  background:green;
+  color:#fff;
+  font-weight:800;
+  width:100%;
+  margin-top:10px;
+  cursor:pointer;
+}
+.input{background:transparent;border:none;color:var(--fg);width:100%;outline:none}
+.select{background:transparent;border:none;color:var(--fg);width:100%;outline:none;font-size:16px;padding:8px}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">18.xyz</div>
+  </div>
+
+  <main class="main">
+    <div class="box"><input id="u_name" class="input" placeholder="Name"></div>
+    <div class="box"><input id="u_age" class="input" type="number" min="18" placeholder="Age"></div>
+    <div class="box"><input id="u_whatsapp" class="input" placeholder="WhatsApp"></div>
+
+    <div class="box">
+      <select id="u_provSel" class="select"><option value="">Select Province</option></select>
+    </div>
+    <div class="box">
+      <select id="u_townSel" class="select"><option value="">Select Town</option></select>
+    </div>
+
+    <div class="small" style="text-align:center;margin-top:12px;">Upload Images</div>
+    <div class="thumb-row">
+      <label class="thumb" id="u_add">+</label>
+      <div class="thumb" id="u1"></div>
+      <div class="thumb" id="u2"></div>
+      <div class="thumb" id="u3"></div>
+      <input type="file" id="u_imgs" accept="image/*" multiple style="display:none">
+    </div>
+
+    <div class="box" style="margin-top:12px;"><textarea id="u_bio" style="background:transparent;border:none;color:var(--fg);width:100%;height:120px"></textarea></div>
+
+    <button id="saveBtn" class="btn">Update Profile</button>
+  </main>
+
+<script>
+const provinces={"Gauteng":["Johannesburg","Pretoria"],"KwaZulu-Natal":["Durban","Pietermaritzburg"],"Western Cape":["Cape Town","Stellenbosch"]};
+
+function populateProvinces(){
+  const sel=document.getElementById('u_provSel');
+  sel.innerHTML='<option value="">Select Province</option>';
+  for(const k in provinces){
+    const o=document.createElement('option'); o.value=k; o.textContent=k;
+    sel.appendChild(o);
+  }
+}
+
+document.getElementById('u_provSel').addEventListener('change', e=>{
+  const tsel=document.getElementById('u_townSel');
+  tsel.innerHTML='<option value="">Select Town</option>';
+  if(!e.target.value) return;
+  provinces[e.target.value].forEach(t=>{
+    const o=document.createElement('option'); o.value=t; o.textContent=t;
+    tsel.appendChild(o);
+  });
+});
+
+function getUsers(){ return JSON.parse(localStorage.getItem('kt_users')||'[]'); }
+function saveUsers(u){ localStorage.setItem('kt_users', JSON.stringify(u)); }
+
+function fillForm(){
+  populateProvinces();
+  const phone = sessionStorage.getItem('current_user') || localStorage.getItem('kt_logged');
+  if(!phone) { location.href='index.html'; return; }
+  const users=getUsers(); const u=users.find(x=>x.whatsapp===phone);
+  if(!u) { alert('User not found'); location.href='index.html'; return; }
+  document.getElementById('u_name').value=u.name; 
+  document.getElementById('u_age').value=u.age; 
+  document.getElementById('u_whatsapp').value=u.whatsapp;
+
+  document.getElementById('u_provSel').value = u.province||'';
+  if(u.province){ const towns=provinces[u.province]||[]; const tsel=document.getElementById('u_townSel'); tsel.innerHTML='<option value="">Select Town</option>'; towns.forEach(t=>{
+    const o=document.createElement('option'); o.value=t; o.textContent=t; tsel.appendChild(o);
+  }); }
+  document.getElementById('u_townSel').value = u.town||'';
+
+  document.getElementById('u_bio').value=u.bio||'';
+if(u.images && u.images.length){
+    u.images.forEach((img,i)=>{
+        if(i<3) document.getElementById('u'+(i+1)).innerHTML=`<img src="${img}" style="width:100%;height:100%;object-fit:cover"/>`;
+    });
+} else {
+    const usernameLower = u.name.toLowerCase();
+    if(usernameLower === 'thabo' || usernameLower === 'sibongile'){
+        document.getElementById('u1').innerHTML = `<img src="images/users/${usernameLower}.jpg" style="width:100%;height:100%;object-fit:cover"/>`;
+    }
+}
+
+}
+
+document.getElementById('u_add').addEventListener('click', ()=> document.getElementById('u_imgs').click());
+document.getElementById('u_imgs').addEventListener('change', async (e)=>{
+  const files=Array.from(e.target.files).slice(0,3);
+  for(let i=0;i<files.length;i++){
+    const d=await toDataURL(files[i]);
+    const el=document.getElementById('u'+(i+1));
+    el.innerHTML=`<img src="${d}"/>`;
+    el.dataset.src=d;
+  }
+});
+function toDataURL(file){ return new Promise(res=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(file); }); }
+
+document.getElementById('saveBtn').addEventListener('click', ()=>{
+  const phone = sessionStorage.getItem('current_user') || localStorage.getItem('kt_logged');
+  const users=getUsers(); const u=users.find(x=>x.whatsapp===phone); if(!u) return;
+  u.name=document.getElementById('u_name').value.trim(); 
+  u.age=parseInt(document.getElementById('u_age').value,10); 
+  u.whatsapp=document.getElementById('u_whatsapp').value.trim();
+  u.province=document.getElementById('u_provSel').value; 
+  u.town=document.getElementById('u_townSel').value; 
+  u.bio=document.getElementById('u_bio').value;
+  for(let i=1;i<=3;i++){ const el=document.getElementById('u'+i); if(el.dataset.src){ u.images = u.images || []; u.images[i-1]=el.dataset.src; } }
+  saveUsers(users); alert('Profile updated'); location.href='profile.html';
+});
+
+window.addEventListener('load', fillForm);
+</script>
+</body>
+</html>

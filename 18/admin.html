@@ -1,0 +1,118 @@
+<!-- save as admin.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin — 18.xyz</title>
+<style>
+:root{--bg:#000;--fg:#fff;--muted:#9ca3af}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Inter,Arial}
+.topbar{position:fixed;top:0;left:0;right:0;height:64px;background:var(--bg);border-bottom:2px solid var(--fg);display:flex;align-items:center;padding:10px 12px;justify-content:center;z-index:40}
+.brand{font-weight:800;font-size:18px}
+.container{margin-top:84px;padding:12px;display:flex;flex-direction:column;gap:12px}
+.slider-container{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.slider-container input[type=range]{flex:1}
+.user-row{display:flex;gap:12px;margin-bottom:16px}
+.user-info{width:60%;border:2px solid var(--fg);border-radius:12px;padding:12px;display:flex;gap:12px;align-items:center}
+.user-info img{width:64px;height:64px;border-radius:8px;object-fit:cover;border:1px solid rgba(255,255,255,0.06)}
+.user-details{flex:1;display:flex;flex-direction:column;gap:4px}
+.user-buttons{width:30%;display:flex;flex-direction:column;gap:8px}
+.user-buttons button{padding:8px;border:none;color:#fff;font-weight:800;border-radius:8px;cursor:pointer;width:100%}
+.btn-whatsapp{background:green}
+.btn-verify{background:blue}
+.btn-confirm{background:#003}
+.small{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<body>
+  <div class="topbar">
+    <a href="index.html" style="text-decoration:none;color:inherit">
+      <div class="brand">18.xyz</div>
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="slider-container">
+      <div class="small">Set Monthly Payment: <span id="payVal">R50</span></div>
+      <input type="range" id="paymentRange" min="50" max="500" step="10" value="50">
+    </div>
+
+    <div id="usersList"></div>
+  </div>
+
+<script>
+function getUsers(){ return JSON.parse(localStorage.getItem('kt_users')||'[]'); }
+function saveUsers(u){ localStorage.setItem('kt_users', JSON.stringify(u)); }
+
+const payRange=document.getElementById('paymentRange');
+const payVal=document.getElementById('payVal');
+payRange.addEventListener('input', ()=>{ payVal.innerText = 'R'+payRange.value; localStorage.setItem('kt_amount', payRange.value); });
+
+function renderList(){
+  const list=document.getElementById('usersList'); list.innerHTML='';
+  const users=getUsers();
+  if(users.length===0){ list.innerHTML='<div class="small">No users</div>'; return; }
+
+  users.forEach(u=>{
+    const row=document.createElement('div'); row.className='user-row';
+
+    const info=document.createElement('div'); info.className='user-info';
+    const img=document.createElement('img'); 
+if(u.images && u.images[0]){
+    img.src = u.images[0]; // use uploaded image
+} else {
+    const usernameLower = u.name.toLowerCase();
+    if(usernameLower === 'thabo' || usernameLower === 'sibongile'){
+        img.src = `images/users/${usernameLower}.jpg`; // use shared image
+    } else {
+        img.src = ''; // fallback (blank)
+    }
+}
+
+    const details=document.createElement('div'); details.className='user-details';
+    details.innerHTML = `<div style="font-weight:800">${u.name}</div>
+                         <div class="small">${u.whatsapp} • ${u.province||''} ${u.town||''}</div>
+                         <div class="small">Likes ${u.likes||0} • Views 1</div>`;
+    info.appendChild(img); info.appendChild(details);
+
+    const buttons=document.createElement('div'); buttons.className='user-buttons';
+    const waBtn=document.createElement('button'); waBtn.className='btn-whatsapp'; waBtn.textContent='WhatsApp';
+    waBtn.addEventListener('click', ()=> window.open('https://wa.me/'+(u.whatsapp.startsWith('0')?('27'+u.whatsapp.slice(1)):u.whatsapp)));
+    const verBtn=document.createElement('button'); verBtn.className='btn-verify'; verBtn.textContent = u.verified ? 'Unverify':'Verify';
+    verBtn.addEventListener('click', ()=>{
+      u.verified = !u.verified;
+      saveUsers(getUsers().map(x=>x.whatsapp===u.whatsapp?u:x));
+      renderList();
+    });
+    const confBtn=document.createElement('button'); confBtn.className='btn-confirm'; confBtn.textContent='Confirm Payment';
+    confBtn.addEventListener('click', ()=>{
+      u.paid = true;
+      saveUsers(getUsers().map(x=>x.whatsapp===u.whatsapp?u:x));
+      alert('Payment confirmed for '+u.name);
+      renderList();
+    });
+
+    buttons.appendChild(waBtn);
+    buttons.appendChild(verBtn);
+    buttons.appendChild(confBtn);
+
+    row.appendChild(info);
+    row.appendChild(buttons);
+    list.appendChild(row);
+  });
+}
+
+window.addEventListener('load', ()=> {
+  if(!localStorage.getItem('kt_is_admin')){ alert('Admin only'); location.href='adminlogin.html'; return; }
+  renderList();
+});
+</script>
+<div style="display:flex;justify-content:center;margin-top:20px">
+  <button onclick="location.href='payments.html'" class="btn" style="width:auto;padding:10px 20px;background:#000;border:2px solid #fff;color:#fff;font-weight:800;border-radius:8px">
+    Go to Payment
+  </button>
+</div>
+</body>
+</html>

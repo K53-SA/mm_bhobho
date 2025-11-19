@@ -1,0 +1,193 @@
+<!-- save as register.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Register — 18.xyz</title>
+<style>
+:root {
+  --bg:#000;
+  --fg:#fff;
+  --muted:#9ca3af;
+  --accent:#10b981;
+}
+*{box-sizing:border-box;}
+html,body {
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Inter,Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:1px;
+}
+.container {
+  width:100%;
+  max-width:400px;
+  padding:16px;
+  text-align:center;
+}
+.brand {
+  font-weight:800;
+  font-size:32px;
+  margin-bottom:24px;
+}
+.box {
+  border:2px solid var(--fg);
+  border-radius:12px;
+  padding:10px;
+  margin-bottom:12px;
+  background:transparent;
+  color:var(--fg);
+  width:100%;
+}
+.input {
+  background:transparent;
+  border:none;
+  color:var(--fg);
+  outline:none;
+  width:100%;
+  font-size:16px;
+}
+.small {
+  font-size:13px;
+  color:var(--muted);
+  margin-top:8px;
+  margin-bottom:4px;
+  text-align:left;
+}
+.thumb-row {
+  display:flex;
+  gap:8px;
+  margin-bottom:12px;
+}
+.thumb {
+  width:68px;
+  height:68px;
+  border-radius:8px;
+  border:2px solid var(--fg);
+  display:grid;
+  place-items:center;
+  background:#111;
+  overflow:hidden;
+  cursor:pointer;
+}
+.btn {
+  padding:12px;
+  border-radius:10px;
+  border:2px solid var(--fg);
+  background: green;
+  color:#fff;
+  font-weight:800;
+  width:100%;
+  cursor:pointer;
+}
+select.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding:8px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="brand">18.xyz</div>
+
+  <div class="box"><input id="name" class="input" placeholder="Name"></div>
+  <div class="box"><input id="password" class="input" type="password" placeholder="Password"></div>
+  <div class="box">
+    <input id="age" class="input" type="number" min="18" max="110" value="18" step="1" placeholder="Age">
+  </div>
+  <div class="box"><input id="whatsapp" class="input" placeholder="WhatsApp (0xx1234567)"></div>
+
+  <div class="box">
+    <select id="provSel" class="input"></select>
+  </div>
+  <div class="box">
+    <select id="townSel" class="input"></select>
+  </div>
+
+  <div class="small">Upload Images</div>
+  <div class="thumb-row">
+    <label class="thumb" id="addImg">+</label>
+    <div class="thumb" id="im1"></div>
+    <div class="thumb" id="im2"></div>
+    <div class="thumb" id="im3"></div>
+    <input type="file" id="imgs" accept="image/*" multiple style="display:none"/>
+  </div>
+
+  <div class="box"><textarea id="bio" class="input" placeholder="Bio" style="height:120px"></textarea></div>
+
+  <button id="createBtn" class="btn">Create Account</button>
+</div>
+
+<script>
+// Province and Town data
+const provinces={"Gauteng":["Johannesburg","Pretoria"],"KwaZulu-Natal":["Durban","Pietermaritzburg"],"Western Cape":["Cape Town","Stellenbosch"]};
+
+// Populate Province select
+function populate(){
+  const sel=document.getElementById('provSel');
+  sel.innerHTML='<option value="">Select Province</option>';
+  for(const k in provinces){
+    const o=document.createElement('option');
+    o.value=k; o.textContent=k;
+    sel.appendChild(o);
+  }
+}
+populate();
+
+// Update towns based on province
+document.getElementById('provSel').addEventListener('change', e=>{
+  const tsel=document.getElementById('townSel');
+  tsel.innerHTML='<option value="">Select Town</option>';
+  if(!e.target.value) return;
+  provinces[e.target.value].forEach(t=>{
+    const o=document.createElement('option'); o.value=t; o.textContent=t;
+    tsel.appendChild(o);
+  });
+});
+
+// Image upload
+document.getElementById('addImg').addEventListener('click', ()=>document.getElementById('imgs').click());
+document.getElementById('imgs').addEventListener('change', async (e)=>{
+  const files=Array.from(e.target.files).slice(0,4);
+  for(let i=0;i<4;i++){
+    const el=document.getElementById('im'+(i+1)); el.innerHTML='';
+    if(files[i]){
+      const d=await toDataURL(files[i]);
+      const img=document.createElement('img'); img.src=d;
+      img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover';
+      el.appendChild(img); el.dataset.src=d;
+    } else { el.removeAttribute('data-src'); }
+  }
+});
+async function toDataURL(file){ return new Promise(res=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(file); }); }
+
+// LocalStorage users
+function getUsers(){ return JSON.parse(localStorage.getItem('kt_users')||'[]'); }
+function saveUsers(u){ localStorage.setItem('kt_users', JSON.stringify(u)); }
+
+document.getElementById('createBtn').addEventListener('click', ()=>{
+  const name=document.getElementById('name').value.trim();
+  const pass=document.getElementById('password').value;
+  const age=document.getElementById('age').value;
+  const whatsapp=document.getElementById('whatsapp').value.trim();
+  const province=document.getElementById('provSel').value;
+  const town=document.getElementById('townSel').value;
+  const bio=document.getElementById('bio').value.trim();
+  if(!name||!pass||!age||!whatsapp){ alert('Fill required fields'); return; }
+  const users=getUsers();
+  if(users.some(x=>x.whatsapp===whatsapp)){ alert('User exists'); return; }
+  const images=[]; for(let i=1;i<=3;i++){ const el=document.getElementById('im'+i); if(el.dataset.src) images.push(el.dataset.src); }
+  const user={name, password:pass, age:parseInt(age,10), whatsapp, province, town, bio, images, likes:0, views:1, wa_contacts:0, phone_calls:0, verified:false, paid:false};
+  users.push(user); saveUsers(users); sessionStorage.setItem('current_user', whatsapp); localStorage.setItem('kt_logged', whatsapp);
+  alert('Account created'); location.href='profile.html';
+});
+</script>
+</body>
+</html>

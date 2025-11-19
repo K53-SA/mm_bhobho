@@ -1,0 +1,124 @@
+<!-- save as login.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Login — 18.xyz</title>
+<style>
+:root {
+  --bg:#000;
+  --fg:#fff;
+  --muted:#9ca3af;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px;
+  text-align: center;
+}
+.brand {
+  font-weight: 800;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+.box {
+  border: 2px solid var(--fg);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: transparent;
+}
+.input {
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+}
+.btn {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid var(--fg);
+  background: transparent;
+  color: var(--fg);
+  font-weight: 800;
+  width: 100%;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.btn-small {
+  padding: 8px;
+  font-size: 14px;
+}
+.flex-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">18.xyz</div>
+    
+    <div class="box">
+      <input id="phone" class="input" placeholder="WhatsApp (0xx1234567)">
+    </div>
+    
+    <div class="box">
+      <input id="pass" type="password" class="input" placeholder="Password">
+    </div>
+    
+    <button id="loginBtn" class="btn" style="background:green;">Login</button>
+    
+    <div class="small">Forgot password? Click to message admin</div>
+    
+    <div class="flex-row">
+      <button onclick="location.href='register.html'" class="btn btn-small" style="background: blue;">Create Account</button> <br>
+      <button onclick="location.href='adminlogin.html'" class="btn btn-small">Admin</button>
+    </div>
+    
+  </div>
+
+<script>
+function getUsers() { 
+  return JSON.parse(localStorage.getItem('kt_users') || '[]'); 
+}
+
+document.getElementById('loginBtn').addEventListener('click', () => {
+  const phone = document.getElementById('phone').value.trim(); 
+  const pass = document.getElementById('pass').value;
+  const users = getUsers(); 
+  const u = users.find(x => x.whatsapp === phone && x.password === pass);
+  if(!u){ 
+    alert('Wrong credentials'); 
+    return; 
+  }
+  localStorage.setItem('kt_logged', phone); 
+  sessionStorage.setItem('current_user', phone); 
+  location.href='profile.html';
+});
+
+document.getElementById('phone').addEventListener('keypress', (e)=>{
+  if(e.key === 'Enter') document.getElementById('loginBtn').click();
+});
+</script>
+</body>
+</html>
