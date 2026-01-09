@@ -14,6 +14,59 @@
     html,body{height:100%;margin:0;background:var(--bg);color:var(--text);
       font-family:Inter,system-ui,Arial,Helvetica,sans-serif;line-height:1.4;}
     .container{max-width:1100px;margin:24px auto;padding:16px;}
+
+  /* Wrapper */
+.btext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    text-align: center;
+    gap: 14px;
+}
+
+/* Button style */
+.btext .btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    background: #000;
+    color: #fff;
+    transition: all 0.25s ease;
+}
+
+/* Share buttons slightly different */
+.btext .btn:nth-child(even) {
+    background: #1a1a1a;
+}
+
+/* Hover effect */
+.btext .btn:hover {
+    background: #00c853;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Responsive spacing for line breaks */
+.btext br {
+    display: none;
+}
+
+/* Desktop improvement */
+@media (min-width: 768px) {
+    .btext {
+        max-width: 400px;
+    }
+}
+
+
+    
     header{display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
     header h1{margin:0;font-size:20px;color:var(--text);}
     .grid{display:grid;grid-template-columns:1fr;gap:12px;}
@@ -250,6 +303,9 @@
           <button class="share-btn">Share</button>
         </div>
       </div>
+          <div class="card-head">
+          <p class="niches"></p>
+          </div>
     `;
 
     list.appendChild(card);
@@ -275,6 +331,33 @@
           data-ad-slot="1338431504"></ins>
       `;
       list.appendChild(adWrapper);
+      // ---- btext wrapper ----
+    const btext = document.createElement('div');
+    btext.className = 'btext';
+
+    btext.innerHTML = `
+        <a href="./bursaries" class="btn">Bursaries 🎓</a>
+        <a href="https://wa.me/?text=Apply For Bursaries🎓 using this link freek53.xyz/bursaries"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+
+        <a href="./universities" class="btn">Open TVETs and Universities 👩‍🎓</a>
+        <a href="https://wa.me/?text=Find Open TVETs and Universities👩‍🎓 using this link freek53.xyz/universities"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+
+        <a href="./jobs" class="btn">Jobs 👷‍♂️</a>
+        <a href="https://wa.me/?text=Apply For Jobs👷‍♂️ using this link freek53.xyz/jobs"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+
+        <a href="./index.html" class="btn">FREE K53 Learners License Memo 🚦🛣️</a>
+        <a href="https://wa.me/?text=Download K53 Learners' License Memo 🚦🛣️ using this link freek53.xyz"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+    `;
+
+    list.appendChild(btext);
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
@@ -288,4 +371,37 @@
   </script>
 </body>
 </html>
+<script>
+const nicheAdvices = [
+"Software Developers in South Africa earn around R25,000–R50,000 per month and can open credit accounts with FNB or Standard Bank 💻🏦💰",
+"Electrical Engineers typically earn between R30,000–R60,000 per month; they can access personal and business banking with Nedbank 🛠️🏦💼",
+"Medical Doctors earn R50,000–R120,000 monthly depending on specialization, with banking solutions from Absa or FNB 🩺🏦💰",
+"Teachers earn R15,000–R30,000 per month and can open student or professional credit accounts at Capitec or Standard Bank 📚🏦💸",
+"Chartered Accountants earn R35,000–R80,000 per month; they often use Nedbank or ABSA for credit cards and loans 💼🏦💰",
+
+"Lawyers in South Africa earn between R30,000–R90,000 monthly, with credit facilities available at Standard Bank and FNB ⚖️🏦💳",
+"Architects earn R25,000–R60,000 per month and can use Capitec or Nedbank for professional banking services 🏛️🏦💼",
+"Nurses earn around R20,000–R40,000 per month, with credit accounts accessible at ABSA or Standard Bank 🏥🏦💰",
+"Pilots earn R50,000–R150,000 per month depending on experience and can use FNB or Nedbank for aviation-specific financial products ✈️🏦💳",
+"Pharmacists earn R25,000–R50,000 per month and can open professional accounts with Absa or Standard Bank 💊🏦💼",
+
+"IT Project Managers earn R35,000–R70,000 monthly and can get credit cards and loans at Nedbank or FNB 💻🏦💳",
+"Civil Engineers earn R28,000–R60,000 per month and can access housing and personal loans at ABSA or Standard Bank 🏗️🏦💰",
+"Graphic Designers earn R15,000–R35,000 monthly; Capitec and FNB offer flexible banking solutions 🎨🏦💼",
+"Data Scientists earn R40,000–R90,000 per month and use professional banking services at Standard Bank or Nedbank 📊🏦💰",
+"Journalists earn R12,000–R30,000 monthly and can open accounts or credit cards at ABSA or Capitec 📰🏦💳",
+
+"Accountants earn R20,000–R50,000 per month and can open credit accounts at FNB or Standard Bank 💼🏦💰",
+"Social Workers earn R12,000–R28,000 monthly with banking options from ABSA or Capitec 🧑‍🤝‍🧑🏦💸",
+"Marketing Managers earn R30,000–R70,000 per month; Nedbank and FNB provide professional credit accounts 📈🏦💼",
+"Business Analysts earn R25,000–R55,000 monthly and can access credit and loans at Standard Bank or ABSA 📊🏦💳",
+"Law Enforcement Officers earn R20,000–R35,000 per month and can use FNB or Capitec for banking services 👮🏦💰"
+];
+
+document.querySelectorAll(".niches").forEach(el => {
+  const randomAdvice = nicheAdvices[Math.floor(Math.random() * nicheAdvices.length)];
+  el.textContent = randomAdvice;
+});
+</script>
+
 
