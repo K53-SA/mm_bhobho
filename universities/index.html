@@ -14,6 +14,55 @@
     .container{max-width:1100px;margin:24px auto;padding:16px;}
     header{display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
     header h1{margin:0;font-size:20px;color:var(--text);}
+/* Wrapper */
+.btext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    text-align: center;
+    gap: 14px;
+}
+
+/* Button style */
+.btext .btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    background: #000;
+    color: #fff;
+    transition: all 0.25s ease;
+}
+
+/* Share buttons slightly different */
+.btext .btn:nth-child(even) {
+    background: #1a1a1a;
+}
+
+/* Hover effect */
+.btext .btn:hover {
+    background: #00c853;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Responsive spacing for line breaks */
+.btext br {
+    display: none;
+}
+
+/* Desktop improvement */
+@media (min-width: 768px) {
+    .btext {
+        max-width: 400px;
+    }
+}
     .grid{display:grid;grid-template-columns:1fr;gap:12px;}
     @media(min-width:880px){.grid{grid-template-columns:repeat(2,1fr);}}
     .card{background:var(--card);padding:12px;border-radius:10px;
@@ -221,6 +270,9 @@
             <button class="share-btn">Share</button>
           </div>
         </div>
+                  <div class="card-head">
+          <p class="niches"></p>
+          </div>
       `;
 
       list.appendChild(card);
@@ -239,6 +291,33 @@
         adWrapper.className = 'adsense';
         list.appendChild(adWrapper);
         insertAd(adWrapper);
+// ---- btext wrapper ----
+    const btext = document.createElement('div');
+    btext.className = 'btext';
+
+    btext.innerHTML = `
+        <a href="./bursaries" class="btn">Bursaries 🎓</a>
+        <a href="https://wa.me/?text=Apply For Bursaries🎓 using this link freek53.xyz/bursaries"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+
+        <a href="./universities" class="btn">Open TVETs and Universities 👩‍🎓</a>
+        <a href="https://wa.me/?text=Find Open TVETs and Universities👩‍🎓 using this link freek53.xyz/universities"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+
+        <a href="./jobs" class="btn">Jobs 👷‍♂️</a>
+        <a href="https://wa.me/?text=Apply For Jobs👷‍♂️ using this link freek53.xyz/jobs"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+
+        <a href="./index.html" class="btn">FREE K53 Learners License Memo 🚦🛣️</a>
+        <a href="https://wa.me/?text=Download K53 Learners' License Memo 🚦🛣️ using this link freek53.xyz"
+           target="_blank" rel="noopener" class="btn">Share 🦈</a>
+        <br><br>
+    `;
+
+    list.appendChild(btext);
       }
     });
   }
@@ -247,3 +326,59 @@
   </script>
 </body>
 </html>
+<script>
+const nicheAdvices = [
+"FNB Study Loan helps students fund tuition, accommodation, and textbooks at South African universities with flexible repayment terms starting after studies 🎓🏦📘",
+"Standard Bank Student Loan supports undergraduate studies, covering registration and tuition costs while allowing deferred repayments during the study period 🎓🏦📑",
+"Absa Study Loan assists full time students with education funding, helping families manage university fees without relying on high interest credit cards 🎓🏦📉",
+"Nedbank Student Loan offers tailored education finance solutions for university and TVET students, supporting long term career development 🎓🏦📊",
+"Capitec education loans provide affordable funding for short courses and accredited colleges with transparent fees and simplified approval processes 🎓🏦✨",
+
+"FNB education finance allows parents to support children’s studies while maintaining healthy cash flow through structured repayment plans 🎓🏦📈",
+"Standard Bank Study Loan covers additional study expenses like laptops and accommodation, reducing financial pressure during academic years 🎓🏦💻",
+"Absa Student Loan options help students stay registered even when bursaries or NSFAS funding are insufficient 🎓🏦🔗",
+"Nedbank education loans focus on scarce skills qualifications, improving employability and long term income potential 🎓🏦🧠",
+"Capitec study loans suit students pursuing practical skills training that leads to faster employment opportunities 🎓🏦🚀",
+
+"FNB Study Loan supports postgraduate studies, helping professionals upskill without disrupting existing financial commitments 🎓🏦🧠",
+"Standard Bank education finance helps families plan long term study funding strategies for multiple children 🎓🏦👨‍👩‍👧‍👦",
+"Absa Study Loan offers competitive interest rates, making tertiary education more accessible to South African households 🎓🏦💰",
+"Nedbank Student Loan provides peace of mind by aligning repayments with academic progress and graduation timelines 🎓🏦🛡️",
+"Capitec education funding is ideal for students attending private colleges and skills academies 🎓🏦📚",
+
+"FNB education loans reduce reliance on unsecured personal loans when covering rising university tuition costs 🎓🏦📉",
+"Standard Bank Student Loan ensures uninterrupted studies by covering registration fees at the start of academic years 🎓🏦🗓️",
+"Absa education finance supports studies at public universities, TVET colleges, and registered private institutions 🎓🏦🏫",
+"Nedbank Study Loan encourages responsible borrowing with structured repayment terms after qualification completion 🎓🏦📘",
+"Capitec study loans help students invest in education without complex banking requirements 🎓🏦🔓",
+
+"FNB Study Loan assists families planning early for higher education while managing monthly affordability 🎓🏦📊",
+"Standard Bank education loans help students remain focused on academics instead of financial stress 🎓🏦🧘",
+"Absa Student Loan supports education goals in commerce, engineering, healthcare, and IT fields 🎓🏦🧑‍⚕️",
+"Nedbank education finance strengthens South Africa’s future workforce through accessible student funding 🎓🏦🇿🇦",
+"Capitec education loans offer transparent pricing, helping students understand total repayment costs clearly 🎓🏦🔍",
+
+"FNB Study Loan bridges funding gaps when scholarships do not cover full tuition and study expenses 🎓🏦🔗",
+"Standard Bank Student Loan supports students relocating for university by covering accommodation costs 🎓🏦🏠",
+"Absa education finance allows parents to co-sign loans, increasing approval chances for students 🎓🏦✍️",
+"Nedbank Study Loan assists students pursuing long term qualifications aligned with market demand 🎓🏦📈",
+"Capitec study loans help learners upskill through short professional and technical courses 🎓🏦🛠️",
+
+"FNB education finance supports both local and international study programmes at recognised institutions 🎓🏦🌍",
+"Standard Bank Study Loan offers flexible repayment options that adjust as students progress academically 🎓🏦🔄",
+"Absa Student Loan reduces pressure on families by spreading education costs over manageable periods 🎓🏦📆",
+"Nedbank education loans help students complete studies without interruption due to financial challenges 🎓🏦🚧",
+"Capitec education funding supports career-focused learning that improves earning potential 🎓🏦💼",
+
+"FNB Study Loan promotes long term financial planning while investing in quality education 🎓🏦🧠",
+"Standard Bank education finance helps cover hidden study costs often overlooked during budgeting 🎓🏦🧾",
+"Absa Study Loan provides reliable education funding backed by one of South Africa’s major banks 🎓🏦🔒",
+"Nedbank Student Loan supports responsible borrowing aligned with future income expectations 🎓🏦⚖️",
+"Capitec study loans give students access to education financing with minimal paperwork 🎓🏦📄"
+];
+
+document.querySelectorAll(".niches").forEach(el => {
+  const randomAdvice = nicheAdvices[Math.floor(Math.random() * nicheAdvices.length)];
+  el.textContent = randomAdvice;
+});
+</script>
