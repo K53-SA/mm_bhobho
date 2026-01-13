@@ -245,7 +245,14 @@
  		lastScrollTop = scrollTop;
  	})
 
+
+	  const score = localStorage.getItem("score") || 0;
+	  if (score > 0){
+		  document.getElementById("0").style.borderColor = "green";
+	  }
+	  
  </script>
+
 
 
 
