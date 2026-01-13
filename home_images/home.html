@@ -64,7 +64,7 @@
 			<a href="../K53_Controls_Test/test_code.html"><img src="K53_Controls_Test.PNG" class="center"></a>
 		</div>	
 		<div class="progress-bar2">
-			<div class="progress2" id="progress2">
+			<div class="progress2" id="progress1">
 				
 			</div>
 		</div>	
@@ -81,7 +81,7 @@
 			<a href="../K53_Rules_Test/road_rules_tests.html"><img src="K53_Rules_Test.PNG"></a>
 		</div>
 			<div class="progress-bar2">
-			<div class="progress2" id="progress2">
+			<div class="progress2" id="progress3">
 				
 			</div>
 		</div>	
@@ -91,7 +91,7 @@
 			<a href="../K53_Book_Test/book_test_code.html"><img src="K53_Book_Test.PNG"></a>
 		</div>	
 			<div class="progress-bar2">
-			<div class="progress2" id="progress2">
+			<div class="progress2" id="progress4">
 				
 			</div>
 		</div>	
@@ -100,7 +100,7 @@
 		</div>
 
 		<div class="progress-bar2">
-			<div class="progress2" id="progress2">
+			<div class="progress2" id="progress5">
 				
 			</div>
 
@@ -324,14 +324,25 @@ if ('serviceWorker' in navigator) {
 
 
 <script>
-    // Example: get score from localStorage
-    //const score = Number(localStorage.getItem("signs_test5")) || 0;
-	const signs_score = 80;
+    // SIGNS
+    const signs_test1 = Number(localStorage.getItem("signs_test1")) || 0;
+	const signs_test2 = Number(localStorage.getItem("signs_test2")) || 0;
+	const signs_test3 = Number(localStorage.getItem("signs_test3")) || 0;
+	const signs_test4 = Number(localStorage.getItem("signs_test4")) || 0;
+	const signs_test5 = Number(localStorage.getItem("signs_test5")) || 0;
+	const signs_test6 = Number(localStorage.getItem("signs_test6")) || 0;
+	const signs_test7 = Number(localStorage.getItem("signs_test7")) || 0;
+	const signs_test8 = Number(localStorage.getItem("signs_test8")) || 0;
+	const signs_test9 = Number(localStorage.getItem("signs_test9")) || 0;
+	const signs_test10 = Number(localStorage.getItem("signs_test10")) || 0;
+	
+	const signs_score = (signs_test1+signs_test2+signs_test3+signs_test4+signs_test5+signs_test6+signs_test7+signs_test8+signs_test9+signs_test10)/300*100;
 
-    const progress = document.getElementById("progress2");
+    const progress_signs = document.getElementById("progress2");
 
-    progress.style.width = signs_score + "px";
+    progress_signs.style.width = signs_score + "px";
 </script>
+
 
 
 
