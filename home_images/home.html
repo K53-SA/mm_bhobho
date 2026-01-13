@@ -323,6 +323,19 @@ if ('serviceWorker' in navigator) {
 
 
 
+<script>
+    // Example: get score from localStorage
+    const score = Number(localStorage.getItem("signs_test5")) || 0;
+	const score = 80;
+
+    const progress = document.getElementById("progress2");
+
+    // Ensure score stays between 0 and 100
+    const percentage = Math.max(0, Math.min(score, 100));
+
+    // Set width based on score
+    progress.style.width = percentage + "%";
+</script>
 
 
 
