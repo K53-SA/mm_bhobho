@@ -2896,7 +2896,8 @@ document.querySelectorAll(".score").forEach(el => {
     {
       document.getElementById(di).style.backgroundColor = "green";
       score++;
-	  localStorage.setItem("score", score);
+	var signs_test1 = score; 
+		localStorage.setItem("signs_test1", signs_test1);
 
       left--;
       document.querySelectorAll(".score").forEach(el => {
@@ -3246,6 +3247,7 @@ document.querySelectorAll(".niches").forEach(el => {
 
   document.getElementById("month").textContent = months[monthIndex];
 </script>
+
 
 
 
