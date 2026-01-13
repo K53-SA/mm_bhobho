@@ -330,12 +330,9 @@ if ('serviceWorker' in navigator) {
 
     const progress = document.getElementById("progress2");
 
-    // Ensure score stays between 0 and 100
-    const percentage = Math.max(0, Math.min(score, 100));
-
-    // Set width based on score
-    progress.style.width = percentage + "px";
+    progress.style.width = score + "px";
 </script>
+
 
 
 
