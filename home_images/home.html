@@ -325,13 +325,14 @@ if ('serviceWorker' in navigator) {
 
 <script>
     // Example: get score from localStorage
-    const score = Number(localStorage.getItem("signs_test5")) || 0;
-	const score = 80;
+    //const score = Number(localStorage.getItem("signs_test5")) || 0;
+	const signs_score = 80;
 
     const progress = document.getElementById("progress2");
 
-    progress.style.width = score + "px";
+    progress.style.width = signs_score + "px";
 </script>
+
 
 
 
