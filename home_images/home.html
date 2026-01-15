@@ -212,7 +212,7 @@ if ('serviceWorker' in navigator) {
     progress_signs.style.width = signs_score + "px";
 	  const signsCanvas = document.getElementById("signs_star");
 
-  if (signs_score > 1) {
+  if (signs_score > 0) {
     signsCanvas.style.visibility = "visible";
   } else {
     signsCanvas.style.visibility = "hidden";
@@ -241,7 +241,7 @@ if ('serviceWorker' in navigator) {
 
 	  const rulesCanvas = document.getElementById("rules_star");
 
-  if (rules_score > 1) {
+  if (rules_score > 0) {
     rulesCanvas.style.visibility = "visible";
   } else {
     rulesCanvas.style.visibility = "hidden";
@@ -341,12 +341,13 @@ if ('serviceWorker' in navigator) {
 
   const learnersCanvas = document.getElementById("learners_star");
 
-  if (learners > 1) {
+  if (learners > 0) {
     learnersCanvas.style.visibility = "visible";
   } else {
     learnersCanvas.style.visibility = "hidden";
   }
 </script>
+
 
 
 
