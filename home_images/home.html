@@ -216,7 +216,7 @@ if ('serviceWorker' in navigator) {
     progress_signs.style.width = signs_score + "px";
 	  const signsCanvas = document.getElementById("signs_star");
 
-  if (signs_score > 0) {
+  if (signs_score > 85) {
     signsCanvas.style.visibility = "visible";
 	  	  	  	  	  	  signsCanvas.style.width = 100 + "px";
 	  signsCanvas.style.height = 100 + "px";
@@ -376,6 +376,7 @@ if ('serviceWorker' in navigator) {
 	  learnersCanvas.style.margin = 1 + "px";
   }
 </script>
+
 
 
 
