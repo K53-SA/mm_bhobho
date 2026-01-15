@@ -217,7 +217,7 @@ if ('serviceWorker' in navigator) {
 	  const signsCanvas = document.getElementById("signs_star");
 
   if (signs_score > 85) {
-    signsCanvas.style.visibility = "visible";
+    signsCanvas.style.display = "block";
   } else {
     signsCanvas.style.display = "none";
   }
@@ -246,7 +246,7 @@ if ('serviceWorker' in navigator) {
 	  const rulesCanvas = document.getElementById("rules_star");
 
   if (rules_score > 85) {
-    rulesCanvas.style.visibility = "visible";
+    rulesCanvas.style.display = "block";
   } else {
     rulesCanvas.style.display = "none";
   }
@@ -267,7 +267,7 @@ if ('serviceWorker' in navigator) {
   const controlsCanvas = document.getElementById("controls_star");
 
   if (controls > 90) {
-    controlsCanvas.style.visibility = "visible";
+    controlsCanvas.style.display = "block";
   } else {
     controlsCanvas.style.display = "none";
   }
@@ -321,7 +321,7 @@ if ('serviceWorker' in navigator) {
 	  const bookCanvas = document.getElementById("book_star");
 
   if (book_score_motor > 90 || book_score_light > 90 || book_score_heavy > 90) {
-    bookCanvas.style.visibility = "visible";
+    bookCanvas.style.display = "block";
   } else {
     bookCanvas.style.display = "none";
   }
@@ -346,11 +346,12 @@ if ('serviceWorker' in navigator) {
   const learnersCanvas = document.getElementById("learners_star");
 
   if (learners > 92) {
-    learnersCanvas.style.visibility = "visible";
+    learnersCanvas.style.display = "block";
   } else {
     learnersCanvas.style.display = "none";
   }
 </script>
+
 
 
 
