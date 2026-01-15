@@ -233,8 +233,19 @@ if ('serviceWorker' in navigator) {
 
     progress_rules.style.width = rules_score + "px";
 </script>
+var controls_score = score; 
+		localStorage.setItem("controls_score", controls_score);
 
+<script>
+    // Rules
+    const controls_score = Number(localStorage.getItem("controls_score")) || 0;
+	
+	const controls = (controls_score)/15*100;
 
+    const progress_controls = document.getElementById("progress1");
+
+    progress_controls.style.width = controls + "px";
+</script>
 
 
 
