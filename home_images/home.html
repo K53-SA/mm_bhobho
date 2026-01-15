@@ -30,6 +30,7 @@
   background: black;
   border-radius: 10px;
 }
+
 </style>
 
 
@@ -68,7 +69,11 @@
 
 
 <div class="ps" style="margin-top: 50px;">
-  <canvas class="spaceCanvas" width="100" height="100" id="controls_canvas" style="visibility: hidden;"></canvas>
+  <canvas class="spaceCanvas"
+  width="100"
+  height="100"
+  id="controls_canvas"
+  style="display: none;"></canvas>
   <a href="../K53_Controls_Test/test_code.html">
     <img src="K53_Controls_Test.PNG" class="center">
   </a>
@@ -407,6 +412,7 @@ canvases.forEach(canvas => {
   animate();
 });
 </script>
+
 
 
 
