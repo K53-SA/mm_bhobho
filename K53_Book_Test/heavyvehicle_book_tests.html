@@ -117,7 +117,26 @@
  		}
  		lastScrollTop = scrollTop;
  	})
+
+
+	  const booka_heavy = localStorage.getItem("booka_heavy") || 0;
+	  if (booka_heavy > 59){
+		  document.getElementById("0").style.borderColor = "green";
+	  }
+	  const bookb_heavy = localStorage.getItem("bookb_heavy") || 0;
+	  if (bookb_heavy > 59){
+		  document.getElementById("1").style.borderColor = "green";
+	  }
+	  	  const bookc_heavy = localStorage.getItem("bookc_heavy") || 0;
+	  if (bookc_heavy > 59){
+		  document.getElementById("2").style.borderColor = "green";
+	  }
+	  	  const bookd_heavy4 = localStorage.getItem("bookd_heavy") || 0;
+	  if (bookd_heavy > 59){
+		  document.getElementById("3").style.borderColor = "green";
+	  }
  </script>
+
 
 
 
