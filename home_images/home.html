@@ -23,15 +23,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="images192.png">
 
-<style>
-	.spaceCanvas {
-  display: block;
-  margin: 0 auto 10px auto;
-  background: black;
-  border-radius: 10px;
-}
 
-</style>
 
 
 </head>
@@ -69,11 +61,7 @@
 
 
 <div class="ps" style="margin-top: 50px;">
-  <canvas class="spaceCanvas"
-  width="100"
-  height="100"
-  id="controls_canvas"
-  style="display: none;"></canvas>
+	<img src="star.jpeg" class="center" style="visibility:hidden; width: 100px; height: 100px;" id="controls_star">
   <a href="../K53_Controls_Test/test_code.html">
     <img src="K53_Controls_Test.PNG" class="center">
   </a>
@@ -178,24 +166,7 @@ if ('serviceWorker' in navigator) {
 		<p> FREEK53 NON PROFIT COMPANY &copy  2020</p>
 	</footer>
 </body>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
 
-  const controlsCanvas = document.getElementById("controls_canvas");
-
-  // DEBUG: confirm canvas exists
-  console.log("Canvas found:", controlsCanvas);
-
-  // Get score
-  console.log("Controls score:", progress_controls);
-
-  if (progress_controls > 13) {
-    controlsCanvas.style.display = "block";
-    startSpaceAnimation(controlsCanvas);
-  }
-
-});
-</script>
 
 </html>
   <script type="text/javascript">
@@ -290,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
     progress_controls.style.width = controls + "px";
 
 
-  const controlsCanvas = document.getElementById("controls_canvas");
+  const controlsCanvas = document.getElementById("controls_star");
 
   if (progress_controls > 1) {
     controlsCanvas.style.visibility = "visible";
@@ -398,6 +369,7 @@ function startSpaceAnimation(canvas) {
   animate();
 }
 </script>
+
 
 
 
