@@ -105,6 +105,8 @@
 			<div class="progress2" id="progress5">
 				
 			</div>
+
+		</div>	
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7523555661265068"
      crossorigin="anonymous"></script>
 <!-- Moneymaker -->
@@ -117,8 +119,6 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-		</div>	
-<br> <br>
 	<div class="btext">
 				<a href="./bursaries" class="btn">Bursaries 🎓</a> <a  href="https://wa.me/?text=Apply For Bursaries🎓 using this link freek53.xyz/bursaries" target="_blank" rel="noopener" class="btn"> Share  🦈</a> <br> <br>
 			<a href="./universities" class="btn">Open TVETs and Universities 👩‍🎓</a>  <a  href="https://wa.me/?text=Find Open TVETs and Universities👩‍🎓 using this link freek53.xyz/universities" target="_blank" rel="noopener" class="btn"> Share 🦈</a> <br> <br>
@@ -169,39 +169,8 @@ if ('serviceWorker' in navigator) {
 
 
 </html>
-  <script type="text/javascript">
- 	var lastScrollTop = 0;
- 	navbar = document.getElementById("branding5menu");
- 	window.addEventListener("scroll", function(){
- 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 		if (scrollTop > lastScrollTop) {
- 			navbar.style.visibility = "hidden";
- 		}
- 		else if (scrollTop == 0) {
- 			navbar.style.visibility = "visible";
- 		}
- 		lastScrollTop = scrollTop;
- 	})
- </script>
 
- <script type="text/javascript">
- 		function CommentSection()
-	{
-				
-				var x = document.getElementById("results9");
 
-				x.className = "show";
- 				var lastcommentScrollTop = 0;
- 				window.addEventListener("scroll", function(){
- 					var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 						if (commentscrollTop > lastcommentScrollTop) {
- 						x.className = "hidden";
- 						}
-
- 		
- 				})
-	}
- </script>
 
 
 
@@ -332,48 +301,6 @@ if ('serviceWorker' in navigator) {
 
     progress_learners.style.width = controls + "px";
 </script>
-<script>
-function startSpaceAnimation(canvas) {
-  const ctx = canvas.getContext("2d");
-  const w = canvas.width;
-  const h = canvas.height;
-
-  const stars = Array.from({ length: 25 }, () => ({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 1.5 + 0.5
-  }));
-
-  let rocketY = h + 20;
-
-  function animate() {
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, w, h);
-
-    ctx.fillStyle = "white";
-    stars.forEach(s => {
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fill();
-    });
-
-    ctx.font = "20px Arial";
-    ctx.fillText("🚀", w / 2 - 10, rocketY);
-
-    rocketY -= 1.5;
-    if (rocketY < -20) rocketY = h + 20;
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-}
-</script>
-
-
-
-
-
 
 
 
