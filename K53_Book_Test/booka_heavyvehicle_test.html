@@ -5749,6 +5749,8 @@ document.querySelectorAll(".score").forEach(el => {
     {
       document.getElementById(di).style.backgroundColor = "green";
       score++;
+			var booka_heavy = score; 
+		localStorage.setItem("booka_heavy", booka_heavy);
 
       left--;
       document.querySelectorAll(".score").forEach(el => {
@@ -6097,6 +6099,7 @@ document.querySelectorAll(".niches").forEach(el => {
 
   document.getElementById("month").textContent = months[monthIndex];
 </script>
+
 
 
 
