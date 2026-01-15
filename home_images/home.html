@@ -233,11 +233,10 @@ if ('serviceWorker' in navigator) {
 
     progress_rules.style.width = rules_score + "px";
 </script>
-var controls_score = score; 
-		localStorage.setItem("controls_score", controls_score);
+
 
 <script>
-    // Rules
+    // Conrols
     const controls_score = Number(localStorage.getItem("controls_score")) || 0;
 	
 	const controls = (controls_score)/15*100;
@@ -250,6 +249,50 @@ var controls_score = score;
 
 
 
+<script>
+    // Book Tests
+    const booka_heavy = Number(localStorage.getItem("booka_heavy")) || 0;
+	const bookb_heavy = Number(localStorage.getItem("bookb_heavy")) || 0;
+	const bookc_heavy = Number(localStorage.getItem("bookc_heavy")) || 0;
+	const bookd_heavy = Number(localStorage.getItem("bookd_heavy")) || 0;
+
+
+
+
+    const booka_light = Number(localStorage.getItem("booka_light")) || 0;
+	const bookb_light = Number(localStorage.getItem("bookb_light")) || 0;
+	const bookc_light = Number(localStorage.getItem("bookc_light")) || 0;
+	const bookd_light = Number(localStorage.getItem("bookd_light")) || 0;
+
+
+
+    const booka_motor = Number(localStorage.getItem("booka_motor")) || 0;
+	const bookb_motor = Number(localStorage.getItem("bookb_motor")) || 0;
+	const bookc_motor = Number(localStorage.getItem("bookc_motor")) || 0;
+	const bookd_motor = Number(localStorage.getItem("bookd_motor")) || 0;
+
+	
+	const book_score_heavy = (booka_heavy+bookb_heavy+bookc_heavy+bookd_heavy)/256*100;
+	const book_score_light = (booka_light+bookb_light+bookc_light+bookd_light)/256*100;
+	const book_score_motor = (booka_motor+bookb_motor+bookc_motor+bookd_motor)/256*100;
+
+    const progress_book = document.getElementById("progress4");
+
+	if (book_score_heavy > 0)
+	{
+		progress_book.style.width = book_score_heavy + "px";
+	}
+	else if(book_score_light > 0 && book_score_light > book_score_heavy)
+	{
+		progress_book.style.width = book_score_light + "px";
+	}
+	else if (book_score_motor > 0)
+	{
+		progress_book.style.width = book_score_motor + "px";
+	}
+
+    
+</script>
 
 
 
