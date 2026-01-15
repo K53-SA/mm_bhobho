@@ -216,10 +216,13 @@ if ('serviceWorker' in navigator) {
     progress_signs.style.width = signs_score + "px";
 	  const signsCanvas = document.getElementById("signs_star");
 
-  if (signs_score > 85) {
+  if (signs_score > 0) {
     signsCanvas.style.visibility = "visible";
   } else {
     signsCanvas.style.visibility = "hidden";
+	  	  	  	  	  signsCanvas.style.width = 1 + "px";
+	  signsCanvas.style.height = 1 + "px";
+	  signsCanvas.style.margin = 1 + "px";
   }
 </script>
 
@@ -249,6 +252,9 @@ if ('serviceWorker' in navigator) {
     rulesCanvas.style.visibility = "visible";
   } else {
     rulesCanvas.style.visibility = "hidden";
+	  	  	  	  rulesCanvas.style.width = 1 + "px";
+	  rulesCanvas.style.height = 1 + "px";
+	  rulesCanvas.style.margin = 1 + "px";
   }
 </script>
 
@@ -270,6 +276,9 @@ if ('serviceWorker' in navigator) {
     controlsCanvas.style.visibility = "visible";
   } else {
     controlsCanvas.style.visibility = "hidden";
+	  	  	  controlsCanvas.style.width = 1 + "px";
+	  controlsCanvas.style.height = 1 + "px";
+	  controlsCanvas.style.margin = 1 + "px";
   }
 </script>
 
@@ -324,6 +333,9 @@ if ('serviceWorker' in navigator) {
     bookCanvas.style.visibility = "visible";
   } else {
     bookCanvas.style.visibility = "hidden";
+	  	  bookCanvas.style.width = 1 + "px";
+	  bookCanvas.style.height = 1 + "px";
+	  bookCanvas.style.margin = 1 + "px";
   }
     
 </script>
@@ -349,8 +361,12 @@ if ('serviceWorker' in navigator) {
     learnersCanvas.style.visibility = "visible";
   } else {
     learnersCanvas.style.visibility = "hidden";
+	  learnersCanvas.style.width = 1 + "px";
+	  learnersCanvas.style.height = 1 + "px";
+	  learnersCanvas.style.margin = 1 + "px";
   }
 </script>
+
 
 
 
