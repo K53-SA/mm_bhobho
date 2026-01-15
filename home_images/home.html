@@ -77,7 +77,7 @@
 
 		<div class="ps">
 		  <a href="../K53_Sign_Test/road_sign_tests.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="signs_star">
+	<img src="star.jpg" class="star"  id="signs_star">
   </a>
 			<a href="../K53_Sign_Test/road_sign_tests.html"><img src="K53_Signs_Test.PNG"></a>
 		</div>	
@@ -90,7 +90,7 @@
 			  
 		<div class="ps">
 <a href="../K53_Rules_Test/road_rules_tests.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="rules_star">
+	<img src="star.jpg" class="center"  id="rules_star">
   </a>
 			<a href="../K53_Rules_Test/road_rules_tests.html"><img src="K53_Rules_Test.PNG"></a>
 		</div>
@@ -103,7 +103,7 @@
 
 		<div class="ps">
 				  <a href="../K53_Book_Test/book_test_code.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="book_star">
+	<img src="star.jpg" class="center"  id="book_star">
   </a>
 			<a href="../K53_Book_Test/book_test_code.html"><img src="K53_Book_Test.PNG"></a>
 		</div>	
@@ -115,7 +115,7 @@
 
 		<div class="ps" >
 					  <a href="../K53_Learners_Test/learners_test_code.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="learners_star">
+	<img src="star.jpg" class="center"  id="learners_star">
   </a>
 			<a href="../K53_Learners_Test/learners_test_code.html"><img src="K53_Learners_Test.PNG"></a>
 		</div>
@@ -218,6 +218,8 @@ if ('serviceWorker' in navigator) {
 
   if (signs_score > 0) {
     signsCanvas.style.visibility = "visible";
+	  	  	  	  	  	  signsCanvas.style.width = 100 + "px";
+	  signsCanvas.style.height = 100 + "px";
   } else {
     signsCanvas.style.visibility = "hidden";
 	  	  	  	  	  signsCanvas.style.width = 1 + "px";
@@ -250,6 +252,8 @@ if ('serviceWorker' in navigator) {
 
   if (rules_score > 85) {
     rulesCanvas.style.visibility = "visible";
+	  rulesCanvas.style.width = 100 + "px";
+	  rulesCanvas.style.height = 100 + "px";
   } else {
     rulesCanvas.style.visibility = "hidden";
 	  	  	  	  rulesCanvas.style.width = 1 + "px";
@@ -274,6 +278,8 @@ if ('serviceWorker' in navigator) {
 
   if (controls > 90) {
     controlsCanvas.style.visibility = "visible";
+	  	  	  	  controlsCanvas.style.width = 100 + "px";
+	  controlsCanvas.style.height = 100 + "px";
   } else {
     controlsCanvas.style.visibility = "hidden";
 	  	  	  controlsCanvas.style.width = 1 + "px";
@@ -331,6 +337,8 @@ if ('serviceWorker' in navigator) {
 
   if (book_score_motor > 90 || book_score_light > 90 || book_score_heavy > 90) {
     bookCanvas.style.visibility = "visible";
+	  bookCanvas.style.width = 100 + "px";
+	  bookCanvas.style.height = 100 + "px";
   } else {
     bookCanvas.style.visibility = "hidden";
 	  	  bookCanvas.style.width = 1 + "px";
@@ -359,6 +367,8 @@ if ('serviceWorker' in navigator) {
 
   if (learners > 92) {
     learnersCanvas.style.visibility = "visible";
+	  	  learnersCanvas.style.width = 100 + "px";
+	  learnersCanvas.style.height = 100 + "px";
   } else {
     learnersCanvas.style.visibility = "hidden";
 	  learnersCanvas.style.width = 1 + "px";
@@ -366,6 +376,7 @@ if ('serviceWorker' in navigator) {
 	  learnersCanvas.style.margin = 1 + "px";
   }
 </script>
+
 
 
 
