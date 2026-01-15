@@ -216,10 +216,10 @@ if ('serviceWorker' in navigator) {
     progress_signs.style.width = signs_score + "px";
 	  const signsCanvas = document.getElementById("signs_star");
 
-  if (signs_score > 85) {
+  if (signs_score > 0) {
     signsCanvas.style.display = "block";
   } else {
-    signsCanvas.style.height = 0 + "px";
+    signsCanvas.style.display = "none";
   }
 </script>
 
@@ -248,7 +248,7 @@ if ('serviceWorker' in navigator) {
   if (rules_score > 85) {
     rulesCanvas.style.display = "block";
   } else {
-    rulesCanvas.style.height = 0 + "px";
+    rulesCanvas.style.display = "none";
   }
 </script>
 
@@ -269,7 +269,7 @@ if ('serviceWorker' in navigator) {
   if (controls > 90) {
     controlsCanvas.style.display = "block";
   } else {
-    controlsCanvas.style.height = 0 + "px";
+    controlsCanvas.style.display = "none";
   }
 </script>
 
@@ -323,7 +323,7 @@ if ('serviceWorker' in navigator) {
   if (book_score_motor > 90 || book_score_light > 90 || book_score_heavy > 90) {
     bookCanvas.style.display = "block";
   } else {
-    bookCanvas.style.height = 0 +"px";
+    bookCanvas.style.display = "none";
   }
     
 </script>
@@ -348,9 +348,10 @@ if ('serviceWorker' in navigator) {
   if (learners > 92) {
     learnersCanvas.style.display = "block";
   } else {
-    learnersCanvas.style.height = 0 + "px";
+    learnersCanvas.style.display = "none";
   }
 </script>
+
 
 
 
