@@ -77,7 +77,7 @@
 
 		<div class="ps">
 		  <a href="../K53_Sign_Test/road_sign_tests.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px; display: none;" id="signs_star">
+	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="signs_star">
   </a>
 			<a href="../K53_Sign_Test/road_sign_tests.html"><img src="K53_Signs_Test.PNG"></a>
 		</div>	
@@ -90,7 +90,7 @@
 			  
 		<div class="ps">
 <a href="../K53_Rules_Test/road_rules_tests.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px; display: none;" id="rules_star">
+	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="rules_star">
   </a>
 			<a href="../K53_Rules_Test/road_rules_tests.html"><img src="K53_Rules_Test.PNG"></a>
 		</div>
@@ -103,7 +103,7 @@
 
 		<div class="ps">
 				  <a href="../K53_Book_Test/book_test_code.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px; display: none;" id="book_star">
+	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="book_star">
   </a>
 			<a href="../K53_Book_Test/book_test_code.html"><img src="K53_Book_Test.PNG"></a>
 		</div>	
@@ -115,7 +115,7 @@
 
 		<div class="ps" >
 					  <a href="../K53_Learners_Test/learners_test_code.html">
-	<img src="star.jpg" class="center" style="width: 100px; height: 100px;  display: none;" id="learners_star">
+	<img src="star.jpg" class="center" style="width: 100px; height: 100px;" id="learners_star">
   </a>
 			<a href="../K53_Learners_Test/learners_test_code.html"><img src="K53_Learners_Test.PNG"></a>
 		</div>
@@ -219,7 +219,7 @@ if ('serviceWorker' in navigator) {
   if (signs_score > 0) {
     signsCanvas.style.display = "block";
   } else {
-    signsCanvas.style.display = "none";
+    signsCanvas.style.height = 0 + "px";
   }
 </script>
 
@@ -248,7 +248,7 @@ if ('serviceWorker' in navigator) {
   if (rules_score > 85) {
     rulesCanvas.style.display = "block";
   } else {
-    rulesCanvas.style.display = "none";
+    rulesCanvas.style.height = 0 + "px";
   }
 </script>
 
@@ -269,7 +269,7 @@ if ('serviceWorker' in navigator) {
   if (controls > 90) {
     controlsCanvas.style.display = "block";
   } else {
-    controlsCanvas.style.display = "none";
+    controlsCanvas.style.height = 0 + "px";
   }
 </script>
 
@@ -323,7 +323,7 @@ if ('serviceWorker' in navigator) {
   if (book_score_motor > 90 || book_score_light > 90 || book_score_heavy > 90) {
     bookCanvas.style.display = "block";
   } else {
-    bookCanvas.style.display = "none";
+    bookCanvas.style.height = 0 +"px";
   }
     
 </script>
@@ -348,9 +348,10 @@ if ('serviceWorker' in navigator) {
   if (learners > 92) {
     learnersCanvas.style.display = "block";
   } else {
-    learnersCanvas.style.display = "none";
+    learnersCanvas.style.height = 0 + "px";
   }
 </script>
+
 
 
 
