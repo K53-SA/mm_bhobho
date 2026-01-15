@@ -23,7 +23,14 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="images192.png">
 
-
+<style>
+	.spaceCanvas {
+  display: block;
+  margin: 0 auto 10px auto;
+  background: black;
+  border-radius: 10px;
+}
+</style>
 
 
 </head>
@@ -60,14 +67,16 @@
 
 
 
-		<div class="ps" style="margin-top: 50px;">
-			<a href="../K53_Controls_Test/test_code.html"><img src="K53_Controls_Test.PNG" class="center"></a>
-		</div>	
-		<div class="progress-bar2">
-			<div class="progress2" id="progress1">
-				
-			</div>
-		</div>	
+<div class="ps" style="margin-top: 50px;">
+  <canvas class="spaceCanvas" width="100" height="100" id="controls_canvas" style="visibility: hidden;"></canvas>
+  <a href="../K53_Controls_Test/test_code.html">
+    <img src="K53_Controls_Test.PNG" class="center">
+  </a>
+</div>
+
+<div class="progress-bar2">
+  <div class="progress2" id="progress1"></div>
+</div>
 
 		<div class="ps" style="margin-top: 50px;">
 			<a href="../K53_Sign_Test/road_sign_tests.html"><img src="K53_Signs_Test.PNG"></a>
@@ -255,6 +264,15 @@ if ('serviceWorker' in navigator) {
     const progress_controls = document.getElementById("progress1");
 
     progress_controls.style.width = controls + "px";
+
+
+  const controlsCanvas = document.getElementById("controls_canvas");
+
+  if (progress_controls > 13) {
+    controlsCanvas.style.visibility = "visible";
+  } else {
+    controlsCanvas.style.visibility = "hidden";
+  }
 </script>
 
 
@@ -318,6 +336,76 @@ if ('serviceWorker' in navigator) {
     const progress_learners = document.getElementById("progress5");
 
     progress_learners.style.width = controls + "px";
+</script>
+<script>
+const canvases = document.querySelectorAll(".spaceCanvas");
+
+canvases.forEach(canvas => {
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width;
+  const h = canvas.height;
+
+  // Stars
+  const stars = Array.from({ length: 30 }, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 1.5 + 0.5
+  }));
+
+  // Planets
+  const planets = Array.from({ length: 2 }, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 6 + 4
+  }));
+
+  let rocketY = h + 20;
+
+  function drawStars() {
+    ctx.fillStyle = "white";
+    stars.forEach(s => {
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawPlanets() {
+    ctx.fillStyle = "#6b5cff";
+    planets.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawRocket() {
+    ctx.font = "20px Arial";
+    ctx.fillText("🚀", w / 2 - 10, rocketY);
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+
+    // Space background
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, w, h);
+
+    drawStars();
+    drawPlanets();
+    drawRocket();
+
+    rocketY -= 1.5;
+
+    if (rocketY < -20) {
+      rocketY = h + 20;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
 </script>
 
 
