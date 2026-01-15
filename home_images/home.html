@@ -329,7 +329,7 @@ if ('serviceWorker' in navigator) {
 
 <script>
     // Learners
-    const learners_score = Number(localStorage.getItem("controls_score")) || 0;
+    const learners_score = Number(localStorage.getItem("learners_score")) || 0;
 	
 	const learners = (learners_score)/64*100;
 
@@ -407,6 +407,7 @@ canvases.forEach(canvas => {
   animate();
 });
 </script>
+
 
 
 
