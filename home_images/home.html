@@ -216,10 +216,10 @@ if ('serviceWorker' in navigator) {
     progress_signs.style.width = signs_score + "px";
 	  const signsCanvas = document.getElementById("signs_star");
 
-  if (signs_score > 0) {
-    signsCanvas.style.display = "block";
+  if (signs_score > 85) {
+    signsCanvas.style.visibility = "visible";
   } else {
-    signsCanvas.style.display = "none";
+    signsCanvas.style.visibility = "hidden";
   }
 </script>
 
@@ -246,9 +246,9 @@ if ('serviceWorker' in navigator) {
 	  const rulesCanvas = document.getElementById("rules_star");
 
   if (rules_score > 85) {
-    rulesCanvas.style.display = "block";
+    rulesCanvas.style.visibility = "visible";
   } else {
-    rulesCanvas.style.display = "none";
+    rulesCanvas.style.visibility = "hidden";
   }
 </script>
 
@@ -267,9 +267,9 @@ if ('serviceWorker' in navigator) {
   const controlsCanvas = document.getElementById("controls_star");
 
   if (controls > 90) {
-    controlsCanvas.style.display = "block";
+    controlsCanvas.style.visibility = "visible";
   } else {
-    controlsCanvas.style.display = "none";
+    controlsCanvas.style.visibility = "hidden";
   }
 </script>
 
@@ -321,9 +321,9 @@ if ('serviceWorker' in navigator) {
 	  const bookCanvas = document.getElementById("book_star");
 
   if (book_score_motor > 90 || book_score_light > 90 || book_score_heavy > 90) {
-    bookCanvas.style.display = "block";
+    bookCanvas.style.visibility = "visible";
   } else {
-    bookCanvas.style.display = "none";
+    bookCanvas.style.visibility = "hidden";
   }
     
 </script>
@@ -346,11 +346,12 @@ if ('serviceWorker' in navigator) {
   const learnersCanvas = document.getElementById("learners_star");
 
   if (learners > 92) {
-    learnersCanvas.style.display = "block";
+    learnersCanvas.style.visibility = "visible";
   } else {
-    learnersCanvas.style.display = "none";
+    learnersCanvas.style.visibility = "hidden";
   }
 </script>
+
 
 
 
