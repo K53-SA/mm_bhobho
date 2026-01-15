@@ -99,7 +99,25 @@
  		}
  		lastScrollTop = scrollTop;
  	})
+
+	  const booka_light = localStorage.getItem("booka_light") || 0;
+	  if (booka_light > 59){
+		  document.getElementById("0").style.borderColor = "green";
+	  }
+	  const bookb_light = localStorage.getItem("bookb_light") || 0;
+	  if (bookb_light > 59){
+		  document.getElementById("1").style.borderColor = "green";
+	  }
+	  	  const bookc_light = localStorage.getItem("bookc_light") || 0;
+	  if (bookc_light > 59){
+		  document.getElementById("2").style.borderColor = "green";
+	  }
+	  	  const bookd_light = localStorage.getItem("bookd_light") || 0;
+	  if (bookd_light > 59){
+		  document.getElementById("3").style.borderColor = "green";
+	  }
  </script>
+
 
 
 
