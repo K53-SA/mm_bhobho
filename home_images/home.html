@@ -298,6 +298,16 @@ if ('serviceWorker' in navigator) {
 
 
 
+<script>
+    // Learners
+    const learners_score = Number(localStorage.getItem("controls_score")) || 0;
+	
+	const learners = (learners_score)/64*100;
+
+    const progress_learners = document.getElementById("progress5");
+
+    progress_learners.style.width = controls + "px";
+</script>
 
 
 
