@@ -95,7 +95,26 @@
  		}
  		lastScrollTop = scrollTop;
  	})
+
+
+	  const booka_motor = localStorage.getItem("booka_motor") || 0;
+	  if (booka_motor > 59){
+		  document.getElementById("0").style.borderColor = "green";
+	  }
+	  const bookb_motor = localStorage.getItem("bookb_motor") || 0;
+	  if (bookb_motor > 59){
+		  document.getElementById("1").style.borderColor = "green";
+	  }
+	  	  const bookc_motor = localStorage.getItem("bookc_motor") || 0;
+	  if (bookc_motor > 59){
+		  document.getElementById("2").style.borderColor = "green";
+	  }
+	  	  const bookd_motor = localStorage.getItem("bookd_motor") || 0;
+	  if (bookd_motor > 59){
+		  document.getElementById("3").style.borderColor = "green";
+	  }
  </script>
+
 
 
 
