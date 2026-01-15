@@ -362,75 +362,44 @@ document.addEventListener("DOMContentLoaded", () => {
     progress_learners.style.width = controls + "px";
 </script>
 <script>
-const canvases = document.querySelectorAll(".spaceCanvas");
-
-canvases.forEach(canvas => {
+function startSpaceAnimation(canvas) {
   const ctx = canvas.getContext("2d");
   const w = canvas.width;
   const h = canvas.height;
 
-  // Stars
-  const stars = Array.from({ length: 30 }, () => ({
+  const stars = Array.from({ length: 25 }, () => ({
     x: Math.random() * w,
     y: Math.random() * h,
     r: Math.random() * 1.5 + 0.5
   }));
 
-  // Planets
-  const planets = Array.from({ length: 2 }, () => ({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 6 + 4
-  }));
-
   let rocketY = h + 20;
 
-  function drawStars() {
+  function animate() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, w, h);
+
     ctx.fillStyle = "white";
     stars.forEach(s => {
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
       ctx.fill();
     });
-  }
 
-  function drawPlanets() {
-    ctx.fillStyle = "#6b5cff";
-    planets.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    });
-  }
-
-  function drawRocket() {
     ctx.font = "20px Arial";
     ctx.fillText("🚀", w / 2 - 10, rocketY);
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, w, h);
-
-    // Space background
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, w, h);
-
-    drawStars();
-    drawPlanets();
-    drawRocket();
 
     rocketY -= 1.5;
-
-    if (rocketY < -20) {
-      rocketY = h + 20;
-    }
+    if (rocketY < -20) rocketY = h + 20;
 
     requestAnimationFrame(animate);
   }
 
   animate();
-});
+}
 </script>
+
+
 
 
 
