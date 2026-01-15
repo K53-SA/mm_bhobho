@@ -178,6 +178,25 @@ if ('serviceWorker' in navigator) {
 		<p> FREEK53 NON PROFIT COMPANY &copy  2020</p>
 	</footer>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const controlsCanvas = document.getElementById("controls_canvas");
+
+  // DEBUG: confirm canvas exists
+  console.log("Canvas found:", controlsCanvas);
+
+  // Get score
+  console.log("Controls score:", progress_controls);
+
+  if (progress_controls > 13) {
+    controlsCanvas.style.display = "block";
+    startSpaceAnimation(controlsCanvas);
+  }
+
+});
+</script>
+
 </html>
   <script type="text/javascript">
  	var lastScrollTop = 0;
@@ -412,6 +431,7 @@ canvases.forEach(canvas => {
   animate();
 });
 </script>
+
 
 
 
