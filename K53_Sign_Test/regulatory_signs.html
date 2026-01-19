@@ -202,4 +202,15 @@
  		
  				})
 	}
+
+
+    // control_signs
+    const control_signs = Number(localStorage.getItem("control_signs")) || 0;
+	
+	if (control_signs > 0)
+	{
+		control_signs = 100;
+	}
+    document.getElementById("1").style.width = control_signs + "px";
+
  </script>
