@@ -1204,6 +1204,8 @@
 <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 
  <script type="text/javascript">
+			var command_signs = 1; 
+		localStorage.setItem("command_signs", command_signs);
  	var lastScrollTop = 0;
  	navbar = document.getElementById("navbar");
  	navbar.style.top = "-80px";
@@ -1217,4 +1219,7 @@
  		}
  		lastScrollTop = scrollTop;
  	})
+
+	 
+
  </script>
