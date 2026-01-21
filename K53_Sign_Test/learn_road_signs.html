@@ -138,6 +138,46 @@
     const progress_regulatory_signs = document.getElementById("1");
 
     progress_regulatory_signs.style.width = regulatory_signs + "px";
+
+
+
+
+
+
+
+	 
+    const road_layout_signs = Number(localStorage.getItem("road_layout_signs")) || 0;
+
+    const direction_of_movement_signs = Number(localStorage.getItem("direction_of_movement_signs")) || 0;
+
+    const symbolic_signs = Number(localStorage.getItem("symbolic_signs")) || 0;
+
+    const hazard_marker = Number(localStorage.getItem("hazard_marker")) || 0;
+
+    const information_signs = Number(localStorage.getItem("information_signs")) || 0;
+
+	 const warning_signs = ( road_layout_signs + direction_of_movement_signs + symbolic_signs + hazard_marker + information_signs)/5 * 100; 
+	 
+    const progress_warning_signs = document.getElementById("2");
+
+    progress_warning_signs.style.width = regulatory_signs + "px";
+
+	 
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+	 
  </script>
+
 
 
