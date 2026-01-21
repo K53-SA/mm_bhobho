@@ -195,7 +195,18 @@
 	 const guidance_signs = ( location_signs + direction_sign_symbols + route_markers + direction_signs + tourism_direction_signs + local_direction_signs + diagrammatic_signs + variable_message_signs)/8*100;
     const progress_guidance_signs = document.getElementById("3");
 
-    progress_guidance_signs.style.width = regulatory_signs + "px";
+    progress_guidance_signs.style.width = guidance_signs + "px";
+
+
+
+
+
+	 const temporary_signs_value = Number(localStorage.getItem("temporary_signs")) || 0;
+	 const temporary_signs = temporary_signs_value/1*100;
+	     const progress_temporary_signs = document.getElementById("4");
+
+    progress_temporary_signs.style.width = temporary_signs + "px";
+	 
 	 
 
 
@@ -209,6 +220,7 @@
 
 	 
  </script>
+
 
 
 
