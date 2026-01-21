@@ -176,8 +176,40 @@
 
 
 
+    const location_signs = Number(localStorage.getItem("location_signs")) || 0;
+
+    const direction_sign_symbols = Number(localStorage.getItem("direction_sign_symbols")) || 0;
+
+    const route_markers = Number(localStorage.getItem("route_markers")) || 0;
+
+    const direction_signs = Number(localStorage.getItem("direction_signs")) || 0;
+
+    const tourism_direction_signs = Number(localStorage.getItem("tourism_direction_signs")) || 0;
+
+    const local_direction_signs = Number(localStorage.getItem("local_direction_signs")) || 0;
+
+    const diagrammatic_signs = Number(localStorage.getItem("diagrammatic_signs")) || 0;
+
+    const variable_message_signs = Number(localStorage.getItem("variable_message_signs")) || 0;
+
+	 const guidance_signs = ( location_signs + direction_sign_symbols + route_markers + direction_signs + tourism_direction_signs + local_direction_signs + diagrammatic_signs + variable_message_signs)/8*100;
+    const progress_guidance_signs = document.getElementById("3");
+
+    progress_guidance_signs.style.width = regulatory_signs + "px";
+	 
+
+
+
+
+
+
+
+
+
+
 	 
  </script>
+
 
 
 
