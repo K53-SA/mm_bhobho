@@ -163,5 +163,8 @@
     const signals = Number(localStorage.getItem("signals")) || 0;
 
 	 const regulatory_signs = (control_signs + command_signs + prohibition_signs + reservation_signs + comprehensive_signs + secondary_signs + derestriction_signs + signals)/8*100;
+    const progress_regulatory_signs = document.getElementById("1");
 
+    progress_regulatory_signs.style.width = regulatory_signs + "px";
  </script>
+
