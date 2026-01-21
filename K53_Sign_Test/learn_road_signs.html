@@ -212,14 +212,24 @@
 
 
 
+    const regulatory_road_markings = Number(localStorage.getItem("regulatory_road_markings")) || 0;
 
+    const warning_road_markings = Number(localStorage.getItem("warning_road_markings")) || 0;
 
+    const guidance_road_markings = Number(localStorage.getItem("guidance_road_markings")) || 0;
 
+    const exclusive_use_symbols = Number(localStorage.getItem("exclusive_use_symbols")) || 0;
 
+	 const road_markings = ( regulatory_road_markings + warning_road_markings + guidance_road_markings + exclusive_use_symbols)/4*100; 
+
+	 const progress_road_markings = document.getElementById("5");
+
+	progress_road_markings.style.width = road_markings + "px";
 
 
 	 
  </script>
+
 
 
 
