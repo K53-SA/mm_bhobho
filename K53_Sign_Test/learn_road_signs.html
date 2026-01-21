@@ -114,35 +114,7 @@
 
 
 
- <script type="text/javascript">
- 	var lastScrollTop = 0;
- 	navbar = document.getElementById("navbar");
- 	
- 	window.addEventListener("scroll", function(){
- 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 		if (scrollTop > lastScrollTop) {
- 			navbar.style.top = "-80px";
- 		}
- 		else{
- 			navbar.style.top = "0px";
- 		}
- 		lastScrollTop = scrollTop;
- 	})
- </script>
-   <script type="text/javascript">
- 	var menulastScrollTop = 0;
- 	menunavbar = document.getElementById("branding5menu");
- 	window.addEventListener("scroll", function(){
- 		var menuscrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 		if (menuscrollTop > menulastScrollTop) {
- 			menunavbar.style.visibility = "hidden";
- 		}
- 		else if (menuscrollTop == 0) {
- 			menunavbar.style.visibility = "visible";
- 		}
- 		menulastScrollTop = menuscrollTop;
- 	})
- </script>
+
 
  <script type="text/javascript">
  
@@ -167,4 +139,5 @@
 
     progress_regulatory_signs.style.width = regulatory_signs + "px";
  </script>
+
 
