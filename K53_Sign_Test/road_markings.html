@@ -109,5 +109,58 @@
 
 
  <script type="text/javascript">
+    // regulatory_road_markings
+    const regulatory_road_markings = Number(localStorage.getItem("regulatory_road_markings")) || 0;
+	
+	if (regulatory_road_markings > 0)
+	{
+		document.getElementById("1").style.width = "100px";
+	}
 
+
+
+
+    // warning_road_markings
+    const warning_road_markings = Number(localStorage.getItem("warning_road_markings")) || 0;
+	
+	if (warning_road_markings > 0)
+	{
+		document.getElementById("2").style.width = "100px";
+	}
+
+
+
+
+
+    // guidance_road_markings
+    const guidance_road_markings = Number(localStorage.getItem("guidance_road_markings")) || 0;
+	
+	if (guidance_road_markings > 0)
+	{
+		document.getElementById("3").style.width = "100px";
+	}
+
+
+
+
+
+    // exclusive_use_symbols
+    const exclusive_use_symbols = Number(localStorage.getItem("exclusive_use_symbols")) || 0;
+	
+	if (exclusive_use_symbols > 0)
+	{
+		document.getElementById("4").style.width = "100px";
+	}
+
+
+
+
+
+
+
+
+
+
+	 
  </script>
+
