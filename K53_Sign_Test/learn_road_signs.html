@@ -145,20 +145,23 @@
  </script>
 
  <script type="text/javascript">
- 		function CommentSection()
-	{
-				
-				var x = document.getElementById("results9");
+ 
+    const control_signs = Number(localStorage.getItem("control_signs")) || 0;
 
-				x.className = "show";
- 				var lastcommentScrollTop = 0;
- 				window.addEventListener("scroll", function(){
- 					var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 						if (commentscrollTop > lastcommentScrollTop) {
- 						x.className = "hidden";
- 						}
+    const command_signs = Number(localStorage.getItem("command_signs")) || 0;
+	 
+    const prohibition_signs = Number(localStorage.getItem("prohibition_signs")) || 0;
+	
+    const reservation_signs = Number(localStorage.getItem("reservation_signs")) || 0;
+	
+    const comprehensive_signs = Number(localStorage.getItem("comprehensive_signs")) || 0;
+	 	
+    const secondary_signs = Number(localStorage.getItem("secondary_signs")) || 0;
+	
+    const derestriction_signs = Number(localStorage.getItem("derestriction_signs")) || 0;
+	
+    const signals = Number(localStorage.getItem("signals")) || 0;
 
- 		
- 				})
-	}
+	 const regulatory_signs = (control_signs + command_signs + prohibition_signs + reservation_signs + comprehensive_signs + secondary_signs + derestriction_signs + signals)/8*100;
+
  </script>
