@@ -101,18 +101,7 @@
 
 
  <script type="text/javascript">
- 	var lastScrollTop = 0;
- 	navbar = document.getElementById("navbar");
- 	window.addEventListener("scroll", function(){
- 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 		if (scrollTop > lastScrollTop) {
- 			navbar.style.top = "-80px";
- 		}
- 		else{
- 			navbar.style.top = "0px";
- 		}
- 		lastScrollTop = scrollTop;
- 	})
+
 
 	  const rules_test1 = localStorage.getItem("rules_test1") || 0;
 	  if (rules_test1 > 25){
@@ -156,6 +145,7 @@
 	  }
 	  
  </script>
+
 
 
 
