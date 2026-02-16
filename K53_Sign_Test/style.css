@@ -254,7 +254,7 @@ header nav a:hover
     padding: 16px 16px 16px 0px;
     position: fixed;
     z-index: 1;
-    left: 50%;
+    left: 40%;
     transition: 3s;
     bottom: 300px;
 }
@@ -278,7 +278,7 @@ header nav a:hover
     padding: 16px 16px 16px 0px;
     position: fixed;
     z-index: 1;
-    left: 50%;
+    left: 40%;
     transition: 3s;
     bottom: 300px;
 }
@@ -316,7 +316,7 @@ header nav a:hover
     padding: 16px 16px 16px 0px;
     position: fixed;
     z-index: 1;
-    left: 50%;
+    left: 40%;
     transition: 3s;
     bottom: 300px;
 }
@@ -337,7 +337,7 @@ header nav a:hover
     padding: 16px 16px 16px 10px;
     position: fixed;
     z-index: 1;
-    left: 50%;
+    left: 40%;
     transition: 1s;
     bottom: 300px;
 }
@@ -600,3 +600,4 @@ width: 0px;
     border-radius: 100%;
 }
 }
+
