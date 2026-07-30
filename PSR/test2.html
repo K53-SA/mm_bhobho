@@ -1,3 +1,12 @@
+Here is a fresh, simplified, **fully self‑contained** version that should work as‑is.
+
+1. Copy everything below.
+2. Save as `lesson1_text_test.html`.
+3. Open that file directly from your PC (double‑click it).
+
+You should see four buttons: Learn / Lesson 1 Test (NB only) / Low hanging questions / Long questions.
+
+```html
 <!doctype html>
 <html>
 <head>
@@ -17,14 +26,13 @@
     margin:0 auto;
     padding:20px;
   }
-  h1{margin:0 0 10px;font-size:22px;color:#e5e7eb}
-  h2{margin:14px 0 8px;font-size:18px}
   .card{
     background:#111827;
     border-radius:10px;
     padding:18px;
     box-shadow:0 8px 24px rgba(0,0,0,0.7);
   }
+  h1{margin:0 0 10px;font-size:22px;color:#e5e7eb}
   .btn{
     display:inline-block;
     padding:10px 14px;
@@ -33,17 +41,13 @@
     cursor:pointer;
     font-size:14px;
     font-weight:500;
+    margin-right:8px;
+    margin-bottom:8px;
   }
   .btn-primary{background:#2563eb;color:#f9fafb}
   .btn-secondary{background:#374151;color:#e5e7eb}
   .btn-danger{background:#b91c1c;color:#fee2e2}
   .btn:disabled{opacity:0.5;cursor:default}
-  .btn-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:8px 0 12px;
-  }
   .mode-title{font-size:14px;color:#9ca3af;margin-bottom:6px}
   .question-block{
     border-top:1px solid #1f2937;
@@ -63,6 +67,7 @@
     font-weight:600;
     background:#1f2937;
     color:#e5e7eb;
+    margin-left:4px;
   }
   .q-tag-nb{background:#b45309;color:#fffbeb}
   .answer-pill{
@@ -74,7 +79,6 @@
     cursor:pointer;
     font-size:14px;
     color:#e5e7eb;
-    transition:all .12s;
   }
   .answer-pill.learned{
     background:#064e3b;
@@ -90,6 +94,7 @@
     font-size:13px;
     color:#9ca3af;
     margin-top:6px;
+    margin-bottom:6px;
   }
   .input-row{
     margin-top:6px;
@@ -171,7 +176,7 @@
 </div>
 
 <script>
-// NOTE: Update solutions/keywords below with your exact text/keywords if needed.
+// ------------ DATA -------------
 const questions = [
   {
     id: 1,
@@ -207,9 +212,9 @@ const questions = [
     type: "low",
     prompt: "List three responsibilities of every Authorised person who is in possession of a copy of the Regulations.",
     solutions: [
-      "Be held responsible for the knowledge and application of the regulations.",
-      "Must maintain his copy of the regulations in good condition and up to date.",
-      "Must ensure that the latest revision of the regulations is readily available where required."
+      "Be held responsible for the knowledge and application of the Regulations.",
+      "Must maintain his copy of the Regulations in good condition and up to date.",
+      "Must ensure that the latest revision of the Regulations is readily available where required."
     ],
     keywords: [
       ["responsible","knowledge","application"],
@@ -379,6 +384,7 @@ const questions = [
   }
 ];
 
+// ------------ STATE -------------
 let currentView = "menu"; // menu | learn | test
 let currentTestMode = null; // nb | low | long
 let currentTestQuestions = [];
@@ -387,6 +393,7 @@ let learnedAnswers = new Set();
 
 const appCard = document.getElementById("app-card");
 
+// ------------ HELPERS -----------
 function makeButton(label, cls, handler){
   const b = document.createElement("button");
   b.textContent = label;
@@ -395,7 +402,39 @@ function makeButton(label, cls, handler){
   return b;
 }
 
-// ---------- Rendering ----------
+function normalizeText(t){
+  return t.trim().toLowerCase().replace(/\s+/g," ");
+}
+
+function answerMatches(userText, solution, keywords){
+  const u = normalizeText(userText);
+  const s = normalizeText(solution);
+  if(!u) return false;
+  if(u === s) return true;
+  if(Array.isArray(keywords) && keywords.length){
+    return keywords.every(k => u.indexOf(k.toLowerCase()) !== -1);
+  }
+  return false;
+}
+
+function launchConfetti(){
+  const colors = ["#f97316","#22c55e","#38bdf8","#eab308","#ec4899","#a855f7"];
+  for(let i=0;i<150;i++){
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    const color = colors[Math.floor(Math.random()*colors.length)];
+    const xOffset = (Math.random()*200-100) + "vw";
+    const left = (Math.random()*100) + "vw";
+    piece.style.setProperty("--c", color);
+    piece.style.setProperty("--x", xOffset);
+    piece.style.left = left;
+    piece.style.animationDelay = (Math.random()*0.7) + "s";
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(), 3000);
+  }
+}
+
+// ------------ RENDERING ----------
 function renderApp(){
   if(currentView === "menu") renderMenu();
   else if(currentView === "learn") renderLearn();
@@ -406,40 +445,40 @@ function renderMenu(){
   appCard.innerHTML = "";
   const title = document.createElement("h1");
   title.textContent = "PSR Lesson 1 – Text Answer Trainer";
-  const subtitle = document.createElement("div");
-  subtitle.className = "mode-title";
-  subtitle.textContent = "Choose what you want to do:";
-  const row = document.createElement("div");
-  row.className = "btn-row";
-
-  row.appendChild(makeButton("Learn", "btn btn-primary", ()=>{
-    currentView = "learn"; renderApp();
-  }));
-  row.appendChild(makeButton("Lesson 1 Test (NB only)", "btn btn-secondary", ()=>{
-    startTest("nb");
-  }));
-  row.appendChild(makeButton("Low hanging questions (1,2,3,4,8,10,11,13)", "btn btn-secondary", ()=>{
-    startTest("low");
-  }));
-  row.appendChild(makeButton("Long questions (5,7,14,16)", "btn btn-secondary", ()=>{
-    startTest("long");
-  }));
-
+  const sub = document.createElement("div");
+  sub.className = "mode-title";
+  sub.textContent = "Choose what you want to do:";
   appCard.appendChild(title);
-  appCard.appendChild(subtitle);
-  appCard.appendChild(row);
+  appCard.appendChild(sub);
+
+  const b1 = makeButton("Learn","btn btn-primary",()=>{
+    currentView = "learn";
+    renderApp();
+  });
+  const b2 = makeButton("Lesson 1 Test (NB only)","btn btn-secondary",()=>{
+    startTest("nb");
+  });
+  const b3 = makeButton("Low hanging questions (1,2,3,4,8,10,11,13)","btn btn-secondary",()=>{
+    startTest("low");
+  });
+  const b4 = makeButton("Long questions (5,7,14,16)","btn btn-secondary",()=>{
+    startTest("long");
+  });
+
+  appCard.appendChild(b1);
+  appCard.appendChild(b2);
+  appCard.appendChild(b3);
+  appCard.appendChild(b4);
 }
 
 function renderLearn(){
   appCard.innerHTML = "";
-  const header = document.createElement("div");
   const h = document.createElement("h1");
   h.textContent = "Learn – Lesson 1";
-  header.appendChild(h);
-  header.appendChild(makeButton("Back to menu","btn btn-secondary",()=>{
-    currentView="menu"; renderApp();
+  appCard.appendChild(h);
+  appCard.appendChild(makeButton("Back to menu","btn btn-secondary",()=>{
+    currentView="menu";renderApp();
   }));
-  appCard.appendChild(header);
 
   const info = document.createElement("div");
   info.className = "mode-title";
@@ -448,11 +487,9 @@ function renderLearn(){
 
   let totalAnswers = 0;
   questions.forEach(q=> totalAnswers += q.solutions.length);
-  let learnedCount = learnedAnswers.size;
-
   const stats = document.createElement("div");
   stats.className = "stats";
-  stats.textContent = `Learned answers: ${learnedCount} / ${totalAnswers}`;
+  stats.textContent = `Learned answers: ${learnedAnswers.size} / ${totalAnswers}`;
   appCard.appendChild(stats);
 
   questions.forEach(q=>{
@@ -477,7 +514,7 @@ function renderLearn(){
     if(q.type === "low"){
       const t = document.createElement("span");
       t.className = "q-tag";
-      t.textContent = "Low hanging";
+      t.textContent = "Low";
       tags.appendChild(t);
     }
     if(q.type === "long"){
@@ -487,29 +524,29 @@ function renderLearn(){
       tags.appendChild(t);
     }
     head.appendChild(tags);
+
     qb.appendChild(head);
 
     q.solutions.forEach((sol, idx)=>{
-      const key = `${q.id}-${idx}`;
+      const key = q.id + "-" + idx;
       const pill = document.createElement("div");
       pill.className = "answer-pill";
       if(learnedAnswers.has(key)) pill.classList.add("learned");
-      pill.innerHTML = `<strong>Answer ${idx+1}:</strong> ${sol}<small>Click to mark as learned</small>`;
-      pill.addEventListener("click", ()=>{
+      pill.innerHTML = `<strong>Answer ${idx+1}:</strong> ${sol}<small>Click to toggle learned</small>`;
+      pill.onclick = ()=>{
         if(learnedAnswers.has(key)) learnedAnswers.delete(key);
         else learnedAnswers.add(key);
         renderLearn();
-      });
+      };
       qb.appendChild(pill);
     });
 
     appCard.appendChild(qb);
   });
 
-  // if all answers learned, show Start Lesson 1 Test button
   if(learnedAnswers.size === totalAnswers){
     const startDiv = document.createElement("div");
-    startDiv.style.marginTop = "10px";
+    startDiv.style.marginTop = "8px";
     startDiv.appendChild(makeButton("Start Lesson 1 Test (NB only)","btn btn-primary",()=>{
       startTest("nb");
     }));
@@ -520,7 +557,7 @@ function renderLearn(){
 function startTest(mode){
   currentTestMode = mode;
   currentView = "test";
-  // select questions
+
   if(mode === "nb"){
     currentTestQuestions = questions.filter(q=>q.nb);
   } else if(mode === "low"){
@@ -538,28 +575,25 @@ function startTest(mode){
 
 function renderTest(){
   appCard.innerHTML = "";
-  const header = document.createElement("div");
-  header.className = "test-header";
+  const head = document.createElement("div");
+  head.className = "test-header";
 
   const left = document.createElement("div");
-  let label = "";
-  if(currentTestMode === "nb") label = "Lesson 1 Test – NB Questions";
-  else if(currentTestMode === "low") label = "Low hanging questions";
-  else if(currentTestMode === "long") label = "Long questions";
-  left.textContent = label;
+  if(currentTestMode === "nb") left.textContent = "Lesson 1 Test – NB Questions";
+  else if(currentTestMode === "low") left.textContent = "Low hanging questions";
+  else if(currentTestMode === "long") left.textContent = "Long questions";
+  head.appendChild(left);
 
   const right = document.createElement("div");
   right.appendChild(makeButton("Back to menu","btn btn-secondary",()=>{
-    currentView="menu"; renderApp();
+    currentView="menu";renderApp();
   }));
-
-  header.appendChild(left);
-  header.appendChild(right);
-  appCard.appendChild(header);
+  head.appendChild(right);
+  appCard.appendChild(head);
 
   const info = document.createElement("div");
   info.className = "mode-title";
-  info.textContent = "Type your answers. Hint will show the model answers but that question will not score.";
+  info.textContent = "Type your answers. Using Hint will show answers and that question will not score.";
   appCard.appendChild(info);
 
   if(currentTestQuestions.length === 0){
@@ -578,26 +612,34 @@ function renderTest(){
     const qb = document.createElement("div");
     qb.className = "question-block";
 
-    const head = document.createElement("div");
-    head.className = "q-header";
+    const h = document.createElement("div");
+    h.className = "q-header";
     const qt = document.createElement("div");
     qt.className = "q-text";
     qt.textContent = `Q${q.id}. ${q.prompt}`;
-    head.appendChild(qt);
+    h.appendChild(qt);
 
     const hintBtn = makeButton("Hint","btn btn-secondary",()=>{
       qa.hintUsed = true;
       renderTest();
     });
-    head.appendChild(hintBtn);
-
-    qb.appendChild(head);
+    h.appendChild(hintBtn);
+    qb.appendChild(h);
 
     const inputsDiv = document.createElement("div");
     inputsDiv.className = "input-row";
     q.solutions.forEach((_, idx)=>{
-      const inp = document.createElement("input");
-      inp.type = "text";
-      inp.placeholder = `Answer ${idx+1}`;
-      inp.value = qa.inputs[idx] || "";
-      inp.addEventListener("
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "Answer " + (idx+1);
+      input.value = qa.inputs[idx] || "";
+      input.oninput = (e)=>{
+        qa.inputs[idx] = e.target.value;
+      };
+      inputsDiv.appendChild(input);
+    });
+    qb.appendChild(inputsDiv);
+
+    if(qa.hintUsed){
+      const hintBox = document.createElement("div");
+      hintBox.className = "
