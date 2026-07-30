@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nike Sneakers — Professional Store</title>
+  <style>
+    :root{
+      --bg:#f6f8fa; --card:#ffffff; --accent:#111827; --muted:#6b7280; --accent-2:#ff3b30;
+      --maxw:1200px; --glass: rgba(255,255,255,0.6);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#eef2f7 0%,var(--bg) 100%);color:#0f172a;display:flex;align-items:flex-start;justify-content:center;padding:28px}
+    .wrap{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:1fr 360px;gap:28px}
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#111827,#1f2937);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+
+    /* Grid of products */
+    .products{display:grid;grid-template-columns:1fr;gap:18px}
+    .product{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(12,18,28,0.06);display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
+
+    .gallery{position:relative;border-radius:12px;overflow:hidden;background:#eef3f6}
+    .slides{display:flex;transition:transform .35s ease;touch-action:pan-y}
+    .slides img{width:100%;height:360px;object-fit:cover;flex:0 0 100%;background:#eef3f6}
+    .thumbs{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .thumbs img{width:64px;height:48px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:.75;border:2px solid transparent}
+    .thumbs img.active{opacity:1;border-color:var(--accent)}
+    .btn-circle{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;display:inline-grid;place-items:center;background:rgba(255,255,255,0.85);border:none;box-shadow:0 6px 16px rgba(12,18,28,.08);cursor:pointer}
+    .prev{left:10px}
+    .next{right:10px}
+
+    /* Details */
+    .meta-wrap{display:flex;flex-direction:column;gap:8px}
+    .price-row{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+    .old-price{text-decoration:line-through;color:var(--muted);font-weight:700}
+    .now-price{font-size:22px;font-weight:900;color:var(--accent-2)}
+    .sale-badge{background:linear-gradient(90deg,#ff7a59,#ff5d8f);padding:6px 10px;border-radius:999px;color:#fff;font-weight:700;font-size:13px}
+
+    .sizes{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .size{padding:10px 12px;border-radius:8px;border:1px solid #e6e9ee;cursor:pointer;min-width:56px;text-align:center;font-weight:700}
+    .size.selected{border-color:var(--accent);box-shadow:0 6px 18px rgba(17,24,39,.08)}
+
+    .controls{display:flex;gap:10px;align-items:center;margin-top:14px}
+    input.qty{width:72px;padding:10px;border-radius:10px;border:1px solid #e6e9ee}
+    button.primary{background:var(--accent);color:#fff;padding:11px 16px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+    button.paypal{background:#ffc439;border-radius:10px;padding:10px 14px;border:none;font-weight:700;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid #e6e9ee;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+    .specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+    .specs .spec{font-size:13px;color:var(--muted)}
+
+    aside.card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(12,18,28,0.06)}
+    .cart-list{max-height:360px;overflow:auto;margin-top:12px}
+    .cart-item{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px dashed #eef2f7}
+    .cart-item img{width:56px;height:46px;object-fit:cover;border-radius:8px}
+
+    .total-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-weight:900;font-size:18px}
+
+    footer.info{grid-column:1/-1;margin-top:10px;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){.wrap{grid-template-columns:1fr;padding:0}.product{grid-template-columns:1fr;}}
+    @media (max-width:560px){.slides img{height:260px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">NIKE</div>
+        <div>
+          <h1>Nike Sneakers — Limited Collection</h1>
+          <p class="lead">Professional store — fast shipping across South Africa • Secure PayPal checkout</p>
+        </div>
+      </div>
+      <div class="sale-badge">Free shipping over R500</div>
+    </header>
+
+    <main class="products" id="products">
+      <!-- Five products generated in HTML for clarity -->
+
+      <!-- Product 1 -->
+      <section class="product" data-sku="NIKE-001">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev" aria-label="Previous image">&#9664;</button>
+            <div class="slides">
+              <img src="images/oneone.png" alt="Nike Runner — Angle 1">
+              <img src="images/onetwo.png" alt="Nike Runner — Angle 2">
+              <img src="images/onethree.png" alt="Nike Runner — Angle 3">
+              <img src="images/onefour.png" alt="Nike Runner — Angle 4">
+            </div>
+            <button class="btn-circle next" aria-label="Next image">&#9654;</button>
+          </div>
+          <div class="thumbs" aria-hidden="false"></div>
+        </div>
+
+        <div class="meta-wrap">
+          <h2 style="margin:0">Nike Women's Air Force 1 Summit White Sneaker</h2>
+          <div class="price-row">
+            <div class="old-price">R2,799</div>
+            <div class="now-price">R999</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">In stock</div>
+          </div>
+          <div class="meta">Lightweight running shoe built for daily comfort and style.</div>
+
+          <div style="font-size:13px;margin-top:8px;font-weight:700">Choose size</div>
+          <div class="sizes">
+            <div class="size" data-size="6">6</div>
+            <div class="size selected" data-size="7">7</div>
+            <div class="size" data-size="8">8</div>
+            <div class="size" data-size="9">9</div>
+            <div class="size" data-size="10">10</div>
+          </div>
+
+          <div class="controls">
+            <label for="qty-1" style="font-weight:700">Qty</label>
+            <input class="qty" id="qty-1" type="number" min="1" value="1">
+            <button class="primary add-cart">Add to cart</button>
+            <button class="paypal quick-buy" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=3UPJ9AJSZ7PGE')">Buy with PayPal</button>
+          </div>
+
+          <div class="specs">
+            <div class="spec"><strong>Upper:</strong> Breathable mesh</div>
+            <div class="spec"><strong>Outsole:</strong> Durable rubber</div>
+            <div class="spec"><strong>Weight:</strong> 310g (pair)</div>
+            <div class="spec"><strong>Colors:</strong> Black, White</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product 2 -->
+      <section class="product" data-sku="NIKE-002">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev" aria-label="Previous image">&#9664;</button>
+            <div class="slides">
+              <img src="images/two1.png" alt="Nike Court — Angle 1">
+              <img src="images/two2.png" alt="Nike Court — Angle 2">
+              <img src="images/two3.png" alt="Nike Court — Angle 3">
+              <img src="images/two4.png" alt="Nike Court — Angle 4">
+            </div>
+            <button class="btn-circle next" aria-label="Next image">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div class="meta-wrap">
+          <h2 style="margin:0">Nike Men's Air Max TL 2.5 Grey/Picante Red Sneaker</h2>
+          <div class="price-row">
+            <div class="old-price">R2,899</div>
+            <div class="now-price">R999</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">Low stock</div>
+          </div>
+          <div class="meta">Timeless court silhouette with cushioned midsole for casual comfort.</div>
+
+          <div style="font-size:13px;margin-top:8px;font-weight:700">Choose size</div>
+          <div class="sizes">
+            <div class="size" data-size="6">6</div>
+            <div class="size" data-size="7">7</div>
+            <div class="size selected" data-size="8">8</div>
+            <div class="size" data-size="9">9</div>
+            <div class="size" data-size="10">10</div>
+          </div>
+
+          <div class="controls">
+            <label for="qty-2" style="font-weight:700">Qty</label>
+            <input class="qty" id="qty-2" type="number" min="1" value="1">
+            <button class="primary add-cart">Add to cart</button>
+            <button class="paypal quick-buy" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=3UPJ9AJSZ7PGE')">Buy with PayPal</button>
+          </div>
+
+          <div class="specs">
+            <div class="spec"><strong>Upper:</strong> Leather
+            </div>
+            <div class="spec"><strong>Outsole:</strong> Cupsole</div>
+            <div class="spec"><strong>Weight:</strong> 360g (pair)</div>
+            <div class="spec"><strong>Colors:</strong> White, Navy</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product 3 -->
+      <section class="product" data-sku="NIKE-003">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev" aria-label="Previous image">&#9664;</button>
+            <div class="slides">
+              <img src="images/three1.webp" alt="Nike Trail — Angle 1">
+              <img src="images/three2.webp" alt="Nike Trail — Angle 2">
+              <img src="images/three3.webp" alt="Nike Trail — Angle 3">
+              <img src="images/three4.webp" alt="Nike Trail — Angle 4">
+            </div>
+            <button class="btn-circle next" aria-label="Next image">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div class="meta-wrap">
+          <h2 style="margin:0">Nike Men's Air Force 1 Mid White Sneaker</h2>
+          <div class="price-row">
+            <div class="old-price">R2,599</div>
+            <div class="now-price">R999</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">In stock</div>
+          </div>
+          <div class="meta">Rugged trail shoe with enhanced traction for off-road runs.</div>
+
+          <div style="font-size:13px;margin-top:8px;font-weight:700">Choose size</div>
+          <div class="sizes">
+            <div class="size" data-size="6">6</div>
+            <div class="size" data-size="7">7</div>
+            <div class="size" data-size="8">8</div>
+            <div class="size selected" data-size="9">9</div>
+            <div class="size" data-size="10">10</div>
+          </div>
+
+          <div class="controls">
+            <label for="qty-3" style="font-weight:700">Qty</label>
+            <input class="qty" id="qty-3" type="number" min="1" value="1">
+            <button class="primary add-cart">Add to cart</button>
+            <button class="paypal quick-buy" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=3UPJ9AJSZ7PGE')">Buy with PayPal</button>
+          </div>
+
+          <div class="specs">
+            <div class="spec"><strong>Upper:</strong> Reinforced mesh</div>
+            <div class="spec"><strong>Outsole:</strong> Aggressive lug pattern</div>
+            <div class="spec"><strong>Weight:</strong> 420g (pair)</div>
+            <div class="spec"><strong>Colors:</strong> Olive, Grey</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product 4 -->
+      <section class="product" data-sku="NIKE-004">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev" aria-label="Previous image">&#9664;</button>
+            <div class="slides">
+              <img src="images/four1.avif" alt="Nike Street — Angle 1">
+              <img src="images/four2.avif" alt="Nike Street — Angle 2">
+              <img src="images/four3.avif" alt="Nike Street — Angle 3">
+              <img src="images/four4.avif" alt="Nike Street — Angle 3">
+            </div>
+            <button class="btn-circle next" aria-label="Next image">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div class="meta-wrap">
+          <h2 style="margin:0">Nike Air Max Portal SE
+Women's Shoes</h2>
+          <div class="price-row">
+            <div class="old-price">R3,299</div>
+            <div class="now-price">R999</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">In stock</div>
+          </div>
+          <div class="meta">Everyday sneaker with flexible sole and padded collar.</div>
+
+          <div style="font-size:13px;margin-top:8px;font-weight:700">Choose size</div>
+          <div class="sizes">
+            <div class="size" data-size="6">6</div>
+            <div class="size" data-size="7">7</div>
+            <div class="size" data-size="8">8</div>
+            <div class="size" data-size="9">9</div>
+            <div class="size selected" data-size="10">10</div>
+          </div>
+
+          <div class="controls">
+            <label for="qty-4" style="font-weight:700">Qty</label>
+            <input class="qty" id="qty-4" type="number" min="1" value="1">
+            <button class="primary add-cart">Add to cart</button>
+            <button class="paypal quick-buy" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=3UPJ9AJSZ7PGE')">Buy with PayPal</button>
+          </div>
+
+          <div class="specs">
+            <div class="spec"><strong>Upper:</strong> Knit textile</div>
+            <div class="spec"><strong>Outsole:</strong> Flex grooves</div>
+            <div class="spec"><strong>Weight:</strong> 300g (pair)</div>
+            <div class="spec"><strong>Colors:</strong> Black, Red</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product 5 -->
+      <section class="product" data-sku="NIKE-005">
+        <div>
+          <div class="gallery" data-gallery>
+            <button class="btn-circle prev" aria-label="Previous image">&#9664;</button>
+            <div class="slides">
+              <img src="images/five1.avif" alt="Nike Street — Angle 1">
+              <img src="images/five2.avif" alt="Nike Street — Angle 2">
+              <img src="images/five3.avif" alt="Nike Street — Angle 3">
+              <img src="images/five4.avif" alt="Nike Street — Angle 3">
+            </div>
+            <button class="btn-circle next" aria-label="Next image">&#9654;</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+
+        <div class="meta-wrap">
+          <h2 style="margin:0">Nike Shox TL
+Women's Shoes</h2>
+          <div class="price-row">
+            <div class="old-price">R3,299</div>
+            <div class="now-price">R999</div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:700">Limited</div>
+          </div>
+          <div class="meta">Premium cushioning with visible Air unit for long-lasting comfort.</div>
+
+          <div style="font-size:13px;margin-top:8px;font-weight:700">Choose size</div>
+          <div class="sizes">
+            <div class="size" data-size="6">6</div>
+            <div class="size" data-size="7">7</div>
+            <div class="size" data-size="8">8</div>
+            <div class="size" data-size="9">9</div>
+            <div class="size selected" data-size="10">10</div>
+          </div>
+
+          <div class="controls">
+            <label for="qty-5" style="font-weight:700">Qty</label>
+            <input class="qty" id="qty-5" type="number" min="1" value="1">
+            <button class="primary add-cart">Add to cart</button>
+            <button class="paypal quick-buy" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=3UPJ9AJSZ7PGE')">Buy with PayPal</button>
+          </div>
+
+          <div class="specs">
+            <div class="spec"><strong>Upper:</strong> Mesh + synthetic overlays</div>
+            <div class="spec"><strong>Outsole:</strong> Waffle-inspired pattern</div>
+            <div class="spec"><strong>Weight:</strong> 380g (pair)</div>
+            <div class="spec"><strong>Colors:</strong> White, Metallic</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="card">
+      <h3 style="margin-top:0">Cart & Checkout</h3>
+      <div id="cartEmpty" style="color:var(--muted)">Your cart is empty</div>
+      <div class="cart-list" id="cartList" aria-live="polite"></div>
+
+      <div class="total-row">
+        <div>Total</div>
+        <div id="cartTotal">R0</div>
+      </div>
+
+      <form id="paypalForm" action="https://www.paypal.com/donate/?hosted_button_id=3UPJ9AJSZ7PGE" method="post" target="_blank" style="margin-top:12px">
+        <input type="hidden" name="business" id="paypalBusiness" value="abakwandabezitha@gmail.com">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="upload" value="1">
+        <div id="paypalItems"></div>
+        <input type="hidden" name="currency_code" value="ZAR">
+        <button type="submit" class="paypal" id="checkoutBtn" style="width:100%;display:none" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=3UPJ9AJSZ7PGE')">Checkout with PayPal</button>
+      </form>
+
+      <small style="display:block;margin-top:10px;color:var(--muted)">Secure payment powered by PayPal. You will be redirected to PayPal to complete your purchase.</small>
+
+      <div style="margin-top:14px;border-top:1px solid #eef2f7;padding-top:12px;color:var(--muted);font-size:13px">
+        <strong>Shipping</strong>
+        <p style="margin:6px 0">Flat rate R60 (RSA). Free over R500. Ships within 1-3 business days.</p>
+        <strong>Returns</strong>
+        <p style="margin:6px 0">14-day returns. Item must be unworn and in original packaging.</p>
+      </div>
+    </aside>
+
+    <footer class="info">
+      <strong>Disclaimer:</strong> This site is an independent reseller concept and not affiliated with Nike, Inc. Product images are placeholders — replace with licensed product images before publishing.
+    </footer>
+  </div>
+
+  <script>
+    // Basic multi-product carousel, size selection, cart + PayPal cart builder
+    const PRODUCTS = Array.from(document.querySelectorAll('.product'));
+    const CART_KEY = 'nike_store_cart_v1';
+
+    // Initialize galleries
+    PRODUCTS.forEach((prod, pIndex)=>{
+      const gallery = prod.querySelector('[data-gallery]');
+      const slides = gallery.querySelector('.slides');
+      const imgs = slides.querySelectorAll('img');
+      const thumbsWrap = prod.querySelector('.thumbs');
+      const prev = gallery.querySelector('.prev');
+      const next = gallery.querySelector('.next');
+      let idx = 0;
+
+      // populate thumbs
+      function refreshThumbs(){
+        thumbsWrap.innerHTML='';
+        imgs.forEach((img,i)=>{
+          const t = document.createElement('img'); t.src = img.src; t.alt = img.alt || ('thumb '+(i+1));
+          if(i===idx) t.classList.add('active');
+          t.addEventListener('click', ()=>{ idx=i; update(); });
+          thumbsWrap.appendChild(t);
+        });
+      }
+      function update(){ slides.style.transform = `translateX(${-idx*100}%)`; const ts = thumbsWrap.querySelectorAll('img'); ts.forEach((t,i)=>t.classList.toggle('active',i===idx)); }
+      prev.addEventListener('click', ()=>{ idx = (idx -1 + imgs.length)%imgs.length; update(); });
+      next.addEventListener('click', ()=>{ idx = (idx +1)%imgs.length; update(); });
+      // swipe
+      let startX = null; slides.addEventListener('pointerdown', e=> startX = e.clientX );
+      slides.addEventListener('pointerup', e=>{ if(startX===null) return; const dx = e.clientX - startX; if(dx>40) prev.click(); if(dx<-40) next.click(); startX=null; });
+      // keyboard
+      gallery.addEventListener('keydown', e=>{ if(e.key==='ArrowLeft') prev.click(); if(e.key==='ArrowRight') next.click(); });
+
+      refreshThumbs(); update();
+
+      // Size selection
+      const sizeEls = prod.querySelectorAll('.size');
+      sizeEls.forEach(s=> s.addEventListener('click', ()=>{
+        sizeEls.forEach(x=>x.classList.remove('selected'));
+        s.classList.add('selected');
+      }));
+
+      // Add to cart
+      prod.querySelector('.add-cart').addEventListener('click', ()=>{
+        const sku = prod.dataset.sku || ('SKU-'+pIndex);
+        const name = prod.querySelector('h2').textContent.trim();
+        const size = prod.querySelector('.size.selected')?.dataset.size || prod.querySelector('.size')?.dataset.size || '';
+        const qty = Math.max(1, Math.floor(Number(prod.querySelector('.qty').value)||1));
+        const price = 999; // all R999 as requested
+        addToCart({sku,name,size,qty,price,image: prod.querySelector('.slides img')?.src});
+      });
+
+      // Quick buy - opens PayPal with single item
+      prod.querySelector('.quick-buy').addEventListener('click', ()=>{
+        const name = prod.querySelector('h2').textContent.trim();
+        const size = prod.querySelector('.size.selected')?.dataset.size || prod.querySelector('.size')?.dataset.size || '';
+        const qty = Math.max(1, Math.floor(Number(prod.querySelector('.qty').value)||1));
+        const amount = (999 * qty).toFixed(2);
+        // Build a simple Buy Now PayPal form
+        const form = document.createElement('form');
+        form.method='post'; form.action='https://www.paypal.com/cgi-bin/webscr'; form.target='_blank';
+        form.innerHTML = `
+          <input type="hidden" name="business" value="${document.getElementById('paypalBusiness').value}">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="item_name" value="${encodeHTML(name + ' - Size: '+size)}">
+          <input type="hidden" name="amount" value="${amount}">
+          <input type="hidden" name="currency_code" value="ZAR">
+        `;
+        document.body.appendChild(form); form.submit(); form.remove();
+      });
+    });
+
+    // Cart functions
+    function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)||'[]'); }catch(e){return [];} }
+    function saveCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCart(); }
+    function addToCart(item){ const cart = loadCart(); // merge if same sku+size
+      const existing = cart.find(c=>c.sku===item.sku && c.size===item.size);
+      if(existing){ existing.qty += item.qty; } else { cart.push(item); }
+      saveCart(cart); alert(`${item.qty} x ${item.name} (Size ${item.size}) added to cart.`);
+    }
+
+    function renderCart(){ const cart = loadCart(); const list = document.getElementById('cartList'); const empty = document.getElementById('cartEmpty'); const totalEl = document.getElementById('cartTotal'); const checkoutBtn = document.getElementById('checkoutBtn'); const paypalItems = document.getElementById('paypalItems');
+      list.innerHTML=''; paypalItems.innerHTML='';
+      if(!cart.length){ empty.style.display='block'; checkoutBtn.style.display='none'; totalEl.textContent='R0'; return }
+      empty.style.display='none';
+      let total = 0; cart.forEach((it, i)=>{
+        const row = document.createElement('div'); row.className='cart-item';
+        row.innerHTML = `
+          <img src="${it.image || 'images/placeholder.jpg'}" alt="${encodeHTML(it.name)}">
+          <div style="flex:1">
+            <div style="font-weight:700">${encodeHTML(it.name)}</div>
+            <div style="font-size:13px;color:var(--muted)">Size: ${encodeHTML(it.size)} • R${(it.price).toLocaleString('en-ZA')} x ${it.qty}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800">R${(it.price*it.qty).toLocaleString('en-ZA')}</div>
+            <button data-index="${i}" class="secondary remove-item" style="margin-top:6px">Remove</button>
+          </div>
+        `;
+        list.appendChild(row);
+        total += it.price * it.qty;
+
+        // PayPal cart item inputs (item_number starts at 1)
+        const idx = i+1;
+        const inputs = document.createElement('div'); inputs.innerHTML = `
+          <input type="hidden" name="item_name_${idx}" value="${encodeHTML(it.name + ' - Size: ' + it.size)}">
+          <input type="hidden" name="amount_${idx}" value="${(it.price).toFixed(2)}">
+          <input type="hidden" name="quantity_${idx}" value="${it.qty}">
+        `;
+        paypalItems.appendChild(inputs);
+      });
+
+      totalEl.textContent = `R${total.toLocaleString('en-ZA')}`;
+      checkoutBtn.style.display = 'block';
+
+      // Attach remove handlers
+      document.querySelectorAll('.remove-item').forEach(btn=> btn.addEventListener('click', (e)=>{
+        const i = Number(btn.dataset.index); const cart = loadCart(); cart.splice(i,1); saveCart(cart);
+      }));
+    }
+
+    // Helper: encode HTML for form values
+    function encodeHTML(str){ return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    // Initialize render
+    renderCart();
+
+    // Sync qty inputs in products to cart when changed (nice-to-have)
+    document.querySelectorAll('.qty').forEach(q=> q.addEventListener('change', ()=>{ if(Number(q.value)<1) q.value='1'; }));
+
+    // Intercept PayPal form submit to ensure items are correct
+    document.getElementById('paypalForm').addEventListener('submit', function(e){
+      const cart = loadCart(); if(!cart.length){ e.preventDefault(); alert('Your cart is empty'); return }
+      // form already has item fields prepared by renderCart()
+    });
+
+    // Accessibility: allow enter to trigger add-to-cart when focused on size
+    document.querySelectorAll('.size').forEach(s=> s.setAttribute('tabindex','0'));
+
+    // Placeholder note: replace image sources (images/*.jpg) with actual product images when publishing.
+  </script>
+</body>
+</html>
