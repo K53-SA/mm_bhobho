@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PSR Lesson 1 – Text Answer Trainer</title>
+<title>PSR Lesson 1 – NB Test (Text Answers)</title>
 <style>
   body{
     font-family:system-ui,Segoe UI,Roboto,Arial;
@@ -51,11 +51,9 @@
     border-radius:4px;
     font-size:11px;
     font-weight:600;
-    background:#1f2937;
-    color:#e5e7eb;
-    margin-left:4px;
+    background:#b45309;
+    color:#fffbeb;
   }
-  .q-tag-nb{background:#b45309;color:#fffbeb}
   .answer-pill{
     margin-top:6px;
     padding:8px 10px;
@@ -72,7 +70,7 @@
     color:#ecfdf5;
   }
   .answer-pill small{display:block;font-size:11px;opacity:0.7}
-  .stats{font-size:13px;color:#9ca3af;margin-top:6px;margin-bottom:6px}
+  .stats{font-size:13px;color:#9ca3af;margin:6px 0}
   .input-row{margin-top:6px;display:flex;flex-direction:column;gap:4px}
   input[type="text"]{
     width:100%;
@@ -145,12 +143,10 @@
 </div>
 
 <script>
-// ------------ DATA -------------
+// NB questions only
 const questions = [
   {
     id: 1,
-    nb: true,
-    type: "low",
     prompt: "State the purpose of the Plant Safety Regulations.",
     solutions: [
       "To specify and provide requirements for the application of compulsory health and safety measures for all plant and for all persons who work on plant or machinery under the control of Eskom Generation."
@@ -161,8 +157,6 @@ const questions = [
   },
   {
     id: 2,
-    nb: true,
-    type: "low",
     prompt: "List three dangers of movement.",
     solutions: [
       "Personal injury to persons in the vicinity.",
@@ -177,8 +171,6 @@ const questions = [
   },
   {
     id: 3,
-    nb: true,
-    type: "low",
     prompt: "List three responsibilities of every Authorised person who is in possession of a copy of the Regulations.",
     solutions: [
       "Be held responsible for the knowledge and application of the Regulations.",
@@ -193,8 +185,6 @@ const questions = [
   },
   {
     id: 4,
-    nb: true,
-    type: "low",
     prompt: "How can explosions occur in confined spaces?",
     solutions: [
       "Suspension of flammable dust or vapour in air in a certain proportion.",
@@ -209,8 +199,6 @@ const questions = [
   },
   {
     id: 5,
-    nb: true,
-    type: "long",
     prompt: "List the additional dangers in confined spaces, excluding explosions.",
     solutions: [
       "Insufficient oxygen for the functioning of the human body.",
@@ -233,8 +221,6 @@ const questions = [
   },
   {
     id: 7,
-    nb: true,
-    type: "long",
     prompt: "What will be the consequences of contravention of the Act and Regulations?",
     solutions: [
       "Any persons who contravene or fail to comply with any provision of this Act shall be guilty of an offence.",
@@ -249,8 +235,6 @@ const questions = [
   },
   {
     id: 8,
-    nb: true,
-    type: "low",
     prompt: "How shall the Regulations be interpreted?",
     solutions: [
       "The Regulations must be interpreted as minimum requirements for safety of personnel, plant and the environment.",
@@ -265,8 +249,6 @@ const questions = [
   },
   {
     id: 10,
-    nb: true,
-    type: "low",
     prompt: "List three dangers of the human element in a power station.",
     solutions: [
       "Breakdown in communication.",
@@ -281,8 +263,6 @@ const questions = [
   },
   {
     id: 11,
-    nb: true,
-    type: "low",
     prompt: "List four duties of the employee in terms of the OHS Act.",
     solutions: [
       "Take reasonable care for the health and safety of himself and others.",
@@ -299,8 +279,6 @@ const questions = [
   },
   {
     id: 13,
-    nb: true,
-    type: "low",
     prompt: "List five dangers of electricity in a power station.",
     solutions: [
       "Electric shock which may cause death or injury.",
@@ -319,8 +297,6 @@ const questions = [
   },
   {
     id: 14,
-    nb: true,
-    type: "long",
     prompt: "List the four dangers of pressure and heat in a power station.",
     solutions: [
       "Uncontrolled pressure rise may increase above the material strength and cause explosions.",
@@ -337,8 +313,6 @@ const questions = [
   },
   {
     id: 16,
-    nb: true,
-    type: "long",
     prompt: "How shall training manuals, decision registers and any local procedures and instructions be regarded?",
     solutions: [
       "They shall be regarded as an extension of the Plant Safety Regulations.",
@@ -353,16 +327,12 @@ const questions = [
   }
 ];
 
-// ------------ STATE -------------
 let currentView = "menu"; // menu | learn | test
-let currentTestMode = null; // nb | low | long
-let currentTestQuestions = [];
-let testAnswers = {}; // { qId: { inputs:[], hintUsed, correct } }
+let testAnswers = {}; // { qId: {inputs:[], hintUsed, correct} }
 let learnedAnswers = new Set();
-
 const appCard = document.getElementById("app-card");
 
-// ------------ HELPERS -----------
+// helpers
 function makeButton(label, cls, handler){
   const b = document.createElement("button");
   b.textContent = label;
@@ -400,7 +370,7 @@ function launchConfetti(){
   }
 }
 
-// ------------ RENDERING ----------
+// render
 function renderApp(){
   if(currentView === "menu") renderMenu();
   else if(currentView === "learn") renderLearn();
@@ -409,31 +379,25 @@ function renderApp(){
 
 function renderMenu(){
   appCard.innerHTML = "";
-  const title = document.createElement("h1");
-  title.textContent = "PSR Lesson 1 – Text Answer Trainer";
-  const sub = document.createElement("div");
-  sub.className = "mode-title";
-  sub.textContent = "Choose what you want to do:";
-  appCard.appendChild(title);
-  appCard.appendChild(sub);
+  const h = document.createElement("h1");
+  h.textContent = "PSR Lesson 1 – NB Text Test";
+  appCard.appendChild(h);
+  const info = document.createElement("div");
+  info.className = "mode-title";
+  info.textContent = "Use Learn first, then take the Lesson 1 NB test. Pass mark is 100%.";
+  appCard.appendChild(info);
   appCard.appendChild(makeButton("Learn","btn btn-primary",()=>{
     currentView="learn";renderApp();
   }));
   appCard.appendChild(makeButton("Lesson 1 Test (NB only)","btn btn-secondary",()=>{
-    startTest("nb");
-  }));
-  appCard.appendChild(makeButton("Low hanging questions (1,2,3,4,8,10,11,13)","btn btn-secondary",()=>{
-    startTest("low");
-  }));
-  appCard.appendChild(makeButton("Long questions (5,7,14,16)","btn btn-secondary",()=>{
-    startTest("long");
+    startTest(); 
   }));
 }
 
 function renderLearn(){
   appCard.innerHTML = "";
   const h = document.createElement("h1");
-  h.textContent = "Learn – Lesson 1";
+  h.textContent = "Learn – Lesson 1 NB Questions";
   appCard.appendChild(h);
   appCard.appendChild(makeButton("Back to menu","btn btn-secondary",()=>{
     currentView="menu";renderApp();
@@ -443,11 +407,11 @@ function renderLearn(){
   info.textContent = "Click each answer when you have learned it. All answers must be green before starting the test.";
   appCard.appendChild(info);
 
-  let totalAnswers = 0;
-  questions.forEach(q=> totalAnswers += q.solutions.length);
+  let total = 0;
+  questions.forEach(q=> total+=q.solutions.length);
   const stats = document.createElement("div");
   stats.className = "stats";
-  stats.textContent = `Learned answers: ${learnedAnswers.size} / ${totalAnswers}`;
+  stats.textContent = `Learned answers: ${learnedAnswers.size} / ${total}`;
   appCard.appendChild(stats);
 
   questions.forEach(q=>{
@@ -459,26 +423,10 @@ function renderLearn(){
     qt.className = "q-text";
     qt.textContent = `Q${q.id}. ${q.prompt}`;
     head.appendChild(qt);
-    const tags = document.createElement("div");
-    if(q.nb){
-      const t = document.createElement("span");
-      t.className = "q-tag q-tag-nb";
-      t.textContent = "NB";
-      tags.appendChild(t);
-    }
-    if(q.type === "low"){
-      const t = document.createElement("span");
-      t.className = "q-tag";
-      t.textContent = "Low";
-      tags.appendChild(t);
-    }
-    if(q.type === "long"){
-      const t = document.createElement("span");
-      t.className = "q-tag";
-      t.textContent = "Long";
-      tags.appendChild(t);
-    }
-    head.appendChild(tags);
+    const tag = document.createElement("span");
+    tag.className = "q-tag";
+    tag.textContent = "NB";
+    head.appendChild(tag);
     qb.appendChild(head);
 
     q.solutions.forEach((sol,idx)=>{
@@ -498,30 +446,18 @@ function renderLearn(){
     appCard.appendChild(qb);
   });
 
-  if(learnedAnswers.size === totalAnswers){
-    const startDiv = document.createElement("div");
-    startDiv.style.marginTop = "8px";
-    startDiv.appendChild(makeButton("Start Lesson 1 Test (NB only)","btn btn-primary",()=>{
-      startTest("nb");
+  if(learnedAnswers.size === total){
+    const s = document.createElement("div");
+    s.style.marginTop = "8px";
+    s.appendChild(makeButton("Start Lesson 1 NB Test","btn btn-primary",()=>{
+      startTest();
     }));
-    appCard.appendChild(startDiv);
+    appCard.appendChild(s);
   }
 }
 
-function startTest(mode){
-  currentTestMode = mode;
+function startTest(){
   currentView = "test";
-  if(mode === "nb"){
-    currentTestQuestions = questions.filter(q=>q.nb);
-  } else if(mode === "low"){
-    const lowSet = new Set([1,2,3,4,8,10,11,13]);
-    currentTestQuestions = questions.filter(q=>lowSet.has(q.id));
-  } else if(mode === "long"){
-    const longSet = new Set([5,7,14,16]);
-    currentTestQuestions = questions.filter(q=>longSet.has(q.id));
-  } else {
-    currentTestQuestions = [];
-  }
   testAnswers = {};
   renderApp();
 }
@@ -531,9 +467,7 @@ function renderTest(){
   const head = document.createElement("div");
   head.className = "test-header";
   const left = document.createElement("div");
-  if(currentTestMode === "nb") left.textContent = "Lesson 1 Test – NB Questions";
-  else if(currentTestMode === "low") left.textContent = "Low hanging questions";
-  else if(currentTestMode === "long") left.textContent = "Long questions";
+  left.textContent = "Lesson 1 Test – NB Questions";
   head.appendChild(left);
   const right = document.createElement("div");
   right.appendChild(makeButton("Back to menu","btn btn-secondary",()=>{
@@ -544,19 +478,12 @@ function renderTest(){
 
   const info = document.createElement("div");
   info.className = "mode-title";
-  info.textContent = "Type your answers. Using Hint will show answers and that question will not score.";
+  info.textContent = "Type your answers. If you use Hint for a question, that question scores 0.";
   appCard.appendChild(info);
 
-  if(currentTestQuestions.length === 0){
-    const p = document.createElement("div");
-    p.textContent = "No questions configured for this mode.";
-    appCard.appendChild(p);
-    return;
-  }
-
-  currentTestQuestions.forEach(q=>{
+  questions.forEach(q=>{
     if(!testAnswers[q.id]){
-      testAnswers[q.id] = { inputs:Array(q.solutions.length).fill(""), hintUsed:false, correct:false };
+      testAnswers[q.id] = {inputs:Array(q.solutions.length).fill(""), hintUsed:false, correct:false};
     }
     const qa = testAnswers[q.id];
 
@@ -576,25 +503,24 @@ function renderTest(){
     h.appendChild(hintBtn);
     qb.appendChild(h);
 
-    const inputsDiv = document.createElement("div");
-    inputsDiv.className = "input-row";
+    const inpWrap = document.createElement("div");
+    inpWrap.className = "input-row";
     q.solutions.forEach((_,idx)=>{
       const input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = "Answer " + (idx+1);
+      input.type="text";
+      input.placeholder="Answer "+(idx+1);
       input.value = qa.inputs[idx] || "";
       input.oninput = e=>{
         qa.inputs[idx] = e.target.value;
       };
-      inputsDiv.appendChild(input);
+      inpWrap.appendChild(input);
     });
-    qb.appendChild(inputsDiv);
+    qb.appendChild(inpWrap);
 
     if(qa.hintUsed){
       const hintBox = document.createElement("div");
-      hintBox.className = "hint-box";
-      hintBox.innerHTML = "<strong>Hints:</strong><br>" +
-        q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
+      hintBox.className="hint-box";
+      hintBox.innerHTML = "<strong>Answers:</strong><br>"+q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
       qb.appendChild(hintBox);
     }
 
@@ -602,5 +528,45 @@ function renderTest(){
   });
 
   const bottom = document.createElement("div");
-  bottom.style.marginTop = "10px";
-  bottom.appendChild(makeButton("Mark test (pass mark 100%)","btn btn-primary",mark
+  bottom.style.marginTop="10px";
+  bottom.appendChild(makeButton("Mark test (pass mark 100%)","btn btn-primary",markTest));
+  appCard.appendChild(bottom);
+}
+
+function markTest(){
+  let totalQ = questions.length;
+  let correctQ = 0;
+
+  questions.forEach(q=>{
+    const qa = testAnswers[q.id] || {inputs:[], hintUsed:true};
+    if(qa.hintUsed){ qa.correct=false; return; }
+    let allOk = true;
+    q.solutions.forEach((sol,idx)=>{
+      const kw = (q.keywords && q.keywords[idx]) ? q.keywords[idx] : [];
+      const ok = answerMatches(qa.inputs[idx] || "", sol, kw);
+      if(!ok) allOk=false;
+    });
+    qa.correct = allOk;
+    if(allOk) correctQ++;
+  });
+
+  const percent = (correctQ/totalQ)*100;
+  const passed = correctQ === totalQ;
+
+  let res = document.querySelector(".result");
+  if(!res){
+    res = document.createElement("div");
+    res.className="result";
+    appCard.appendChild(res);
+  }
+  res.className = "result " + (passed?"pass":"fail");
+  const tag = `<span class="status-tag ${passed?"status-pass":"status-fail"}">${passed?"PASS (100%)":"FAIL"}</span>`;
+  res.innerHTML = `Score: ${correctQ} / ${totalQ} (${percent.toFixed(1)}%) ${tag}`;
+
+  if(passed) launchConfetti();
+}
+
+renderApp();
+</script>
+</body>
+</html>
