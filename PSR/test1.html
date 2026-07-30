@@ -8,13 +8,13 @@
   body{
     font-family:system-ui,Segoe UI,Roboto,Arial;
     margin:20px;
-    background:#050710;          /* dark background */
-    color:#f5f7ff;               /* light text */
+    background:#050710;
+    color:#f5f7ff;
   }
   .container{
     max-width:900px;
     margin:0 auto;
-    background:#111827;          /* dark panel */
+    background:#111827;
     padding:20px;
     border-radius:8px;
     box-shadow:0 6px 18px rgba(0,0,0,0.8);
@@ -110,7 +110,6 @@
   .status-pass{background:#14532d;color:#bbf7d0}
   .status-fail{background:#7f1d1d;color:#fecaca}
 
-  /* Simple confetti animation */
   .confetti-piece{
     position:fixed;
     width:8px;
@@ -155,7 +154,7 @@
 </div>
 
 <script>
-// ===== All 25 questions from the Key Learning Points =====
+// ---------- Questions ----------
 const questions = [
   {text:"1) State what is by definition \"work\".", choices:[
     "All human activities in connection with the plant.",
@@ -324,12 +323,11 @@ const questions = [
   ], correct:[0,1,3]}
 ];
 
-// ===== Logic =====
+// ---------- Logic ----------
 let current = 0;
 let score = 0;
 let answered = false;
 
-// totalPossible = sum of all correct answers across all questions
 const totalPossible = questions.reduce((sum,q)=>sum + q.correct.length,0);
 
 const timerDisplay = document.getElementById('timer');
@@ -405,7 +403,6 @@ function onChoiceClick(elem, idx){
   const isCorrect = q.correct.includes(idx);
 
   if(q.correct.length === 1){
-    // single-answer question
     answered = true;
     const choices = document.querySelectorAll('.choice');
     choices.forEach(cEl=>{
@@ -415,16 +412,15 @@ function onChoiceClick(elem, idx){
       if(cIdx === idx && !isCorrect) cEl.classList.add('incorrect');
     });
     if(isCorrect){
-      score++;               // 1 correct item
+      score++;
       scoreSpan.textContent = score;
     }
     nextBtn.disabled = false;
   } else {
-    // multi-answer: each correct click gives 1 point, until all correct ones chosen or a wrong is clicked
     if(isCorrect){
       if(!elem.classList.contains('correct')){
         elem.classList.add('correct');
-        score++;             // per correct option
+        score++;
         scoreSpan.textContent = score;
       }
       const chosenCorrect = document.querySelectorAll('.choice.correct').length;
@@ -439,7 +435,6 @@ function onChoiceClick(elem, idx){
         nextBtn.disabled = false;
       }
     } else {
-      // wrong choice: mark red and reveal correct ones
       elem.classList.add('incorrect');
       const allChoices = document.querySelectorAll('.choice');
       allChoices.forEach(cEl=>{
@@ -462,7 +457,6 @@ nextBtn.addEventListener('click', ()=>{
   }
 });
 
-// simple confetti generator
 function launchConfetti(){
   const colors = ['#f97316','#22c55e','#38bdf8','#eab308','#ec4899','#a855f7'];
   for(let i=0;i<150;i++){
@@ -483,4 +477,26 @@ function launchConfetti(){
 function endTest(){
   clearInterval(timerInterval);
   const allChoices = document.querySelectorAll('.choice');
- 
+  allChoices.forEach(c=>c.classList.add('disabled'));
+  nextBtn.disabled = true;
+
+  const percentage = (score / totalPossible) * 100;
+  const passed = score === totalPossible; // must get 100%
+
+  resultDiv.style.display = 'block';
+  resultDiv.className = passed ? 'pass' : 'fail';
+
+  const statusTag = `<span class="status-tag ${passed ? 'status-pass':'status-fail'}">${passed ? 'PASS (100%)':'FAIL'}</span>`;
+  resultDiv.innerHTML = `<strong>Test ended.</strong> Score: ${score} / ${totalPossible} (${percentage.toFixed(1)}%) ${statusTag}`;
+
+  if(passed){
+    launchConfetti();
+  }
+}
+
+// ---------- START ----------
+renderQuestion(0);
+startTimer();
+</script>
+</body>
+</html>
