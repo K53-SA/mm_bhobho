@@ -12,11 +12,7 @@
     background:#050710;
     color:#f5f7ff;
   }
-  .app{
-    max-width:1000px;
-    margin:0 auto;
-    padding:20px;
-  }
+  .app{max-width:1000px;margin:0 auto;padding:20px;}
   .card{
     background:#111827;
     border-radius:10px;
@@ -37,7 +33,6 @@
   }
   .btn-primary{background:#2563eb;color:#f9fafb}
   .btn-secondary{background:#374151;color:#e5e7eb}
-  .btn-danger{background:#b91c1c;color:#fee2e2}
   .btn:disabled{opacity:0.5;cursor:default}
   .mode-title{font-size:14px;color:#9ca3af;margin-bottom:6px}
   .question-block{
@@ -76,23 +71,9 @@
     border-color:#22c55e;
     color:#ecfdf5;
   }
-  .answer-pill small{
-    display:block;
-    font-size:11px;
-    opacity:0.7;
-  }
-  .stats{
-    font-size:13px;
-    color:#9ca3af;
-    margin-top:6px;
-    margin-bottom:6px;
-  }
-  .input-row{
-    margin-top:6px;
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-  }
+  .answer-pill small{display:block;font-size:11px;opacity:0.7}
+  .stats{font-size:13px;color:#9ca3af;margin-top:6px;margin-bottom:6px}
+  .input-row{margin-top:6px;display:flex;flex-direction:column;gap:4px}
   input[type="text"]{
     width:100%;
     padding:8px 10px;
@@ -102,10 +83,7 @@
     color:#e5e7eb;
     font-size:14px;
   }
-  input[type="text"]:focus{
-    outline:none;
-    border-color:#38bdf8;
-  }
+  input[type="text"]:focus{outline:none;border-color:#38bdf8}
   .hint-box{
     margin-top:6px;
     padding:8px 10px;
@@ -392,11 +370,9 @@ function makeButton(label, cls, handler){
   b.onclick = handler;
   return b;
 }
-
 function normalizeText(t){
   return t.trim().toLowerCase().replace(/\s+/g," ");
 }
-
 function answerMatches(userText, solution, keywords){
   const u = normalizeText(userText);
   const s = normalizeText(solution);
@@ -407,7 +383,6 @@ function answerMatches(userText, solution, keywords){
   }
   return false;
 }
-
 function launchConfetti(){
   const colors = ["#f97316","#22c55e","#38bdf8","#eab308","#ec4899","#a855f7"];
   for(let i=0;i<150;i++){
@@ -441,25 +416,18 @@ function renderMenu(){
   sub.textContent = "Choose what you want to do:";
   appCard.appendChild(title);
   appCard.appendChild(sub);
-
-  const b1 = makeButton("Learn","btn btn-primary",()=>{
-    currentView = "learn";
-    renderApp();
-  });
-  const b2 = makeButton("Lesson 1 Test (NB only)","btn btn-secondary",()=>{
+  appCard.appendChild(makeButton("Learn","btn btn-primary",()=>{
+    currentView="learn";renderApp();
+  }));
+  appCard.appendChild(makeButton("Lesson 1 Test (NB only)","btn btn-secondary",()=>{
     startTest("nb");
-  });
-  const b3 = makeButton("Low hanging questions (1,2,3,4,8,10,11,13)","btn btn-secondary",()=>{
+  }));
+  appCard.appendChild(makeButton("Low hanging questions (1,2,3,4,8,10,11,13)","btn btn-secondary",()=>{
     startTest("low");
-  });
-  const b4 = makeButton("Long questions (5,7,14,16)","btn btn-secondary",()=>{
+  }));
+  appCard.appendChild(makeButton("Long questions (5,7,14,16)","btn btn-secondary",()=>{
     startTest("long");
-  });
-
-  appCard.appendChild(b1);
-  appCard.appendChild(b2);
-  appCard.appendChild(b3);
-  appCard.appendChild(b4);
+  }));
 }
 
 function renderLearn(){
@@ -470,7 +438,6 @@ function renderLearn(){
   appCard.appendChild(makeButton("Back to menu","btn btn-secondary",()=>{
     currentView="menu";renderApp();
   }));
-
   const info = document.createElement("div");
   info.className = "mode-title";
   info.textContent = "Click each answer when you have learned it. All answers must be green before starting the test.";
@@ -486,15 +453,12 @@ function renderLearn(){
   questions.forEach(q=>{
     const qb = document.createElement("div");
     qb.className = "question-block";
-
     const head = document.createElement("div");
     head.className = "q-header";
-
     const qt = document.createElement("div");
     qt.className = "q-text";
     qt.textContent = `Q${q.id}. ${q.prompt}`;
     head.appendChild(qt);
-
     const tags = document.createElement("div");
     if(q.nb){
       const t = document.createElement("span");
@@ -515,11 +479,10 @@ function renderLearn(){
       tags.appendChild(t);
     }
     head.appendChild(tags);
-
     qb.appendChild(head);
 
-    q.solutions.forEach((sol, idx)=>{
-      const key = q.id + "-" + idx;
+    q.solutions.forEach((sol,idx)=>{
+      const key = `${q.id}-${idx}`;
       const pill = document.createElement("div");
       pill.className = "answer-pill";
       if(learnedAnswers.has(key)) pill.classList.add("learned");
@@ -548,7 +511,6 @@ function renderLearn(){
 function startTest(mode){
   currentTestMode = mode;
   currentView = "test";
-
   if(mode === "nb"){
     currentTestQuestions = questions.filter(q=>q.nb);
   } else if(mode === "low"){
@@ -568,13 +530,11 @@ function renderTest(){
   appCard.innerHTML = "";
   const head = document.createElement("div");
   head.className = "test-header";
-
   const left = document.createElement("div");
   if(currentTestMode === "nb") left.textContent = "Lesson 1 Test – NB Questions";
   else if(currentTestMode === "low") left.textContent = "Low hanging questions";
   else if(currentTestMode === "long") left.textContent = "Long questions";
   head.appendChild(left);
-
   const right = document.createElement("div");
   right.appendChild(makeButton("Back to menu","btn btn-secondary",()=>{
     currentView="menu";renderApp();
@@ -596,7 +556,7 @@ function renderTest(){
 
   currentTestQuestions.forEach(q=>{
     if(!testAnswers[q.id]){
-      testAnswers[q.id] = { inputs: Array(q.solutions.length).fill(""), hintUsed:false, correct:false };
+      testAnswers[q.id] = { inputs:Array(q.solutions.length).fill(""), hintUsed:false, correct:false };
     }
     const qa = testAnswers[q.id];
 
@@ -609,7 +569,6 @@ function renderTest(){
     qt.className = "q-text";
     qt.textContent = `Q${q.id}. ${q.prompt}`;
     h.appendChild(qt);
-
     const hintBtn = makeButton("Hint","btn btn-secondary",()=>{
       qa.hintUsed = true;
       renderTest();
@@ -619,12 +578,12 @@ function renderTest(){
 
     const inputsDiv = document.createElement("div");
     inputsDiv.className = "input-row";
-    q.solutions.forEach((_, idx)=>{
+    q.solutions.forEach((_,idx)=>{
       const input = document.createElement("input");
       input.type = "text";
       input.placeholder = "Answer " + (idx+1);
       input.value = qa.inputs[idx] || "";
-      input.oninput = (e)=>{
+      input.oninput = e=>{
         qa.inputs[idx] = e.target.value;
       };
       inputsDiv.appendChild(input);
@@ -633,4 +592,15 @@ function renderTest(){
 
     if(qa.hintUsed){
       const hintBox = document.createElement("div");
-      hintBox.className = "
+      hintBox.className = "hint-box";
+      hintBox.innerHTML = "<strong>Hints:</strong><br>" +
+        q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
+      qb.appendChild(hintBox);
+    }
+
+    appCard.appendChild(qb);
+  });
+
+  const bottom = document.createElement("div");
+  bottom.style.marginTop = "10px";
+  bottom.appendChild(makeButton("Mark test (pass mark 100%)","btn btn-primary",mark
