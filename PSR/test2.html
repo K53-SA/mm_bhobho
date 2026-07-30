@@ -3,105 +3,143 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Plant Safety Regulations - Quiz</title>
+<title>PSR Lesson 1 – Text Answer Trainer</title>
 <style>
   body{
     font-family:system-ui,Segoe UI,Roboto,Arial;
-    margin:20px;
+    margin:0;
+    padding:0;
     background:#050710;
     color:#f5f7ff;
   }
-  .container{
-    max-width:900px;
+  .app{
+    max-width:1000px;
     margin:0 auto;
-    background:#111827;
     padding:20px;
-    border-radius:8px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.8);
   }
-  header{
+  h1{margin:0 0 10px;font-size:22px;color:#e5e7eb}
+  h2{margin:14px 0 8px;font-size:18px}
+  .card{
+    background:#111827;
+    border-radius:10px;
+    padding:18px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.7);
+  }
+  .btn{
+    display:inline-block;
+    padding:10px 14px;
+    border-radius:6px;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+  }
+  .btn-primary{background:#2563eb;color:#f9fafb}
+  .btn-secondary{background:#374151;color:#e5e7eb}
+  .btn-danger{background:#b91c1c;color:#fee2e2}
+  .btn:disabled{opacity:0.5;cursor:default}
+  .btn-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:8px 0 12px;
+  }
+  .mode-title{font-size:16px;color:#9ca3af;margin-bottom:6px}
+  .question-block{
+    border-top:1px solid #1f2937;
+    padding:12px 0;
+  }
+  .q-header{
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    margin-bottom:12px
+    align-items:flex-start;
+    gap:8px;
   }
-  h1{font-size:20px;margin:0;color:#e5e7eb}
-  #timer{font-weight:700;color:#38bdf8}
-  .score{font-size:14px;color:#d1d5db}
-  .question{border-top:1px solid #1f2937;padding:16px 0}
-  .qtext{font-weight:600;margin-bottom:8px;color:#f9fafb}
-  .multi-note{font-size:13px;color:#9ca3af;margin-bottom:8px}
-  .choices{display:flex;flex-direction:column;gap:8px}
-  .choice{
-    padding:10px;
-    border-radius:6px;
-    border:1px solid #374151;
-    background:#111827;
-    cursor:pointer;
-    transition:all .12s;
-    display:flex;
-    align-items:center;
-    gap:10px;
+  .q-text{font-weight:600;color:#f9fafb}
+  .q-tag{
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:11px;
+    font-weight:600;
+    background:#1f2937;
     color:#e5e7eb;
   }
-  .choice:hover{
-    transform:translateY(-2px);
-    box-shadow:0 6px 14px rgba(15,23,42,0.8);
-    border-color:#4b5563;
+  .q-tag-nb{background:#b45309;color:#fffbeb}
+  .answer-pill{
+    margin-top:6px;
+    padding:8px 10px;
+    border-radius:6px;
+    background:#020617;
+    border:1px solid #1f2937;
+    cursor:pointer;
+    font-size:14px;
+    color:#e5e7eb;
+    transition:all .12s;
   }
-  .choice.disabled{cursor:default;opacity:0.85}
-  .choice.correct{
+  .answer-pill.learned{
     background:#064e3b;
     border-color:#22c55e;
     color:#ecfdf5;
   }
-  .choice.incorrect{
-    background:#7f1d1d;
-    border-color:#f97373;
-    color:#fee2e2;
+  .answer-pill small{
+    display:block;
+    font-size:11px;
+    opacity:0.7;
   }
-  .choice .label{
-    width:26px;
-    height:26px;
-    border-radius:50%;
-    background:#374151;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
+  .stats{
+    font-size:13px;
+    color:#9ca3af;
+    margin-top:6px;
+  }
+  .input-row{
+    margin-top:6px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  input[type="text"]{
+    width:100%;
+    padding:8px 10px;
+    border-radius:6px;
+    border:1px solid #374151;
+    background:#020617;
     color:#e5e7eb;
+    font-size:14px;
   }
-  .choice.correct .label{background:#16a34a;color:#ecfdf5}
-  .choice.incorrect .label{background:#dc2626;color:#fee2e2}
-  footer{
+  input[type="text"]:focus{
+    outline:none;
+    border-color:#38bdf8;
+  }
+  .hint-box{
+    margin-top:6px;
+    padding:8px 10px;
+    border-radius:6px;
+    background:#0f172a;
+    border:1px dashed #38bdf8;
+    font-size:13px;
+    color:#e0f2fe;
+  }
+  .test-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-top:18px;
+    margin-bottom:8px;
+    font-size:14px;
     color:#d1d5db;
   }
-  button#next{
-    padding:10px 14px;
-    background:#2563eb;
-    color:#f9fafb;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-  }
-  button#next:disabled{opacity:0.5;cursor:default}
-  #result{
-    padding:12px;
+  .result{
+    margin-top:12px;
+    padding:10px;
     border-radius:8px;
-    background:#020617;
     border:1px solid #38bdf8;
-    margin-top:14px;
-    color:#e5e7eb;
+    background:#020617;
+    font-size:14px;
   }
-  #result.pass{border-color:#22c55e}
-  #result.fail{border-color:#ef4444}
+  .result.pass{border-color:#22c55e}
+  .result.fail{border-color:#ef4444}
   .status-tag{
     display:inline-block;
-    margin-left:8px;
+    margin-left:6px;
     padding:2px 6px;
     border-radius:4px;
     font-size:12px;
@@ -129,374 +167,321 @@
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>Plant Safety Regulations — Quiz</h1>
-    <div>
-      <span id="timer">10:00</span>
-      <span class="score" style="margin-left:12px">
-        Score: <span id="score">0</span> /
-        <span id="total-possible">0</span>
-      </span>
-    </div>
-  </header>
-
-  <div id="quiz"></div>
-
-  <footer>
-    <div id="progress"></div>
-    <div>
-      <button id="next">Next</button>
-    </div>
-  </footer>
-
-  <div id="result" style="display:none"></div>
+<div class="app">
+  <div class="card" id="app-card">
+    <!-- Content injected by JS -->
+  </div>
 </div>
 
 <script>
-// ---------- Questions ----------
+/*
+  QUESTIONS STRUCTURE
+  -------------------
+  Each question object:
+
+  {
+    id: 1,
+    nb: true,            // appears in Lesson 1 Test (NB only)
+    type: "low" | "long" | null, // for low‑hanging / long question modes
+    prompt: "Question text ...",
+    solutions: [
+      "Full model solution 1",
+      "Full model solution 2"
+    ],
+    keywords: [
+      ["keyword1","keyword2"],     // all must appear in user input for solution 1
+      ["keywordA","keywordB"]      // for solution 2
+    ]
+  }
+
+  IMPORTANT: Replace the sample solutions / keywords below with your exact wording and key words
+  from your Lesson 1 solutions document.
+*/
+
 const questions = [
-  {text:"1) State what is by definition \"work\".", choices:[
-    "All human activities in connection with the plant.",
-    "Excluding operating activities",
-    "Non dangerous activities performed on the external parts of the plant which cannot affect the health and safety of workers or the safe operation of the plant.",
-    "An activity that does not require supervision by the Responsible Person",
-    "Activities carried out by a skilled person."
-  ], correct:[0]},
-  {text:"2) State what is defined as \"plant\".", choices:[
-    "Portable lifting equipment.",
-    "Plant and apparatus covered by the operating regulations for high voltage systems.",
-    "Any structures, machinery, apparatus, or equipment.",
-    "Mobile lifting equipment and workshop equipment.",
-    "Power circuits."
-  ], correct:[2]},
-  {text:"3) Define the \"clean hands approach\".", choices:[
-    "Washing hands before removing fuses.",
-    "Having both hands clean and free to carry out isolations safely.",
-    "Having hands clean before completing the Permit to Work documentation."
-  ], correct:[1]},
-  {text:"4) State the requirements for entry into a confined space.", choices:[
-    "A Gas Test Certificate must be issued.",
-    "The workers must be secured by a safety harness.",
-    "Adequate breathing apparatus must be provided.",
-    "Gas monitoring must be maintained.",
-    "Adequate ventilation must be provided and maintained."
-  ], correct:[0,3,4]},
-  {text:"5) Define a Skilled person.", choices:[
-    "A person who has been trained, and declared competent in writing",
-    "A fitter or electrician.",
-    "A person authorised to supervise work.",
-    "Has adequate knowledge for the task at hand"
-  ], correct:[0,3]},
-  {text:"6) Who is the \"person in charge of the operation of the plant\"?", choices:[
-    "The Operating Manager.",
-    "The Senior Shift Supervisor on duty at that particular time.",
-    "The person delegated in writing to be in charge of the operation of the plant."
-  ], correct:[2]},
-  {text:"7) Who may carry out adjustments on plant in operation under a Permit to Work?", choices:[
-    "The Responsible Person.",
-    "Any qualified artisan.",
-    "A Skilled person under the direct supervision of a Responsible Person",
-    "A Responsible Person under the direct supervision of another Responsible Person.",
-    "If an RP carries out the adjustments another RP or Skilled person must be in attendance"
-  ], correct:[2,3]},
-  {text:"8) When is a Permit to Work deemed to be in force?", choices:[
-    "When the Responsible Person signs the application.",
-    "When the Appointed Person issues the permit.",
-    "When the Responsible Person signs acceptance."
-  ], correct:[2]},
-  {text:"9) An Operating activity is defined as:", choices:[
-    "All the work carried out by the operator.",
-    "The opening and closing of breakers/isolators and valves/dampers for the control of the plant and to effect isolations.",
-    "Any work carried out under the instructions of the shift supervisor.",
-    "Other activities involved with the process of electricity generation which are done in accordance with formulated safe procedures."
-  ], correct:[1]},
-  {text:"10) What is the process for gaining access to keys on a Key safe or removing safety locks from the plant if the keys are not available?", choices:[
-    "The Appointed Person cuts off the locks.",
-    "The Appointed Person must get permission from the relevant head of department/function, who must witness the process of lock removal.",
-    "The Appointed Person and head of shift must record the activity in their log.",
-    "The Power Station Manager must give permission and witness the activity."
-  ], correct:[1,2]},
-  {text:"11) When does new plant come under the control of the plant safety regulations?", choices:[
-    "When the plant is taken over.",
-    "When the plant is energised for the first time.",
-    "As soon as the Safety clearance certificate is issued.",
-    "When commissioning is completed."
-  ], correct:[2]},
-  {text:"12) What does the regulation state if there is doubt concerning the procedure to be adopted with respect to the application of the plant safety regulations?", choices:[
-    "Ask your supervisor what to do.",
-    "Do whatever you think is right.",
-    "Consult the regulations for guidance",
-    "Ask other responsible or Appointed Persons what they do."
-  ], correct:[2]},
-  {text:"13) The responsibilities of the Responsible Person are:", choices:[
-    "Isolating the plant.",
-    "Acceptance and clearance of permits to work.",
-    "Ensures work can be executed taking health and safety precautions into account and within the terms of these regulations.",
-    "Removing safety locks from the plant.",
-    "Energising the plant for test purposes.",
-    "Maintaining a Workers' Register.",
-    "Test running of plant."
-  ], correct:[1,2,5,6]},
-  {text:"14) What must be done in order to test run plant subject to an unrevoked Permit to Work.", choices:[
-    "Clear or suspend all relevant permits to work.",
-    "Issue a Safety clearance certificate.",
-    "Remove all plant isolations.",
-    "Ensure that the Workers' Register(s) is withdraw.",
-    "Issue a Sanction for Test."
-  ], correct:[0,3,4]},
-  {text:"15) What extra precautions must be taken when entering a confined space where there is a possibility of dangerous substances being present and effective isolation and ventilation are not possible?", choices:[
-    "The workers must not enter until a gas test has been done.",
-    "A Rescuer must remain outside and maintain communication with the workers inside.",
-    "All workers must be medically fit before entering.",
-    "All workers must wear breathing apparatus and be secured by a safety harness and line.",
-    "All workers must have a torch."
-  ], correct:[1,3]},
-  {text:"16) Can a person who is authorised as an Appointed and Responsible Person, simultaneously exercise both authorisations on the same Permit to Work?", choices:[
-    "Yes.",
-    "Only with the permission of the head of department / function.",
-    "Yes, if so authorised.",
-    "Yes always.",
-    "No."
-  ], correct:[4]},
-  {text:"17) When is a Permit to Work required.", choices:[
-    "When maintenance must be done.",
-    "When work requiring an isolation must be done.",
-    "Whenever work is to be done on plant.",
-    "For any activity on the plant."
-  ], correct:[2]},
-  {text:"18) Under what conditions can a non-return valve be used as a point of isolation.", choices:[
-    "If it is of the screw-down type.",
-    "If the head of department/ function sanctions the work.",
-    "If the work is essential, the non-return valve is the only point of isolation, the plant cannot be shut down and an approved local procedure is available.",
-    "If the system pressure is less than 50 kPa.",
-    "If the system pressure is less than 600 kPa."
-  ], correct:[0,2]},
-  {text:"19) What is the definition of danger or dangerous.", choices:[
-    "An area demarcated by danger signs.",
-    "A condition that is unsafe.",
-    "A condition or substance that constitutes a risk of personal injury, impairment of health, death or plant damage",
-    "A condition that may result in an explosion."
-  ], correct:[2]},
-  {text:"20) The responsibilities of the Appointed Person are.", choices:[
-    "Clearing of permits to work.",
-    "Test running of plant.",
-    "Checking that isolations are correctly implemented.",
-    "Correctly isolating plant and ensuring it is safe to work on, taking health and safety precautions into account and within the terms of these regulations.",
-    "The issue and revocation of permits to work.",
-    "Reinstating plant after revoking a Permit to Work."
-  ], correct:[1,3,4,5]},
-  {text:"21) What is the definition of a safety lock?", choices:[
-    "A unique series of locks with a master key issued to authorised persons only.",
-    "A series of locks each having a unique and duplicate key.",
-    "A lock used for locking isolations for which only a single unique key is available."
-  ], correct:[2]},
-  {text:"22) Under what circumstances can an outage Permit to Work be issued.", choices:[
-    "No special circumstances.",
-    "Any outages.",
-    "Only on an outage declared by the general manager / project manager, where a designated manager has been Appointed.",
-    "Only on an outage declared by the outage manager.",
-    "Only on an outage declared by the power station manager / project manager, where a designated manager has been Appointed."
-  ], correct:[2]},
-  {text:"23) Define supervise or supervision.", choices:[
-    "The overseeing of the actions of workers to prevent accidents.",
-    "Such a person must be trained in Risk Assessment.",
-    "The overseeing of the actions of person(s) to such an extent as to prevent any non-dangerous act, as far as reasonably practical.",
-    "The overseeing of actions of person(s) to such an extent as to prevent any dangerous act, as far as reasonably practical",
-    "Has authority to ensure precautionary measures taken are implemented",
-    "Such a person must be trained in completion of the workers register"
-  ], correct:[1,3,4]},
-  {text:"24) State the criteria required to use the Limited access register.", choices:[
-    "The work must be complete within 24 hours.",
-    "No plant isolations must be required.",
-    "There must be no danger to the person performing the activity, nor any risk of production loss.",
-    "The activity must be performed by a Responsible Person.",
-    "The activity must be completed within 12 hours.",
-    "The activity must be performed by a skilled person."
-  ], correct:[1,2,4,5]},
-  {text:"25) State the requirements that portable electric equipment must comply with before it is used.", choices:[
-    "All Portable electrical equipment to be used during the work must be inspected by a competent person prior to commencement of work.",
-    "Faulty tools, cords or extensions must be withdrawn from service immediately.",
-    "All cable joints must be done by a competent person authorised to do cable joints.",
-    "No cords and extensions that have open wires, frayed covering on wires, cable joints, cracked plug-tops, loose pins, visible damage or faults in any way shall be used.",
-    "Faulty tools cords or extensions must be repaired on site immediately."
-  ], correct:[0,1,3]}
+  {
+    id: 1,
+    nb: true,
+    type: "low",
+    prompt: "State the purpose of the Plant Safety Regulations.",
+    solutions: [
+      "To specify and provide requirements for the application of compulsory health and safety measures for all plant and for all persons who work on plant or machinery under the control of Eskom Generation."
+    ],
+    keywords: [
+      ["specify","requirements","compulsory","health","safety","plant","persons"]
+    ]
+  },
+  {
+    id: 2,
+    nb: true,
+    type: "low",
+    prompt: "List three dangers of movement.",
+    solutions: [
+      "Personal injury to persons in the vicinity.",
+      "Damage to plant or equipment.",
+      "Danger to the public or environment."
+    ],
+    keywords: [
+      ["personal","injury"],
+      ["damage","plant"],
+      ["danger","public"]
+    ]
+  },
+  {
+    id: 3,
+    nb: true,
+    type: "low",
+    prompt: "List three responsibilities of every Authorised person who is in possession of a copy of the Regulations.",
+    solutions: [
+      "Be held responsible for the knowledge and application of the regulations.",
+      "Must maintain his copy of the regulations in good condition and up to date.",
+      "Must ensure that the latest revision of the regulations is readily available where required."
+    ],
+    keywords: [
+      ["responsible","knowledge","application"],
+      ["maintain","copy","up","to","date"],
+      ["latest","revision"]
+    ]
+  },
+  {
+    id: 4,
+    nb: true,
+    type: "low",
+    prompt: "How can explosions occur in confined spaces?",
+    solutions: [
+      "Suspension of flammable dust or vapour in air in a certain proportion.",
+      "Presence of flammable gases or vapours such as hydrogen, LPG, gas, acetylene and petrol vapours.",
+      "There must be a source of ignition or spontaneous combustion."
+    ],
+    keywords: [
+      ["suspension","dust","vapour","air"],
+      ["flammable","gases"],
+      ["source","ignition"]
+    ]
+  },
+  {
+    id: 5,
+    nb: true,
+    type: "long",
+    prompt: "List the additional dangers in confined spaces, excluding explosions.",
+    solutions: [
+      "Insufficient oxygen for the functioning of the human body.",
+      "Presence of inert gases that displace oxygen.",
+      "Presence of toxic gases or vapours.",
+      "Engulfment by loose material such as ash or coal.",
+      "Restricted movement, difficult access and egress.",
+      "Poor lighting and visibility.",
+      "Difficulty obtaining assistance when in distress."
+    ],
+    keywords: [
+      ["insufficient","oxygen"],
+      ["inert","gases","displace"],
+      ["toxic","gases"],
+      ["engulfment"],
+      ["restricted","movement"],
+      ["poor","lighting"],
+      ["assistance","distress"]
+    ]
+  },
+  {
+    id: 7,
+    nb: true,
+    type: "long",
+    prompt: "What will be the consequences of contravention of the Act and Regulations?",
+    solutions: [
+      "Any persons who contravene or fail to comply with any provision of the Act shall be guilty of an offence.",
+      "Such persons may be liable to the penalties prescribed by the Act.",
+      "Eskom may also take disciplinary action where applicable."
+    ],
+    keywords: [
+      ["contravene","offence"],
+      ["liable","penalties"],
+      ["disciplinary","action"]
+    ]
+  },
+  {
+    id: 8,
+    nb: true,
+    type: "low",
+    prompt: "How shall the Regulations be interpreted?",
+    solutions: [
+      "The regulations must be interpreted as minimum requirements for safety of personnel, plant and the environment.",
+      "Where there is conflict between a local procedure and these regulations, these regulations shall prevail.",
+      "The PSR and OHS Act and Regulations shall be read together as an extension of each other."
+    ],
+    keywords: [
+      ["minimum","requirements","safety"],
+      ["conflict","local","procedure","prevail"],
+      ["extension","ohs"]
+    ]
+  },
+  {
+    id: 10,
+    nb: true,
+    type: "low",
+    prompt: "List three dangers of the human element in a power station.",
+    solutions: [
+      "Breakdown in communication.",
+      "Incorrect actions that cause accidents.",
+      "Work on plant for which a Permit to Work is not issued."
+    ],
+    keywords: [
+      ["breakdown","communication"],
+      ["incorrect","actions"],
+      ["permit","not","issued"]
+    ]
+  },
+  {
+    id: 11,
+    nb: true,
+    type: "low",
+    prompt: "List four duties of the employee in terms of the OHS Act.",
+    solutions: [
+      "Take reasonable care for the health and safety of himself and others.",
+      "Obey any lawful order and obey the health and safety rules and procedures.",
+      "Report unsafe or unhealthy conditions to the employer or safety representative.",
+      "Co‑operate with the employer to comply with the Act."
+    ],
+    keywords: [
+      ["reasonable","care","health","safety"],
+      ["obey","lawful","order"],
+      ["report","unsafe","conditions"],
+      ["co-operate","employer"]
+    ]
+  },
+  {
+    id: 13,
+    nb: true,
+    type: "low",
+    prompt: "List five dangers of electricity in a power station.",
+    solutions: [
+      "Electric shock which may cause death or injury.",
+      "Burns from contact with live conductors or from arcing.",
+      "Fires and explosions.",
+      "Flashovers and arcs which may cause injury.",
+      "Induced voltages and step or touch potentials."
+    ],
+    keywords: [
+      ["electric","shock"],
+      ["burns"],
+      ["fires","explosions"],
+      ["flashovers","arcs"],
+      ["induced","voltages"]
+    ]
+  },
+  {
+    id: 14,
+    nb: true,
+    type: "long",
+    prompt: "List the four dangers of pressure and heat in a power station.",
+    solutions: [
+      "Uncontrolled pressure rise may increase above the material strength and cause explosions.",
+      "Sudden release of pressure may cause serious injury.",
+      "Hot surfaces and steam may cause severe burns.",
+      "Hot gases which may be dangerous are released to atmosphere."
+    ],
+    keywords: [
+      ["uncontrolled","pressure","explosions"],
+      ["sudden","release","injury"],
+      ["hot","surfaces","burns"],
+      ["hot","gases","dangerous"]
+    ]
+  },
+  {
+    id: 16,
+    nb: true,
+    type: "long",
+    prompt: "How shall training manuals, decision registers and any local procedures and instructions be regarded?",
+    solutions: [
+      "They shall be regarded as an extension of the Plant Safety Regulations.",
+      "They shall not conflict with these regulations.",
+      "If a conflict exists, the PSR and OHS Act and its Regulations shall prevail."
+    ],
+    keywords: [
+      ["extension","plant","safety"],
+      ["not","conflict"],
+      ["prevail","ohs"]
+    ]
+  }
+  // You can add remaining questions (6,9,12,15 etc.) here in the same format if needed.
 ];
 
-// ---------- Logic ----------
-let current = 0;
-let score = 0;
-let answered = false;
+// --------- State ---------
+let currentView = "menu"; // "menu" | "learn" | "test"
+let currentTestMode = null; // "nb" | "low" | "long"
+let currentTestQuestions = [];
+let testAnswers = {}; // { questionId: { inputs:[], hintUsed:boolean, correct:boolean } }
 
-const totalPossible = questions.reduce((sum,q)=>sum + q.correct.length,0);
+// For Learn mode:
+let learnedAnswers = new Set();
 
-const timerDisplay = document.getElementById('timer');
-const quizDiv = document.getElementById('quiz');
-const scoreSpan = document.getElementById('score');
-const totalPossibleSpan = document.getElementById('total-possible');
-const nextBtn = document.getElementById('next');
-const progress = document.getElementById('progress');
-const resultDiv = document.getElementById('result');
+// DOM
+const appCard = document.getElementById("app-card");
 
-totalPossibleSpan.textContent = totalPossible;
-
-let timeLeft = 10 * 60;
-let timerInterval = null;
-
-function startTimer(){
-  updateTimerDisplay();
-  timerInterval = setInterval(()=>{
-    timeLeft--;
-    if(timeLeft <= 0){
-      timeLeft = 0;
-      updateTimerDisplay();
-      endTest();
-      clearInterval(timerInterval);
-    } else updateTimerDisplay();
-  },1000);
-}
-function updateTimerDisplay(){
-  const mm = String(Math.floor(timeLeft/60)).padStart(2,'0');
-  const ss = String(timeLeft%60).padStart(2,'0');
-  timerDisplay.textContent = `${mm}:${ss}`;
-}
-
-function renderQuestion(i){
-  const q = questions[i];
-  answered = false;
-  quizDiv.innerHTML = '';
-  const qWrap = document.createElement('div');
-  qWrap.className = 'question';
-  const qtext = document.createElement('div');
-  qtext.className = 'qtext';
-  qtext.textContent = `${q.text}`;
-  qWrap.appendChild(qtext);
-
-  if(q.correct.length > 1){
-    const note = document.createElement('div');
-    note.className = 'multi-note';
-    note.textContent = 'More than 1 answer is correct.';
-    qWrap.appendChild(note);
+// --------- Rendering ---------
+function renderApp(){
+  if(currentView === "menu"){
+    renderMenu();
+  } else if(currentView === "learn"){
+    renderLearn();
+  } else if(currentView === "test"){
+    renderTest();
   }
+}
 
-  const choices = document.createElement('div');
-  choices.className = 'choices';
-  q.choices.forEach((c, idx)=>{
-    const ch = document.createElement('div');
-    ch.className = 'choice';
-    ch.dataset.index = idx;
-    ch.innerHTML = `<span class="label">${String.fromCharCode(65+idx)}</span><div>${c}</div>`;
-    ch.addEventListener('click', ()=>onChoiceClick(ch, idx));
-    choices.appendChild(ch);
+function renderMenu(){
+  appCard.innerHTML = "";
+  const title = document.createElement("h1");
+  title.textContent = "PSR Lesson 1 – Text Answer Trainer";
+
+  const subtitle = document.createElement("div");
+  subtitle.className = "mode-title";
+  subtitle.textContent = "Choose what you want to do:";
+
+  const btnRow = document.createElement("div");
+  btnRow.className = "btn-row";
+
+  const bLearn = makeButton("Learn", "btn btn-primary", ()=>{ currentView="learn"; renderApp(); });
+
+  const bNb   = makeButton("Lesson 1 Test (NB only)", "btn btn-secondary", ()=>{
+    startTest("nb");
   });
-  qWrap.appendChild(choices);
-  quizDiv.appendChild(qWrap);
+  const bLow  = makeButton("Low hanging questions (1,2,3,4,8,10,11,13)", "btn btn-secondary", ()=>{
+    startTest("low");
+  });
+  const bLong = makeButton("Long questions (5,7,14,16)", "btn btn-secondary", ()=>{
+    startTest("long");
+  });
 
-  progress.textContent = `Question ${i+1} of ${questions.length}`;
-  nextBtn.disabled = true;
-  nextBtn.textContent = (i === questions.length - 1) ? 'Finish' : 'Next';
+  btnRow.appendChild(bLearn);
+  btnRow.appendChild(bNb);
+  btnRow.appendChild(bLow);
+  btnRow.appendChild(bLong);
+
+  appCard.appendChild(title);
+  appCard.appendChild(subtitle);
+  appCard.appendChild(btnRow);
 }
 
-function onChoiceClick(elem, idx){
-  if(answered) return;
-  const q = questions[current];
-  const isCorrect = q.correct.includes(idx);
+function renderLearn(){
+  appCard.innerHTML = "";
+  const header = document.createElement("div");
+  const h = document.createElement("h1");
+  h.textContent = "Learn – Lesson 1";
+  header.appendChild(h);
 
-  if(q.correct.length === 1){
-    answered = true;
-    const choices = document.querySelectorAll('.choice');
-    choices.forEach(cEl=>{
-      cEl.classList.add('disabled');
-      const cIdx = Number(cEl.dataset.index);
-      if(q.correct.includes(cIdx)) cEl.classList.add('correct');
-      if(cIdx === idx && !isCorrect) cEl.classList.add('incorrect');
-    });
-    if(isCorrect){
-      score++;
-      scoreSpan.textContent = score;
-    }
-    nextBtn.disabled = false;
-  } else {
-    if(isCorrect){
-      if(!elem.classList.contains('correct')){
-        elem.classList.add('correct');
-        score++;
-        scoreSpan.textContent = score;
-      }
-      const chosenCorrect = document.querySelectorAll('.choice.correct').length;
-      if(chosenCorrect >= q.correct.length){
-        const allChoices = document.querySelectorAll('.choice');
-        allChoices.forEach(cEl=>{
-          cEl.classList.add('disabled');
-          const cIdx = Number(cEl.dataset.index);
-          if(q.correct.includes(cIdx)) cEl.classList.add('correct');
-        });
-        answered = true;
-        nextBtn.disabled = false;
-      }
-    } else {
-      elem.classList.add('incorrect');
-      const allChoices = document.querySelectorAll('.choice');
-      allChoices.forEach(cEl=>{
-        cEl.classList.add('disabled');
-        const cIdx = Number(cEl.dataset.index);
-        if(q.correct.includes(cIdx)) cEl.classList.add('correct');
-      });
-      answered = true;
-      nextBtn.disabled = false;
-    }
-  }
-}
+  const backBtn = makeButton("Back to menu","btn btn-secondary", ()=>{
+    currentView = "menu";
+    renderApp();
+  });
+  header.appendChild(backBtn);
 
-nextBtn.addEventListener('click', ()=>{
-  if(current < questions.length - 1){
-    current++;
-    renderQuestion(current);
-  } else {
-    endTest();
-  }
-});
+  appCard.appendChild(header);
 
-function launchConfetti(){
-  const colors = ['#f97316','#22c55e','#38bdf8','#eab308','#ec4899','#a855f7'];
-  for(let i=0;i<150;i++){
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
-    const color = colors[Math.floor(Math.random()*colors.length)];
-    const xOffset = (Math.random()*200-100)+'vw';
-    const left = (Math.random()*100)+'vw';
-    piece.style.setProperty('--c', color);
-    piece.style.setProperty('--x', xOffset);
-    piece.style.left = left;
-    piece.style.animationDelay = (Math.random()*0.7)+'s';
-    document.body.appendChild(piece);
-    setTimeout(()=>piece.remove(), 3000);
-  }
-}
+  const info = document.createElement("div");
+  info.className = "mode-title";
+  info.textContent = "Click on each answer once you feel you have learned it. When all are green, you can start the test.";
+  appCard.appendChild(info);
 
-function endTest(){
-  clearInterval(timerInterval);
-  const allChoices = document.querySelectorAll('.choice');
-  allChoices.forEach(c=>c.classList.add('disabled'));
-  nextBtn.disabled = true;
-
-  const percentage = (score / totalPossible) * 100;
-  const passed = score === totalPossible; // must get 100%
-
-  resultDiv.style.display = 'block';
-  resultDiv.className = passed ? 'pass' : 'fail';
-
-  const statusTag = `<span class="status-tag ${passed ? 'status-pass':'status-fail'}">${passed ? 'PASS (100%)':'FAIL'}</span>`;
-  resultDiv.innerHTML = `<strong>Test ended.</strong> Score: ${score} / ${totalPossible} (${percentage.toFixed(1)}%) ${statusTag}`;
-
-  if(passed){
-    launchConfetti();
-  }
-}
-
-// ---------- START ----------
-renderQuestion(0);
-startTimer();
-</script>
-</body>
-</html>
+  let totalAnswers = 0;
+  let learnedCount = learnedAnswers.size
