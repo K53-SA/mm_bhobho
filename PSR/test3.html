@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PSR Lesson 1 – NB Text Test</title>
+<style>
+  body{
+    font-family:system-ui,Segoe UI,Roboto,Arial;
+    margin:0;
+    padding:0;
+    background:#020617;
+    color:#f9fafb;
+  }
+  .app{
+    max-width:1100px;
+    margin:0 auto;
+    padding:24px 16px 40px;
+  }
+  .card{
+    background:#0b1120;
+    border-radius:12px;
+    padding:20px 18px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.75);
+    border:1px solid #1f2937;
+  }
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  h1{
+    margin:0;
+    font-size:22px;
+    color:#e5e7eb;
+  }
+  .subtitle{
+    font-size:13px;
+    color:#9ca3af;
+    margin-top:4px;
+  }
+  .btn{
+    display:inline-block;
+    padding:9px 13px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+    margin-right:8px;
+    margin-bottom:8px;
+  }
+  .btn-primary{background:#2563eb;color:#f9fafb}
+  .btn-secondary{background:#111827;color:#e5e7eb;border:1px solid #374151}
+  .btn:disabled{opacity:0.45;cursor:default}
+  .mode-title{font-size:14px;color:#9ca3af;margin-bottom:8px}
+  .question-block{
+    border-top:1px solid #111827;
+    padding:14px 0;
+  }
+  .q-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .q-text{
+    font-weight:600;
+    font-size:14px;
+    color:#f9fafb;
+  }
+  .q-tag{
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:11px;
+    font-weight:600;
+    background:#b45309;
+    color:#fffbeb;
+  }
+  .answer-pill{
+    margin-top:6px;
+    padding:8px 10px;
+    border-radius:8px;
+    background:#020617;
+    border:1px solid #1f2937;
+    cursor:pointer;
+    font-size:13px;
+    color:#e5e7eb;
+  }
+  .answer-pill.learned{
+    background:#064e3b;
+    border-color:#22c55e;
+    color:#ecfdf5;
+  }
+  .answer-pill small{
+    display:block;
+    font-size:11px;
+    opacity:0.7;
+  }
+  .stats{
+    font-size:13px;
+    color:#9ca3af;
+    margin:6px 0 10px;
+  }
+  .input-row{
+    margin-top:6px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+  }
+  input[type="text"]{
+    width:100%;
+    padding:8px 10px;
+    border-radius:8px;
+    border:1px solid #374151;
+    background:#020617;
+    color:#e5e7eb;
+    font-size:13px;
+  }
+  input[type="text"]:focus{
+    outline:none;
+    border-color:#38bdf8;
+    box-shadow:0 0 0 1px #0ea5e9;
+  }
+  .hint-box{
+    margin-top:6px;
+    padding:8px 10px;
+    border-radius:8px;
+    background:#111827;
+    border:1px dashed #38bdf8;
+    font-size:13px;
+    color:#e0f2fe;
+  }
+  .test-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+    font-size:14px;
+    color:#d1d5db;
+  }
+  .result{
+    margin-top:14px;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #38bdf8;
+    background:#020617;
+    font-size:14px;
+  }
+  .result.pass{border-color:#22c55e}
+  .result.fail{border-color:#ef4444}
+  .status-tag{
+    display:inline-block;
+    margin-left:6px;
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:600;
+  }
+  .status-pass{background:#14532d;color:#bbf7d0}
+  .status-fail{background:#7f1d1d;color:#fecaca}
+  .confetti-piece{
+    position:fixed;
+    width:8px;
+    height:14px;
+    background:var(--c);
+    top:-20px;
+    left:50%;
+    opacity:0.9;
+    pointer-events:none;
+    animation:fall 2.7s linear forwards;
+    z-index:9999;
+  }
+  @keyframes fall{
+    0%{transform:translate3d(0,0,0) rotateZ(0deg);}
+    100%{transform:translate3d(var(--x),110vh,0) rotateZ(360deg);}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="card" id="app-card"></div>
+</div>
+
+<script>
+// -------- LESSON 1 NB QUESTIONS (1,2,3,4,5,7,8,10,11,13,14,16) --------
+// Solutions taken from the "Lesson 1 – Self-evaluation Answers" pages.
+
+const questions = [
+  {
+    id: 1,
+    prompt: "State the purpose of the Plant Safety Regulations.",
+    solutions: [
+      "To specify and provide requirements for the application of compulsory health and safety measures for all plant.",
+      "And for all persons who work on plant and machinery under the control of Eskom, Generation Division."
+    ],
+    keywords: [
+      ["specify","requirements","compulsory","health","safety","plant"],
+      ["persons","work","plant","machinery","control","eskom","generation"]
+    ]
+  },
+  {
+    id: 2,
+    prompt: "List three dangers of movement.",
+    solutions: [
+      "It is possible that a fall to a lower level may occur.",
+      "Persons may be struck by the moving load.",
+      "Persons may be trapped between the moving load and a fixed object."
+    ],
+    keywords: [
+      ["fall","lower","level"],
+      ["struck","moving","load"],
+      ["trapped","moving","load","fixed","object"]
+    ]
+  },
+  {
+    id: 3,
+    prompt: "List three responsibilities of every Authorised person who is in possession of a copy of the Regulations.",
+    solutions: [
+      "Will be held responsible for the knowledge and application of the Regulations.",
+      "Must maintain his copy of the Regulations in a good condition and up to date.",
+      "Must ensure that the latest revision of these Regulations is readily available at the place of work."
+    ],
+    keywords: [
+      ["responsible","knowledge","application"],
+      ["maintain","copy","good","condition","up","to","date"],
+      ["latest","revision","readily","available","place","work"]
+    ]
+  },
+  {
+    id: 4,
+    prompt: "How can explosions occur in confined spaces?",
+    solutions: [
+      "Pulverised fuel is in suspension in the air in a certain proportion.",
+      "A concentration of flammable gases or vapours is present e.g. hydrogen, LP gas, acetylene, petrol vapours.",
+      "There must be a source of ignition or spontaneous combustion."
+    ],
+    keywords: [
+      ["pulverised","fuel","suspension","air"],
+      ["concentration","flammable","gases","vapours"],
+      ["source","ignition","spontaneous","combustion"]
+    ]
+  },
+  {
+    id: 5,
+    prompt: "List the additional dangers in confined spaces, excluding explosions.",
+    solutions: [
+      "Insufficient oxygen for the functioning of the human body.",
