@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PSR Lesson 2 – NB Text Answer Test</title>
+<title>PSR Lesson 1 – NB Text Answer Test 12:00</title>
 <style>
   body{
     font-family:system-ui,Segoe UI,Roboto,Arial;
@@ -12,35 +12,23 @@
     background:#020617;
     color:#f9fafb;
   }
-  .app{
-    max-width:1100px;
-    margin:0 auto;
-    padding:24px 16px 40px;
-  }
+  .app{max-width:1000px;margin:0 auto;padding:24px 16px 40px;}
   .card{
     background:#0b1120;
     border-radius:12px;
     padding:20px 18px;
-    box-shadow:0 18px 45px rgba(0,0,0,0.75);
+    box-shadow:0 18px 45px rgba(0,0,0,0.8);
     border:1px solid #1f2937;
   }
   header{
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    gap:12px;
-    margin-bottom:14px;
+    gap:10px;
+    margin-bottom:10px;
   }
-  h1{
-    margin:0;
-    font-size:22px;
-    color:#e5e7eb;
-  }
-  .subtitle{
-    font-size:13px;
-    color:#9ca3af;
-    margin-top:4px;
-  }
+  h1{margin:0;font-size:22px;color:#e5e7eb}
+  .subtitle{font-size:13px;color:#9ca3af;margin-top:4px}
   .top-right{
     text-align:right;
     font-size:13px;
@@ -63,22 +51,12 @@
   .btn-secondary{background:#111827;color:#e5e7eb;border:1px solid #374151}
   .btn:disabled{opacity:0.45;cursor:default}
   .question-block{
-    border-top:1px solid #111827;
-    padding:14px 0;
-  }
-  .q-text{
-    font-weight:600;
-    font-size:15px;
-    color:#f9fafb;
-    margin-bottom:8px;
-  }
-  .input-row{
     margin-top:6px;
-    display:flex;
-    flex-direction:column;
-    gap:5px;
-    margin-bottom:6px;
+    padding-top:10px;
+    border-top:1px solid #111827;
   }
+  .q-text{font-weight:600;font-size:15px;color:#f9fafb;margin-bottom:8px}
+  .input-row{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
   input[type="text"]{
     width:100%;
     padding:8px 10px;
@@ -297,6 +275,7 @@ const questions = [
   }
 ];
 
+
 // -------- STATE --------
 let currentQuestionIndex = -1;       // -1 = not started
 let testStarted = false;
@@ -332,7 +311,6 @@ function makeButton(label, cls, handler){
 function normalizeText(t){
   return t.trim().toLowerCase().replace(/\s+/g," ");
 }
-
 // Levenshtein distance between two strings
 function levenshtein(a, b){
   const m = a.length, n = b.length;
@@ -345,9 +323,9 @@ function levenshtein(a, b){
     for(let j=1;j<=n;j++){
       const cost = a[i-1] === b[j-1] ? 0 : 1;
       dp[i][j] = Math.min(
-        dp[i-1][j] + 1,
-        dp[i][j-1] + 1,
-        dp[i-1][j-1] + cost
+        dp[i-1][j] + 1,      // delete
+        dp[i][j-1] + 1,      // insert
+        dp[i-1][j-1] + cost  // substitute
       );
     }
   }
@@ -367,24 +345,28 @@ function similarEnough(a, b){
 function answerMatches(userText, solution, keywords){
   const uRaw = userText || "";
   const u = normalizeText(uRaw);
-  if(!u) return false;
+  if(!u) return false;           // empty input
 
+  // Split user input into tokens for fuzzy matching
   const tokens = u.split(" ").filter(Boolean);
 
-  // ANY keyword match (with fuzzy spelling) is enough
+  // If keywords defined: ANY keyword matching is enough for a mark
   if(Array.isArray(keywords) && keywords.length){
     for(const kw of keywords){
       const kwNorm = kw.toLowerCase();
+      // exact substring check first
       if(u.includes(kwNorm)) return true;
+      // fuzzy word-by-word check with spelling tolerance
       for(const tok of tokens){
         if(similarEnough(tok, kwNorm)) return true;
       }
     }
   }
 
-  // Fallback: compare against solution text words
+  // Fallback: check if user text is reasonably similar to the whole solution text
   const s = normalizeText(solution || "");
   if(s){
+    // Compare on a token basis: if at least one solution word is similar, accept
     const solTokens = s.split(" ").filter(Boolean);
     for(const st of solTokens){
       for(const tok of tokens){
@@ -392,6 +374,7 @@ function answerMatches(userText, solution, keywords){
       }
     }
   }
+
   return false;
 }
 
@@ -442,7 +425,7 @@ function render(){
   const header = document.createElement("header");
   const left = document.createElement("div");
   const h = document.createElement("h1");
-  h.textContent = "PSR Lesson 2 – NB Text Answer Test";
+  h.textContent = "PSR Lesson 1 – NB Text Answer Test";
   left.appendChild(h);
   const sub = document.createElement("div");
   sub.className = "subtitle";
@@ -564,8 +547,10 @@ function render(){
       }
     );
     nav2.appendChild(nextBtn);
-    qBlock.appendChild(nav
-      appCard.appendChild(qBlock);
+    qBlock.appendChild(nav2);
+  }
+
+  appCard.appendChild(qBlock);
 }
 
 function markCurrentQuestion(){
@@ -575,8 +560,8 @@ function markCurrentQuestion(){
   // remove previous marks for this question from score
   score -= qs.questionMark;
 
-  // Order‑independent matching: each solution can use any unused input
-  const rawInputs = qs.inputs.slice();
+  // We allow any solution in any input, but each input can only be used once
+  const rawInputs = qs.inputs.slice();          // array of strings
   const usedInputs = Array(rawInputs.length).fill(false);
   let correctCount = 0;
 
@@ -608,8 +593,9 @@ function markCurrentQuestion(){
   render();
 }
 
+
 function finishTest(reason){
-  if(testFinished) return;
+  if(testFinished) return
   testFinished = true;
   if(timerInterval) clearInterval(timerInterval);
   renderResultSection(reason);
@@ -691,4 +677,3 @@ render();
 </body>
 </html>
 
-    
