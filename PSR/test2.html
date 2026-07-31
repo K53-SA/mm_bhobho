@@ -572,3 +572,84 @@ function markCurrentQuestion(){
 
 function finishTest(reason){
   if(testFinished) return
+  testFinished = true;
+  if(timerInterval) clearInterval(timerInterval);
+  renderResultSection(reason);
+}
+
+function renderResultSection(reason){
+  appCard.innerHTML = "";
+
+  const h = document.createElement("h1");
+  h.textContent = "Test Completed";
+  appCard.appendChild(h);
+
+  if(reason){
+    const r = document.createElement("div");
+    r.className = "subtitle";
+    r.textContent = reason;
+    appCard.appendChild(r);
+  }
+
+  const resultDiv = document.createElement("div");
+  resultDiv.className = "result";
+
+  const passed = score === totalPossibleMarks;
+  const percent = (score / totalPossibleMarks) * 100;
+
+  const statusTag = `<span class="status-tag ${passed?"status-pass":"status-fail"}">${passed?"PASS (100%)":"FAIL"}</span>`;
+  resultDiv.innerHTML =
+    `Final score: ${score} / ${totalPossibleMarks} (${percent.toFixed(1)}%) ${statusTag}`;
+
+  appCard.appendChild(resultDiv);
+
+  const summaryTitle = document.createElement("div");
+  summaryTitle.style.marginTop = "8px";
+  summaryTitle.textContent = "Question breakdown:";
+  appCard.appendChild(summaryTitle);
+
+  questions.forEach((q, idx)=>{
+    const qs = questionState[q.id];
+    const item = document.createElement("div");
+    item.className = "summary-item";
+    const maxForQ = q.solutions.length;
+    item.textContent =
+      `Q${q.id} (${idx+1}/${questions.length}): ${qs.questionMark} / ${maxForQ}` +
+      (qs.hintUsed ? " (Hint used)" : "");
+    appCard.appendChild(item);
+  });
+
+  if(passed){
+    launchConfetti();
+  }
+
+  const restartDiv = document.createElement("div");
+  restartDiv.style.marginTop = "12px";
+  restartDiv.appendChild(
+    makeButton("Restart Test","btn btn-secondary",()=>{
+      // reset state
+      score = 0;
+      timeLeft = 30 * 60;
+      Object.keys(questionState).forEach(id=>{
+        const st = questionState[id];
+        st.inputs = st.inputs.map(()=> "");
+        st.hintUsed = false;
+        st.scored = false;
+        st.questionMark = 0;
+      });
+      currentQuestionIndex = -1;
+      testStarted = false;
+      testFinished = false;
+      startTimer();
+      render();
+    })
+  );
+  appCard.appendChild(restartDiv);
+}
+
+// initial render
+render();
+</script>
+</body>
+</html>
+
