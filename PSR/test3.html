@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PSR Lesson 1 – NB Text Test</title>
+<title>PSR Lesson 2 – NB Text Answer Test</title>
 <style>
   body{
     font-family:system-ui,Segoe UI,Roboto,Arial;
@@ -41,6 +41,13 @@
     color:#9ca3af;
     margin-top:4px;
   }
+  .top-right{
+    text-align:right;
+    font-size:13px;
+    color:#d1d5db;
+  }
+  .timer{font-weight:600;color:#38bdf8;font-size:15px}
+  .score{margin-top:4px}
   .btn{
     display:inline-block;
     padding:9px 13px;
@@ -55,60 +62,22 @@
   .btn-primary{background:#2563eb;color:#f9fafb}
   .btn-secondary{background:#111827;color:#e5e7eb;border:1px solid #374151}
   .btn:disabled{opacity:0.45;cursor:default}
-  .mode-title{font-size:14px;color:#9ca3af;margin-bottom:8px}
   .question-block{
     border-top:1px solid #111827;
     padding:14px 0;
   }
-  .q-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:8px;
-  }
   .q-text{
     font-weight:600;
-    font-size:14px;
+    font-size:15px;
     color:#f9fafb;
-  }
-  .q-tag{
-    padding:2px 6px;
-    border-radius:4px;
-    font-size:11px;
-    font-weight:600;
-    background:#b45309;
-    color:#fffbeb;
-  }
-  .answer-pill{
-    margin-top:6px;
-    padding:8px 10px;
-    border-radius:8px;
-    background:#020617;
-    border:1px solid #1f2937;
-    cursor:pointer;
-    font-size:13px;
-    color:#e5e7eb;
-  }
-  .answer-pill.learned{
-    background:#064e3b;
-    border-color:#22c55e;
-    color:#ecfdf5;
-  }
-  .answer-pill small{
-    display:block;
-    font-size:11px;
-    opacity:0.7;
-  }
-  .stats{
-    font-size:13px;
-    color:#9ca3af;
-    margin:6px 0 10px;
+    margin-bottom:8px;
   }
   .input-row{
     margin-top:6px;
     display:flex;
     flex-direction:column;
     gap:5px;
+    margin-bottom:6px;
   }
   input[type="text"]{
     width:100%;
@@ -133,16 +102,24 @@
     font-size:13px;
     color:#e0f2fe;
   }
-  .test-header{
+  .nav-row{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:10px;
-    font-size:14px;
-    color:#d1d5db;
+    margin-top:10px;
   }
+  .progress{
+    font-size:13px;
+    color:#9ca3af;
+  }
+  .feedback{
+    margin-top:6px;
+    font-size:13px;
+  }
+  .feedback.good{color:#6ee7b7}
+  .feedback.bad{color:#fca5a5}
   .result{
-    margin-top:14px;
+    margin-top:16px;
     padding:10px;
     border-radius:10px;
     border:1px solid #38bdf8;
@@ -161,6 +138,11 @@
   }
   .status-pass{background:#14532d;color:#bbf7d0}
   .status-fail{background:#7f1d1d;color:#fecaca}
+  .summary-item{
+    font-size:13px;
+    margin-top:4px;
+    color:#d1d5db;
+  }
   .confetti-piece{
     position:fixed;
     width:8px;
@@ -185,66 +167,528 @@
 </div>
 
 <script>
-// -------- LESSON 1 NB QUESTIONS (1,2,3,4,5,7,8,10,11,13,14,16) --------
-// Solutions taken from the "Lesson 1 – Self-evaluation Answers" pages.
-
+// -------- LESSON 2 NB QUESTIONS (1,3,4,5,6,10,11,13,16) --------
 const questions = [
   {
     id: 1,
-    prompt: "State the purpose of the Plant Safety Regulations.",
+    prompt: "List the criteria to be met before any person can be authorised in terms of the Plant Safety Regulations.",
     solutions: [
-      "To specify and provide requirements for the application of compulsory health and safety measures for all plant.",
-      "And for all persons who work on plant and machinery under the control of Eskom, Generation Division."
+      "Must be subjected to a Risk Assessment.",
+      "Must satisfy the Examining Committee that he or she has adequate knowledge to perform specific duties on specified plant.",
+      "Must have been duly selected and instructed in his or her duties.",
+      "Must have satisfactory knowledge of these Regulations to justify an appointment in that authorisation.",
+      "The candidate’s attitude to plant must be above reproach."
     ],
     keywords: [
-      ["specify","requirements","compulsory","health","safety","plant"],
-      ["persons","work","plant","machinery","control","eskom","generation"]
-    ]
-  },
-  {
-    id: 2,
-    prompt: "List three dangers of movement.",
-    solutions: [
-      "It is possible that a fall to a lower level may occur.",
-      "Persons may be struck by the moving load.",
-      "Persons may be trapped between the moving load and a fixed object."
-    ],
-    keywords: [
-      ["fall","lower","level"],
-      ["struck","moving","load"],
-      ["trapped","moving","load","fixed","object"]
+      ["risk","assessment"],
+      ["examining","committee","adequate","knowledge"],
+      ["selected","instructed","duties"],
+      ["satisfactory","knowledge","regulations","appointment"],
+      ["attitude","plant","above","reproach"]
     ]
   },
   {
     id: 3,
-    prompt: "List three responsibilities of every Authorised person who is in possession of a copy of the Regulations.",
+    prompt: "List the requirements when a person in training can be allowed to perform isolations.",
     solutions: [
-      "Will be held responsible for the knowledge and application of the Regulations.",
-      "Must maintain his copy of the Regulations in a good condition and up to date.",
-      "Must ensure that the latest revision of these Regulations is readily available at the place of work."
+      "A person training for Authorisation as an Appointed Person will be allowed to perform the isolation provided that an Appointed Person is in attendance or direct supervision.",
+      "The Appointed Person shall be fully responsible for the trainee.",
+      "The Appointed Person shall be accountable for the isolation."
     ],
     keywords: [
-      ["responsible","knowledge","application"],
-      ["maintain","copy","good","condition","up","to","date"],
-      ["latest","revision","readily","available","place","work"]
+      ["training","authorisation","appointed","attendance","supervision"],
+      ["fully","responsible","trainee"],
+      ["accountable","isolation"]
     ]
   },
   {
     id: 4,
-    prompt: "How can explosions occur in confined spaces?",
+    prompt: "Describe the process to report dangerous conditions and incidents.",
     solutions: [
-      "Pulverised fuel is in suspension in the air in a certain proportion.",
-      "A concentration of flammable gases or vapours is present e.g. hydrogen, LP gas, acetylene, petrol vapours.",
-      "There must be a source of ignition or spontaneous combustion."
+      "All dangerous conditions and incidents must be reported as soon as possible to the immediate supervisor or the relevant health and safety representative or construction safety officer.",
+      "The above reports must then be dealt with immediately by the employee concerned, the appointed person, the employee reporting, the employer, the relevant health and safety representative or the construction safety officer in charge of that area or section of the plant.",
+      "The employee, health and safety representative and construction safety officer shall only delegate or refer the function further by agreement between them.",
+      "The employee shall not be victimised in any way because he or she reported the dangerous or unsafe condition."
     ],
     keywords: [
-      ["pulverised","fuel","suspension","air"],
-      ["concentration","flammable","gases","vapours"],
-      ["source","ignition","spontaneous","combustion"]
+      ["reported","immediate","supervisor","safety","officer"],
+      ["dealt","immediately","employee","appointed","employer"],
+      ["delegate","refer","agreement"],
+      ["not","victimised","reported","dangerous","unsafe"]
     ]
   },
   {
     id: 5,
-    prompt: "List the additional dangers in confined spaces, excluding explosions.",
+    prompt: "Discuss how to achieve safe supervision when work is to be done on Eskom plant.",
     solutions: [
-      "Insufficient oxygen for the functioning of the human body.",
+      "A task related Risk Assessment must be completed by the Responsible Person and or Appointed Person.",
+      "The LAR or Permit to Work process must be followed with a written Risk Assessment before work on plant.",
+      "The Responsible Person must understand the plant, the work to be carried out, the safety regulations and procedures and must implement controls.",
+      "The Responsible Person must ensure that the plant is correctly isolated and safe to work on and that workers understand the hazards and controls.",
+      "The Responsible Person must supervise the work throughout and ensure that the plant is correctly reinstated after completion."
+    ],
+    keywords: [
+      ["task","risk","assessment","responsible"],
+      ["lar","permit","risk","assessment"],
+      ["understand","plant","regulations","procedures","controls"],
+      ["isolated","safe","hazards","controls"],
+      ["supervise","reinstated","completion"]
+    ]
+  },
+  {
+    id: 6,
+    prompt: "Explain dual authorisation on a single Permit to Work.",
+    solutions: [
+      "Dual authorisation may not be exercised on one Permit to Work."
+    ],
+    keywords: [
+      ["dual","authorisation","not","exercised","one","permit"]
+    ]
+  },
+  {
+    id: 10,
+    prompt: "Define Responsible Person.",
+    solutions: [
+      "Means a person who has been authorised in terms of these Regulations to ensure that the plant is correctly isolated and safe to work on.",
+      "Means a person who has been authorised in terms of these Regulations to ensure that workers are informed of dangers and that they understand the precautions.",
+      "Means a person who has been authorised in terms of these Regulations to ensure that work is done in accordance with these Regulations and safety procedures."
+    ],
+    keywords: [
+      ["authorised","isolated","safe","work","plant"],
+      ["workers","informed","dangers","precautions"],
+      ["work","accordance","regulations","procedures"]
+    ]
+  },
+  {
+    id: 11,
+    prompt: "Define Authorised Supervisor.",
+    solutions: [
+      "Means a person who has been Authorised in terms of these Regulations to ensure that work executed under a Permit to Work is supervised and controlled in accordance with these Regulations and safety procedures."
+    ],
+    keywords: [
+      ["authorised","supervisor","permit","supervised","controlled","procedures"]
+    ]
+  },
+  {
+    id: 13,
+    prompt: "Define authorised / authorisation / authority / authorised.",
+    solutions: [
+      "Means an instruction or authority to carry out a specific duty or function in terms of these Regulations, issued in writing by the Power Station Manager or his or her delegate."
+    ],
+    keywords: [
+      ["instruction","authority","specific","duty","writing","power","station","manager"]
+    ]
+  },
+  {
+    id: 16,
+    prompt: "List the duties of an Appointed Person.",
+    solutions: [
+      "Ensuring the safe and effective isolation for the work to be carried out.",
+      "Seeing that workers are informed of the hazards and precautions in terms of these Regulations.",
+      "Ensuring that the plant is correctly reinstated after revoking a Permit to Work.",
+      "Maintaining supervision of the work as required."
+    ],
+    keywords: [
+      ["safe","effective","isolation"],
+      ["workers","informed","hazards","precautions"],
+      ["reinstated","revoking","permit"],
+      ["maintaining","supervision","work"]
+    ]
+  }
+];
+
+// -------- STATE --------
+let currentQuestionIndex = -1;       // -1 = not started
+let testStarted = false;
+let testFinished = false;
+
+const totalPossibleMarks = questions.reduce((sum,q)=>sum+q.solutions.length,0);
+let score = 0;
+
+// per-question state: {inputs:[], hintUsed:boolean, scored:boolean, questionMark:number}
+const questionState = {};
+questions.forEach(q=>{
+  questionState[q.id] = {
+    inputs: Array(q.solutions.length).fill(""),
+    hintUsed: false,
+    scored: false,
+    questionMark: 0
+  };
+});
+
+let timeLeft = 30 * 60; // 30 minutes in seconds
+let timerInterval = null;
+
+const appCard = document.getElementById("app-card");
+
+// -------- HELPERS --------
+function makeButton(label, cls, handler){
+  const b = document.createElement("button");
+  b.textContent = label;
+  b.className = cls;
+  b.onclick = handler;
+  return b;
+}
+function normalizeText(t){
+  return t.trim().toLowerCase().replace(/\s+/g," ");
+}
+
+// Levenshtein distance between two strings
+function levenshtein(a, b){
+  const m = a.length, n = b.length;
+  if(m === 0) return n;
+  if(n === 0) return m;
+  const dp = Array.from({length:m+1},()=>Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0]=i;
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      const cost = a[i-1] === b[j-1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + cost
+      );
+    }
+  }
+  return dp[m][n];
+}
+
+// spelling tolerance: accept if distance <= 30% of max length
+function similarEnough(a, b){
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+  const maxLen = Math.max(a.length, b.length);
+  if(maxLen === 0) return true;
+  const dist = levenshtein(a, b);
+  return dist <= maxLen * 0.3;
+}
+
+function answerMatches(userText, solution, keywords){
+  const uRaw = userText || "";
+  const u = normalizeText(uRaw);
+  if(!u) return false;
+
+  const tokens = u.split(" ").filter(Boolean);
+
+  // ANY keyword match (with fuzzy spelling) is enough
+  if(Array.isArray(keywords) && keywords.length){
+    for(const kw of keywords){
+      const kwNorm = kw.toLowerCase();
+      if(u.includes(kwNorm)) return true;
+      for(const tok of tokens){
+        if(similarEnough(tok, kwNorm)) return true;
+      }
+    }
+  }
+
+  // Fallback: compare against solution text words
+  const s = normalizeText(solution || "");
+  if(s){
+    const solTokens = s.split(" ").filter(Boolean);
+    for(const st of solTokens){
+      for(const tok of tokens){
+        if(similarEnough(tok, st)) return true;
+      }
+    }
+  }
+  return false;
+}
+
+function formatTime(sec){
+  const m = String(Math.floor(sec/60)).padStart(2,"0");
+  const s = String(sec%60).padStart(2,"0");
+  return `${m}:${s}`;
+}
+function startTimer(){
+  if(timerInterval) clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    if(timeLeft <= 0){
+      timeLeft = 0;
+      updateTimerDisplay();
+      finishTest("Time is up.");
+      clearInterval(timerInterval);
+    } else {
+      updateTimerDisplay();
+    }
+  },1000);
+}
+function updateTimerDisplay(){
+  const t = document.getElementById("timer-span");
+  if(t) t.textContent = formatTime(timeLeft);
+}
+function launchConfetti(){
+  const colors = ["#f97316","#22c55e","#38bdf8","#eab308","#ec4899","#a855f7"];
+  for(let i=0;i<150;i++){
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    const color = colors[Math.floor(Math.random()*colors.length)];
+    const xOffset = (Math.random()*200-100) + "vw";
+    const left = (Math.random()*100) + "vw";
+    piece.style.setProperty("--c", color);
+    piece.style.setProperty("--x", xOffset);
+    piece.style.left = left;
+    piece.style.animationDelay = (Math.random()*0.7) + "s";
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(), 3000);
+  }
+}
+
+// -------- RENDER --------
+function render(){
+  appCard.innerHTML = "";
+  const header = document.createElement("header");
+  const left = document.createElement("div");
+  const h = document.createElement("h1");
+  h.textContent = "PSR Lesson 2 – NB Text Answer Test";
+  left.appendChild(h);
+  const sub = document.createElement("div");
+  sub.className = "subtitle";
+  sub.textContent = "Each correct solution = 1 mark. Total = " + totalPossibleMarks + " marks. If Hint is used, that question can score max 1 mark.";
+  left.appendChild(sub);
+  header.appendChild(left);
+
+  const right = document.createElement("div");
+  right.className = "top-right";
+  const tLabel = document.createElement("div");
+  tLabel.innerHTML = `Time left: <span id="timer-span" class="timer">${formatTime(timeLeft)}</span>`;
+  right.appendChild(tLabel);
+  const sLabel = document.createElement("div");
+  sLabel.className = "score";
+  sLabel.textContent = `Score: ${score} / ${totalPossibleMarks}`;
+  right.appendChild(sLabel);
+  header.appendChild(right);
+  appCard.appendChild(header);
+
+  if(!testStarted){
+    const intro = document.createElement("div");
+    intro.className = "subtitle";
+    intro.textContent = "Press Start Test to begin. You will see one NB question at a time.";
+    appCard.appendChild(intro);
+    const btn = makeButton("Start Test","btn btn-primary",()=>{
+      testStarted = true;
+      currentQuestionIndex = 0;
+      startTimer();
+      render();
+    });
+    appCard.appendChild(btn);
+    return;
+  }
+
+  if(testFinished){
+    renderResultSection();
+    return;
+  }
+
+  const q = questions[currentQuestionIndex];
+  const qs = questionState[q.id];
+
+  const qBlock = document.createElement("div");
+  qBlock.className = "question-block";
+
+  const qText = document.createElement("div");
+  qText.className = "q-text";
+  qText.textContent = `Q${q.id}. ${q.prompt}`;
+  qBlock.appendChild(qText);
+
+  const inputsDiv = document.createElement("div");
+  inputsDiv.className = "input-row";
+  q.solutions.forEach((_, idx)=>{
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Answer " + (idx+1);
+    input.value = qs.inputs[idx] || "";
+    input.oninput = e => {
+      qs.inputs[idx] = e.target.value;
+    };
+    inputsDiv.appendChild(input);
+  });
+  qBlock.appendChild(inputsDiv);
+
+  if(qs.hintUsed){
+    const hintBox = document.createElement("div");
+    hintBox.className = "hint-box";
+    hintBox.innerHTML = "<strong>Official solutions:</strong><br>" +
+      q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
+    qBlock.appendChild(hintBox);
+  }
+
+  const nav = document.createElement("div");
+  nav.className = "nav-row";
+
+  const leftNav = document.createElement("div");
+  const hintBtn = makeButton("Hint","btn btn-secondary",()=>{
+    qs.hintUsed = true;
+    render();
+  });
+  leftNav.appendChild(hintBtn);
+
+  const submitBtn = makeButton("Submit","btn btn-primary",()=>{
+    markCurrentQuestion();
+  });
+  leftNav.appendChild(submitBtn);
+  nav.appendChild(leftNav);
+
+  const rightNav = document.createElement("div");
+  const progress = document.createElement("span");
+  progress.className = "progress";
+  progress.textContent = `Question ${currentQuestionIndex+1} of ${questions.length}`;
+  rightNav.appendChild(progress);
+  nav.appendChild(rightNav);
+
+  qBlock.appendChild(nav);
+
+  if(qs.scored){
+    const fb = document.createElement("div");
+    fb.className = "feedback " + (qs.questionMark>0?"good":"bad");
+    fb.textContent = `Marked: ${qs.questionMark} mark(s) for this question (out of ${q.solutions.length}).` +
+      (qs.hintUsed ? " (Hint used – max 1 mark possible)" : "");
+    qBlock.appendChild(fb);
+
+    const nav2 = document.createElement("div");
+    nav2.className = "nav-row";
+    const spacer = document.createElement("div");
+    nav2.appendChild(spacer);
+    const nextBtn = makeButton(
+      currentQuestionIndex === questions.length-1 ? "Finish" : "Next",
+      "btn btn-secondary",
+      ()=>{
+        if(currentQuestionIndex === questions.length-1){
+          finishTest();
+        } else {
+          currentQuestionIndex++;
+          render();
+        }
+      }
+    );
+    nav2.appendChild(nextBtn);
+    qBlock.appendChild(nav
+      appCard.appendChild(qBlock);
+}
+
+function markCurrentQuestion(){
+  const q = questions[currentQuestionIndex];
+  const qs = questionState[q.id];
+
+  // remove previous marks for this question from score
+  score -= qs.questionMark;
+
+  // Order‑independent matching: each solution can use any unused input
+  const rawInputs = qs.inputs.slice();
+  const usedInputs = Array(rawInputs.length).fill(false);
+  let correctCount = 0;
+
+  q.solutions.forEach((sol, sIdx)=>{
+    const kw = (q.keywords && q.keywords[sIdx]) ? q.keywords[sIdx] : [];
+    let matched = false;
+    for(let i=0;i<rawInputs.length && !matched;i++){
+      if(usedInputs[i]) continue;
+      if(answerMatches(rawInputs[i], sol, kw)){
+        matched = true;
+        usedInputs[i] = true;
+        correctCount++;
+      }
+    }
+  });
+
+  let newMark;
+  if(qs.hintUsed){
+    // If at least one correct with Hint, give 1 mark max for that question
+    newMark = correctCount > 0 ? 1 : 0;
+  } else {
+    newMark = correctCount;
+  }
+
+  qs.questionMark = newMark;
+  qs.scored = true;
+  score += newMark;
+
+  render();
+}
+
+function finishTest(reason){
+  if(testFinished) return;
+  testFinished = true;
+  if(timerInterval) clearInterval(timerInterval);
+  renderResultSection(reason);
+}
+
+function renderResultSection(reason){
+  appCard.innerHTML = "";
+
+  const h = document.createElement("h1");
+  h.textContent = "Test Completed";
+  appCard.appendChild(h);
+
+  if(reason){
+    const r = document.createElement("div");
+    r.className = "subtitle";
+    r.textContent = reason;
+    appCard.appendChild(r);
+  }
+
+  const resultDiv = document.createElement("div");
+  resultDiv.className = "result";
+
+  const passed = score === totalPossibleMarks;
+  const percent = (score / totalPossibleMarks) * 100;
+
+  const statusTag = `<span class="status-tag ${passed?"status-pass":"status-fail"}">${passed?"PASS (100%)":"FAIL"}</span>`;
+  resultDiv.innerHTML =
+    `Final score: ${score} / ${totalPossibleMarks} (${percent.toFixed(1)}%) ${statusTag}`;
+
+  appCard.appendChild(resultDiv);
+
+  const summaryTitle = document.createElement("div");
+  summaryTitle.style.marginTop = "8px";
+  summaryTitle.textContent = "Question breakdown:";
+  appCard.appendChild(summaryTitle);
+
+  questions.forEach((q, idx)=>{
+    const qs = questionState[q.id];
+    const item = document.createElement("div");
+    item.className = "summary-item";
+    const maxForQ = q.solutions.length;
+    item.textContent =
+      `Q${q.id} (${idx+1}/${questions.length}): ${qs.questionMark} / ${maxForQ}` +
+      (qs.hintUsed ? " (Hint used)" : "");
+    appCard.appendChild(item);
+  });
+
+  if(passed){
+    launchConfetti();
+  }
+
+  const restartDiv = document.createElement("div");
+  restartDiv.style.marginTop = "12px";
+  restartDiv.appendChild(
+    makeButton("Restart Test","btn btn-secondary",()=>{
+      // reset state
+      score = 0;
+      timeLeft = 30 * 60;
+      Object.keys(questionState).forEach(id=>{
+        const st = questionState[id];
+        st.inputs = st.inputs.map(()=> "");
+        st.hintUsed = false;
+        st.scored = false;
+        st.questionMark = 0;
+      });
+      currentQuestionIndex = -1;
+      testStarted = false;
+      testFinished = false;
+      startTimer();
+      render();
+    })
+  );
+  appCard.appendChild(restartDiv);
+}
+
+// initial render
+render();
+</script>
+</body>
+</html>
+
+    
