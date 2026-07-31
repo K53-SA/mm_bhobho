@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PSR Lesson 1 – Text Answer Test</title>
+<title>PSR Lesson 1 – NB Text Answer Test</title>
 <style>
   body{
     font-family:system-ui,Segoe UI,Roboto,Arial;
@@ -90,6 +90,12 @@
     font-size:13px;
     color:#9ca3af;
   }
+  .feedback{
+    margin-top:6px;
+    font-size:13px;
+  }
+  .feedback.good{color:#6ee7b7}
+  .feedback.bad{color:#fca5a5}
   .result{
     margin-top:16px;
     padding:10px;
@@ -110,6 +116,11 @@
   }
   .status-pass{background:#14532d;color:#bbf7d0}
   .status-fail{background:#7f1d1d;color:#fecaca}
+  .summary-item{
+    font-size:13px;
+    margin-top:4px;
+    color:#d1d5db;
+  }
   .confetti-piece{
     position:fixed;
     width:8px;
@@ -134,7 +145,7 @@
 </div>
 
 <script>
-// -------- QUESTIONS & SOLUTIONS (exact text you provided) --------
+// -------- NB QUESTIONS ONLY (1,2,3,4,5,7,8,10,11,13,14,16) --------
 const questions = [
   {
     id: 1,
@@ -205,16 +216,6 @@ const questions = [
     ]
   },
   {
-    id: 6,
-    prompt: "How shall these regulations be interpreted?",
-    solutions: [
-      "These regulations are to be interpreted as the minimum requirements for the safety of personnel and the safe operation of plant."
-    ],
-    keywords: [
-      ["minimum","requirements","safety","personnel","safe","operation","plant"]
-    ]
-  },
-  {
     id: 7,
     prompt: "What will be the consequences of contravention of the Act and regulations?",
     solutions: [
@@ -242,16 +243,6 @@ const questions = [
       ["enforce","discipline","workplace"],
       ["educate","employees","dangers"],
       ["educate","employees","precautions"]
-    ]
-  },
-  {
-    id: 9,
-    prompt: "If there is conflict between a local procedure, which is seen as an extension of the PSR, and the OHS Act and its Regulations, which regulation shall prevail?",
-    solutions: [
-      "In instances of conflict, the OHS Act and its Regulations shall prevail."
-    ],
-    keywords: [
-      ["conflict","ohs","act","regulations","prevail"]
     ]
   },
   {
@@ -285,16 +276,6 @@ const questions = [
     ]
   },
   {
-    id: 12,
-    prompt: "List the danger of energy in the power station.",
-    solutions: [
-      "When not controlled, energy can destroy."
-    ],
-    keywords: [
-      ["not","controlled","energy","destroy"]
-    ]
-  },
-  {
     id: 13,
     prompt: "List the dangers of electricity in a power station.",
     solutions: [
@@ -322,16 +303,6 @@ const questions = [
       ["dangerous","gases","atmosphere"],
       ["steam","serious","injuries"],
       ["fluid","high","pressure","temperature","flash","steam","vapour"]
-    ]
-  },
-  {
-    id: 15,
-    prompt: "How shall the training manuals, decision register, local procedures and instructions be regarded?",
-    solutions: [
-      "As an extension of the Regulations."
-    ],
-    keywords: [
-      ["extension","regulations"]
     ]
   },
   {
@@ -442,11 +413,11 @@ function render(){
   const header = document.createElement("header");
   const left = document.createElement("div");
   const h = document.createElement("h1");
-  h.textContent = "PSR Lesson 1 – Text Answer Test";
+  h.textContent = "PSR Lesson 1 – NB Text Answer Test";
   left.appendChild(h);
   const sub = document.createElement("div");
   sub.className = "subtitle";
-  sub.textContent = "Each correct solution = 1 mark. Total = " + totalPossibleMarks + " marks. Hint limits each question to max 1 mark.";
+  sub.textContent = "Each correct solution = 1 mark. Total = " + totalPossibleMarks + " marks. If Hint is used, that question can score max 1 mark.";
   left.appendChild(sub);
   header.appendChild(left);
 
@@ -465,7 +436,7 @@ function render(){
   if(!testStarted){
     const intro = document.createElement("div");
     intro.className = "subtitle";
-    intro.textContent = "Press Start Test to begin. You will see one question at a time.";
+    intro.textContent = "Press Start Test to begin. You will see one NB question at a time.";
     appCard.appendChild(intro);
     const btn = makeButton("Start Test","btn btn-primary",()=>{
       testStarted = true;
@@ -493,4 +464,111 @@ function render(){
   qText.textContent = `Q${q.id}. ${q.prompt}`;
   qBlock.appendChild(qText);
 
- 
+  const inputsDiv = document.createElement("div");
+  inputsDiv.className = "input-row";
+  q.solutions.forEach((_, idx)=>{
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Answer " + (idx+1);
+    input.value = qs.inputs[idx] || "";
+    input.oninput = e => {
+      qs.inputs[idx] = e.target.value;
+    };
+    inputsDiv.appendChild(input);
+  });
+  qBlock.appendChild(inputsDiv);
+
+  if(qs.hintUsed){
+    const hintBox = document.createElement("div");
+    hintBox.className = "hint-box";
+    hintBox.innerHTML = "<strong>Official solutions:</strong><br>" +
+      q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
+    qBlock.appendChild(hintBox);
+  }
+
+  const nav = document.createElement("div");
+  nav.className = "nav-row";
+
+  const leftNav = document.createElement("div");
+  const hintBtn = makeButton("Hint","btn btn-secondary",()=>{
+    qs.hintUsed = true;
+    render();
+  });
+  leftNav.appendChild(hintBtn);
+
+  const submitBtn = makeButton("Submit","btn btn-primary",()=>{
+    markCurrentQuestion();
+  });
+  leftNav.appendChild(submitBtn);
+  nav.appendChild(leftNav);
+
+  const rightNav = document.createElement("div");
+  const progress = document.createElement("span");
+  progress.className = "progress";
+  progress.textContent = `Question ${currentQuestionIndex+1} of ${questions.length}`;
+  rightNav.appendChild(progress);
+  nav.appendChild(rightNav);
+
+  qBlock.appendChild(nav);
+
+  if(qs.scored){
+    const fb = document.createElement("div");
+    fb.className = "feedback " + (qs.questionMark>0?"good":"bad");
+    fb.textContent = `Marked: ${qs.questionMark} mark(s) for this question (out of ${q.solutions.length}).` +
+      (qs.hintUsed ? " (Hint used – max 1 mark possible)" : "");
+    qBlock.appendChild(fb);
+
+    const nav2 = document.createElement("div");
+    nav2.className = "nav-row";
+    const spacer = document.createElement("div");
+    nav2.appendChild(spacer);
+    const nextBtn = makeButton(
+      currentQuestionIndex === questions.length-1 ? "Finish" : "Next",
+      "btn btn-secondary",
+      ()=>{
+        if(currentQuestionIndex === questions.length-1){
+          finishTest();
+        } else {
+          currentQuestionIndex++;
+          render();
+        }
+      }
+    );
+    nav2.appendChild(nextBtn);
+    qBlock.appendChild(nav2);
+  }
+
+  appCard.appendChild(qBlock);
+}
+
+function markCurrentQuestion(){
+  const q = questions[currentQuestionIndex];
+  const qs = questionState[q.id];
+
+  // remove previous marks for this question from score
+  score -= qs.questionMark;
+
+  let correctCount = 0;
+  q.solutions.forEach((sol, idx)=>{
+    const kw = (q.keywords && q.keywords[idx]) ? q.keywords[idx] : [];
+    const ok = answerMatches(qs.inputs[idx] || "", sol, kw);
+    if(ok) correctCount++;
+  });
+
+  let newMark;
+  if(qs.hintUsed){
+    // if at least one correct, give 1 mark max
+    newMark = correctCount > 0 ? 1 : 0;
+  } else {
+    newMark = correctCount;
+  }
+
+  qs.questionMark = newMark;
+  qs.scored = true;
+  score += newMark;
+
+  render();
+}
+
+function finishTest(reason){
+  if(testFinished) return
