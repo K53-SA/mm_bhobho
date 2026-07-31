@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PSR Lesson 1 – NB Text Test (Minimal)</title>
+<title>PSR Lesson 1 – NB Text Test</title>
 <style>
   body{
     font-family:system-ui,Segoe UI,Roboto,Arial;
@@ -12,7 +12,7 @@
     background:#020617;
     color:#f9fafb;
   }
-  .app{max-width:900px;margin:0 auto;padding:24px 16px 40px;}
+  .app{max-width:1000px;margin:0 auto;padding:24px 16px 40px;}
   .card{
     background:#0b1120;
     border-radius:12px;
@@ -48,14 +48,6 @@
     gap:8px;
   }
   .q-text{font-weight:600;font-size:14px;color:#f9fafb}
-  .q-tag{
-    padding:2px 6px;
-    border-radius:4px;
-    font-size:11px;
-    font-weight:600;
-    background:#b45309;
-    color:#fffbeb;
-  }
   .answer-pill{
     margin-top:6px;
     padding:8px 10px;
@@ -149,25 +141,28 @@
 </div>
 
 <script>
-// ---------- DATA: 2 NB QUESTIONS ONLY (Q1 and Q2) ----------
+// -------- LESSON 1 NB QUESTIONS (1,2,3,4,5,7,8,10,11,13,14,16) --------
+// IMPORTANT: Replace every "TODO: paste exact solution text here" with the
+// exact bullet text from Lesson 1 solutions.pdf for that question.
+
 const questions = [
   {
     id: 1,
     prompt: "State the purpose of the Plant Safety Regulations.",
-    // From Lesson 1 solutions (page 226)
+    // According to Lesson 1 solutions page (Q1 has 3 bullet points)
     solutions: [
-      "To specify and provide requirements for the application of compulsory health and safety measures for all plant.",
-      "And for all persons who work on plant and machinery under the control of Eskom, Generation Division."
+      "TODO: paste exact solution line 1 for Q1 here",
+      "TODO: paste exact solution line 2 for Q1 here",
+      "TODO: paste exact solution line 3 for Q1 here"
     ],
     keywords: [
-      ["specify","requirements","compulsory","health","safety","plant"],
-      ["persons","work","plant","machinery","control","eskom","generation"]
+      [], [], []
     ]
   },
   {
     id: 2,
     prompt: "List three dangers of movement.",
-    // From Lesson 1 solutions (page 226)
+    // Page 226, 3 bullets
     solutions: [
       "It is possible that a fall to a lower level may occur.",
       "Persons may be struck by the moving load.",
@@ -177,6 +172,142 @@ const questions = [
       ["fall","lower","level"],
       ["struck","moving","load"],
       ["trapped","moving","load","fixed","object"]
+    ]
+  },
+  {
+    id: 3,
+    prompt: "List three responsibilities of every Authorised person who is in possession of a copy of the Regulations.",
+    // Page 226, 3 bullets
+    solutions: [
+      "TODO: paste exact solution line 1 for Q3 here",
+      "TODO: paste exact solution line 2 for Q3 here",
+      "TODO: paste exact solution line 3 for Q3 here"
+    ],
+    keywords: [
+      [], [], []
+    ]
+  },
+  {
+    id: 4,
+    prompt: "How can explosions occur in confined spaces?",
+    // Page 226, 3 bullets
+    solutions: [
+      "TODO: paste exact solution line 1 for Q4 here",
+      "TODO: paste exact solution line 2 for Q4 here",
+      "TODO: paste exact solution line 3 for Q4 here"
+    ],
+    keywords: [
+      [], [], []
+    ]
+  },
+  {
+    id: 5,
+    prompt: "List the additional dangers in confined spaces, excluding explosions.",
+    // Page 227, appears as 7 bullet points
+    solutions: [
+      "TODO: paste exact solution line 1 for Q5 here",
+      "TODO: paste exact solution line 2 for Q5 here",
+      "TODO: paste exact solution line 3 for Q5 here",
+      "TODO: paste exact solution line 4 for Q5 here",
+      "TODO: paste exact solution line 5 for Q5 here",
+      "TODO: paste exact solution line 6 for Q5 here",
+      "TODO: paste exact solution line 7 for Q5 here"
+    ],
+    keywords: [
+      [], [], [], [], [], [], []
+    ]
+  },
+  {
+    id: 7,
+    prompt: "What will be the consequences of contravention of the Act and Regulations?",
+    // Page 227, bullet list
+    solutions: [
+      "TODO: paste exact solution line 1 for Q7 here",
+      "TODO: paste exact solution line 2 for Q7 here",
+      "TODO: paste exact solution line 3 for Q7 here"
+    ],
+    keywords: [
+      [], [], []
+    ]
+  },
+  {
+    id: 8,
+    prompt: "How shall the Regulations be interpreted?",
+    // Page 227, bullet list
+    solutions: [
+      "TODO: paste exact solution line 1 for Q8 here",
+      "TODO: paste exact solution line 2 for Q8 here",
+      "TODO: paste exact solution line 3 for Q8 here"
+    ],
+    keywords: [
+      [], [], []
+    ]
+  },
+  {
+    id: 10,
+    prompt: "List three dangers of the human element in a power station.",
+    // Page 228, 3 bullets
+    solutions: [
+      "TODO: paste exact solution line 1 for Q10 here",
+      "TODO: paste exact solution line 2 for Q10 here",
+      "TODO: paste exact solution line 3 for Q10 here"
+    ],
+    keywords: [
+      [], [], []
+    ]
+  },
+  {
+    id: 11,
+    prompt: "List four duties of the employee in terms of the OHS Act.",
+    // Page 228, 4 bullets
+    solutions: [
+      "TODO: paste exact solution line 1 for Q11 here",
+      "TODO: paste exact solution line 2 for Q11 here",
+      "TODO: paste exact solution line 3 for Q11 here",
+      "TODO: paste exact solution line 4 for Q11 here"
+    ],
+    keywords: [
+      [], [], [], []
+    ]
+  },
+  {
+    id: 13,
+    prompt: "List three dangers of electricity in a power station.",
+    // Page 228, this question title indicates three dangers (3 bullets)
+    solutions: [
+      "TODO: paste exact solution line 1 for Q13 here",
+      "TODO: paste exact solution line 2 for Q13 here",
+      "TODO: paste exact solution line 3 for Q13 here"
+    ],
+    keywords: [
+      [], [], []
+    ]
+  },
+  {
+    id: 14,
+    prompt: "List four dangers of pressure and heat in a power station.",
+    // Page 228, 4 bullets
+    solutions: [
+      "TODO: paste exact solution line 1 for Q14 here",
+      "TODO: paste exact solution line 2 for Q14 here",
+      "TODO: paste exact solution line 3 for Q14 here",
+      "TODO: paste exact solution line 4 for Q14 here"
+    ],
+    keywords: [
+      [], [], [], []
+    ]
+  },
+  {
+    id: 16,
+    prompt: "What should be done if there is any doubt concerning the application of these Regulations?",
+    // Page 229, 3 bullets
+    solutions: [
+      "TODO: paste exact solution line 1 for Q16 here",
+      "TODO: paste exact solution line 2 for Q16 here",
+      "TODO: paste exact solution line 3 for Q16 here"
+    ],
+    keywords: [
+      [], [], []
     ]
   }
 ];
@@ -211,7 +342,7 @@ function answerMatches(userText, solution, keywords){
 }
 function launchConfetti(){
   const colors = ["#f97316","#22c55e","#38bdf8","#eab308","#ec4899","#a855f7"];
-  for(let i=0;i<120;i++){
+  for(let i=0;i<150;i++){
     const piece = document.createElement("div");
     piece.className = "confetti-piece";
     const color = colors[Math.floor(Math.random()*colors.length)];
@@ -236,7 +367,7 @@ function renderApp(){
 function renderMenu(){
   appCard.innerHTML = "";
   const h = document.createElement("h1");
-  h.textContent = "PSR Lesson 1 – NB Text Test (Minimal)";
+  h.textContent = "PSR Lesson 1 – NB Text Test";
   appCard.appendChild(h);
   const sub = document.createElement("div");
   sub.className = "subtitle";
@@ -281,10 +412,6 @@ function renderLearn(){
     qt.className = "q-text";
     qt.textContent = `Q${q.id}. ${q.prompt}`;
     head.appendChild(qt);
-    const tag = document.createElement("span");
-    tag.className = "q-tag";
-    tag.textContent = "NB";
-    head.appendChild(tag);
     qb.appendChild(head);
 
     q.solutions.forEach((sol, idx)=>{
@@ -358,74 +485,3 @@ function renderTest(){
       qa.hintUsed = true;
       renderTest();
     });
-    h.appendChild(hintBtn);
-    qb.appendChild(h);
-
-    const inpWrap = document.createElement("div");
-    inpWrap.className = "input-row";
-    q.solutions.forEach((_, idx)=>{
-      const input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = "Answer " + (idx+1);
-      input.value = qa.inputs[idx] || "";
-      input.oninput = e=>{
-        qa.inputs[idx] = e.target.value;
-      };
-      inpWrap.appendChild(input);
-    });
-    qb.appendChild(inpWrap);
-
-    if(qa.hintUsed){
-      const hintBox = document.createElement("div");
-      hintBox.className = "hint-box";
-      hintBox.innerHTML = "<strong>Official answers:</strong><br>" +
-        q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
-      qb.appendChild(hintBox);
-    }
-
-    appCard.appendChild(qb);
-  });
-
-  const bottom = document.createElement("div");
-  bottom.style.marginTop = "10px";
-  bottom.appendChild(makeButton("Mark test (pass mark 100%)","btn btn-primary",markTest));
-  appCard.appendChild(bottom);
-}
-
-function markTest(){
-  const totalQ = questions.length;
-  let correctQ = 0;
-
-  questions.forEach(q=>{
-    const qa = testAnswers[q.id] || {inputs:[], hintUsed:true};
-    if(qa.hintUsed){ qa.correct=false; return; }
-    let allOk = true;
-    q.solutions.forEach((sol, idx)=>{
-      const kw = (q.keywords && q.keywords[idx]) ? q.keywords[idx] : [];
-      if(!answerMatches(qa.inputs[idx] || "", sol, kw)) allOk = false;
-    });
-    qa.correct = allOk;
-    if(allOk) correctQ++;
-  });
-
-  const percent = (correctQ / totalQ) * 100;
-  const passed = correctQ === totalQ;
-
-  let res = document.querySelector(".result");
-  if(!res){
-    res = document.createElement("div");
-    res.className = "result";
-    appCard.appendChild(res);
-  }
-  res.className = "result " + (passed ? "pass" : "fail");
-  const tag = `<span class="status-tag ${passed?"status-pass":"status-fail"}">${passed?"PASS (100%)":"FAIL"}</span>`;
-  res.innerHTML = `Score: ${correctQ} / ${totalQ} (${percent.toFixed(1)}%) ${tag}`;
-
-  if(passed) launchConfetti();
-}
-
-// Start
-renderApp();
-</script>
-</body>
-</html>
