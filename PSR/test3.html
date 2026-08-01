@@ -322,6 +322,21 @@ let timeLeft = 30 * 60; // 30 minutes in seconds
 let timerInterval = null;
 
 const appCard = document.getElementById("app-card");
+// -------- Progress helper for home page --------
+function updateLessonProgress(lessonId, percent){
+  try{
+    const key = "psr_lesson_progress";
+    const raw = localStorage.getItem(key);
+    const data = raw ? JSON.parse(raw) : {};
+    const prev = typeof data[lessonId] === "number" ? data[lessonId] : 0;
+    if(percent > prev){
+      data[lessonId] = percent;
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+  }catch(e){
+    // ignore storage errors
+  }
+}
 
 // -------- HELPERS --------
 function makeButton(label, cls, handler){
