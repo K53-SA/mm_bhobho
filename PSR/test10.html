@@ -1,0 +1,693 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PSR Lesson 1 – NB Text Answer Test 14:39</title>
+<style>
+  body{
+    font-family:system-ui,Segoe UI,Roboto,Arial;
+    margin:0;
+    padding:0;
+    background:#020617;
+    color:#f9fafb;
+  }
+  .app{max-width:1000px;margin:0 auto;padding:24px 16px 40px;}
+  .card{
+    background:#0b1120;
+    border-radius:12px;
+    padding:20px 18px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.8);
+    border:1px solid #1f2937;
+  }
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  h1{margin:0;font-size:22px;color:#e5e7eb}
+  .subtitle{font-size:13px;color:#9ca3af;margin-top:4px}
+  .top-right{
+    text-align:right;
+    font-size:13px;
+    color:#d1d5db;
+  }
+  .timer{font-weight:600;color:#38bdf8;font-size:15px}
+  .score{margin-top:4px}
+  .btn{
+    display:inline-block;
+    padding:9px 13px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+    margin-right:8px;
+    margin-bottom:8px;
+  }
+  .btn-primary{background:#2563eb;color:#f9fafb}
+  .btn-secondary{background:#111827;color:#e5e7eb;border:1px solid #374151}
+  .btn:disabled{opacity:0.45;cursor:default}
+  .question-block{
+    margin-top:6px;
+    padding-top:10px;
+    border-top:1px solid #111827;
+  }
+  .q-text{font-weight:600;font-size:15px;color:#f9fafb;margin-bottom:8px}
+  .input-row{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+  input[type="text"]{
+    width:100%;
+    padding:8px 10px;
+    border-radius:8px;
+    border:1px solid #374151;
+    background:#020617;
+    color:#e5e7eb;
+    font-size:13px;
+  }
+  input[type="text"]:focus{
+    outline:none;
+    border-color:#38bdf8;
+    box-shadow:0 0 0 1px #0ea5e9;
+  }
+  .hint-box{
+    margin-top:6px;
+    padding:8px 10px;
+    border-radius:8px;
+    background:#111827;
+    border:1px dashed #38bdf8;
+    font-size:13px;
+    color:#e0f2fe;
+  }
+  .nav-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+  }
+  .progress{
+    font-size:13px;
+    color:#9ca3af;
+  }
+  .feedback{
+    margin-top:6px;
+    font-size:13px;
+  }
+  .feedback.good{color:#6ee7b7}
+  .feedback.bad{color:#fca5a5}
+  .result{
+    margin-top:16px;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #38bdf8;
+    background:#020617;
+    font-size:14px;
+  }
+  .result.pass{border-color:#22c55e}
+  .result.fail{border-color:#ef4444}
+  .status-tag{
+    display:inline-block;
+    margin-left:6px;
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:600;
+  }
+  .status-pass{background:#14532d;color:#bbf7d0}
+  .status-fail{background:#7f1d1d;color:#fecaca}
+  .summary-item{
+    font-size:13px;
+    margin-top:4px;
+    color:#d1d5db;
+  }
+  .confetti-piece{
+    position:fixed;
+    width:8px;
+    height:14px;
+    background:var(--c);
+    top:-20px;
+    left:50%;
+    opacity:0.9;
+    pointer-events:none;
+    animation:fall 2.7s linear forwards;
+    z-index:9999;
+  }
+  @keyframes fall{
+    0%{transform:translate3d(0,0,0) rotateZ(0deg);}
+    100%{transform:translate3d(var(--x),110vh,0) rotateZ(360deg);}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="card" id="app-card"></div>
+</div>
+
+<script>
+// -------- LESSON 8 NB QUESTIONS (1,2,3,6,7,11,13,17,20,25) --------
+const questions = [
+  {
+    id: 1,
+    prompt: "Explain who may carry out isolations on High Voltage Apparatus under these Regulations?",
+    solutions: [
+      "Appointed Operator authorised in terms of the HV Regulations."
+    ],
+    keywords: [
+      ["appointed","operator","authorised","hv","regulations"]
+    ]
+  },
+  {
+    id: 2,
+    prompt: "List the type of permit that will be issued for work on a 3.3 kV C.W. pump if work is to be done on the pump.",
+    solutions: [
+      "Plant Safety Permit to Work."
+    ],
+    keywords: [
+      ["plant","safety","permit","to","work"]
+    ]
+  },
+  {
+    id: 3,
+    prompt: "Who will carry out the electrical isolation on a 3.3 kV C.W. pump if work is to be done on the pump?",
+    solutions: [
+      "Appointed Operator authorised in terms of the HV Regulations."
+    ],
+    keywords: [
+      ["appointed","operator","authorised","hv","regulations"]
+    ]
+  },
+  {
+    id: 6,
+    prompt: "State the precautions to be taken when work is to be performed on low-voltage electrical plant which cannot be isolated.",
+    solutions: [
+      "A \"Plant Alive\" Permit to Work shall be issued and only be valid for a period of 12 hours.",
+      "The person doing the work must stand on a dry insulating mat.",
+      "Use insulated tools.",
+      "Use insulated rubber gloves.",
+      "Wear necessary and relevant Arc Flash protective clothing as per the Risk Assessment requirements."
+    ],
+    keywords: [
+      ["plant","alive","permit","12","hours"],
+      ["dry","insulating","mat"],
+      ["insulated","tools"],
+      ["insulated","rubber","gloves"],
+      ["arc","flash","protective","clothing","risk","assessment"]
+    ]
+  },
+  {
+    id: 7,
+    prompt: "Explain who may carry out work on low-voltage electrical plant which cannot be isolated.",
+    solutions: [
+      "If a Responsible Person carries out the work, another Responsible Person must provide direct supervision for the duration of the work.",
+      "Skilled persons may perform the work under the direct supervision of a Responsible Person."
+    ],
+    keywords: [
+      ["responsible","person","direct","supervision"],
+      ["skilled","persons","supervision","responsible"]
+    ]
+  },
+  {
+    id: 11,
+    prompt: "Explain what isolations are necessary to work on electrical plant provided with an isolator.",
+    solutions: [
+      "The isolator must be switched off.",
+      "Locked in the off position.",
+      "Circuit tested dead.",
+      "Prohibitory Sign affixed."
+    ],
+    keywords: [
+      ["isolator","switched","off"],
+      ["locked","off","position"],
+      ["circuit","tested","dead"],
+      ["prohibitory","sign","affixed"]
+    ]
+  },
+  {
+    id: 13,
+    prompt: "State the requirements regarding a barrier on fuses for isolation purposes.",
+    solutions: [
+      "The barrier must prevent reinsertion of fuses.",
+      "The barrier must effectively shield live terminals.",
+      "The barrier must be lockable."
+    ],
+    keywords: [
+      ["prevent","reinsertion","fuses"],
+      ["shield","live","terminals"],
+      ["barrier","lockable"]
+    ]
+  },
+  {
+    id: 17,
+    prompt: "Define Power Circuit.",
+    solutions: [
+      "All High-Voltage circuits.",
+      "All Low-Voltage circuits exceeding 250 volts but less than 1000 volts.",
+      "All Low-Voltage circuits not exceeding 250 volts protected by fuses or circuit breakers of a capacity higher than 15 amperes.",
+      "All Direct-Current supplies exceeding 50 volts.",
+      "All Direct-Current supplies not exceeding 50 volts but with a capacity higher than 15 amperes."
+    ],
+    keywords: [
+      ["high-voltage","circuits"],
+      ["low-voltage","exceeding","250","less","1000"],
+      ["low-voltage","not exceeding","250","fuses","breakers","higher","15"],
+      ["direct-current","exceeding","50"],
+      ["direct-current","not exceeding","50","higher","15"]
+    ]
+  },
+  {
+    id: 20,
+    prompt: "Define Isolate.",
+    solutions: [
+      "Means to make safe to work on.",
+      "By effectively disconnecting.",
+      "From all possible sources of dangerous energy.",
+      "And/or harmful substances."
+    ],
+    keywords: [
+      ["make","safe","work","on"],
+      ["effectively","disconnecting"],
+      ["possible","sources","dangerous","energy"],
+      ["harmful","substances"]
+    ]
+  },
+  {
+    id: 25,
+    prompt: "Explain in detail the circumstances under which gas monitoring will be required in battery rooms.",
+    solutions: [
+      "If a device is used that produces significant heat or a spark, gas monitoring must be done during the work or activity.",
+      "To ensure that an explosive atmosphere does not develop."
+    ],
+    keywords: [
+      ["device","heat","spark","gas","monitoring"],
+      ["explosive","atmosphere","does not develop"]
+    ]
+  }
+];
+
+
+
+
+
+
+// -------- STATE --------
+let currentQuestionIndex = -1;       // -1 = not started
+let testStarted = false;
+let testFinished = false;
+
+const totalPossibleMarks = questions.reduce((sum,q)=>sum+q.solutions.length,0);
+let score = 0;
+
+// per-question state: {inputs:[], hintUsed:boolean, scored:boolean, questionMark:number}
+const questionState = {};
+questions.forEach(q=>{
+  questionState[q.id] = {
+    inputs: Array(q.solutions.length).fill(""),
+    hintUsed: false,
+    scored: false,
+    questionMark: 0
+  };
+});
+
+let timeLeft = 30 * 60; // 30 minutes in seconds
+let timerInterval = null;
+
+const appCard = document.getElementById("app-card");
+
+// -------- HELPERS --------
+function makeButton(label, cls, handler){
+  const b = document.createElement("button");
+  b.textContent = label;
+  b.className = cls;
+  b.onclick = handler;
+  return b;
+}
+function normalizeText(t){
+  return t.trim().toLowerCase().replace(/\s+/g," ");
+}
+// Levenshtein distance between two strings
+function levenshtein(a, b){
+  const m = a.length, n = b.length;
+  if(m === 0) return n;
+  if(n === 0) return m;
+  const dp = Array.from({length:m+1},()=>Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0]=i;
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      const cost = a[i-1] === b[j-1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,      // delete
+        dp[i][j-1] + 1,      // insert
+        dp[i-1][j-1] + cost  // substitute
+      );
+    }
+  }
+  return dp[m][n];
+}
+
+// spelling tolerance: accept if distance <= 30% of max length
+function similarEnough(a, b){
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+  const maxLen = Math.max(a.length, b.length);
+  if(maxLen === 0) return true;
+  const dist = levenshtein(a, b);
+  return dist <= maxLen * 0.3;
+}
+
+function answerMatches(userText, solution, keywords){
+  const uRaw = userText || "";
+  const u = normalizeText(uRaw);
+  if(!u) return false;           // empty input
+
+  // Split user input into tokens for fuzzy matching
+  const tokens = u.split(" ").filter(Boolean);
+
+  // If keywords defined: ANY keyword matching is enough for a mark
+  if(Array.isArray(keywords) && keywords.length){
+    for(const kw of keywords){
+      const kwNorm = kw.toLowerCase();
+      // exact substring check first
+      if(u.includes(kwNorm)) return true;
+      // fuzzy word-by-word check with spelling tolerance
+      for(const tok of tokens){
+        if(similarEnough(tok, kwNorm)) return true;
+      }
+    }
+  }
+
+  // Fallback: check if user text is reasonably similar to the whole solution text
+  const s = normalizeText(solution || "");
+  if(s){
+    // Compare on a token basis: if at least one solution word is similar, accept
+    const solTokens = s.split(" ").filter(Boolean);
+    for(const st of solTokens){
+      for(const tok of tokens){
+        if(similarEnough(tok, st)) return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+function formatTime(sec){
+  const m = String(Math.floor(sec/60)).padStart(2,"0");
+  const s = String(sec%60).padStart(2,"0");
+  return `${m}:${s}`;
+}
+function startTimer(){
+  if(timerInterval) clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    if(timeLeft <= 0){
+      timeLeft = 0;
+      updateTimerDisplay();
+      finishTest("Time is up.");
+      clearInterval(timerInterval);
+    } else {
+      updateTimerDisplay();
+    }
+  },1000);
+}
+function updateTimerDisplay(){
+  const t = document.getElementById("timer-span");
+  if(t) t.textContent = formatTime(timeLeft);
+}
+function launchConfetti(){
+  const colors = ["#f97316","#22c55e","#38bdf8","#eab308","#ec4899","#a855f7"];
+  for(let i=0;i<150;i++){
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    const color = colors[Math.floor(Math.random()*colors.length)];
+    const xOffset = (Math.random()*200-100) + "vw";
+    const left = (Math.random()*100) + "vw";
+    piece.style.setProperty("--c", color);
+    piece.style.setProperty("--x", xOffset);
+    piece.style.left = left;
+    piece.style.animationDelay = (Math.random()*0.7) + "s";
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(), 3000);
+  }
+}
+
+// -------- RENDER --------
+function render(){
+  appCard.innerHTML = "";
+  const header = document.createElement("header");
+  const left = document.createElement("div");
+  const h = document.createElement("h1");
+  h.textContent = "PSR Lesson 1 – NB Text Answer Test";
+  left.appendChild(h);
+  const sub = document.createElement("div");
+  sub.className = "subtitle";
+  sub.textContent = "Each correct solution = 1 mark. Total = " + totalPossibleMarks + " marks. If Hint is used, that question can score max 1 mark.";
+  left.appendChild(sub);
+  header.appendChild(left);
+
+  const right = document.createElement("div");
+  right.className = "top-right";
+  const tLabel = document.createElement("div");
+  tLabel.innerHTML = `Time left: <span id="timer-span" class="timer">${formatTime(timeLeft)}</span>`;
+  right.appendChild(tLabel);
+  const sLabel = document.createElement("div");
+  sLabel.className = "score";
+  sLabel.textContent = `Score: ${score} / ${totalPossibleMarks}`;
+  right.appendChild(sLabel);
+  header.appendChild(right);
+  appCard.appendChild(header);
+
+  if(!testStarted){
+    const intro = document.createElement("div");
+    intro.className = "subtitle";
+    intro.textContent = "Press Start Test to begin. You will see one NB question at a time.";
+    appCard.appendChild(intro);
+    const btn = makeButton("Start Test","btn btn-primary",()=>{
+      testStarted = true;
+      currentQuestionIndex = 0;
+      startTimer();
+      render();
+    });
+    appCard.appendChild(btn);
+    return;
+  }
+
+  if(testFinished){
+    renderResultSection();
+    return;
+  }
+
+  const q = questions[currentQuestionIndex];
+  const qs = questionState[q.id];
+
+  const qBlock = document.createElement("div");
+  qBlock.className = "question-block";
+
+  const qText = document.createElement("div");
+  qText.className = "q-text";
+  qText.textContent = `Q${q.id}. ${q.prompt}`;
+  qBlock.appendChild(qText);
+
+  const inputsDiv = document.createElement("div");
+  inputsDiv.className = "input-row";
+  q.solutions.forEach((_, idx)=>{
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Answer " + (idx+1);
+    input.value = qs.inputs[idx] || "";
+    input.oninput = e => {
+      qs.inputs[idx] = e.target.value;
+    };
+    inputsDiv.appendChild(input);
+  });
+  qBlock.appendChild(inputsDiv);
+
+  if(qs.hintUsed){
+    const hintBox = document.createElement("div");
+    hintBox.className = "hint-box";
+    hintBox.innerHTML = "<strong>Official solutions:</strong><br>" +
+      q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
+    qBlock.appendChild(hintBox);
+  }
+
+  const nav = document.createElement("div");
+  nav.className = "nav-row";
+
+  const leftNav = document.createElement("div");
+  const hintBtn = makeButton("Hint","btn btn-secondary",()=>{
+    qs.hintUsed = true;
+    render();
+  });
+  leftNav.appendChild(hintBtn);
+
+  const submitBtn = makeButton("Submit","btn btn-primary",()=>{
+    markCurrentQuestion();
+  });
+  leftNav.appendChild(submitBtn);
+  nav.appendChild(leftNav);
+
+  const rightNav = document.createElement("div");
+  const progress = document.createElement("span");
+  progress.className = "progress";
+  progress.textContent = `Question ${currentQuestionIndex+1} of ${questions.length}`;
+  rightNav.appendChild(progress);
+  nav.appendChild(rightNav);
+
+  qBlock.appendChild(nav);
+
+  if(qs.scored){
+    const fb = document.createElement("div");
+    fb.className = "feedback " + (qs.questionMark>0?"good":"bad");
+    fb.textContent = `Marked: ${qs.questionMark} mark(s) for this question (out of ${q.solutions.length}).` +
+      (qs.hintUsed ? " (Hint used – max 1 mark possible)" : "");
+    qBlock.appendChild(fb);
+
+    const nav2 = document.createElement("div");
+    nav2.className = "nav-row";
+    const spacer = document.createElement("div");
+    nav2.appendChild(spacer);
+    const nextBtn = makeButton(
+      currentQuestionIndex === questions.length-1 ? "Finish" : "Next",
+      "btn btn-secondary",
+      ()=>{
+        if(currentQuestionIndex === questions.length-1){
+          finishTest();
+        } else {
+          currentQuestionIndex++;
+          render();
+        }
+      }
+    );
+    nav2.appendChild(nextBtn);
+    qBlock.appendChild(nav2);
+  }
+
+  appCard.appendChild(qBlock);
+}
+
+function markCurrentQuestion(){
+  const q = questions[currentQuestionIndex];
+  const qs = questionState[q.id];
+
+  // remove previous marks for this question from score
+  score -= qs.questionMark;
+
+  // We allow any solution in any input, but each input can only be used once
+  const rawInputs = qs.inputs.slice();          // array of strings
+  const usedInputs = Array(rawInputs.length).fill(false);
+  let correctCount = 0;
+
+  q.solutions.forEach((sol, sIdx)=>{
+    const kw = (q.keywords && q.keywords[sIdx]) ? q.keywords[sIdx] : [];
+    let matched = false;
+    for(let i=0;i<rawInputs.length && !matched;i++){
+      if(usedInputs[i]) continue;
+      if(answerMatches(rawInputs[i], sol, kw)){
+        matched = true;
+        usedInputs[i] = true;
+        correctCount++;
+      }
+    }
+  });
+
+  let newMark;
+  if(qs.hintUsed){
+    // If at least one correct with Hint, give 1 mark max for that question
+    newMark = correctCount > 0 ? 1 : 0;
+  } else {
+    newMark = correctCount;
+  }
+
+  qs.questionMark = newMark;
+  qs.scored = true;
+  score += newMark;
+
+  render();
+}
+
+
+function finishTest(reason){
+  if(testFinished) return
+  testFinished = true;
+  if(timerInterval) clearInterval(timerInterval);
+  renderResultSection(reason);
+}
+
+function renderResultSection(reason){
+  appCard.innerHTML = "";
+
+  const h = document.createElement("h1");
+  h.textContent = "Test Completed";
+  appCard.appendChild(h);
+
+  if(reason){
+    const r = document.createElement("div");
+    r.className = "subtitle";
+    r.textContent = reason;
+    appCard.appendChild(r);
+  }
+
+  const resultDiv = document.createElement("div");
+  resultDiv.className = "result";
+
+  const passed = score === totalPossibleMarks;
+  const percent = (score / totalPossibleMarks) * 100;
+
+  const statusTag = `<span class="status-tag ${passed?"status-pass":"status-fail"}">${passed?"PASS (100%)":"FAIL"}</span>`;
+  resultDiv.innerHTML =
+    `Final score: ${score} / ${totalPossibleMarks} (${percent.toFixed(1)}%) ${statusTag}`;
+
+  appCard.appendChild(resultDiv);
+
+  const summaryTitle = document.createElement("div");
+  summaryTitle.style.marginTop = "8px";
+  summaryTitle.textContent = "Question breakdown:";
+  appCard.appendChild(summaryTitle);
+
+  questions.forEach((q, idx)=>{
+    const qs = questionState[q.id];
+    const item = document.createElement("div");
+    item.className = "summary-item";
+    const maxForQ = q.solutions.length;
+    item.textContent =
+      `Q${q.id} (${idx+1}/${questions.length}): ${qs.questionMark} / ${maxForQ}` +
+      (qs.hintUsed ? " (Hint used)" : "");
+    appCard.appendChild(item);
+  });
+
+  if(passed){
+    launchConfetti();
+  }
+
+  const restartDiv = document.createElement("div");
+  restartDiv.style.marginTop = "12px";
+  restartDiv.appendChild(
+    makeButton("Restart Test","btn btn-secondary",()=>{
+      // reset state
+      score = 0;
+      timeLeft = 30 * 60;
+      Object.keys(questionState).forEach(id=>{
+        const st = questionState[id];
+        st.inputs = st.inputs.map(()=> "");
+        st.hintUsed = false;
+        st.scored = false;
+        st.questionMark = 0;
+      });
+      currentQuestionIndex = -1;
+      testStarted = false;
+      testFinished = false;
+      startTimer();
+      render();
+    })
+  );
+  appCard.appendChild(restartDiv);
+}
+
+// initial render
+render();
+</script>
+</body>
+</html>
+
