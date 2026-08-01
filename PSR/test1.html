@@ -346,13 +346,16 @@ function updateLessonProgress(lessonId, percent){
     const key = "psr_lesson_progress";
     const raw = localStorage.getItem(key);
     const data = raw ? JSON.parse(raw) : {};
-    const prev = typeof data[lesson1] === "number" ? data[lesson1] : 0;
+    const prev = typeof data[lessonId] === "number" ? data[lessonId] : 0;
     if(percent > prev){
-      data[lesson1] = percent;
+      data[lessonId] = percent;
       localStorage.setItem(key, JSON.stringify(data));
     }
-  }catch(e){}
+  }catch(e){
+    // ignore storage errors
+  }
 }
+
   
 totalPossibleSpan.textContent = totalPossible;
 
@@ -500,7 +503,7 @@ function endTest(){
   const passed = score === totalPossible; // must get 100%
 
   // store best score for Lesson 1
-  updateLessonProgress("lesson1", percentage);
+  updateLessonProgress("lessonId", percentage);
 
   resultDiv.style.display = 'block';
   resultDiv.className = passed ? 'pass' : 'fail';
