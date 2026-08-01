@@ -145,263 +145,319 @@
 </div>
 
 <script>
-// -------- LESSON 3 NB QUESTIONS (2,3,4,7,8,9,11,12,13,17,18,20,21,24,25,27,28) --------
+// -------- LESSON 4 NB QUESTIONS (2,3,7,8,9,13,14,15,16,17,19,20,25,26,27,30) --------
 const questions = [
   {
     id: 2,
-    prompt: "Define Key Safe.",
+    prompt: "List the different sections on the Permit to Work form.",
     solutions: [
-      "Means an approved device.",
-      "For the secure retention of safety lock keys used for isolation purposes.",
-      "Associated with the issue of a Permit to Work."
+      "Application",
+      "Isolations",
+      "Signatures",
+      "Suspension",
+      "Suspension Revocation",
+      "Special Endorsement / Requests",
+      "Change of Responsible Person",
+      "Abbreviations"
     ],
     keywords: [
-      ["approved","device"],
-      ["secure","retention","safety","lock","keys","isolation"],
-      ["associated","issue","permit","work"]
+      ["application"],
+      ["isolations"],
+      ["signatures"],
+      ["suspension"],
+      ["suspension","revocation"],
+      ["special","endorsement","requests"],
+      ["change","responsible","person"],
+      ["abbreviations"]
     ]
   },
   {
     id: 3,
-    prompt: "Name the main requirement of each Key Safe.",
+    prompt: "Define Permit to Work Application.",
     solutions: [
-      "Each Key Safe at a site must be clearly marked with a unique identifying number."
+      "Means a request made on the Permit to Work form.",
+      "Signed by a Responsible Person, or the person acting on his behalf.",
+      "Given to an Appointed Person.",
+      "Detailing what plant requires isolation.",
+      "The work to be done.",
+      "And at what date and time the work is to be carried out.",
+      "In the case of a computerised Permit to Work, the printed name on the form represents the signature of the Responsible Person as protected by the password."
     ],
     keywords: [
-      ["key","safe","clearly","marked","unique","identifying","number"]
-    ]
-  },
-  {
-    id: 4,
-    prompt: "List the requirements of an Operating Lock.",
-    solutions: [
-      "An Operating Lock series must be different from any other series in use at a site.",
-      "If the Operating Locks cannot be clearly distinguished from other series in use at that site, they must be provided with a permanent identifying feature.",
-      "Opened by a common key.",
-      "In possession of the Appointed Person."
-    ],
-    keywords: [
-      ["operating","lock","series","different","site"],
-      ["cannot","distinguished","permanent","identifying","feature"],
-      ["opened","common","key"],
-      ["possession","appointed","person"]
+      ["request","permit","work","form"],
+      ["signed","responsible","person"],
+      ["given","appointed","person"],
+      ["plant","requires","isolation"],
+      ["work","to","be","done"],
+      ["date","time","carried","out"],
+      ["computerised","printed","name","password"]
     ]
   },
   {
     id: 7,
-    prompt: "What is the primary purpose of the Operating Lock and the Safety Lock on the Key Safe?",
+    prompt: "Explain the two-step rule where different Appointed Persons are involved.",
     solutions: [
-      "Operating Lock is to prevent maintenance personnel free access to a locked Key Safe.",
-      "Safety Lock is to prevent operating personnel free access to a locked Key Safe."
+      "The Appointed Person who effects the isolations will sign the isolations effected portion of the permit form.",
+      "The Appointed Person who issues the permit is accountable for discussing the Risk Assessment with the Responsible Person.",
+      "And to ensure all relevant safety certificates are in place before issuing the permit."
     ],
     keywords: [
-      ["operating","lock","prevent","maintenance","free","access"],
-      ["safety","lock","prevent","operating","personnel","free","access"]
+      ["effects","isolations","sign","isolations","effected"],
+      ["issues","permit","discussing","risk","assessment","responsible"],
+      ["ensure","safety","certificates","in","place"]
     ]
   },
   {
     id: 8,
-    prompt: "Define Safety Lock.",
+    prompt: "Explain the definition of a Risk Assessment. What is a Risk Assessment? When is a Risk Assessment needed? Why is a Risk Assessment needed? How is a Risk Assessment done? Who is involved?" ,
     solutions: [
-      "Means a lock used for locking isolations.",
-      "For which only a single unique key is available.",
-      "This key can open more than one lock",
-      "provided that the locks form a defined suite of locks."
+      "What is a Risk Assessment? It is the process to determine, as far as reasonably possible, what the dangers and hazards are that pose a risk.",
+      "When is a Risk Assessment needed? For any work, operating activity, or task that takes place.",
+      "Why is a Risk Assessment needed? To determine precautions required to mitigate dangers and hazards.",
+      "How is a Risk Assessment done? It must be done by the Responsible Person for a specific PTW for the health and safety of workers performing the activity. Dangers and hazards requiring continuous assessment must be reflected on the PTW.",
+      "Who is involved? The Responsible Person initiates and conducts the Risk Assessment. It is discussed with the Appointed Person and verified by signature. It is also discussed with the Authorised Supervisor or workers during the pre-job brief."
     ],
     keywords: [
-      ["lock","locking","isolations"],
-      ["single","unique","key"],
-      ["open","more","than","one","lock","defined","suite"],
-      ["lock","defined","suite"]
+      ["process","determine","dangers","hazards","risk"],
+      ["any","work","operating","task"],
+      ["precautions","mitigate","dangers","hazards"],
+      ["responsible","person","specific","ptw","health","safety","continuous","assessment","reflected","ptw"],
+      ["initiates","conducts","risk","assessment", "discussed","appointed","person","signature", "authorised","supervisor","pre-job","brief"]
     ]
   },
   {
     id: 9,
-    prompt: "List the seven requirements of a Safety Lock or suite of Safety Locks and keys.",
+    prompt: "State the responsibilities of the Responsible Person before accepting the Permit to Work.",
     solutions: [
-      "Be marked with an individual number.",
-      "Have only one available key permanently marked with the same number.",
-      "Form part of a series that is different from any other series in use at that site.",
-      "The available key must be affixed to a key ring in such a manner as to prevent its removal without the use of tools.",
-      "The dimensions of the ring must be such that destruction of the ring is necessary before it can be removed from a locked Key Safe.",
-      "No duplicate or master keys.",
-      "Except in the case of a suite of Safety Locks where a master key for a suite of Safety Locks is permissible."
+      "The application section of the PTW is signed.",
+      "The correct plant has been isolated.",
+      "The work details are correct.",
+      "The stated isolations have been effected.",
+      "The Key Safe is correctly locked.",
+      "The isolations are adequate for the work to be carried out safely.",
+      "The Risk Assessment has been discussed and signed.",
+      "All safety certificates are available."
     ],
     keywords: [
-      ["marked","individual","number"],
-      ["one","available","key","same","number"],
-      ["series","different","site"],
-      ["affixed","key","ring","removal","tools"],
-      ["dimensions","ring","destruction","removed","locked","key","safe"],
-      ["no","duplicate","master","keys"],
-      ["suite","safety","locks","master","key","permissible"]
-    ]
-  },
-  {
-    id: 11,
-    prompt: "Describe the procedure to use the Key Safe under the following condition: Work to be done on plant (Permit A).",
-    solutions: [
-      "The keys of Safety Locks used on isolation points must be placed together on one Key Safe (No. 1).",
-      "The Key Safe must be locked with an Operating Lock and a Safety Lock.",
-      "The key to the Safety Lock must be issued with Permit to Work A."
-    ],
-    keywords: [
-      ["keys","safety","locks","isolation","key","safe","no","1"],
-      ["locked","operating","lock","safety","lock"],
-      ["key","safety","lock","issued","permit","work","a"]
-    ]
-  },
-  {
-    id: 12,
-    prompt: "Describe the procedure to use the Key Safe under the following condition: Work that includes all or part of the same isolations (Permit B).",
-    solutions: [
-      "Apply an additional Safety Lock to Key Safe No. 1.",
-      "The key to this Safety Lock is issued with Permit to Work B.",
-      "Cross-reference Permits A and B."
-    ],
-    keywords: [
-      ["additional","safety","lock","key","safe","no","1"],
-      ["key","safety","lock","issued","permit","work","b"],
-      ["cross-reference","permits","a","b"]
+      ["application","section","ptw","signed"],
+      ["correct","plant","isolated"],
+      ["work","details","correct"],
+      ["stated","isolations","effected"],
+      ["key","safe","correctly","locked"],
+      ["isolations","adequate","safely"],
+      ["risk","assessment","discussed","signed"],
+      ["safety","certificates","available"]
     ]
   },
   {
     id: 13,
-    prompt: "Describe the procedure to use the Key Safe under the following condition: Work that includes all or part of the same isolations and requires additional isolations (Permit C).",
+    prompt: "Describe the duties of the Responsible Person towards workers if he is going to supervise the work.",
     solutions: [
-      "An additional Safety Lock must be applied to Key Safe No. 1.",
-      "The key of this Safety Lock",
-      "and keys of Safety Locks on additional isolation points are placed in Key Safe No. 2.",
-      "Key Safe No. 2 is locked with an Operating Lock and a Safety Lock.",
-      "The key to this Safety Lock is issued with Permit to Work C.",
-      "Cross-reference Permits A, B and C."
+      "The Permit to Work must be shown to all workers involved.",
+      "The nature and location of the work must be explained.",
+      "Any special conditions, requests",
+      "dangers and hazards requiring continuous assessment must be explained.",
+      "The Responsible Person must then enter the PTW number and names and unique/ID numbers of workers on the Workers Register.",
+      "Before signing the Workers Register with date and time.",
+      "Workers must sign next to their names."
     ],
     keywords: [
-      ["additional","safety","lock","key","safe","no","1"],
-      ["key","safe", "lock"],
-      ["key","safety","lock","additional","isolation","key","safe","no","2"],
-      ["key","safe","no","2","locked","operating","lock","safety","lock"],
-      ["key","safety","lock","issued","permit","work","c"],
-      ["cross-reference","permits","a","b","c"]
+      ["ptw","shown","workers"],
+      ["nature","location","work","explained"],
+      ["special","conditions","requests"],
+      ["dangers","hazards","continuous","assessment"],
+      ["enter","ptw","number","workers","register"],
+      ["signing","workers","register","date","time"],
+      ["workers","sign","names"]
+    ]
+  },
+  {
+    id: 14,
+    prompt: "List the requirements when the current Responsible Person is replaced by another Responsible Person.",
+    solutions: [
+      "Countersign pre-work checklist.",
+      "Change responsibility on Workers Register or create a new Workers Register.",
+      "Re-evaluate the Risk Assessment.",
+      "Check availability of all relevant safety certificates.",
+      "The original and copy for change of responsibility on the PTW form must be signed by the incoming Responsible Person.",
+      "Endorse with date and time."
+    ],
+    keywords: [
+      ["countersign","pre-work","checklist"],
+      ["change","responsibility","workers","register"],
+      ["re-evaluate","risk","assessment"],
+      ["availability","safety","certificates"],
+      ["original","copy","change","responsibility","ptw","signed"],
+      ["endorse","date","time"]
+    ]
+  },
+  {
+    id: 15,
+    prompt: "Define Clearance / Clear / Cleared.",
+    solutions: [
+      "Means a declaration on the Permit to Work form.",
+      "Signed and issued by the Responsible Person in charge of the work.",
+      "Stating that all personnel, tools and debris have been withdrawn.",
+      "And that the plant is in a safe and serviceable condition."
+    ],
+    keywords: [
+      ["declaration","permit","work","form"],
+      ["signed","issued","responsible","person"],
+      ["personnel","tools","debris","withdrawn"],
+      ["safe","serviceable","condition"]
+    ]
+  },
+  {
+    id: 16,
+    prompt: "On completion of the work, what are the duties of the Responsible Person/Authorised Supervisor towards the workers?",
+    solutions: [
+      "Inform workers that it is no longer safe to work on the plant.",
+      "All workers must be withdrawn from the workplace.",
+      "Allow workers to sign the Workers Register next to their names.",
+      "This must be confirmed by the Responsible Person or Authorised Supervisor by signing the appropriate section of the Workers Register."
+    ],
+    keywords: [
+      ["inform","no longer","safe","work","plant"],
+      ["workers","withdrawn","workplace"],
+      ["workers","sign","workers","register"],
+      ["confirmed","responsible","authorised","supervisor","signing"]
     ]
   },
   {
     id: 17,
-    prompt: "Define Isolate / Isolation / Isolated.",
+    prompt: "List the responsibilities of the Responsible Person before signing the PTW clearance.",
     solutions: [
-      "Means to make safe to work on.",
-      "By effectively disconnecting from all possible sources.",
-      "Of dangerous energy",
-      "and/or harmful substances."
+      "Ensure the plant is in a serviceable condition.",
+      "Ensure all tools, debris and loose material have been removed.",
+      "Specify any necessary endorsements.",
+      "The original PTW form, appropriate Key Safe key",
+      "Original signed off signed Workers Register(s)",
+      "Risk Assessment(s)",
+      "Pre-work checklist(s), and other relevant documents where must be left at the place where",
+      "the permit to work was issued.",
+      "Inform the Appointed Person that the Permit to Work is ready for clearance."
     ],
     keywords: [
-      ["make","safe","work","on"],
-      ["disconnecting","all","possible","sources"],
-      ["dangerous","energy"],
-      ["harmful","substances"]
+      ["plant","serviceable","condition"],
+      ["tools","debris","loose","material","removed"],
+      ["specify","necessary","endorsements"],
+      ["leave","original","ptw","key","safe","workers","register","risk","assessment","pre-work"],
+      ["signed","off", "workers","register","risk","assessment","pre-work"],
+      ["Pre-work","checklist"],
+      ["risk","assessment"],
+      ["inform","appointed","person","ready","clearance"]
     ]
   },
   {
-    id: 18,
-    prompt: "List the three sources to be isolated before any work may be carried out.",
+    id: 19,
+    prompt: "Define Revocation / Revoke / Revoked.",
     solutions: [
-      "Electrical potential.",
-      "Dangerous / hazardous substances.",
-      "Dangerous movement."
+      "Means a declaration on the Permit to Work form.",
+      "Signed by the Appointed Person. Formally withdrawing the authority to work previously given on the Permit to Work.",
+      "Stating the date and time of withdrawal."
     ],
     keywords: [
-      ["electrical","potential"],
-      ["dangerous","hazardous","substances"],
-      ["dangerous","movement"]
+      ["declaration","permit","work","form"],
+      ["signed","appointed","person", "withdrawing","authority","work","previously","given"],
+      ["date","time","withdrawal"]
     ]
   },
   {
     id: 20,
-    prompt: "Define Prohibitory Sign.",
+    prompt: "List the duties of the Appointed Person on receipt of a cleared Permit to Work.",
     solutions: [
-      "Means a sign in approved form.",
-      "Attached to a point of isolation for the duration of a Permit to Work.",
-      "Prohibiting interference with the isolation to which it is attached."
+      "Ensure the Workers Register(s)",
+      "pre-work checklist(s)", 
+      "Risk Assessment(s), and other relevant safety certificates are attached to the cleared permit to work",
+      "Before he sign revocation on the original and copy.",
+      "Remove isolations and prohibitory signs. And prepare the plant for service.",
+      "Consider any endorsements by the Responsible Person.",
+      "Ensure no other Permit to Work is in force on the plant.",
+      "Must sign the standby section on the original and copy after the plant is ready for service."
     ],
     keywords: [
-      ["sign","approved","form"],
-      ["attached","point","isolation","duration","permit","work"],
-      ["prohibiting","interference","isolation"]
-    ]
-  },
-  {
-    id: 21,
-    prompt: "Where shall Prohibitory Signs be attached?",
-    solutions: [
-      "Prohibitory Signs must be affixed to all points of isolation.",
-      "Where possible, to all remote-control stations of plant under a Permit to Work."
-    ],
-    keywords: [
-      ["affixed","all","points","isolation"],
-      ["remote-control","stations","plant","permit","work"]
-    ]
-  },
-  {
-    id: 24,
-    prompt: "Define Warning Sign.",
-    solutions: [
-      "Means a sign in approved form.",
-      "Calling attention to the danger of approach to.",
-      "Or prohibiting interference with the plant or equipment to which it is attached."
-    ],
-    keywords: [
-      ["sign","approved","form"],
-      ["calling","attention","danger","approach"],
-      ["prohibiting","interference","plant","equipment"]
+      ["workers","register"],
+      ["pre-work","checklist"],
+      ["risk","assessment","certificates","attached"],
+      ["sign","revocation","original","copy"],
+      ["remove","isolations","prohibitory","signs", "prepare","plant","service"],
+      ["endorsements","responsible","person"],
+      ["no","other","permit","work","in force"],
+      ["sign","standby","plant","ready","service"]
     ]
   },
   {
     id: 25,
-    prompt: "Describe the method to extend a full Key Safe.",
+    prompt: "What must be stated on the Permit to Work application section?",
     solutions: [
-      "A Safety Lock will be applied instead of an Operating Lock on that Key Safe.",
-      "The key to this Safety Lock must be placed on the extended Key Safe with the other isolation keys.",
-      "The extended Key Safe is then locked with a Safety Lock and Operating Lock."
+      "The plant requiring isolation, in detail.",
+      "The scope of work to be carried out, in detail.",
+      "Any special requirements including identified dangers and hazards requiring continuous assessment.",
+      "The date and time work is to commence.",
+      "Risk Assessment number.",
+      "Workers Register number.",
+      "RP password as an electronic signature for the application."
     ],
     keywords: [
-      ["safety","lock","instead","operating","lock"],
-      ["key","safety","lock","extended","key","safe","isolation","keys"],
-      ["extended","key","safe","locked","safety","lock","operating","lock"]
+      ["plant","requiring","isolation"],
+      ["scope","work","carried","out"],
+      ["special","requirements","dangers","hazards","continuous"],
+      ["date","time","commence"],
+      ["risk","assessment","number"],
+      ["workers","register","number"],
+      ["rp","password","electronic","signature"]
+    ]
+  },
+  {
+    id: 26,
+    prompt: "What must be done if the Responsible Person is not going to supervise the work personally?",
+    solutions: [
+      "An Authorised Supervisor must be allocated.",
+      "By signing the specific section of the RP's Workers Register.",
+      "The permit must be shown to the Authorised Supervisor.",
+      "The nature  and physical location of the work",
+      "special conditions, requests, dangers and hazards requiring continuous assessment  as per the risk assessment must be explained to the authorised supervisor.",
+      "The Authorised Supervisor must countersign the Risk Assessment, pre-work checklist and safety certificates.",
+      "The Authorised Supervisor must compile his own Risk Assessment.",
+      "The Authorised Supervisor becomes responsible for the safe execution of the work."
+    ],
+    keywords: [
+      ["authorised","supervisor","allocated"],
+      ["signing","rps","workers","register"],
+      ["permit","shown","authorised","supervisor"],
+      ["nature","physical","location","work"],
+      ["special","conditions","dangers","hazards"],
+      ["countersign","risk","assessment","pre-work","certificates"],
+      ["compile","own","risk","assessment"],
+      ["responsible","safe","execution","work"]
     ]
   },
   {
     id: 27,
-    prompt: "Define Operating Activity.",
+    prompt: "Define \"Current\" in terms of the Workers Register.",
     solutions: [
-      "Means the opening and closing of breakers/isolators and valves/dampers.",
-      "For the control of plant and to effect isolations.",
-      "And to control other activities involved in the operating process of electricity generation.",
-      "Which are done in accordance with formulated safe procedures."
+      "Means a true reflection of all information associated with the document at hand.",
+      "A register must be kept current with the accepted permit and Risk Assessment conducted in line with the work to be undertaken."
     ],
     keywords: [
-      ["opening","closing","breakers","isolators","valves","dampers"],
-      ["control","plant","effect","isolations"],
-      ["operating","process","electricity","generation"],
-      ["accordance","formulated","safe","procedures"]
+      ["true","reflection","information","document"],
+      ["kept","current","accepted","permit","risk","assessment","work"]
     ]
   },
   {
-    id: 28,
-    prompt: "How is the security and integrity of a point of isolation ensured?",
+    id: 30,
+    prompt: "Define Pre-work Checklist.",
     solutions: [
-      "All points of isolation shall be immobilised by:",
-      "The application of a Safety Lock at each point of isolation.",
-      "A Prohibitory Sign attached at each point of isolation.",
-      "In the case of remote-control stations, a further Prohibitory Sign must be attached."
+      "Means a form used by the Responsible Person or Authorised Supervisor.",
+      "To check that all requirements have been considered or verified before starting physical work."
     ],
     keywords: [
-      ["points","isolation","immobilised"],
-      ["safety","lock","each","point","isolation"],
-      ["prohibitory","sign","each","point","isolation"],
-      ["remote-control","stations","further","prohibitory","sign"]
+      ["form","responsible","authorised","supervisor"],
+      ["requirements","considered","verified","before","starting","work"]
     ]
   }
 ];
+
 
 
 
