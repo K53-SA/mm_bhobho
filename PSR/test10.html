@@ -145,145 +145,468 @@
 </div>
 
 <script>
-// -------- LESSON 8 NB QUESTIONS (1,2,3,6,7,11,13,17,20,25) --------
+// -------- LESSON 9 NB QUESTIONS (2,3,8,9,13,16,19,21,22,23,25,26,27,28,29,30,34,37,38,39,40,43,46,49,50,52) --------
 const questions = [
   {
-    id: 1,
-    prompt: "Explain who may carry out isolations on High Voltage Apparatus under these Regulations?",
-    solutions: [
-      "Appointed Operator authorised in terms of the HV Regulations."
-    ],
-    keywords: [
-      ["appointed","operator","authorised","hv","regulations"]
-    ]
-  },
-  {
     id: 2,
-    prompt: "List the type of permit that will be issued for work on a 3.3 kV C.W. pump if work is to be done on the pump.",
+    prompt: "List the safety precautions that must be in place if you remove trench covers.",
     solutions: [
-      "Plant Safety Permit to Work."
+      "Must be physically barricaded.",
+      "Barrier tape must not be used.",
+      "Warning signs must be attached.",
+      "Gratings or covers must be replaced as soon as the work has been completed."
     ],
     keywords: [
-      ["plant","safety","permit","to","work"]
+      ["physically","barricaded"],
+      ["barrier","tape","not","used"],
+      ["warning","signs","attached"],
+      ["gratings","covers","replaced","completed"]
     ]
   },
   {
     id: 3,
-    prompt: "Who will carry out the electrical isolation on a 3.3 kV C.W. pump if work is to be done on the pump?",
+    prompt: "List the safety precautions that must be in place when work is to be carried out in an elevated position.",
     solutions: [
-      "Appointed Operator authorised in terms of the HV Regulations."
+      "The danger area must be clearly barricaded.",
+      "Warning signs must be displayed clearly visible."
     ],
     keywords: [
-      ["appointed","operator","authorised","hv","regulations"]
+      ["danger","area","clearly","barricaded"],
+      ["warning","signs","displayed","visible"]
     ]
   },
   {
-    id: 6,
-    prompt: "State the precautions to be taken when work is to be performed on low-voltage electrical plant which cannot be isolated.",
+    id: 8,
+    prompt: "List the safety conditions for internal work to be carried out in the combustion chamber or steam generator passes.",
     solutions: [
-      "A \"Plant Alive\" Permit to Work shall be issued and only be valid for a period of 12 hours.",
-      "The person doing the work must stand on a dry insulating mat.",
-      "Use insulated tools.",
-      "Use insulated rubber gloves.",
-      "Wear necessary and relevant Arc Flash protective clothing as per the Risk Assessment requirements."
+      "The plant has been isolated.",
+      "Cooled.",
+      "Ventilated.",
+      "Environmental Certificate has been issued.",
+      "Cleared of all dangerous gases.",
+      "Ash build-up and clinkers removed.",
+      "Safe Entry Certificate issued.",
+      "Gas Test Certificate issued.",
+      "Local procedure for safe work practices in place.",
+      "PTW issued and accepted."
     ],
     keywords: [
-      ["plant","alive","permit","12","hours"],
-      ["dry","insulating","mat"],
-      ["insulated","tools"],
-      ["insulated","rubber","gloves"],
-      ["arc","flash","protective","clothing","risk","assessment"]
+      ["plant","isolated"],
+      ["cooled"],
+      ["ventilated"],
+      ["environmental","certificate","issued"],
+      ["cleared","dangerous","gases"],
+      ["ash","clinkers","removed"],
+      ["safe","entry","certificate"],
+      ["gas","test","certificate"],
+      ["local","procedure","safe","work"],
+      ["ptw","issued","accepted"]
     ]
   },
   {
-    id: 7,
-    prompt: "Explain who may carry out work on low-voltage electrical plant which cannot be isolated.",
+    id: 9,
+    prompt: "List the safety conditions that must be in place before internal work on a mill can commence on a steaming steam generator.",
     solutions: [
-      "If a Responsible Person carries out the work, another Responsible Person must provide direct supervision for the duration of the work.",
-      "Skilled persons may perform the work under the direct supervision of a Responsible Person."
+      "The mill has been isolated.",
+      "Cooled.",
+      "Ventilated.",
+      "Clear of all coal.",
+      "Environmental Certificate has been issued.",
+      "Gas Test Certificate has been issued.",
+      "Safe Entry Certificate issued.",
+      "PTW issued and accepted."
     ],
     keywords: [
-      ["responsible","person","direct","supervision"],
-      ["skilled","persons","supervision","responsible"]
-    ]
-  },
-  {
-    id: 11,
-    prompt: "Explain what isolations are necessary to work on electrical plant provided with an isolator.",
-    solutions: [
-      "The isolator must be switched off.",
-      "Locked in the off position.",
-      "Circuit tested dead.",
-      "Prohibitory Sign affixed."
-    ],
-    keywords: [
-      ["isolator","switched","off"],
-      ["locked","off","position"],
-      ["circuit","tested","dead"],
-      ["prohibitory","sign","affixed"]
+      ["mill","isolated"],
+      ["cooled"],
+      ["ventilated"],
+      ["clear","coal"],
+      ["environmental","certificate","issued"],
+      ["gas","test","certificate","issued"],
+      ["safe","entry","certificate"],
+      ["ptw","issued","accepted"]
     ]
   },
   {
     id: 13,
-    prompt: "State the requirements regarding a barrier on fuses for isolation purposes.",
+    prompt: "List the requirements that will apply when entering the bunker from the top.",
     solutions: [
-      "The barrier must prevent reinsertion of fuses.",
-      "The barrier must effectively shield live terminals.",
-      "The barrier must be lockable."
+      "There must be a fall arrest plan.",
+      "Person entering the bunker must be a Skilled Person and wear a safety harness.",
+      "Rescue line(s) must be properly secured and kept as vertically as possible above the workplace.",
+      "One or more Skilled Persons must remain outside the bunker and be dedicated to this task.",
+      "All persons must be fully conversant with the work and local procedures.",
+      "Adequate approved lighting must be provided.",
+      "All material entry points must be guarded.",
+      "Undercutting of any material hang-up is strictly forbidden while personnel are in the bunker.",
+      "Gas Test Certificate issued.",
+      "Environmental Certificate issued.",
+      "PTW issued and accepted."
     ],
     keywords: [
-      ["prevent","reinsertion","fuses"],
-      ["shield","live","terminals"],
-      ["barrier","lockable"]
+      ["fall","arrest","plan"],
+      ["skilled","person","safety","harness"],
+      ["rescue","line","secured","vertically"],
+      ["skilled","persons","outside","dedicated"],
+      ["conversant","work","local","procedures"],
+      ["adequate","approved","lighting"],
+      ["material","entry","points","guarded"],
+      ["undercutting","hang-up","forbidden"],
+      ["gas","test","certificate"],
+      ["environmental","certificate"],
+      ["ptw","issued","accepted"]
     ]
   },
   {
-    id: 17,
-    prompt: "Define Power Circuit.",
+    id: 16,
+    prompt: "State the precautions before entering a bunker that contains radioactive material.",
     solutions: [
-      "All High-Voltage circuits.",
-      "All Low-Voltage circuits exceeding 250 volts but less than 1000 volts.",
-      "All Low-Voltage circuits not exceeding 250 volts protected by fuses or circuit breakers of a capacity higher than 15 amperes.",
-      "All Direct-Current supplies exceeding 50 volts.",
-      "All Direct-Current supplies not exceeding 50 volts but with a capacity higher than 15 amperes."
+      "No person may enter until the radioactive source and/or listed electronic product has been isolated by an authorised person in accordance with radiation regulations."
     ],
     keywords: [
-      ["high-voltage","circuits"],
-      ["low-voltage","exceeding","250","less","1000"],
-      ["low-voltage","not exceeding","250","fuses","breakers","higher","15"],
-      ["direct-current","exceeding","50"],
-      ["direct-current","not exceeding","50","higher","15"]
+      ["no","person","enter","radioactive","source","isolated","authorised","radiation","regulations"]
     ]
   },
   {
-    id: 20,
-    prompt: "Define Isolate.",
+    id: 19,
+    prompt: "List the requirements before access into an ash sump is allowed.",
     solutions: [
-      "Means to make safe to work on.",
-      "By effectively disconnecting.",
-      "From all possible sources of dangerous energy.",
-      "And/or harmful substances."
+      "Supplies to level-detecting probes isolated.",
+      "All inflow points isolated.",
+      "Measures in place to prevent lifting equipment traversing the sump opening.",
+      "Environmental Certificate issued.",
+      "Gas Test Certificate issued.",
+      "Safe Entry Certificate issued.",
+      "PTW issued and accepted."
     ],
     keywords: [
-      ["make","safe","work","on"],
-      ["effectively","disconnecting"],
-      ["possible","sources","dangerous","energy"],
-      ["harmful","substances"]
+      ["level-detecting","probes","isolated"],
+      ["inflow","points","isolated"],
+      ["prevent","lifting","equipment","traversing","sump"],
+      ["environmental","certificate","issued"],
+      ["gas","test","certificate","issued"],
+      ["safe","entry","certificate"],
+      ["ptw","issued","accepted"]
+    ]
+  },
+  {
+    id: 21,
+    prompt: "When is rodding of precipitators permissible?",
+    solutions: [
+      "Only if the field concerned has been isolated and earthed in accordance with a local procedure."
+    ],
+    keywords: [
+      ["only","field","isolated","earthed","local","procedure"]
+    ]
+  },
+  {
+    id: 22,
+    prompt: "What type of tools may be used in the Hydrogen Plant?",
+    solutions: [
+      "Approved insulated/spark-free tools."
+    ],
+    keywords: [
+      ["approved","insulated","spark-free","tools"]
+    ]
+  },
+  {
+    id: 23,
+    prompt: "List the requirements for work on Hydrogen equipment involving opening a casing.",
+    solutions: [
+      "Hydrogen supply disconnected.",
+      "Section of pipework removed.",
+      "Vessel purged with CO₂ or inert gas.",
+      "Purging gas replaced by air.",
+      "Vessel tested and certified free of hydrogen",
+      "and purging gas.",
+      "Environmental Certificate issued.",
+      "Gas Test Certificate issued.",
+      "PTW issued and accepted.",
+      "Hot Work document where applicable."
+    ],
+    keywords: [
+      ["hydrogen","supply","disconnected"],
+      ["section","pipework","removed"],
+      ["vessel","purged","co2","inert"],
+      ["purging","gas","replaced","air"],
+      ["tested","certified","free","hydrogen"],
+      ["purging"],
+      ["environmental","certificate","issued"],
+      ["gas","test","certificate","issued"],
+      ["ptw","issued","accepted"],
+      ["hot","work","document"]
     ]
   },
   {
     id: 25,
-    prompt: "Explain in detail the circumstances under which gas monitoring will be required in battery rooms.",
+    prompt: "What type of work and actions are prohibited in a Hydrogen Plant?",
     solutions: [
-      "If a device is used that produces significant heat or a spark, gas monitoring must be done during the work or activity.",
-      "To ensure that an explosive atmosphere does not develop."
+      "Hot work such as welding and grinding.",
+      "Smoking.",
+      "Open flames."
     ],
     keywords: [
-      ["device","heat","spark","gas","monitoring"],
-      ["explosive","atmosphere","does not develop"]
+      ["hot","work","welding","grinding"],
+      ["smoking"],
+      ["open","flames"]
+    ]
+  },
+  {
+    id: 26,
+    prompt: "What are the requirements when handling chemicals?",
+    solutions: [
+      "Personal protective equipment.",
+      "Protective clothing.",
+      "Safe handling equipment must be provided."
+    ],
+    keywords: [
+      ["personal","protective","equipment"],
+      ["protective","clothing"],
+      ["safe","handling","equipment"]
+    ]
+  },
+  {
+    id: 27,
+    prompt: "What are the requirements where chemical spillages may occur?",
+    solutions: [
+      "Showers.",
+      "Eyewash fountains.",
+      "Must be maintained in operational condition.",
+      "Must be tested before work commences."
+    ],
+    keywords: [
+      ["showers"],
+      ["eyewash","fountains"],
+      ["maintained","operational","condition"],
+      ["tested","before","work","commences"]
+    ]
+  },
+  {
+    id: 28,
+    prompt: "List the requirements for entry into any container containing dangerous chemical substances.",
+    solutions: [
+      "Conditions stipulated by a competent person must be complied with.",
+      "PTW detailing these stipulations must be issued and accepted.",
+      "Container/area must be certified free of dangerous chemicals and substances."
+    ],
+    keywords: [
+      ["conditions","competent","person","complied"],
+      ["ptw","detailing","stipulations","issued","accepted"],
+      ["certified","free","dangerous","chemicals","substances"]
+    ]
+  },
+  {
+    id: 29,
+    prompt: "In what manner must chlorinating plants be maintained?",
+    solutions: [
+      "Leak free.",
+      "Well ventilated."
+    ],
+    keywords: [
+      ["leak","free"],
+      ["well","ventilated"]
+    ]
+  },
+  {
+    id: 30,
+    prompt: "List the requirements before work can start on internal combustion engines.",
+    solutions: [
+      "Fuel supply isolated.",
+      "Starting equipment isolated.",
+      "Associated driven machine isolated.",
+      "PTW issued and accepted."
+    ],
+    keywords: [
+      ["fuel","supply","isolated"],
+      ["starting","equipment","isolated"],
+      ["driven","machine","isolated"],
+      ["ptw","issued","accepted"]
+    ]
+  },
+  {
+    id: 34,
+    prompt: "List the requirements when work must be done on electrically driven lifting machines.",
+    solutions: [
+      "Power supply isolated.",
+      "Prohibitory signs attached to control points.",
+      "PTW issued."
+    ],
+    keywords: [
+      ["power","supply","isolated"],
+      ["prohibitory","signs","control","points"],
+      ["ptw","issued"]
+    ]
+  },
+  {
+    id: 37,
+    prompt: "What precautions must be taken when entering a confined space where dangerous fumes or substances may be present?",
+    solutions: [
+      "Prevent ingress of dangerous substances.",
+      "Wear approved breathing apparatus.",
+      "Wear a safety harness with rescue line attached.",
+      "A rescuer must remain outside.",
+      "Communication must be maintained.",
+      "Rescuer must control rescue lines.",
+      "Additional breathing apparatus available for rescuer.",
+      "Withdraw personnel before breathing apparatus duration expires.",
+      "Only approved lighting and electrical tools may be used.",
+      "PTW issued and accepted."
+    ],
+    keywords: [
+      ["prevent","ingress","dangerous","substances"],
+      ["approved","breathing","apparatus"],
+      ["safety","harness","rescue","line"],
+      ["rescuer","remain","outside"],
+      ["communication","maintained"],
+      ["rescuer","control","lines"],
+      ["additional","breathing","apparatus"],
+      ["withdraw","before","duration","expires"],
+      ["approved","lighting","electrical","tools"],
+      ["ptw","issued","accepted"]
+    ]
+  },
+  {
+    id: 38,
+    prompt: "What are the requirements towards the door or manhole cover before entry into a confined space?",
+    solutions: [
+      "At least one access door/manhole must be lockable",
+      "in the open position.",
+      "A confined space warning sign must be attached.",
+      "Key must form part of the PTW isolations.",
+      "If it cannot be locked open, it must be removed by maintenance personnel."
+    ],
+    keywords: [
+      ["access","door","manhole","lockable"],
+      ["position","open"],
+      ["confined","space","warning","sign"],
+      ["key","part","ptw","isolations"],
+      ["removed","maintenance","personnel"]
+    ]
+  },
+  {
+    id: 39,
+    prompt: "What does the regulation state regarding a confined space Warning Sign?",
+    solutions: [
+      "Only approved confined-space warning signs may be used.",
+      "Must be affixed next to all lockable entrances.",
+      "If an area becomes a confined space because of work being done, warning signs must be attached to all entrances."
+    ],
+    keywords: [
+      ["approved","confined-space","warning","signs"],
+      ["affixed","lockable","entrances"],
+      ["area","becomes","confined","space","signs","entrances"]
+    ]
+  },
+  {
+    id: 40,
+    prompt: "Define Hot Work.",
+    solutions: [
+      "Means any activity involving a source of ignition.",
+      "Such as welding, cutting, grinding, sparks", 
+      "or electrical equipment capable of producing sparks.",
+      "Any work that may serve as a source of ignition and pose a danger.",
+      "Especially in confined environments or near combustible material."
+    ],
+    keywords: [
+      ["activity","source","ignition"],
+      ["welding","cutting","grinding"],
+      ["producing","sparks","electrical","equipment"],
+      ["work","source","ignition","danger"],
+      ["confined","environments","combustible","material"]
+    ]
+  },
+  {
+    id: 43,
+    prompt: "List the requirements to be followed when hot work is required.",
+    solutions: [
+      "Request must be made by the Responsible Person.",
+      "Submitted to the Site Hot Work Monitor.",
+      "Hot Work Approval must be obtained.",
+      "Hot Work Monitor states required precautions.",
+      "Area preparation, control and monitoring requirements must be specified.",
+      "Applies before, during and after hot work.",
+      "Work must be carried out according to a local procedure."
+    ],
+    keywords: [
+      ["request","responsible","person"],
+      ["submitted","site","hot","work","monitor"],
+      ["hot","work","approval","obtained"],
+      ["monitor","states","precautions"],
+      ["area","preparation","control","monitoring"],
+      ["before","during","after","hot","work"],
+      ["local","procedure"]
+    ]
+  },
+  {
+    id: 46,
+    prompt: "Define Radiation Hazard Warning Sign.",
+    solutions: [
+      "Means a sign in approved form.",
+      "Calling attention to the danger of ionising radiation.",
+      "On or in the area of the plant to which it is attached."
+    ],
+    keywords: [
+      ["sign","approved","form"],
+      ["danger","ionising","radiation"],
+      ["area","plant","attached"]
+    ]
+  },
+  {
+    id: 49,
+    prompt: "List the requirements before plant can be considered decommissioned.",
+    solutions: [
+      "Permanently shut down.",
+      "Isolated from all sources of energy and harmful substances.",
+      "All fluids, gases and substances drained.",
+      "Systems decontaminated.",
+      "Marked \"DECOMMISSIONED\" at all isolation points.",
+      "Marked on main plant components."
+    ],
+    keywords: [
+      ["permanently","shut","down"],
+      ["isolated","sources","energy","harmful","substances"],
+      ["fluids","gases","substances","drained"],
+      ["systems","decontaminated"],
+      ["marked","decommissioned","isolation","points"],
+      ["marked","main","plant","components"]
+    ]
+  },
+  {
+    id: 50,
+    prompt: "List the requirements before plant can be considered declassified.",
+    solutions: [
+      "Must first be decommissioned.",
+      "All energy and harmful substance sources permanently severed or removed.",
+      "Sections of cabling, wiring, pipework or ducting removed.",
+      "All confined spaces permanently opened.",
+      "Decontaminated and purged with fresh air.",
+      "Marked \"DECLASSIFIED\" at all severed energy source points.",
+      "Marked on main plant components.",
+      "Declassification certificate completed and signed by the General Manager."
+    ],
+    keywords: [
+      ["first","decommissioned"],
+      ["energy","harmful","sources","severed","removed"],
+      ["cabling","wiring","pipework","ducting","removed"],
+      ["confined","spaces","permanently","opened"],
+      ["decontaminated","purged","fresh","air"],
+      ["marked","declassified","energy","points"],
+      ["marked","main","plant","components"],
+      ["declassification","certificate","signed","general","manager"]
+    ]
+  },
+  {
+    id: 52,
+    prompt: "What are the requirements regarding asbestos and other hazardous substances on declassified plant?",
+    solutions: [
+      "All asbestos and hazardous substances and materials must be clearly identified on the plant and on the declassification certificate."
+    ],
+    keywords: [
+      ["asbestos","hazardous","substances","materials","identified","plant","declassification","certificate"]
     ]
   }
 ];
+
 
 
 
