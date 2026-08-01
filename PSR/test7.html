@@ -145,222 +145,126 @@
 </div>
 
 <script>
-// -------- LESSON 5 NB QUESTIONS (1,2,3,6,7,8,11,12,13,14,15,16,19,20) --------
+// -------- LESSON 6 NB QUESTIONS (2,3,4,5,8,9,10,11,12) --------
 const questions = [
   {
-    id: 1,
-    prompt: "List the purposes for test-running of plant.",
-    solutions: [
-      "Balancing the rotating parts.",
-      "Proving that repairs on pressure parts have been successful.",
-      "Ensuring that there are no hidden defects which may cause stoppages under operational conditions.",
-      "Checking direction of rotation of all motors.",
-      "Changing direction of rotation of motors excluding HV Motors."
-    ],
-    keywords: [
-      ["balancing","rotating","parts"],
-      ["repairs","pressure","successful"],
-      ["hidden","defects","stoppages","operational"],
-      ["direction","rotation","motors"],
-      ["changing","direction","motors","excluding","hv"]
-    ]
-  },
-  {
     id: 2,
-    prompt: "Explain why it is not practical to clear the Permit to Work during the test running of the plant.",
+    prompt: "Who may adjust machinery in operation, lubricate such machinery or tighten valve glands?",
     solutions: [
-      "The plant is not yet ready for service and therefore:",
-      "All isolations are not yet removed.",
-      "Work must proceed once the test is complete.",
-      "The plant is not yet in a serviceable condition."
+      "Responsible Persons with another Responsible Person in direct supervision for the duration of the work.",
+      "A Skilled Person under the direct supervision of a Responsible Person."
     ],
     keywords: [
-      ["not","ready","service"],
-      ["isolations","not","removed"],
-      ["work","proceed","test","complete"],
-      ["not","serviceable","condition"]
+      ["responsible","persons","direct","supervision"],
+      ["skilled","person","direct","supervision","responsible"]
     ]
   },
   {
     id: 3,
-    prompt: "State the main condition under which the test/test-running of plant is carried out.",
+    prompt: "When is routine cleaning and lubrication of machinery allowed without a Permit to Work?",
     solutions: [
-      "Such testing or test-running must be carried out under uninterrupted supervision of the holder of the Permit to Work."
+      "Always, where such cleaning or lubrication does not necessitate close approach to dangerous moving parts."
     ],
     keywords: [
-      ["uninterrupted","supervision","holder","permit","work"]
+      ["always","cleaning","lubrication","no","close","approach","dangerous","moving"]
     ]
   },
   {
-    id: 6,
-    prompt: "What must the Responsible Person do before the Permit to Work can be suspended?",
+    id: 4,
+    prompt: "Define Restricted Area.",
     solutions: [
-      "Inform the workers involved that it is no longer safe to do any further work on that plant and that testing will be carried out.",
-      "Ensure that the Workers' Register is withdrawn.",
-      "Populate the Sanction for Test form.",
-      "Update the Risk Assessment accordingly."
+      "Means an enclosed/demarcated area which is neither a live chamber nor a prohibited area.",
+      "Enclosed/demarcated for the purpose of ensuring power system and plant security.",
+      "As well as the safety and health of personnel."
     ],
     keywords: [
-      ["inform","workers","no longer safe","testing"],
-      ["workers","register","withdrawn"],
-      ["populate","sanction for test"],
-      ["update","risk","assessment"]
+      ["enclosed","demarcated","neither","live","nor","prohibited"],
+      ["power","system","plant","security"],
+      ["safety","health","personnel"]
     ]
   },
   {
-    id: 7,
-    prompt: "Where should the original suspended PTW form and issued SFT form be kept before the test starts?",
+    id: 5,
+    prompt: "When will an area be regarded as a Restricted Area?",
     solutions: [
-      "The Responsible Person must retain the original Sanction for Test document.",
-      "The suspended Permit to Work must be affixed to the duplicate of the Sanction for Test."
+      "The area is enclosed and locked for the purpose of ensuring power system and plant security.",
+      "To control access."
     ],
     keywords: [
-      ["retain","original","sanction for test"],
-      ["suspended","permit","affixed","duplicate","sft"]
+      ["enclosed","locked","power","system","plant","security"],
+      ["control","access"]
     ]
   },
   {
     id: 8,
-    prompt: "Describe the duties of the AP and RP regarding the PTW form and SFT form before the test can start.",
+    prompt: "Define Limited Access Register (LAR).",
     solutions: [
-      "The SFT form must be signed by both the AP and RP.",
-      "PTW suspension must be signed on the back of the PTW form by both AP and RP.",
-      "The same date and time must appear on both the SFT form and suspended PTW form.",
-      "The reference number of the SFT form must be entered onto the PTW suspension section.",
-      "The PTW number must be entered onto the SFT form."
+      "Means an access control system.",
+      "Used by the person in charge of the plant.",
+      "Giving permission to carry out an activity on the plant."
     ],
     keywords: [
-      ["sft","signed","ap","rp"],
-      ["ptw","suspension","back","signed"],
-      ["same","date","time","sft","ptw"],
-      ["reference","number","sft","ptw","suspension"],
-      ["ptw","number","sft"]
+      ["access","control","system"],
+      ["person","in","charge","plant"],
+      ["permission","activity","plant"]
+    ]
+  },
+  {
+    id: 9,
+    prompt: "List the circumstances when a Limited Access Register will be required.",
+    solutions: [
+      "To carry out an activity on the plant.",
+      "Where no Permit to Work is required."
+    ],
+    keywords: [
+      ["activity","plant"],
+      ["no","permit","to","work"]
+    ]
+  },
+  {
+    id: 10,
+    prompt: "What criteria must be met to allow the use of the Limited Access Register?",
+    solutions: [
+      "There must be no danger to the person(s) carrying out the activity.",
+      "There must be no plant isolations required.",
+      "The activity must be performed by a Skilled Person.",
+      "There must be no risk of a production loss (risk of trip).",
+      "The duration of the activity must be less than 12 hours."
+    ],
+    keywords: [
+      ["no","danger","person","activity"],
+      ["no","plant","isolations"],
+      ["skilled","person"],
+      ["no","risk","production","loss","trip"],
+      ["less","than","12","hours"]
     ]
   },
   {
     id: 11,
-    prompt: "Explain what the Responsible Person declares when signing the Sanction for Test form.",
+    prompt: "What must be done on completion of any activity under a Limited Access Register?",
     solutions: [
-      "The Responsible Person declares full control and understanding of the implications of the stipulated tests and activities that are to be performed.",
-      "Agreement with the precise details of the test procedure to be followed."
+      "Notify the person in charge of the plant.",
+      "Confirm that conditions are back to normal.",
+      "Ensure that the Limited Access Register has been signed off."
     ],
     keywords: [
-      ["full","control","understanding","implications","tests","activities"],
-      ["agreement","precise","details","test","procedure"]
+      ["notify","person","in","charge","plant"],
+      ["conditions","back","to","normal"],
+      ["lar","signed","off"]
     ]
   },
   {
     id: 12,
-    prompt: "List the information that must be stipulated on the Sanction for Test form.",
+    prompt: "What must be done when it becomes apparent that the LAR activity can no longer be performed with safety to personnel and plant?",
     solutions: [
-      "Sanction for Test number.",
-      "Plant covered by the Sanction for Test.",
-      "Test to be carried out.",
-      "Permit to Work number of suspended permit.",
-      "Work permissible under the Sanction for Test.",
-      "Communication method.",
-      "Actual isolation needed for the test.",
-      "Communication to be used to indicate starting, stopping and isolation.",
-      "Signatures of the Responsible Person and Appointed Person.",
-      "Date and time of issue of the Sanction for Test and Permit suspension."
+      "The activity must be stopped.",
+      "The Limited Access Register must be cancelled.",
+      "A Permit to Work must be applied for."
     ],
     keywords: [
-      ["sanction for test","number"],
-      ["plant","covered","sft"],
-      ["test","to be carried out"],
-      ["ptw","number","suspended"],
-      ["work","permissible","sft"],
-      ["communication","method"],
-      ["actual","isolation","needed"],
-      ["starting","stopping","isolation","communication"],
-      ["signatures","responsible","appointed"],
-      ["date","time","issue","sft","suspension"]
-    ]
-  },
-  {
-    id: 13,
-    prompt: "List the duties of the Appointed Person before test running will commence.",
-    solutions: [
-      "Sign the Permit to Work suspension.",
-      "Sign the Sanction for Test form with date and time.",
-      "Ensure that it is safe to operate the plant.",
-      "Remove the isolations required to enable test-running.",
-      "This must be done under the direct supervision of the Responsible Person."
-    ],
-    keywords: [
-      ["sign","ptw","suspension"],
-      ["sign","sft","date","time"],
-      ["safe","operate","plant"],
-      ["remove","isolations","enable","test-running"],
-      ["direct","supervision","responsible","person"]
-    ]
-  },
-  {
-    id: 14,
-    prompt: "Where must the Responsible Person and Appointed Person be during the test running of plant?",
-    solutions: [
-      "The Responsible Person must remain at the plant.",
-      "The Appointed Person must remain at the stop/start/isolation control point(s)."
-    ],
-    keywords: [
-      ["responsible","remain","plant"],
-      ["appointed","stop","start","isolation","control"]
-    ]
-  },
-  {
-    id: 15,
-    prompt: "Describe the process should the Responsible Person or Appointed Person be called away during test running.",
-    solutions: [
-      "The energy supply point must be isolated.",
-      "Locked with a Safety Lock and a Prohibitory Sign attached.",
-      "The key to the lock used for isolating the energy supply must be handed to the Responsible Person for safekeeping.",
-      "After verification of the isolations effected, until testing can recommence."
-    ],
-    keywords: [
-      ["energy","supply","isolated"],
-      ["locked","safety","lock","prohibitory","sign"],
-      ["key","handed","responsible","safekeeping"],
-      ["verification","isolations","recommence"]
-    ]
-  },
-  {
-    id: 16,
-    prompt: "Name the conditions to be met before adjustments may be carried out on plant under testing.",
-    solutions: [
-      "The energy supply point must be isolated and locked with a Safety Lock and Prohibitory Sign attached.",
-      "The Responsible Person must verify the isolations.",
-      "The Safety Lock key must be handed to the Responsible Person."
-    ],
-    keywords: [
-      ["energy","isolated","locked","safety","prohibitory"],
-      ["responsible","verify","isolations"],
-      ["safety","lock","key","handed","responsible"]
-    ]
-  },
-  {
-    id: 19,
-    prompt: "List the duties of the Appointed and Responsible Persons regarding the Sanction for Test form on completion of the specified test procedure.",
-    solutions: [
-      "The Responsible Person and Appointed Person must complete the Sanction for Test form.",
-      "They must stipulate the date and time when signing the clearance on the form."
-    ],
-    keywords: [
-      ["complete","sanction for test","form"],
-      ["stipulate","date","time","clearance"]
-    ]
-  },
-  {
-    id: 20,
-    prompt: "Duties of the Appointed Person after the Sanction for Test has been completed.",
-    solutions: [
-      "Ensure that all isolations specified on the Permit to Work form are re-applied.",
-      "Inform the Responsible Person that the Permit to Work is ready for reinstatement.",
-      "Sign the Permit to Work Suspension Revocation with date and time."
-    ],
-    keywords: [
-      ["isolations","re-applied","ptw"],
-      ["inform","responsible","ready","reinstatement"],
-      ["sign","ptw","suspension","revocation","date","time"]
+      ["activity","stopped"],
+      ["lar","cancelled"],
+      ["permit","to","work","applied"]
     ]
   }
 ];
