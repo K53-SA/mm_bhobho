@@ -1028,6 +1028,39 @@ function renderResultSection(reason){
 // initial render
 render();
 </script>
+<!-- Home button (paste this just before </body>) -->
+<a href="index.html" class="home-btn">Back to Home</a>
+
+<style>
+  .home-btn{
+    position:fixed;
+    left:50%;
+    bottom:18px;
+    transform:translateX(-50%);
+    padding:10px 18px;
+    border-radius:999px;
+    background:#16a34a;          /* green */
+    color:#f9fafb;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    border:none;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+    transition:background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    z-index:9999;
+  }
+  .home-btn:hover{
+    background:#22c55e;
+    transform:translateX(-50%) translateY(-1px);
+    box-shadow:0 6px 16px rgba(0,0,0,0.6);
+  }
+  .home-btn:active{
+    background:#15803d;
+    transform:translateX(-50%) translateY(1px);
+    box-shadow:0 2px 8px rgba(0,0,0,0.4);
+  }
+</style>
+
 </body>
 </html>
 
