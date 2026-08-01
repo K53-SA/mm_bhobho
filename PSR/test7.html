@@ -1,0 +1,772 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PSR Lesson 1 – NB Text Answer Test 13:42</title>
+<style>
+  body{
+    font-family:system-ui,Segoe UI,Roboto,Arial;
+    margin:0;
+    padding:0;
+    background:#020617;
+    color:#f9fafb;
+  }
+  .app{max-width:1000px;margin:0 auto;padding:24px 16px 40px;}
+  .card{
+    background:#0b1120;
+    border-radius:12px;
+    padding:20px 18px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.8);
+    border:1px solid #1f2937;
+  }
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  h1{margin:0;font-size:22px;color:#e5e7eb}
+  .subtitle{font-size:13px;color:#9ca3af;margin-top:4px}
+  .top-right{
+    text-align:right;
+    font-size:13px;
+    color:#d1d5db;
+  }
+  .timer{font-weight:600;color:#38bdf8;font-size:15px}
+  .score{margin-top:4px}
+  .btn{
+    display:inline-block;
+    padding:9px 13px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+    margin-right:8px;
+    margin-bottom:8px;
+  }
+  .btn-primary{background:#2563eb;color:#f9fafb}
+  .btn-secondary{background:#111827;color:#e5e7eb;border:1px solid #374151}
+  .btn:disabled{opacity:0.45;cursor:default}
+  .question-block{
+    margin-top:6px;
+    padding-top:10px;
+    border-top:1px solid #111827;
+  }
+  .q-text{font-weight:600;font-size:15px;color:#f9fafb;margin-bottom:8px}
+  .input-row{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+  input[type="text"]{
+    width:100%;
+    padding:8px 10px;
+    border-radius:8px;
+    border:1px solid #374151;
+    background:#020617;
+    color:#e5e7eb;
+    font-size:13px;
+  }
+  input[type="text"]:focus{
+    outline:none;
+    border-color:#38bdf8;
+    box-shadow:0 0 0 1px #0ea5e9;
+  }
+  .hint-box{
+    margin-top:6px;
+    padding:8px 10px;
+    border-radius:8px;
+    background:#111827;
+    border:1px dashed #38bdf8;
+    font-size:13px;
+    color:#e0f2fe;
+  }
+  .nav-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+  }
+  .progress{
+    font-size:13px;
+    color:#9ca3af;
+  }
+  .feedback{
+    margin-top:6px;
+    font-size:13px;
+  }
+  .feedback.good{color:#6ee7b7}
+  .feedback.bad{color:#fca5a5}
+  .result{
+    margin-top:16px;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #38bdf8;
+    background:#020617;
+    font-size:14px;
+  }
+  .result.pass{border-color:#22c55e}
+  .result.fail{border-color:#ef4444}
+  .status-tag{
+    display:inline-block;
+    margin-left:6px;
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:600;
+  }
+  .status-pass{background:#14532d;color:#bbf7d0}
+  .status-fail{background:#7f1d1d;color:#fecaca}
+  .summary-item{
+    font-size:13px;
+    margin-top:4px;
+    color:#d1d5db;
+  }
+  .confetti-piece{
+    position:fixed;
+    width:8px;
+    height:14px;
+    background:var(--c);
+    top:-20px;
+    left:50%;
+    opacity:0.9;
+    pointer-events:none;
+    animation:fall 2.7s linear forwards;
+    z-index:9999;
+  }
+  @keyframes fall{
+    0%{transform:translate3d(0,0,0) rotateZ(0deg);}
+    100%{transform:translate3d(var(--x),110vh,0) rotateZ(360deg);}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="card" id="app-card"></div>
+</div>
+
+<script>
+// -------- LESSON 5 NB QUESTIONS (1,2,3,6,7,8,11,12,13,14,15,16,19,20) --------
+const questions = [
+  {
+    id: 1,
+    prompt: "List the purposes for test-running of plant.",
+    solutions: [
+      "Balancing the rotating parts.",
+      "Proving that repairs on pressure parts have been successful.",
+      "Ensuring that there are no hidden defects which may cause stoppages under operational conditions.",
+      "Checking direction of rotation of all motors.",
+      "Changing direction of rotation of motors excluding HV Motors."
+    ],
+    keywords: [
+      ["balancing","rotating","parts"],
+      ["repairs","pressure","successful"],
+      ["hidden","defects","stoppages","operational"],
+      ["direction","rotation","motors"],
+      ["changing","direction","motors","excluding","hv"]
+    ]
+  },
+  {
+    id: 2,
+    prompt: "Explain why it is not practical to clear the Permit to Work during the test running of the plant.",
+    solutions: [
+      "The plant is not yet ready for service and therefore:",
+      "All isolations are not yet removed.",
+      "Work must proceed once the test is complete.",
+      "The plant is not yet in a serviceable condition."
+    ],
+    keywords: [
+      ["not","ready","service"],
+      ["isolations","not","removed"],
+      ["work","proceed","test","complete"],
+      ["not","serviceable","condition"]
+    ]
+  },
+  {
+    id: 3,
+    prompt: "State the main condition under which the test/test-running of plant is carried out.",
+    solutions: [
+      "Such testing or test-running must be carried out under uninterrupted supervision of the holder of the Permit to Work."
+    ],
+    keywords: [
+      ["uninterrupted","supervision","holder","permit","work"]
+    ]
+  },
+  {
+    id: 6,
+    prompt: "What must the Responsible Person do before the Permit to Work can be suspended?",
+    solutions: [
+      "Inform the workers involved that it is no longer safe to do any further work on that plant and that testing will be carried out.",
+      "Ensure that the Workers' Register is withdrawn.",
+      "Populate the Sanction for Test form.",
+      "Update the Risk Assessment accordingly."
+    ],
+    keywords: [
+      ["inform","workers","no longer safe","testing"],
+      ["workers","register","withdrawn"],
+      ["populate","sanction for test"],
+      ["update","risk","assessment"]
+    ]
+  },
+  {
+    id: 7,
+    prompt: "Where should the original suspended PTW form and issued SFT form be kept before the test starts?",
+    solutions: [
+      "The Responsible Person must retain the original Sanction for Test document.",
+      "The suspended Permit to Work must be affixed to the duplicate of the Sanction for Test."
+    ],
+    keywords: [
+      ["retain","original","sanction for test"],
+      ["suspended","permit","affixed","duplicate","sft"]
+    ]
+  },
+  {
+    id: 8,
+    prompt: "Describe the duties of the AP and RP regarding the PTW form and SFT form before the test can start.",
+    solutions: [
+      "The SFT form must be signed by both the AP and RP.",
+      "PTW suspension must be signed on the back of the PTW form by both AP and RP.",
+      "The same date and time must appear on both the SFT form and suspended PTW form.",
+      "The reference number of the SFT form must be entered onto the PTW suspension section.",
+      "The PTW number must be entered onto the SFT form."
+    ],
+    keywords: [
+      ["sft","signed","ap","rp"],
+      ["ptw","suspension","back","signed"],
+      ["same","date","time","sft","ptw"],
+      ["reference","number","sft","ptw","suspension"],
+      ["ptw","number","sft"]
+    ]
+  },
+  {
+    id: 11,
+    prompt: "Explain what the Responsible Person declares when signing the Sanction for Test form.",
+    solutions: [
+      "The Responsible Person declares full control and understanding of the implications of the stipulated tests and activities that are to be performed.",
+      "Agreement with the precise details of the test procedure to be followed."
+    ],
+    keywords: [
+      ["full","control","understanding","implications","tests","activities"],
+      ["agreement","precise","details","test","procedure"]
+    ]
+  },
+  {
+    id: 12,
+    prompt: "List the information that must be stipulated on the Sanction for Test form.",
+    solutions: [
+      "Sanction for Test number.",
+      "Plant covered by the Sanction for Test.",
+      "Test to be carried out.",
+      "Permit to Work number of suspended permit.",
+      "Work permissible under the Sanction for Test.",
+      "Communication method.",
+      "Actual isolation needed for the test.",
+      "Communication to be used to indicate starting, stopping and isolation.",
+      "Signatures of the Responsible Person and Appointed Person.",
+      "Date and time of issue of the Sanction for Test and Permit suspension."
+    ],
+    keywords: [
+      ["sanction for test","number"],
+      ["plant","covered","sft"],
+      ["test","to be carried out"],
+      ["ptw","number","suspended"],
+      ["work","permissible","sft"],
+      ["communication","method"],
+      ["actual","isolation","needed"],
+      ["starting","stopping","isolation","communication"],
+      ["signatures","responsible","appointed"],
+      ["date","time","issue","sft","suspension"]
+    ]
+  },
+  {
+    id: 13,
+    prompt: "List the duties of the Appointed Person before test running will commence.",
+    solutions: [
+      "Sign the Permit to Work suspension.",
+      "Sign the Sanction for Test form with date and time.",
+      "Ensure that it is safe to operate the plant.",
+      "Remove the isolations required to enable test-running.",
+      "This must be done under the direct supervision of the Responsible Person."
+    ],
+    keywords: [
+      ["sign","ptw","suspension"],
+      ["sign","sft","date","time"],
+      ["safe","operate","plant"],
+      ["remove","isolations","enable","test-running"],
+      ["direct","supervision","responsible","person"]
+    ]
+  },
+  {
+    id: 14,
+    prompt: "Where must the Responsible Person and Appointed Person be during the test running of plant?",
+    solutions: [
+      "The Responsible Person must remain at the plant.",
+      "The Appointed Person must remain at the stop/start/isolation control point(s)."
+    ],
+    keywords: [
+      ["responsible","remain","plant"],
+      ["appointed","stop","start","isolation","control"]
+    ]
+  },
+  {
+    id: 15,
+    prompt: "Describe the process should the Responsible Person or Appointed Person be called away during test running.",
+    solutions: [
+      "The energy supply point must be isolated.",
+      "Locked with a Safety Lock and a Prohibitory Sign attached.",
+      "The key to the lock used for isolating the energy supply must be handed to the Responsible Person for safekeeping.",
+      "After verification of the isolations effected, until testing can recommence."
+    ],
+    keywords: [
+      ["energy","supply","isolated"],
+      ["locked","safety","lock","prohibitory","sign"],
+      ["key","handed","responsible","safekeeping"],
+      ["verification","isolations","recommence"]
+    ]
+  },
+  {
+    id: 16,
+    prompt: "Name the conditions to be met before adjustments may be carried out on plant under testing.",
+    solutions: [
+      "The energy supply point must be isolated and locked with a Safety Lock and Prohibitory Sign attached.",
+      "The Responsible Person must verify the isolations.",
+      "The Safety Lock key must be handed to the Responsible Person."
+    ],
+    keywords: [
+      ["energy","isolated","locked","safety","prohibitory"],
+      ["responsible","verify","isolations"],
+      ["safety","lock","key","handed","responsible"]
+    ]
+  },
+  {
+    id: 19,
+    prompt: "List the duties of the Appointed and Responsible Persons regarding the Sanction for Test form on completion of the specified test procedure.",
+    solutions: [
+      "The Responsible Person and Appointed Person must complete the Sanction for Test form.",
+      "They must stipulate the date and time when signing the clearance on the form."
+    ],
+    keywords: [
+      ["complete","sanction for test","form"],
+      ["stipulate","date","time","clearance"]
+    ]
+  },
+  {
+    id: 20,
+    prompt: "Duties of the Appointed Person after the Sanction for Test has been completed.",
+    solutions: [
+      "Ensure that all isolations specified on the Permit to Work form are re-applied.",
+      "Inform the Responsible Person that the Permit to Work is ready for reinstatement.",
+      "Sign the Permit to Work Suspension Revocation with date and time."
+    ],
+    keywords: [
+      ["isolations","re-applied","ptw"],
+      ["inform","responsible","ready","reinstatement"],
+      ["sign","ptw","suspension","revocation","date","time"]
+    ]
+  }
+];
+
+
+
+
+
+// -------- STATE --------
+let currentQuestionIndex = -1;       // -1 = not started
+let testStarted = false;
+let testFinished = false;
+
+const totalPossibleMarks = questions.reduce((sum,q)=>sum+q.solutions.length,0);
+let score = 0;
+
+// per-question state: {inputs:[], hintUsed:boolean, scored:boolean, questionMark:number}
+const questionState = {};
+questions.forEach(q=>{
+  questionState[q.id] = {
+    inputs: Array(q.solutions.length).fill(""),
+    hintUsed: false,
+    scored: false,
+    questionMark: 0
+  };
+});
+
+let timeLeft = 30 * 60; // 30 minutes in seconds
+let timerInterval = null;
+
+const appCard = document.getElementById("app-card");
+
+// -------- HELPERS --------
+function makeButton(label, cls, handler){
+  const b = document.createElement("button");
+  b.textContent = label;
+  b.className = cls;
+  b.onclick = handler;
+  return b;
+}
+function normalizeText(t){
+  return t.trim().toLowerCase().replace(/\s+/g," ");
+}
+// Levenshtein distance between two strings
+function levenshtein(a, b){
+  const m = a.length, n = b.length;
+  if(m === 0) return n;
+  if(n === 0) return m;
+  const dp = Array.from({length:m+1},()=>Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0]=i;
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      const cost = a[i-1] === b[j-1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,      // delete
+        dp[i][j-1] + 1,      // insert
+        dp[i-1][j-1] + cost  // substitute
+      );
+    }
+  }
+  return dp[m][n];
+}
+
+// spelling tolerance: accept if distance <= 30% of max length
+function similarEnough(a, b){
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+  const maxLen = Math.max(a.length, b.length);
+  if(maxLen === 0) return true;
+  const dist = levenshtein(a, b);
+  return dist <= maxLen * 0.3;
+}
+
+function answerMatches(userText, solution, keywords){
+  const uRaw = userText || "";
+  const u = normalizeText(uRaw);
+  if(!u) return false;           // empty input
+
+  // Split user input into tokens for fuzzy matching
+  const tokens = u.split(" ").filter(Boolean);
+
+  // If keywords defined: ANY keyword matching is enough for a mark
+  if(Array.isArray(keywords) && keywords.length){
+    for(const kw of keywords){
+      const kwNorm = kw.toLowerCase();
+      // exact substring check first
+      if(u.includes(kwNorm)) return true;
+      // fuzzy word-by-word check with spelling tolerance
+      for(const tok of tokens){
+        if(similarEnough(tok, kwNorm)) return true;
+      }
+    }
+  }
+
+  // Fallback: check if user text is reasonably similar to the whole solution text
+  const s = normalizeText(solution || "");
+  if(s){
+    // Compare on a token basis: if at least one solution word is similar, accept
+    const solTokens = s.split(" ").filter(Boolean);
+    for(const st of solTokens){
+      for(const tok of tokens){
+        if(similarEnough(tok, st)) return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+function formatTime(sec){
+  const m = String(Math.floor(sec/60)).padStart(2,"0");
+  const s = String(sec%60).padStart(2,"0");
+  return `${m}:${s}`;
+}
+function startTimer(){
+  if(timerInterval) clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    if(timeLeft <= 0){
+      timeLeft = 0;
+      updateTimerDisplay();
+      finishTest("Time is up.");
+      clearInterval(timerInterval);
+    } else {
+      updateTimerDisplay();
+    }
+  },1000);
+}
+function updateTimerDisplay(){
+  const t = document.getElementById("timer-span");
+  if(t) t.textContent = formatTime(timeLeft);
+}
+function launchConfetti(){
+  const colors = ["#f97316","#22c55e","#38bdf8","#eab308","#ec4899","#a855f7"];
+  for(let i=0;i<150;i++){
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    const color = colors[Math.floor(Math.random()*colors.length)];
+    const xOffset = (Math.random()*200-100) + "vw";
+    const left = (Math.random()*100) + "vw";
+    piece.style.setProperty("--c", color);
+    piece.style.setProperty("--x", xOffset);
+    piece.style.left = left;
+    piece.style.animationDelay = (Math.random()*0.7) + "s";
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(), 3000);
+  }
+}
+
+// -------- RENDER --------
+function render(){
+  appCard.innerHTML = "";
+  const header = document.createElement("header");
+  const left = document.createElement("div");
+  const h = document.createElement("h1");
+  h.textContent = "PSR Lesson 1 – NB Text Answer Test";
+  left.appendChild(h);
+  const sub = document.createElement("div");
+  sub.className = "subtitle";
+  sub.textContent = "Each correct solution = 1 mark. Total = " + totalPossibleMarks + " marks. If Hint is used, that question can score max 1 mark.";
+  left.appendChild(sub);
+  header.appendChild(left);
+
+  const right = document.createElement("div");
+  right.className = "top-right";
+  const tLabel = document.createElement("div");
+  tLabel.innerHTML = `Time left: <span id="timer-span" class="timer">${formatTime(timeLeft)}</span>`;
+  right.appendChild(tLabel);
+  const sLabel = document.createElement("div");
+  sLabel.className = "score";
+  sLabel.textContent = `Score: ${score} / ${totalPossibleMarks}`;
+  right.appendChild(sLabel);
+  header.appendChild(right);
+  appCard.appendChild(header);
+
+  if(!testStarted){
+    const intro = document.createElement("div");
+    intro.className = "subtitle";
+    intro.textContent = "Press Start Test to begin. You will see one NB question at a time.";
+    appCard.appendChild(intro);
+    const btn = makeButton("Start Test","btn btn-primary",()=>{
+      testStarted = true;
+      currentQuestionIndex = 0;
+      startTimer();
+      render();
+    });
+    appCard.appendChild(btn);
+    return;
+  }
+
+  if(testFinished){
+    renderResultSection();
+    return;
+  }
+
+  const q = questions[currentQuestionIndex];
+  const qs = questionState[q.id];
+
+  const qBlock = document.createElement("div");
+  qBlock.className = "question-block";
+
+  const qText = document.createElement("div");
+  qText.className = "q-text";
+  qText.textContent = `Q${q.id}. ${q.prompt}`;
+  qBlock.appendChild(qText);
+
+  const inputsDiv = document.createElement("div");
+  inputsDiv.className = "input-row";
+  q.solutions.forEach((_, idx)=>{
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Answer " + (idx+1);
+    input.value = qs.inputs[idx] || "";
+    input.oninput = e => {
+      qs.inputs[idx] = e.target.value;
+    };
+    inputsDiv.appendChild(input);
+  });
+  qBlock.appendChild(inputsDiv);
+
+  if(qs.hintUsed){
+    const hintBox = document.createElement("div");
+    hintBox.className = "hint-box";
+    hintBox.innerHTML = "<strong>Official solutions:</strong><br>" +
+      q.solutions.map((s,i)=>`Answer ${i+1}: ${s}`).join("<br>");
+    qBlock.appendChild(hintBox);
+  }
+
+  const nav = document.createElement("div");
+  nav.className = "nav-row";
+
+  const leftNav = document.createElement("div");
+  const hintBtn = makeButton("Hint","btn btn-secondary",()=>{
+    qs.hintUsed = true;
+    render();
+  });
+  leftNav.appendChild(hintBtn);
+
+  const submitBtn = makeButton("Submit","btn btn-primary",()=>{
+    markCurrentQuestion();
+  });
+  leftNav.appendChild(submitBtn);
+  nav.appendChild(leftNav);
+
+  const rightNav = document.createElement("div");
+  const progress = document.createElement("span");
+  progress.className = "progress";
+  progress.textContent = `Question ${currentQuestionIndex+1} of ${questions.length}`;
+  rightNav.appendChild(progress);
+  nav.appendChild(rightNav);
+
+  qBlock.appendChild(nav);
+
+  if(qs.scored){
+    const fb = document.createElement("div");
+    fb.className = "feedback " + (qs.questionMark>0?"good":"bad");
+    fb.textContent = `Marked: ${qs.questionMark} mark(s) for this question (out of ${q.solutions.length}).` +
+      (qs.hintUsed ? " (Hint used – max 1 mark possible)" : "");
+    qBlock.appendChild(fb);
+
+    const nav2 = document.createElement("div");
+    nav2.className = "nav-row";
+    const spacer = document.createElement("div");
+    nav2.appendChild(spacer);
+    const nextBtn = makeButton(
+      currentQuestionIndex === questions.length-1 ? "Finish" : "Next",
+      "btn btn-secondary",
+      ()=>{
+        if(currentQuestionIndex === questions.length-1){
+          finishTest();
+        } else {
+          currentQuestionIndex++;
+          render();
+        }
+      }
+    );
+    nav2.appendChild(nextBtn);
+    qBlock.appendChild(nav2);
+  }
+
+  appCard.appendChild(qBlock);
+}
+
+function markCurrentQuestion(){
+  const q = questions[currentQuestionIndex];
+  const qs = questionState[q.id];
+
+  // remove previous marks for this question from score
+  score -= qs.questionMark;
+
+  // We allow any solution in any input, but each input can only be used once
+  const rawInputs = qs.inputs.slice();          // array of strings
+  const usedInputs = Array(rawInputs.length).fill(false);
+  let correctCount = 0;
+
+  q.solutions.forEach((sol, sIdx)=>{
+    const kw = (q.keywords && q.keywords[sIdx]) ? q.keywords[sIdx] : [];
+    let matched = false;
+    for(let i=0;i<rawInputs.length && !matched;i++){
+      if(usedInputs[i]) continue;
+      if(answerMatches(rawInputs[i], sol, kw)){
+        matched = true;
+        usedInputs[i] = true;
+        correctCount++;
+      }
+    }
+  });
+
+  let newMark;
+  if(qs.hintUsed){
+    // If at least one correct with Hint, give 1 mark max for that question
+    newMark = correctCount > 0 ? 1 : 0;
+  } else {
+    newMark = correctCount;
+  }
+
+  qs.questionMark = newMark;
+  qs.scored = true;
+  score += newMark;
+
+  render();
+}
+
+
+function finishTest(reason){
+  if(testFinished) return
+  testFinished = true;
+  if(timerInterval) clearInterval(timerInterval);
+  renderResultSection(reason);
+}
+
+function renderResultSection(reason){
+  appCard.innerHTML = "";
+
+  const h = document.createElement("h1");
+  h.textContent = "Test Completed";
+  appCard.appendChild(h);
+
+  if(reason){
+    const r = document.createElement("div");
+    r.className = "subtitle";
+    r.textContent = reason;
+    appCard.appendChild(r);
+  }
+
+  const resultDiv = document.createElement("div");
+  resultDiv.className = "result";
+
+  const passed = score === totalPossibleMarks;
+  const percent = (score / totalPossibleMarks) * 100;
+
+  const statusTag = `<span class="status-tag ${passed?"status-pass":"status-fail"}">${passed?"PASS (100%)":"FAIL"}</span>`;
+  resultDiv.innerHTML =
+    `Final score: ${score} / ${totalPossibleMarks} (${percent.toFixed(1)}%) ${statusTag}`;
+
+  appCard.appendChild(resultDiv);
+
+  const summaryTitle = document.createElement("div");
+  summaryTitle.style.marginTop = "8px";
+  summaryTitle.textContent = "Question breakdown:";
+  appCard.appendChild(summaryTitle);
+
+  questions.forEach((q, idx)=>{
+    const qs = questionState[q.id];
+    const item = document.createElement("div");
+    item.className = "summary-item";
+    const maxForQ = q.solutions.length;
+    item.textContent =
+      `Q${q.id} (${idx+1}/${questions.length}): ${qs.questionMark} / ${maxForQ}` +
+      (qs.hintUsed ? " (Hint used)" : "");
+    appCard.appendChild(item);
+  });
+
+  if(passed){
+    launchConfetti();
+  }
+
+  const restartDiv = document.createElement("div");
+  restartDiv.style.marginTop = "12px";
+  restartDiv.appendChild(
+    makeButton("Restart Test","btn btn-secondary",()=>{
+      // reset state
+      score = 0;
+      timeLeft = 30 * 60;
+      Object.keys(questionState).forEach(id=>{
+        const st = questionState[id];
+        st.inputs = st.inputs.map(()=> "");
+        st.hintUsed = false;
+        st.scored = false;
+        st.questionMark = 0;
+      });
+      currentQuestionIndex = -1;
+      testStarted = false;
+      testFinished = false;
+      startTimer();
+      render();
+    })
+  );
+  appCard.appendChild(restartDiv);
+}
+
+// initial render
+render();
+</script>
+</body>
+</html>
+
