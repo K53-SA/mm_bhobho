@@ -338,6 +338,24 @@ const nextBtn = document.getElementById('next');
 const progress = document.getElementById('progress');
 const resultDiv = document.getElementById('result');
 
+const resultDiv = document.getElementById('result');
+
+totalPossibleSpan.textContent = totalPossible;
+
+// ---------- Progress helper for home page ----------
+function updateLessonProgress(lessonId, percent){
+  try{
+    const key = "psr_lesson_progress";
+    const raw = localStorage.getItem(key);
+    const data = raw ? JSON.parse(raw) : {};
+    const prev = typeof data[lessonId] === "number" ? data[lessonId] : 0;
+    if(percent > prev){
+      data[lessonId] = percent;
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+  }catch(e){}
+}
+  
 totalPossibleSpan.textContent = totalPossible;
 
 let timeLeft = 10 * 60;
@@ -483,6 +501,9 @@ function endTest(){
   const percentage = (score / totalPossible) * 100;
   const passed = score === totalPossible; // must get 100%
 
+  // store best score for Lesson 1
+  updateLessonProgress("lesson1", percentage);
+
   resultDiv.style.display = 'block';
   resultDiv.className = passed ? 'pass' : 'fail';
 
@@ -493,6 +514,7 @@ function endTest(){
     launchConfetti();
   }
 }
+
 
 // ---------- START ----------
 renderQuestion(0);
