@@ -348,9 +348,9 @@ function updateLessonProgress(lessonId, percent){
     const key = "psr_lesson_progress";
     const raw = localStorage.getItem(key);
     const data = raw ? JSON.parse(raw) : {};
-    const prev = typeof data[lessonId] === "number" ? data[lessonId] : 0;
+    const prev = typeof data[lesson1] === "number" ? data[lesson1] : 0;
     if(percent > prev){
-      data[lessonId] = percent;
+      data[lesson1] = percent;
       localStorage.setItem(key, JSON.stringify(data));
     }
   }catch(e){}
