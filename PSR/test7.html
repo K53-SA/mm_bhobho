@@ -632,6 +632,8 @@ function renderResultSection(reason){
 
   const passed = score === totalPossibleMarks;
   const percent = (score / totalPossibleMarks) * 100;
+    // store best score for this test (choose any stable ID string)
+  updateLessonProgress("lesson7", percent);
 
   const statusTag = `<span class="status-tag ${passed?"status-pass":"status-fail"}">${passed?"PASS (100%)":"FAIL"}</span>`;
   resultDiv.innerHTML =
