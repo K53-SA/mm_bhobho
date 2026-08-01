@@ -503,7 +503,7 @@ function endTest(){
   const passed = score === totalPossible; // must get 100%
 
   // store best score for Lesson 1
-  updateLessonProgress("lessonId", percentage);
+  updateLessonProgress("lesson1", percentage);
 
   resultDiv.style.display = 'block';
   resultDiv.className = passed ? 'pass' : 'fail';
