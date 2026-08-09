@@ -120,20 +120,14 @@
  <script type="text/javascript">
  		function CommentSection()
 	{
-				
-				var x = document.getElementById("results9");
-
-				x.className = "show";
- 				var lastcommentScrollTop = 0;
- 				window.addEventListener("scroll", function(){
- 					var commentscrollTop = window.pageYOffset || document.documentElement.scrollTop;
- 						if (commentscrollTop > lastcommentScrollTop) {
- 						x.className = "hidden";
- 						}
-
- 		
- 				})
+const a = document.createElement('a');
+a.href = 'FREEK53.pdf';
+a.download = 'FREEK53.pdf';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
 	}
+
 
  </script>
 
